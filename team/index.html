@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; media-src blob:; frame-src blob:; font-src data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex, nofollow">
-<meta name="team-portal-release" content="v34.0">
+<meta name="team-portal-release" content="v35.0">
 <meta name="theme-color" content="#08070B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308070B'/%3E%3Cpath d='M9 28V12a7 7 0 0 1 14 0v16' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='1.6' fill='%23E4C55A'/%3E%3C/svg%3E">
 <title>House of Worlds — Team Portal</title>
@@ -335,6 +335,102 @@ body.status-on main{padding-bottom:9rem}
 .canvas-card .fine{color:#5a5247;margin:0;font-size:.74rem}
 .canvas-card .canvas-x{border:0;background:transparent;color:#5a5247;font-size:1.1rem;line-height:1;padding:0 .2rem;cursor:pointer;min-height:0}
 .canvas-card:focus{outline:2px solid var(--gold-lit);outline-offset:2px}
+
+/* v35: the look of the July prototype, on the real portal: obsidian with a purple glow, gold marks, rounded panels,
+   icons in the rail, the welcome band, the stat tiles, the big cards. Contrast kept for every word. */
+:root{--purple:#4B2E83;--purple-lit:#7A5CE0;--purple-soft:#241A3A;--panel:#131019;--gold-bright:#E4BE45;--emerald:#3FA34D;--ember:#C8372D;--sky:#5B8BD0}
+body.look40{background:radial-gradient(1200px 700px at 82% -12%,rgba(75,46,131,.22),transparent 60%),radial-gradient(900px 500px at -10% 110%,rgba(201,162,39,.08),transparent 55%),#0B0B0F}
+body.look40 .rail{background:linear-gradient(180deg,#120F1B,#0B0B0F);border-right:1px solid rgba(201,162,39,.2)}
+body.look40 .brand{border-bottom:0;margin-bottom:0;font-size:1.7rem}
+body.look40 .brand small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-top:.3rem}
+body.look40 .ver{color:var(--faint);font-family:var(--mono);font-size:.66rem;letter-spacing:.06em}
+body.look40 .dept-badge{display:flex;align-items:center;gap:.6rem;margin:.5rem .8rem .4rem;padding:.55rem .7rem;border:1px solid rgba(201,162,39,.25);border-radius:10px;background:rgba(75,46,131,.16)}
+body.look40 .dept-badge .db-ic{font-size:1.3rem}
+body.look40 .dept-badge .db-n{display:block;font-family:var(--display);font-size:1rem;color:var(--ivory);line-height:1.15}
+body.look40 .dept-badge .db-r{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-lit);margin-top:.15rem}
+body.look40 .rail-g{font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;color:var(--faint);padding:.8rem 1.25rem .25rem}
+body.look40 .dest{margin:0 .6rem;padding:.42rem .7rem;min-height:40px;border-radius:7px;border-left:0;font-size:.95rem;gap:.6rem;justify-content:flex-start}
+body.look40 .dest .ic{width:1.35rem;text-align:center;font-size:1rem;flex:none;opacity:.9}
+body.look40 .dest > span:not(.ic):not(.n){flex:1}
+body.look40 .dest:hover{background:rgba(255,255,255,.04);color:var(--ivory)}
+body.look40 .dest[aria-current=page]{color:var(--ivory);background:rgba(75,46,131,.32);box-shadow:inset 2px 0 0 var(--gold)}
+body.look40 .dest .n{border-radius:999px;border-color:rgba(201,162,39,.5);font-family:var(--mono);font-size:.7rem;padding:0 .45rem;background:rgba(201,162,39,.12)}
+body.look40 .who{padding:1rem .9rem 0}
+body.look40 .me-chip{display:flex;align-items:center;gap:.6rem;border:1px solid rgba(201,162,39,.25);border-radius:999px;padding:.35rem .4rem .35rem .8rem;background:rgba(75,46,131,.14);color:var(--ivory)}
+body.look40 .me-chip .mc-n{display:block;font-size:.9rem;line-height:1.15}
+body.look40 .me-chip .mc-r{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:.1rem}
+body.look40 .avatar{width:32px;height:32px;border-radius:50%;background:rgba(75,46,131,.5);border:1px solid rgba(201,162,39,.35);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:.85rem;color:var(--ivory);flex:none;margin-left:auto}
+body.look40 .who > button{align-self:flex-start;border-radius:8px}
+body.look40 .kicker{color:var(--purple-lit);font-family:var(--mono);font-size:.66rem;letter-spacing:.26em}
+body.look40 h1{letter-spacing:.01em}
+body.look40 .lede{font-size:1rem}
+body.look40 .panel,body.look40 .card,body.look40 .kind-sec,body.look40 .cat-filters,body.look40 .callsheet,body.look40 .sd-elements,body.look40 .chart,body.look40 .say{border-radius:12px;background:var(--panel)}
+body.look40 .card{padding:1rem 1.1rem;transition:.16s}
+body.look40 .card:hover{border-color:rgba(201,162,39,.5);transform:translateY(-1px)}
+body.look40 .card.hot{border-color:rgba(201,162,39,.55);background:linear-gradient(135deg,rgba(201,162,39,.1),var(--panel))}
+body.look40 .cards.figs .card .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+body.look40 .cards.figs .card .big,body.look40 .cards.needs .card .big{font-family:var(--display);color:var(--gold-bright)}
+body.look40 .act{border-radius:8px;letter-spacing:.04em;text-transform:none;font-weight:600}
+body.look40 .act.ghost{border-color:rgba(201,162,39,.28)}
+body.look40 .act.ghost:hover{background:rgba(75,46,131,.22)}
+body.look40 .row{border-bottom:1px solid rgba(244,241,234,.07)}
+body.look40 .row .s{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em}
+body.look40 .s.hot{color:var(--gold-bright)}
+body.look40 .rows{border-top:1px solid rgba(201,162,39,.2)}
+body.look40 .dialog{border-radius:14px;background:var(--panel)}
+body.look40 input,body.look40 textarea,body.look40 select,body.look40 .field select{border-radius:8px;border-color:rgba(201,162,39,.25)}
+body.look40 h2{font-family:var(--display);font-size:1.25rem;margin:1.6rem 0 .5rem;display:flex;align-items:center;gap:.6rem}
+/* the welcome band and the tiles */
+.word-hero{border:1px solid rgba(201,162,39,.35);background:linear-gradient(135deg,rgba(122,92,224,.16),rgba(201,162,39,.06) 60%,rgba(255,255,255,.02));border-radius:14px;padding:1.2rem 1.5rem;margin:0 0 1rem}
+.word-hero.lead{border-color:rgba(122,92,224,.45)}
+.word-hero.founder{border-color:rgba(228,190,69,.6);background:linear-gradient(135deg,rgba(201,162,39,.18),rgba(75,46,131,.18))}
+.wh-mark{font-family:var(--display);font-size:1.6rem;color:var(--gold);letter-spacing:.02em;line-height:1.15}
+.wh-sub{font-size:.95rem;color:var(--muted);margin-top:.4rem;max-width:70ch;line-height:1.5}
+.wh-sub b{color:var(--ivory);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.7rem;margin:.4rem 0 1.2rem}
+.stat{border:1px solid rgba(201,162,39,.2);border-radius:12px;background:var(--panel);padding:.9rem 1rem;color:inherit;text-decoration:none;display:block}
+.stat.click:hover{border-color:rgba(201,162,39,.5)}
+.stat .v{font-family:var(--display);font-size:1.7rem;color:var(--gold-bright);line-height:1}
+.stat .l{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:.4rem}
+.bigcard-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.8rem;margin:.4rem 0 .8rem}
+.big-card{border:1px solid rgba(201,162,39,.2);border-radius:14px;padding:1.05rem 1.2rem;background:rgba(255,255,255,.02);display:flex;flex-direction:column;color:inherit;text-decoration:none;min-height:120px;transition:.16s}
+.big-card:hover{transform:translateY(-1px);background:rgba(255,255,255,.04)}
+.big-card.tone-purple{border-color:rgba(122,92,224,.5)}.big-card.tone-gold{border-color:rgba(198,160,74,.55)}.big-card.tone-green{border-color:rgba(63,163,77,.5)}.big-card.tone-blue{border-color:rgba(91,139,208,.5)}.big-card.tone-rose{border-color:rgba(200,55,45,.45)}
+.bc-top{display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+.bc-title{font-size:1.1rem;color:var(--ivory);font-weight:600;line-height:1.2}
+.bc-sub{font-size:.9rem;color:var(--muted);margin:.45rem 0 .6rem;line-height:1.45;flex:1}
+.bc-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.pill{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.15rem .6rem;border:1px solid rgba(201,162,39,.2);color:var(--muted);white-space:nowrap}
+.pill.gold{color:var(--gold);border-color:rgba(201,162,39,.5)}.pill.green{color:#7fd48b;border-color:rgba(63,163,77,.5)}.pill.faint{opacity:.7}.pill.hot{color:#ffb3ad;border-color:rgba(200,55,45,.5)}
+.film-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.3rem 0 .6rem}
+.chip{display:inline-block;font-size:.8rem;color:var(--muted);border:1px solid rgba(244,241,234,.1);border-radius:999px;padding:.2rem .7rem;text-decoration:none}
+.chip.link:hover{color:var(--ivory);border-color:rgba(201,162,39,.5)}
+/* signals */
+.sg-tabs{display:flex;gap:.4rem;margin:.2rem 0 .8rem}
+.sg-tab{border:1px solid rgba(201,162,39,.2);border-radius:999px;padding:.3rem .9rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:transparent;cursor:pointer}
+.sg-tab.on{color:var(--ivory);background:rgba(75,46,131,.32);border-color:rgba(122,92,224,.6)}
+.sg-list{display:flex;flex-direction:column;gap:.5rem}
+.sg{border:1px solid rgba(201,162,39,.2);border-radius:10px;background:var(--panel);padding:.7rem .9rem;cursor:pointer;color:inherit;text-decoration:none;display:block;transition:.12s}
+.sg:hover{border-color:rgba(201,162,39,.5)}
+.sg.unread{border-color:rgba(228,190,69,.45);background:linear-gradient(135deg,rgba(201,162,39,.08),var(--panel))}
+.sg-top{display:flex;justify-content:space-between;gap:.6rem;font-size:.8rem;color:var(--muted)}
+.sg-who{color:var(--ivory)}
+.sg-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold-bright);margin-right:.4rem;vertical-align:middle}
+.sg-dt{font-family:var(--mono);font-size:.68rem;white-space:nowrap}
+.sg-sub{font-family:var(--display);font-size:1.05rem;color:var(--ivory);margin:.2rem 0 .1rem}
+.sg-pre{font-size:.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sg-body{white-space:pre-wrap;line-height:1.6;margin:.6rem 0 0;font-size:1rem}
+.sg-state{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+/* the founder view */
+.fv-world{display:grid;grid-template-columns:5rem minmax(0,1fr) auto;gap:.4rem 1rem;align-items:center;padding:.7rem 0;border-bottom:1px solid rgba(244,241,234,.07)}
+.fv-world .door{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.fv-world .nm{font-family:var(--display);font-size:1.15rem;color:var(--ivory)}
+.fv-world .m{font-size:.85rem;color:var(--muted)}
+.fv-world .acts{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:flex-end}
+.fv-world.sealed .nm{color:var(--muted)}
+.fv-look{border:1px solid rgba(228,190,69,.45);border-radius:14px;padding:1rem 1.2rem;margin:1rem 0;background:rgba(201,162,39,.06)}
+@media (max-width:640px){.fv-world{grid-template-columns:4rem minmax(0,1fr)}.fv-world .acts{grid-column:1 / -1;justify-content:flex-start}.wh-mark{font-size:1.3rem}}
+@media print{.word-hero,.stats{display:none}}
 </style>
 </head>
 <body>
@@ -343,7 +439,7 @@ body.status-on main{padding-bottom:9rem}
 <div class="frame">
   <aside class="rail" id="rail" aria-label="Sections">
     <a class="brand" href="#/home">House of Worlds<small>Team Portal</small></a>
-    <p class="ver">Version 34.0</p>
+    <p class="ver">Version 35.0</p>
     <nav id="nav" aria-label="Portal sections"></nav>
     <div class="who" id="who"></div>
   </aside>
@@ -353,7 +449,7 @@ body.status-on main{padding-bottom:9rem}
 
 <script>
 /* ---------------------------------------------------------------------
-   House of Worlds - Team Portal v34.0 (4 October 2026)
+   House of Worlds - Team Portal v35.0 (4 October 2026)
    One file, on the live House. A member signs in with the House's own
    sign-in service; what they see afterwards is decided by the House's
    records (Database Steps 28-38: house_team_* functions), never by this page.
@@ -533,10 +629,10 @@ function linkConfig(p){
 
 /* ---- the smallest client ---- */
 var CFG = null, SESSION = null, ME = null, OV = null, PORTAL = null;
-var ALLOWED = /^(house_team_[a-z_]+|house_my_assignments|house_assignment_act|house_assignment_actions|house_assignment_transitions|house_source_upload_begin|house_source_upload_finalize|house_client_me|house_public_doors|house_public_rooms)$/;
+var ALLOWED = /^(house_team_[a-z_]+|house_my_assignments|house_assignment_act|house_assignment_actions|house_assignment_transitions|house_source_upload_begin|house_source_upload_finalize|house_client_me|house_public_doors|house_public_rooms|house_founder_eyes_people|house_founder_through_eyes)$/;
 
 function headers(auth, json){
-  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/34.0" };
+  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/35.0" };
   if (json !== false) h["Content-Type"] = "application/json";
   if (auth && SESSION && SESSION.access_token) h["Authorization"] = "Bearer " + SESSION.access_token;
   return h;
@@ -588,7 +684,7 @@ function fresh(){
 }
 function rpc(name, args){
   if (!ALLOWED.test(name)) return Promise.resolve({ ok:false, why:"That is not something this portal asks the House for." });
-  var needsAuth = /^(house_team_|house_my_|house_assignment_|house_source_|house_client_me)/.test(name);
+  var needsAuth = /^(house_team_|house_my_|house_assignment_|house_source_|house_client_me|house_founder_)/.test(name);
   return (needsAuth ? fresh() : Promise.resolve(true)).then(function (ok){
     if (!ok) return { ok:false, signedOut:true, why:"Sign in first." };
     return fetch(CFG.url + "/rest/v1/rpc/" + name, { method:"POST", headers:headers(needsAuth), body:JSON.stringify(args || {}) })
@@ -717,7 +813,8 @@ function worldOf(key){ return ((ME && ME.worlds) || []).filter(function (x){ ret
 function worldName(key, fallback){ var w = worldOf(key); return w ? w.name : (fallback || "a world under seal"); }
 function roleLine(r){ return roleWords(r.role) + (r.world ? " · " + worldName(r.world) : " · every world") + (r.department ? " · " + r.department : ""); }
 function VIEWS(){
-  var desk = [["home", "My Desk"], ["work", "Projects and Work"], ["write", "Story Desk"], ["workspaces", "Workspaces"], ["calendar", "Calendar"], ["drive", "House Drive"], ["announcements", "Announcements"], ["travel", "Travel"], ["timeoff", "Time off"], ["pay", "My pay"], ["record", "My record"]];
+  if (ME && ME.founder) return [["Founder view", [["founder", "Every team portal"]]], ["Help and policies", [["help", "How this works"], ["privacy", "Privacy and this portal"], ["terms", "Terms of use"]]]];
+  var desk = [["home", "My Desk"], ["signals", "Signals"], ["work", "Projects and Work"], ["write", "Story Desk"], ["workspaces", "Workspaces"], ["calendar", "Calendar"], ["drive", "House Drive"], ["announcements", "Announcements"], ["travel", "Travel"], ["timeoff", "Time off"], ["pay", "My pay"], ["record", "My record"]];
   if (typeof myAreas === "function" && myAreas().length) desk.push(["service", "Service queue"]);
   if (ME && ME.isLead) desk.unshift(["lead", "Overview"]);
   if (ME && ME.isLead) { desk.push(["review", "To review"]); desk.push(["requests", "Client requests"]); }
@@ -731,7 +828,7 @@ function openAssignment(a){ return a.resolution !== "resolved" && a.acceptance !
 function counts(){
   var f = (DESK && DESK.figures) || {}, mine = (DESK && DESK.mine) || [], asg = (DESK && DESK.assignments) || [];
   return { work: mine.filter(function (w){ return w.status === "draft" || w.status === "returned"; }).length,
-           review: Number(f.toReview) || 0, assignments: asg.filter(offered).length };
+           review: Number(f.toReview) || 0, assignments: asg.filter(offered).length, signals: (typeof SIGNALS_UNREAD === "number" ? SIGNALS_UNREAD : 0) };
 }
 function signOut(everywhere){
   var t = SESSION && SESSION.access_token; saveSession(null); ME = null; OV = null; DESK = null;
@@ -1339,7 +1436,11 @@ var HELP = [
   ["Worlds under seal", "Four worlds are open. The others are under seal; a sealed world is named to you only if the House has scoped you to it, and it is never to be named outside the House. The catalog, the search, the counts and the colleagues' records keep the same rule."],
   ["Workspaces", "Sixteen kinds of work, each with its own sections and fields, the stages it passes through, the shared services it usually hands to and when, a checklist before it leaves a stage, and the record the House retains: productions, the House's side of a commission, rights and licensing, partnerships and grants, research and learning, Journal and press, archive and preservation, finance and operations, digital product and trust, people operations, and the plain kinds. Every kind runs on the one engine; the kind only changes what the record asks for. A confidential kind is read by its maker, its owner, the team lead and the service it is handed to."],
   ["Shared services and handoffs", "A piece of work is handed to a shared service from its own page: a request on the record, with what you need. The members the Founder scoped to that service see it in their Service queue, accept it, mark it done with an answer, or decline with why; the work itself stays yours. A service listed as proposed is not yet staffed, and a handoff to it waits on the record."],
-  ["Pay, time off and your record", "Pay is a record the Founder sets from her dashboard; you alone read yours, a team lead sees no pay, and the House runs no payroll and keeps no bank account, tax number or benefit detail. A pay statement is a file she places for you. Time off is asked against a world; its team lead decides, or the Founder when a lead asks; everyone is told by email. My record shows what the House keeps about your work here; the emergency contact is yours to set."],
+  ["Signals", "Signals is the House's email. What the House tells you (work returned, decided, handed, assigned; a calendar event; an announcement) lands in your Signals inbox and in your email. You write a signal to a colleague in your worlds, to your team lead, or to the Founder; it goes out as an email from the House and stays on the record, with read and unread."],
+  ["The Founder's view", "The Founder has no desk here and nothing is written as her. Signed in with her own account and her second factor, she sees every team portal read-only: each world, each member, and what that member's own portal shows them, read as the House answers them. Every look is on the record."],
+  ["Signals", "Signals is the House's email. What the House tells you (work returned, decided, handed, assigned; a calendar event; an announcement) lands in your Signals inbox and in your email. You write a signal to a colleague in your worlds, to your team lead, or to the Founder; it goes out as an email from the House and stays on the record, with read and unread."],
+  ["The Founder's view", "The Founder has no desk here and nothing is written as her. Signed in with her own account and her second factor, she sees every team portal read-only: each world, each member, and what that member's own portal shows them, read as the House answers them. Every look is on the record."],
+  ["Pay, time off and your record","Pay is a record the Founder sets from her dashboard; you alone read yours, a team lead sees no pay, and the House runs no payroll and keeps no bank account, tax number or benefit detail. A pay statement is a file she places for you. Time off is asked against a world; its team lead decides, or the Founder when a lead asks; everyone is told by email. My record shows what the House keeps about your work here; the emergency contact is yours to set."],
   ["Travel", "A trip is proposed against a world; its team lead approves it and keeps the itinerary; travellers are asked and tick their readiness; an expense with its receipt is money and reaches the Founder only, who accepts, declines or marks it paid. No travel card provider is connected to the House."],
   ["Craft rooms, the canvas, the archive, analytics", "A craft room is drawn from the record: the people whose positions or roles match the craft, the work in its departments, and a notes board. The world canvas is a board of cards a world shares: notes, links, pieces of work. The archive is what a world has finished, by year, with the handoff to Archives. Analytics are counted from the record: a team lead sees the world's figures, a member their own."],
   ["The calendar and call sheets", "The calendar of the worlds open to you: meetings, shoot days, deadlines, screenings, rehearsals. The team lead of a world puts events on it and asks people to them; each person asked is told by the House's one-line email, and told again if it changes or is cancelled. A shoot day carries its call sheet (general call, location, scenes, cast and crew called, contacts, safety, notes), which prints from the event's page."],
@@ -1435,7 +1536,10 @@ function route(){
   if (!CFG || !SESSION || !ME) return;
   var parts = String(location.hash || "").replace(/^#\/?/, "").split("#")[0].split("?")[0].split("/");
   var v = parts[0];
+  if (ME && ME.founder) { if (v === "help") viewHelp(); else if (v === "privacy") viewPrivacy(); else if (v === "terms") viewTerms(); else viewFounderView(); return; }
   if (v === "lead") viewLeadOverview();
+  else if (v === "signals" && parts[1]) viewSignal(decodeURIComponent(parts[1]));
+  else if (v === "signals") viewSignals();
   else if (v === "calendar" && parts[1]) viewEvent(decodeURIComponent(parts[1]));
   else if (v === "calendar") viewCalendar();
   else if (v === "announcements" && parts[1]) viewAnnouncement(decodeURIComponent(parts[1]));
@@ -1515,7 +1619,12 @@ function enter(){
     if (!r.ok) { if (r.signedOut) { signInPanel("Your session ended. Sign in again."); return; } main.replaceChildren(); notRead(main, r, enter, "Your account"); return; }
     var m = r.data;
     if (m.signedIn === false) { signInPanel("Your session ended. Sign in again."); return; }
-    if (m.founder) { ME = null; refusal("The threshold", "The Founder has no desk here", m.say || "The Founder's work is in her dashboard; the team's work reaches her there as packets.", "This portal is for the team. Open the Founder's dashboard instead."); return; }
+    if (m.founder) {
+      /* v35: the Founder still has no desk; she gets the Founder view, read-only, after her second factor */
+      ME = { founder:true, name:"The Founder", desk:false, roles:[], worlds:[] }; DESK = null; OV = { needs:{} };
+      if (!/^#\/(founder|help|privacy|terms)/.test(location.hash || "")) { try { history.replaceState(null, "", location.pathname + location.search + "#/founder"); } catch (e) { location.hash = "#/founder"; } }
+      route(); return;
+    }
     if (!m.desk) {
       ME = null; refusal("The threshold", "This account has no team role yet", m.say || "", "If you were given a role under a different email address, sign out and sign in with that one.");
       /* an account the House knows as a client is pointed to the client portal */
@@ -2217,6 +2326,7 @@ function viewLeadOverview(){
     host.querySelector("h1").textContent = (o.everyWorld ? "Every world" : worlds.join(", ")) + " · Overview";
     document.title = "Overview — House of Worlds";
     body.appendChild(el("p", "lede", "What you lead, read from the record: " + where + ". What waits on you is counted first; the Founder decides, and anything about money reaches her only."));
+    if (typeof heroBand === "function") heroBand(body, "🎬 Welcome back, " + String((ME && ME.name) || "").replace(/(Example)s*/, ""), "Team lead of " + where + ". What waits on you is counted first; the Founder decides, and anything about money reaches her only.", "lead");
     var p = o.pipeline || {}, rq = o.requests || {}, ho = o.handoffs || {};
     /* needs */
     var needs = [
@@ -2978,6 +3088,220 @@ function viewArchive(){
     if (fl.length) { body.appendChild(el("h2", null, "The drive's Archive folder")); var fr = el("div", "rows"); fl.forEach(function (f){ var v = f.latest || {}; var acts = el("span", "acts"); acts.appendChild(button("ghost", "Open", function (){ openDrive(v, f.label); })); fr.appendChild(rowOf("", "v" + (v.version || f.version), f.label, [(v.name || "") + " · " + (bytes(v.sizeBytes) || "") + " · placed by " + (v.byName || f.placedBy) + ", " + whenAt(v.at || f.placedAt)], acts, null)); }); body.appendChild(fr); }
     if (r.archivesService) body.appendChild(el("p", "fine", "Archives and Records is " + r.archivesService.status + (r.archivesService.status === "approved" ? "" : ": a handoff to it waits on the record until the Founder staffs it") + ". " + readAt()));
   });
+}
+
+/* ---- v35: Signals, the House's email (Database Step 52) ----
+   What the House tells a member lands here and in their email; what they write here goes out as an email to a
+   colleague, their team lead or the Founder, and stays on the record. Unread is counted on the rail. */
+var SIGNALS_UNREAD = 0, SIG_BOX = "inbox";
+function signalRow(m, again){
+  var a = el("a", "sg" + (m.read || m.fromMe ? "" : " unread")); a.href = "#/signals/" + encodeURIComponent(m.id);
+  var top = el("div", "sg-top"); var who = el("span", "sg-who"); if (!(m.read || m.fromMe)) who.appendChild(el("span", "sg-dot")); who.appendChild(document.createTextNode(m.fromMe ? "To " + m.to : m.from)); top.appendChild(who); top.appendChild(el("span", "sg-dt", whenAt(m.at))); a.appendChild(top);
+  a.appendChild(el("div", "sg-sub", m.subject || "(no subject)"));
+  a.appendChild(el("div", "sg-pre", String(m.body || "").split("\n")[0].slice(0, 140)));
+  return a;
+}
+function viewSignals(){
+  view("signals", "Your desk", "Signals", null, [["house_team_signals", { p_box:SIG_BOX }]], function (body, d, again){
+    var r = d[0]; SIGNALS_UNREAD = Number(r.unread) || 0; paintNav("signals");
+    if (typeof heroBand === "function") heroBand(body, "📩 Signals", "The House's email. " + (r.unread ? r.unread + " unread. " : "Nothing unread. ") + (r.sending ? "Mail is sending." : "Mail sending is switched off in the House's settings: a signal is kept on the record and waits in the queue until it is on."));
+    var acts = el("div", "actions"); acts.appendChild(button("", "✎ Compose a signal", function (){ composeSignal(r, null, again); })); if (r.unread) acts.appendChild(button("ghost", "Mark all read", function (){ act("house_team_signal_act", { p_id:null, p_action:"read_all", p_fields:{} }).then(function (res){ done(res, again); }); })); body.appendChild(acts);
+    var tabs = el("div", "sg-tabs"); [["inbox", "Inbox" + (r.unread ? " · " + r.unread : "")], ["sent", "Sent"]].forEach(function (t){ var b = el("button", "sg-tab" + (SIG_BOX === t[0] ? " on" : ""), t[1]); b.type = "button"; b.addEventListener("click", function (){ SIG_BOX = t[0]; again(); }); tabs.appendChild(b); }); body.appendChild(tabs);
+    var list = SIG_BOX === "sent" ? (r.sent || []) : (r.inbox || []);
+    if (!list.length) body.appendChild(say("", SIG_BOX === "sent" ? "Nothing sent yet" : "Your inbox is clear", SIG_BOX === "sent" ? "A signal you write appears here with its state: queued, sent, or not sent." : "What the House tells you, and what colleagues write to you, lands here."));
+    else { var host = el("div", "sg-list"); list.forEach(function (m){ host.appendChild(signalRow(m, again)); }); body.appendChild(host); }
+    body.appendChild(el("p", "fine", (r.note || "") + " " + readAt()));
+  });
+}
+function viewSignal(id){
+  view("signals", "Signals", "A signal", null, [["house_team_signals", { p_box:"inbox" }], ["house_team_signals", { p_box:"sent" }]], function (body, d, again, host){
+    var all = (d[0].inbox || []).concat(d[1].sent || []); var m = all.filter(function (x){ return String(x.id) === String(id); })[0];
+    if (!m) { body.appendChild(say("ask", "Not here", "This signal is not in your inbox or your sent box.")); return; }
+    host.querySelector("h1").textContent = m.subject || "(no subject)"; document.title = (m.subject || "A signal") + " — House of Worlds";
+    var meta = el("p", "fine", (m.fromMe ? "To " + m.to : "From " + m.from) + " · " + whenAt(m.at) + " · " + (m.fromMe ? (m.sent ? "sent by email" : m.error ? "not sent by email; still on the record" : "queued for email") : (m.read ? "read" : "unread")) + (m.workId ? " · about a piece of work" : "")); body.appendChild(meta);
+    var p = el("div", "panel"); p.appendChild(el("div", "sg-body", m.body || "")); body.appendChild(p);
+    if (m.toMe && !m.read) rpc("house_team_signal_act", { p_id:Number(m.id), p_action:"read", p_fields:{} }).then(function (){ SIGNALS_UNREAD = Math.max(0, SIGNALS_UNREAD - 1); paintNav("signals"); });
+    var acts = el("div", "actions");
+    if (!m.fromMe && m.fromUserId) acts.appendChild(button("", "Reply", function (){ composeSignal(d[0], { to:m.fromUserId, toName:m.from, subject:(/^Re:/i.test(m.subject || "") ? m.subject : "Re: " + (m.subject || "")), replyToId:m.id }, function (){ location.hash = "#/signals"; }); }));
+    if (!m.fromMe && !m.fromUserId) acts.appendChild(button("", "Write to the Founder about this", function (){ composeSignal(d[0], { to:"founder", toName:"The Founder", subject:"Re: " + (m.subject || ""), replyToId:m.id }, function (){ location.hash = "#/signals"; }); }));
+    if (m.workId) acts.appendChild(link("ghost", "The piece of work", "#/work/" + encodeURIComponent(m.workId)));
+    if (m.toMe && m.read) acts.appendChild(button("ghost", "Mark unread", function (){ act("house_team_signal_act", { p_id:Number(m.id), p_action:"unread", p_fields:{} }).then(function (res){ status(res.say); SIGNALS_UNREAD++; location.hash = "#/signals"; }); }));
+    acts.appendChild(link("ghost", "Signals", "#/signals")); body.appendChild(acts);
+  }, ["#/signals", "Signals"]);
+}
+function composeSignal(r, preset, after){
+  dialog("Compose a signal", function (box, close){
+    var people = (r.people || []).map(function (p){ return [p.userId, p.name + (p.lead ? " · team lead" : "")]; });
+    var opts = [["founder", "The Founder"]].concat(people);
+    var to = select(box, "To", "sg-to", opts, preset && preset.to ? preset.to : (opts[1] ? opts[1][0] : "founder"));
+    var subj = field(box, "Subject", "sg-subj", "text", preset && preset.subject ? preset.subject : "");
+    var bodyF = field(box, "Message", "sg-body", "text", "", 7);
+    box.appendChild(el("p", "fine", "It goes out as an email from the House and stays on the record in Signals. Plain text; nothing here runs as code."));
+    var said = el("div"); said.setAttribute("aria-live", "polite"); var acts = el("div", "actions");
+    acts.appendChild(button("", "Send", function (){
+      if (!bodyF.value.trim()) { said.replaceChildren(say("no", "Write the message", "")); bodyF.focus(); return; }
+      said.replaceChildren(say("busy", "Sending", "Asking the House…"));
+      act("house_team_signal_act", { p_id:null, p_action:"send", p_fields:{ to:to.value, subject:subj.value.trim(), body:bodyF.value.trim(), replyToId:preset && preset.replyToId ? preset.replyToId : null } }).then(function (res){ if (!res.ok) { said.replaceChildren(say("no", "Not sent", res.say)); return; } close(); status(res.say); SIG_BOX = "sent"; if (after) after(); });
+    }));
+    acts.appendChild(button("ghost", "Not now", close)); box.appendChild(acts); box.appendChild(said);
+    try { (preset && preset.subject ? bodyF : subj).focus(); } catch (e) {}
+  });
+}
+function signalsStrip(body){
+  var host = el("div"); body.appendChild(host);
+  rpc("house_team_signals", { p_box:"inbox" }).then(function (r){
+    if (!(r.ok && r.data && r.data.ok)) return; var inbox = r.data.inbox || []; SIGNALS_UNREAD = Number(r.data.unread) || 0;
+    var h = el("h2", null, "📩 Signals"); host.appendChild(h);
+    if (!inbox.length) { host.appendChild(el("p", "lede", "Your inbox is clear.")); return; }
+    var list = el("div", "sg-list"); inbox.slice(0, 3).forEach(function (m){ list.appendChild(signalRow(m)); }); host.appendChild(list);
+    host.appendChild(link("ghost", "Open the inbox" + (SIGNALS_UNREAD ? " · " + SIGNALS_UNREAD + " unread" : ""), "#/signals"));
+  });
+}
+
+/* ---- v35: the look, the command room for everybody, and the Founder's view inside the portal ----
+   The welcome band, the stat tiles and the big cards of the July prototype, drawn from the House's record.
+   Every member opens on a command room; a team lead opens on the Overview of their world. The Founder opens on
+   the Founder view: every team portal, looked through read-only, with her second factor asked first
+   (Database Step 45). She still has no desk here: nothing is written as her, nothing as them. */
+try { document.body.classList.add("look40"); } catch (e) {}
+var NAV_ICONS = { home:"🏠", lead:"🎬", signals:"📩", work:"📋", write:"✍️", workspaces:"🧩", calendar:"📅", drive:"☁️", announcements:"📢", travel:"✈️", timeoff:"🌴", pay:"💵", record:"🪪", assignments:"📌", decisions:"⚖️", service:"🛎️", review:"🔎", requests:"💼", worlds:"🚪", roles:"🎭", departments:"🏛️", people:"👥", crafts:"🎞️", canvas:"🗺️", archive:"🗄️", analytics:"📊", help:"❓", handbook:"📖", account:"🔐", privacy:"🛡️", terms:"📜", founder:"👑" };
+var WORLD_ICONS = { film:"🎥", television:"📺", animation:"🎬", "writing-and-literature":"✍️" };
+function initials(n){ return String(n || "").replace(/\(Example\)\s*/, "").split(/\s+/).filter(Boolean).slice(0, 2).map(function (w){ return w[0].toUpperCase(); }).join("") || "?"; }
+function myTitleWords(){ var r = (ME && ME.roles) || []; var lead = r.filter(function (x){ return x.role === "team_lead"; }); var ws = lead.length ? lead.map(function (x){ return x.world ? worldName(x.world) : "every world"; }) : r.map(function (x){ return x.world ? worldName(x.world) : "every world"; }); ws = ws.filter(function (x, i, a){ return a.indexOf(x) === i; }); return (lead.length ? "Team lead" : (r.length ? roleWords(r[0].role) : "Member")) + (ws.length ? " · " + ws.join(", ") : ""); }
+/* the rail: icons, the world badge, the member chip */
+var _paintNav40 = paintNav;
+paintNav = function (current){
+  _paintNav40(current);
+  try {
+    nav.querySelectorAll("a.dest").forEach(function (a){ var key = (a.getAttribute("href") || "").replace(/^#\//, ""); if (a.querySelector(".ic")) return; var ic = el("span", "ic", NAV_ICONS[key] || "•"); ic.setAttribute("aria-hidden", "true"); a.insertBefore(ic, a.firstChild); });
+    if (!nav.querySelector(".dept-badge") && ME) {
+      var b = el("div", "dept-badge"); var first = ((ME.roles || [])[0] || {}).world; b.appendChild(el("span", "db-ic", ME.founder ? "👑" : (WORLD_ICONS[first] || "🏛️")));
+      var t = el("span"); t.appendChild(el("span", "db-n", ME.founder ? "Founder view" : (first ? worldName(first) : "House of Worlds"))); t.appendChild(el("span", "db-r", ME.founder ? "Every team portal" : myTitleWords())); b.appendChild(t);
+      nav.insertBefore(b, nav.firstChild);
+    }
+    var out = who.querySelector("button"); var chip = el("div", "me-chip"); var txt = el("span"); txt.appendChild(el("span", "mc-n", (ME && ME.name) || "")); txt.appendChild(el("span", "mc-r", ME && ME.founder ? "Founder & CEO" : myTitleWords())); chip.appendChild(txt); chip.appendChild(el("span", "avatar", initials(ME && ME.name)));
+    who.replaceChildren(chip); if (out) who.appendChild(out);
+  } catch (e) {}
+};
+/* the welcome band, the stat tiles, the big cards, the chips */
+function heroBand(body, mark, sub, tone){ var h = el("div", "word-hero" + (tone ? " " + tone : "")); h.appendChild(el("div", "wh-mark", mark)); if (sub) { var s = el("div", "wh-sub"); if (typeof sub === "string") s.textContent = sub; else s.appendChild(sub); h.appendChild(s); } body.insertBefore(h, body.firstChild); return h; }
+function statGrid(body, items){ var g = el("div", "stats"); items.forEach(function (x){ var a = el(x[2] ? "a" : "div", "stat" + (x[2] ? " click" : "")); if (x[2]) a.href = x[2]; a.appendChild(el("div", "v", String(x[0]))); a.appendChild(el("div", "l", x[1])); g.appendChild(a); }); body.appendChild(g); return g; }
+function bigCards(body, cards){ var row = el("div", "bigcard-row"); cards.forEach(function (c){ var a = el("a", "big-card tone-" + (c.tone || "gold")); a.href = c.href; var top = el("div", "bc-top"); top.appendChild(el("div", "bc-title", c.title)); if (c.pill != null) top.appendChild(el("span", "pill " + (c.pillTone || (c.pill ? "gold" : "faint")), String(c.pill))); a.appendChild(top); a.appendChild(el("div", "bc-sub", c.sub)); if (c.cta) a.appendChild(el("span", "bc-cta", c.cta + " →")); row.appendChild(a); }); body.appendChild(row); return row; }
+function chipRow(body, items){ var c = el("div", "film-chips"); items.forEach(function (x){ var a = el("a", "chip link", x[0]); a.href = x[1]; c.appendChild(a); }); body.appendChild(c); }
+/* the command room: every member opens here */
+function viewHome(){
+  var to = new Date(Date.now() + 7 * 86400000).toISOString();
+  view("home", "Your desk", (ME && ME.name) ? ME.name : "Your desk", null, [["house_team_desk"], ["house_team_signals", { p_box:"inbox" }], ["house_team_calendar", { p_world:null, p_from:new Date().toISOString(), p_to:to }], ["house_team_announcements", { p_world:null, p_unread_only:true }]], function (body, d, again, host){
+    DESK = d[0]; ME = DESK.me || ME; OV = { needs: DESK.figures || {} }; var sig = d[1], cal = d[2], ann = d[3]; SIGNALS_UNREAD = Number(sig.unread) || 0; paintNav("home");
+    host.querySelector("h1").textContent = "Command room"; host.querySelector(".kicker").textContent = "Your desk";
+    var f = DESK.figures || {}, mine = DESK.mine || [], asg = DESK.assignments || [];
+    var returned = mine.filter(function (w){ return w.status === "returned"; }), drafts = mine.filter(function (w){ return w.status === "draft"; });
+    var offers = asg.filter(offered), events = (cal.events || []).filter(function (e){ return !e.cancelled; }), unreadAnn = (ann.announcements || []).length;
+    var sub = el("span"); sub.appendChild(document.createTextNode("")); var b = el("b", null, myTitleWords()); sub.appendChild(b); sub.appendChild(document.createTextNode(" · House of Worlds. Everything on this page is read from the House's record, just now. " + (ME && ME.isLead ? "Your world's overview is under Overview." : "What needs you comes first.")));
+    heroBand(body, "🎬 Welcome back, " + String((ME && ME.name) || "").replace(/\(Example\)\s*/, ""), sub);
+    statGrid(body, [[returned.length + drafts.length, "with you", "#/work"], [Number(f.withLead) || 0, "with the team lead", "#/work"], [Number(f.withFounder) || 0, "with the Founder", "#/work"], [Number(f.dueSoon) || 0, "due in seven days", "#/work"], [SIGNALS_UNREAD, "signals unread", "#/signals"], [events.length, "events this week", "#/calendar"]]);
+    var needs = [];
+    if (returned.length) needs.push([returned.length, "piece" + (returned.length === 1 ? "" : "s") + " of work returned to you with a review", "#/work"]);
+    if (offers.length) needs.push([offers.length, "assignment" + (offers.length === 1 ? "" : "s") + " offered to you, waiting for your acceptance", "#/assignments"]);
+    if (Number(f.toReview)) needs.push([Number(f.toReview), "piece" + (Number(f.toReview) === 1 ? "" : "s") + " of colleagues' work waiting for your review", "#/review"]);
+    if (unreadAnn) needs.push([unreadAnn, "announcement" + (unreadAnn === 1 ? "" : "s") + " not yet read", "#/announcements"]);
+    body.appendChild(el("h2", null, needs.length ? "What needs you" : "Nothing is waiting on you"));
+    if (!needs.length) body.appendChild(el("p", "lede", mine.length || asg.length ? "Your desk was read just now and nothing asks for your hand." : "Your desk is open and nothing has been placed on it yet. Begin a piece of work below, or wait for an assignment from the House."));
+    else { var grid = el("div", "cards needs"); needs.forEach(function (x){ var a = el("a", "card hot"); a.href = x[2]; a.appendChild(el("span", "big", String(x[0]))); a.appendChild(el("span", "m", x[1])); grid.appendChild(a); }); body.appendChild(grid); }
+    body.appendChild(el("h2", null, "Your work"));
+    var inReview = mine.filter(function (w){ return w.status === "lead_review"; }).length, withF = mine.filter(function (w){ return w.status === "founder_review"; }).length;
+    bigCards(body, [
+      { title:"📋 My work", pill:returned.length + drafts.length, sub:(returned.length ? returned.length + " returned with a review. " : "") + (drafts.length ? drafts.length + " draft" + (drafts.length === 1 ? "" : "s") + " not yet submitted." : "Nothing waiting with you."), href:"#/work", cta:"Open", tone:"purple" },
+      { title:"⏳ With the team lead", pill:inReview, sub:inReview ? inReview + " piece" + (inReview === 1 ? "" : "s") + " in review. It comes back returned, or goes on to the Founder as a packet." : "Nothing in review.", href:"#/work", cta:"See", tone:"gold" },
+      { title:"🛡 With the Founder", pill:withF, sub:withF ? withF + " packet" + (withF === 1 ? "" : "s") + " waiting for her decision; it comes back with her reason." : "Nothing with the Founder.", href:"#/decisions", cta:"Decisions", tone:"gold" },
+      { title:"✍️ Story Desk", sub:"Scripts, pilots, treatments, chapters and notes, every version kept; a script is laid out as a script page.", href:"#/write", cta:"Write", tone:"purple" },
+      { title:"📅 This week", pill:events.length, sub:events.length ? events.slice(0, 2).map(function (e){ return timeAt(e.startsAt) + " " + e.title; }).join(" · ") : "Nothing on the calendar this week.", href:"#/calendar", cta:"Calendar", tone:"blue" },
+      { title:"📩 Signals", pill:SIGNALS_UNREAD, pillTone:SIGNALS_UNREAD ? "gold" : "faint", sub:SIGNALS_UNREAD ? SIGNALS_UNREAD + " unread. The House's email, on your desk." : "Your inbox is clear.", href:"#/signals", cta:"Inbox", tone:"gold" },
+      { title:"✈️ Travel", sub:"Your trips, your readiness, the itinerary; expenses with receipts go to the Founder.", href:"#/travel", cta:"Travel", tone:"blue" },
+      { title:"💵 My pay", sub:"Your pay record and statements, seen by you and the Founder only.", href:"#/pay", cta:"My pay", tone:"green" },
+      { title:"🌴 Time off", sub:"Ask against a world; the team lead decides; you are told by email.", href:"#/timeoff", cta:"Time off", tone:"green" }
+    ]);
+    body.appendChild(el("h2", null, "Quick actions"));
+    chipRow(body, [["＋ Begin a piece of work", "#/work/new"], ["✍️ New script", "#/write"], ["📩 Compose a signal", "#/signals"], ["📌 My assignments", "#/assignments"], ["🧩 Workspaces", "#/workspaces"], ["☁️ House Drive", "#/drive"], ["🗺️ World canvas", "#/canvas"], ["🎞️ Craft rooms", "#/crafts"], ["📖 Handbook", "#/handbook"]]);
+    if (typeof serviceStrip === "function") serviceStrip(body); if (typeof requestsStrip === "function") requestsStrip(body);
+    var first = returned.concat(drafts, mine.filter(function (w){ return w.status === "lead_review" || w.status === "founder_review"; }));
+    if (first.length) { body.appendChild(el("h2", null, "Your work, in motion")); var rows = el("div", "rows"); first.slice(0, 8).forEach(function (w){ rows.appendChild(workRow(w)); }); body.appendChild(rows); if (mine.length > first.slice(0, 8).length) body.appendChild(link("ghost", "All your work", "#/work")); }
+    if (offers.length) { body.appendChild(el("h2", null, "Offered to you")); var r2 = el("div", "rows"); offers.forEach(function (a){ r2.appendChild(assignmentRow(a)); }); body.appendChild(r2); }
+    var inbox = sig.inbox || [];
+    if (inbox.length) { body.appendChild(el("h2", null, "📩 Latest signals")); var sl = el("div", "sg-list"); inbox.slice(0, 3).forEach(function (m){ sl.appendChild(signalRow(m)); }); body.appendChild(sl); body.appendChild(link("ghost", "Open the inbox", "#/signals")); }
+    if (unreadAnn) { body.appendChild(el("h2", null, "📢 Announcements not yet read")); var al = el("div", "rows"); (ann.announcements || []).slice(0, 3).forEach(function (a){ al.appendChild(announcementRow(a)); }); body.appendChild(al); }
+    var dec = DESK.decisions || [];
+    if (dec.length) { body.appendChild(el("h2", null, "⚖️ Decisions from the Founder")); var r3 = el("div", "rows"); dec.slice(0, 4).forEach(function (x){ r3.appendChild(decisionRow(x)); }); body.appendChild(r3); body.appendChild(link("ghost", "All decisions", "#/decisions")); }
+    body.appendChild(el("p", "fine", readAt()));
+  });
+}
+/* ---- the Founder's view inside the portal (read-only; Step 45) ---- */
+function jwtClaims(){ try { var t = SESSION && SESSION.access_token; if (!t || t.split(".").length < 3) return null; return JSON.parse(atob(t.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))); } catch (e) { return null; } }
+function viewFounderView(){
+  var claims = jwtClaims();
+  if (claims && claims.aal !== "aal2") { founderSecondFactor(); return; }
+  view("founder", "Founder view", "Every team portal", null, [["house_founder_eyes_people"]], function (body, d, again){
+    var P = d[0];
+    if (P.visible === false) { body.appendChild(say("ask", "Not readable by this account", P.say || "")); return; }
+    heroBand(body, "👑 Founder view", "Every team portal, seen as the House shows it to each member, read-only. Nothing is written as you and nothing as them; every look is on the record. Your decisions are made in your dashboard.", "founder");
+    var ws = P.worlds || [], ps = P.people || [];
+    statGrid(body, [[ws.filter(function (w){ return w.open; }).length, "worlds open", null], [ps.length, "members", null], [ps.filter(function (p){ return p.isLead; }).length, "team leads", null], [ps.reduce(function (n, p){ return n + (Number(p.openWork) || 0); }, 0), "pieces of work open", null]]);
+    body.appendChild(el("h2", null, "🚪 The sixteen worlds"));
+    var wb = el("div"); ws.forEach(function (w){
+      var row = el("div", "fv-world" + (w.open ? "" : " sealed")); row.appendChild(el("span", "door", "Door " + w.door)); var mid = el("span"); mid.appendChild(el("span", "nm", (WORLD_ICONS[w.key] || (w.open ? "🏛️" : "🔒")) + " " + w.name + (w.open ? "" : " (under seal)"))); mid.appendChild(el("div", "m", ((w.leads || []).length ? "lead" + (w.leads.length === 1 ? "" : "s") + ": " + w.leads.map(function (l){ return l.name; }).join(", ") : "no team lead yet") + " · " + w.members + " member" + (w.members === 1 ? "" : "s") + " · " + w.openWork + " piece" + (w.openWork === 1 ? "" : "s") + " of work open")); row.appendChild(mid);
+      var acts = el("span", "acts"); (w.leads || []).forEach(function (l){ acts.appendChild(button("ghost", "Through " + l.name.replace(/\(Example\)\s*/, ""), function (){ lookThrough(l.userId, l.name, body); })); }); row.appendChild(acts); wb.appendChild(row);
+    }); body.appendChild(wb);
+    body.appendChild(el("h2", null, "👥 Every member"));
+    if (!ps.length) body.appendChild(say("", "Nobody holds a team role yet", "Invite a member from your dashboard; they appear here."));
+    var pb = el("div"); ps.forEach(function (p){
+      var row = el("div", "fv-world"); row.appendChild(el("span", "door", p.isLead ? "lead" : "member")); var mid = el("span"); mid.appendChild(el("span", "nm", p.name)); mid.appendChild(el("div", "m", ((p.roles || []).map(function (x){ return roleWords(x.role) + " · " + x.worldName + (x.department ? " · " + x.department : ""); }).join(" / ") || "no role") + " · " + p.openWork + " piece" + (p.openWork === 1 ? "" : "s") + " open")); row.appendChild(mid);
+      var acts = el("span", "acts"); acts.appendChild(button("", "Through their eyes", function (){ lookThrough(p.userId, p.name, body); })); row.appendChild(acts); pb.appendChild(row);
+    }); body.appendChild(pb);
+    var holder = el("div"); holder.id = "fv-look"; body.appendChild(holder);
+    body.appendChild(el("p", "fine", "Read from the House " + whenAt(P.readAt) + ". " + readAt()));
+  });
+}
+function lookThrough(userId, name, body){
+  var holder = document.getElementById("fv-look") || body; holder.replaceChildren(say("busy", "Looking through " + name + "'s eyes", "Asking the House as it answers them…")); try { holder.scrollIntoView({ block:"start" }); } catch (e) {}
+  rpc("house_founder_through_eyes", { p_user:userId }).then(function (r){
+    var E = r.ok ? r.data : null;
+    if (!E || !E.ok) { holder.replaceChildren(say("no", "Could not look", (E && E.say) || (r.why || ""))); return; }
+    var box = el("section", "fv-look"); holder.replaceChildren(box);
+    heroBand(box, "👁 Through " + name.replace(/\(Example\)\s*/, "") + "'s eyes", "What their own Team Portal shows them, read as the House answers them. Read-only.", "founder");
+    var me2 = E.me || {}, desk = E.desk || {}, f = desk.figures || {}, mine = desk.mine || [];
+    box.appendChild(el("p", "fine", "Roles: " + ((me2.roles || []).map(function (x){ return roleWords(x.role) + (x.world ? " · " + x.world : " · every world"); }).join(", ") || "none") + " · worlds open to them: " + ((me2.worlds || []).map(function (w){ return w.name; }).join(", ") || "none") + " · " + (me2.sealedCount || 0) + " under seal and unnamed."));
+    statGrid(box, [[Number(f.needsMe) || 0, "needs them", null], [Number(f.withLead) || 0, "with the team lead", null], [Number(f.withFounder) || 0, "with you", null], [Number(f.toReview) || 0, "waiting for their review", null], [Number(f.dueSoon) || 0, "due in seven days", null]]);
+    if (mine.length) { box.appendChild(el("h2", null, "Their work")); var rows = el("div", "rows"); mine.slice(0, 10).forEach(function (w){ rows.appendChild(rowOf(statusCls(w.status), statusWords(w.status), w.title, [(w.worldName || "") + " · " + (w.kind || "work") + " · version " + w.version + (w.dueAt ? " · due " + whenAt(w.dueAt) : "")], null, null)); }); box.appendChild(rows); }
+    var tr = desk.toReview || []; if (tr.length) { box.appendChild(el("h2", null, "Waiting for their review")); var r1 = el("div", "rows"); tr.forEach(function (w){ r1.appendChild(rowOf("hot", "To review", w.title, [(w.creatorName || "") + " · " + (w.worldName || "")], null, null)); }); box.appendChild(r1); }
+    var req = (E.requests && E.requests.threads) || []; if (req.length) { box.appendChild(el("h2", null, "Their client requests")); var r2 = el("div", "rows"); req.slice(0, 6).forEach(function (t){ r2.appendChild(rowOf(t.unread ? "hot" : "", t.unread ? t.unread + " unread" : words(t.status), t.subject, [t.reference + " · " + (t.client || "") + " · " + (t.worldName || "")], null, null)); }); box.appendChild(r2); }
+    var sv = (E.service && E.service.handoffs) || []; if (sv.length) { box.appendChild(el("h2", null, "Their service queue")); var r3 = el("div", "rows"); sv.slice(0, 6).forEach(function (h){ r3.appendChild(rowOf("", words(h.status), h.workTitle || "", [h.areaName || ""], null, null)); }); box.appendChild(r3); }
+    var nt = (E.notices && E.notices.notices) || []; if (nt.length) { box.appendChild(el("h2", null, "What the House told them lately")); var r4 = el("div", "rows"); nt.slice(0, 5).forEach(function (n){ r4.appendChild(rowOf(n.sent ? "" : "held", n.sent ? "Sent" : "Queued", n.subject, [whenAt(n.at)], null, null)); }); box.appendChild(r4); }
+    box.appendChild(el("p", "fine", "This look is on the record (founder_eyes_log). Read from the House " + whenAt(E.readAt) + "."));
+  });
+}
+/* the Founder's second factor, asked before any look-through: the same TOTP the dashboard asks for */
+function founderSecondFactor(message){
+  var host = el("div"); main.replaceChildren(host); paintNav("founder");
+  head(host, "Founder view", "Your second factor", "Looking through the team's eyes needs the same second factor as your dashboard. Enter the six-digit code from your authenticator.");
+  document.title = "Second factor — House of Worlds";
+  if (message) host.appendChild(say("no", "Not verified", message));
+  var code = field(host, "Six-digit code", "mfa-code", "text", ""); code.inputMode = "numeric"; code.autocomplete = "one-time-code"; code.maxLength = 8;
+  var said = el("div"); said.setAttribute("aria-live", "polite"); var acts = el("div", "actions");
+  var go = button("", "Verify", function (){
+    var c = code.value.replace(/\s+/g, ""); if (!/^\d{6,8}$/.test(c)) { said.replaceChildren(say("no", "Six digits", "")); code.focus(); return; }
+    go.disabled = true; said.replaceChildren(say("busy", "Verifying", "Asking the House's sign-in service…"));
+    authCall("GET", "/auth/v1/user", null, true).then(function (u){
+      var fs = ((u && u.factors) || []).filter(function (x){ return x.status === "verified" && x.factor_type === "totp"; });
+      if (!fs.length) throw { message:"No verified authenticator is enrolled on this account. Enrol one from your dashboard first." };
+      var fid = fs[0].id;
+      return authCall("POST", "/auth/v1/factors/" + encodeURIComponent(fid) + "/challenge", {}, true).then(function (ch){ return authCall("POST", "/auth/v1/factors/" + encodeURIComponent(fid) + "/verify", { challenge_id:ch.id, code:c }, true); });
+    }).then(function (j){ saveSession(j); code.value = ""; location.hash = "#/founder"; viewFounderView(); })
+    .catch(function (e){ go.disabled = false; said.replaceChildren(say("no", "Not verified", (e && e.message) || "The code was not accepted.")); });
+  });
+  code.addEventListener("keydown", function (e){ if (e.key === "Enter") go.click(); });
+  acts.appendChild(go); acts.appendChild(button("ghost", "Sign out", function (){ signOut(false); })); host.appendChild(said); host.appendChild(acts);
+  host.appendChild(el("p", "fine", "The code is checked by the House's sign-in service; this page never sees your authenticator's secret."));
+  try { code.focus(); } catch (e) {}
 }
 
 /* v5.2: a hosted copy reads its connection from portal-config.json beside it. Only the project address and the
