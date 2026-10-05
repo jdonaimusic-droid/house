@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; media-src blob:; frame-src blob:; font-src data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex, nofollow">
-<meta name="team-portal-release" content="v36.2">
+<meta name="team-portal-release" content="v37.0">
 <meta name="theme-color" content="#08070B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308070B'/%3E%3Cpath d='M9 28V12a7 7 0 0 1 14 0v16' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='1.6' fill='%23E4C55A'/%3E%3C/svg%3E">
 <title>House of Worlds — Team Portal</title>
@@ -485,6 +485,163 @@ body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40
 .cal-ag-head{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin-bottom:.5rem}
 .cal-ag-head h2{margin:0;font-size:1.15rem}
 @media (max-width:640px){.cal-ev{pointer-events:none}.cal-cell.has{cursor:pointer}.cal-cell.has .cal-ev{font-size:0;height:6px;padding:0;margin:.2rem .1rem;border-left-width:0;border-radius:3px}.cal-cell.has .cal-ev b{display:none}.cal-num{font-size:.8rem}}
+/* v37: the titles, kept apart and labelled apart */
+.declared-line{margin-top:.55rem;font-size:.9rem;color:var(--muted);line-height:1.5}.declared-line b{color:var(--ivory);font-weight:600}.declared-line a{color:var(--gold)}
+.declared-note{color:var(--gold);margin:.1rem 0 .3rem}
+.tp-record .pairs dd{color:var(--ivory)}.tp-pick{margin-top:.8rem}
+.tt42-wrap{margin:0 0 1.2rem}.tt42-scroll{overflow:auto}.tt42{width:100%;border-collapse:collapse;font-size:.9rem}.tt42 th{text-align:left;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:.4rem .5rem;border-bottom:1px solid rgba(201,162,39,.3)}.tt42 td{padding:.5rem .5rem;border-bottom:1px solid rgba(244,241,234,.07);vertical-align:top;color:var(--ivory)}.tt42 td.st{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);white-space:nowrap}.tt42 tr.differs td.st{color:#ffb3ad}.tt42 tr.ok td.st{color:#7fd48b}
+
+/* v37 preview: the July prototype's fullness on the real portal. Warmer type, tinted panels, fine gold borders, gradients
+   kept subtle, every size readable. A demo-only layer until the Founder approves it for the live portal. */
+body.look42{font-family:"Newsreader","Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",serif;font-size:16.5px;line-height:1.55}
+body.look42 main{max-width:1180px}
+body.look42 h1{font-size:2rem;font-weight:400}
+body.look42 .lede{font-size:.95rem;color:var(--muted);max-width:78ch}
+body.look42 .say{padding:.65rem .95rem}
+body.look42 .say h2,body.look42 .say h3{font-size:1rem;margin:0 0 .15rem}
+body.look42 .say p{font-size:.9rem;margin:0}
+body.look42 .word-hero{padding:1rem 1.3rem;margin-bottom:.8rem}
+body.look42 .wh-mark{font-size:1.5rem}
+body.look42 .wh-sub{font-size:.9rem}
+body.look42 .demo-bar{padding:.3rem .8rem;font-size:.78rem;gap:.3rem .6rem}
+body.look42 .demo-bar strong{font-size:.72rem;letter-spacing:.06em}
+body.look42 .demo-bar select,body.look42 .demo-bar button{min-height:30px;font-size:.76rem;padding:.1rem .5rem}
+body.look42 .tour-bar{font-size:.8rem}
+body.look42 .tour-bar .tour-words{font-size:.8rem}
+body.look42 h2{font-size:1.3rem;margin:1.5rem 0 .5rem}
+body.look42 .kicker{letter-spacing:.3em}
+/* the panels: tinted, bordered fine, gold-headed */
+.panel42{border:1px solid rgba(201,162,39,.28);border-radius:12px;padding:.95rem 1.1rem 1rem;background:linear-gradient(135deg,rgba(198,160,74,.12),var(--panel) 58%);box-shadow:0 1px 0 rgba(255,255,255,.03) inset;min-width:0}
+.panel42.tone-purple{background:linear-gradient(135deg,rgba(122,92,224,.18),var(--panel) 58%);border-color:rgba(122,92,224,.4)}
+.panel42.tone-blue{background:linear-gradient(135deg,rgba(91,139,208,.16),var(--panel) 58%);border-color:rgba(91,139,208,.4)}
+.panel42.tone-green{background:linear-gradient(135deg,rgba(63,163,77,.14),var(--panel) 58%);border-color:rgba(63,163,77,.4)}
+.panel42.tone-rose{background:linear-gradient(135deg,rgba(200,55,45,.14),var(--panel) 58%);border-color:rgba(200,55,45,.4)}
+.p42-head{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin-bottom:.55rem}
+.p42-head h3{margin:0;font-family:var(--display);font-size:1.12rem;font-weight:500;color:var(--ivory);letter-spacing:.01em}
+.p42-head .pill{margin-left:.4rem;vertical-align:middle}
+.p42-open{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap}
+.p42-open:hover{color:var(--gold-bright)}
+.panel42 .rows{border-top:0}
+.panel42 .row{padding:.45rem 0;font-size:.92rem}
+.panel42 .row .w{font-size:.95rem}
+.panel42 .row .m{font-size:.8rem}
+.panel42 .empty{font-size:.9rem;color:var(--faint);padding:.4rem 0;font-style:italic}
+.panel42 .fine{font-size:.78rem}
+.grid42{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:.6rem 0 .8rem}
+.grid42.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid42 .panel42.wide{grid-column:1 / -1}
+/* lines inside panels: a dot, a title, a right-hand word */
+.l42{display:flex;align-items:baseline;gap:.55rem;padding:.38rem 0;border-bottom:1px solid rgba(244,241,234,.06);text-decoration:none;color:inherit}
+.l42:last-child{border-bottom:0}
+.l42 .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;position:relative;top:-1px}
+.l42 .dot.hot{background:var(--ember)}.l42 .dot.ok{background:var(--emerald)}.l42 .dot.cool{background:var(--sky)}.l42 .dot.off{background:#555}
+.l42 .t{flex:1;min-width:0;color:var(--ivory);font-size:.95rem;line-height:1.3}
+.l42 .t small{display:block;font-size:.78rem;color:var(--faint);margin-top:.05rem}
+.l42 .r{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.l42 .r.hot{color:#ffb3ad}.l42 .r.gold{color:var(--gold-bright)}
+a.l42:hover .t{color:var(--gold-bright)}
+/* the progress line */
+.prog{height:7px;border-radius:999px;background:rgba(244,241,234,.08);overflow:hidden;margin:.3rem 0}
+.prog .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),#C8372D)}
+.prog.ok .fill{background:linear-gradient(90deg,var(--gold),var(--emerald))}
+.prog-row{display:grid;grid-template-columns:minmax(0,1fr) 3.2rem;align-items:center;gap:.6rem;padding:.3rem 0}
+.prog-row .t{font-size:.92rem;color:var(--ivory);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog-row .t small{color:var(--faint);font-size:.76rem;margin-left:.4rem}
+.prog-row .pct{font-family:var(--mono);font-size:.74rem;color:var(--gold-bright);text-align:right}
+.prog-row .prog{grid-column:1 / -1;margin:0 0 .15rem}
+/* the project bar and the tiles */
+.pbar42{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .8rem;margin:.2rem 0 .9rem;padding:.6rem .9rem;border:1px solid rgba(201,162,39,.22);border-radius:10px;background:rgba(255,255,255,.02)}
+.pbar42 .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.pbar42 select{min-height:36px;padding:.2rem .6rem;font-size:.92rem;max-width:26rem}
+.pbar42 .pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.tiles42{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.7rem;margin:.3rem 0 1rem}
+.tile42{border:1px solid rgba(201,162,39,.2);border-radius:12px;background:var(--panel);padding:.75rem .9rem;text-decoration:none;color:inherit;display:block;min-width:0}
+a.tile42:hover{border-color:rgba(201,162,39,.5)}
+.tile42 .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.tile42 .v{font-family:var(--display);font-size:1.15rem;color:var(--ivory);margin:.3rem 0 .1rem;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tile42 .v.num{font-size:1.7rem;color:var(--gold-bright)}
+.tile42 .s{font-size:.78rem;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* the start row and the quick actions */
+.start42{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin:.4rem 0 1rem}
+.start42 a{display:flex;align-items:center;gap:.6rem;padding:.8rem .9rem;border:1px solid rgba(201,162,39,.25);border-radius:10px;background:var(--panel);color:var(--ivory);text-decoration:none;font-size:.95rem}
+.start42 a:hover{border-color:var(--gold);background:rgba(201,162,39,.08)}
+.start42 .ic{width:1.9rem;height:1.9rem;border-radius:8px;background:rgba(75,46,131,.45);display:flex;align-items:center;justify-content:center;font-size:1rem;flex:none}
+body.look42 .film-chips{margin:.2rem 0 .8rem}
+body.look42 .chip{font-size:.84rem;padding:.25rem .8rem}
+/* people and presence */
+.pres{display:flex;align-items:center;gap:.6rem;padding:.4rem 0;border-bottom:1px solid rgba(244,241,234,.06)}
+.pres:last-child{border-bottom:0}
+.pres .avatar{margin:0;width:30px;height:30px;font-size:.8rem}
+.pres .n{flex:1;min-width:0;font-size:.93rem;color:var(--ivory)}
+.pres .n small{display:block;font-size:.76rem;color:var(--faint)}
+.pres .st{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.pres .st.on{color:#7fd48b}
+.cred{font-size:.9rem;color:var(--muted);padding:.3rem 0;border-bottom:1px solid rgba(244,241,234,.06)}
+.cred b{color:var(--ivory);font-weight:500}
+.cred:last-child{border-bottom:0}
+/* project cards */
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.9rem;margin:.5rem 0 1rem}
+.pcard{border:1px solid rgba(201,162,39,.28);border-radius:14px;background:var(--panel);overflow:hidden;display:flex;flex-direction:column;transition:.16s}
+.pcard:hover{border-color:rgba(201,162,39,.55);transform:translateY(-1px)}
+.pc-band{padding:.8rem 1.05rem;background:linear-gradient(135deg,rgba(200,55,45,.35),rgba(75,46,131,.35));font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory);display:flex;justify-content:space-between;gap:.5rem;min-height:3.6rem;align-items:flex-end}
+.pcard.k-writing .pc-band{background:linear-gradient(135deg,rgba(122,92,224,.45),rgba(201,162,39,.25))}
+.pcard.k-document .pc-band,.pcard.k-correction .pc-band{background:linear-gradient(135deg,rgba(91,139,208,.4),rgba(75,46,131,.3))}
+.pcard.k-proposal .pc-band{background:linear-gradient(135deg,rgba(198,160,74,.45),rgba(75,46,131,.3))}
+.pcard.k-production .pc-band,.pcard.k-commission .pc-band{background:linear-gradient(135deg,rgba(200,55,45,.4),rgba(198,160,74,.3))}
+.pc-body{padding:.85rem 1.05rem 1rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.pc-title{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+.pc-title a{font-family:var(--display);font-size:1.2rem;color:var(--ivory);text-decoration:none;line-height:1.2}
+.pc-title a:hover{color:var(--gold-bright)}
+.pc-log{font-size:.9rem;color:var(--muted);line-height:1.45;margin:0 0 .2rem}
+.pc-pairs{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.2rem .9rem;font-size:.86rem;margin:.2rem 0}
+.pc-pairs dt{color:var(--faint);margin:0}
+.pc-pairs dd{margin:0;color:var(--ivory);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-pairs dd .pill{margin-left:.3rem}
+.pc-chips{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0 .5rem}
+.pc-acts{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:auto}
+body.look42 .pc-acts .act{min-height:2.2rem;padding:.25rem .8rem;font-size:.88rem}
+/* the workspace: tiles, tabs, panels */
+.wtiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin:.2rem 0 .9rem}
+.wtabs{display:flex;flex-wrap:wrap;gap:.35rem;margin:.2rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(201,162,39,.2)}
+.wtab{border:1px solid rgba(201,162,39,.25);border-radius:999px;padding:.35rem .9rem;background:transparent;color:var(--muted);font-family:var(--body);font-size:.9rem;cursor:pointer;min-height:0;display:inline-flex;align-items:center;gap:.4rem}
+.wtab .n{font-family:var(--mono);font-size:.64rem;padding:0 .4rem;border-radius:999px;border:1px solid rgba(201,162,39,.35);color:var(--gold)}
+.wtab:hover{color:var(--ivory);border-color:rgba(201,162,39,.5)}
+.wtab.on{background:var(--gold);color:#0B0B0F;border-color:var(--gold);font-weight:600}
+.wtab.on .n{color:#0B0B0F;border-color:rgba(0,0,0,.3)}
+.wpanel[hidden]{display:none}
+.wpanel > h2:first-child{margin-top:.4rem}
+.wpanel .say{margin-bottom:.8rem}
+.path42{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.4rem;margin:.5rem 0 1rem}
+.path42 .step{border:1px solid rgba(244,241,234,.1);border-radius:8px;padding:.5rem .6rem;font-size:.82rem;color:var(--faint);text-align:center}
+.path42 .step.done{border-color:rgba(63,163,77,.5);color:#9fdba7}
+.path42 .step.now{border-color:var(--gold-bright);color:var(--ivory);background:rgba(201,162,39,.12);font-weight:600}
+.wtext{white-space:pre-wrap;font-family:var(--mono);font-size:.84rem;line-height:1.6;max-height:18rem;overflow:auto;border:1px solid rgba(201,162,39,.2);border-radius:10px;padding:.8rem 1rem;background:#0F0E15;color:var(--ivory)}
+/* the story desk's gallery and library */
+.sd-hero{border:1px solid rgba(201,162,39,.4);border-radius:14px;padding:1.1rem 1.4rem;margin:0 0 1rem;background:linear-gradient(135deg,rgba(201,162,39,.16),rgba(75,46,131,.18) 70%)}
+.sd-hero h2{margin:0;font-family:var(--display);font-size:1.6rem;color:var(--gold-bright);display:flex;gap:.5rem;align-items:center}
+.sd-hero p{margin:.4rem 0 0;color:var(--muted);font-size:.95rem;max-width:80ch}
+.tworld{margin:1rem 0 .4rem;display:flex;align-items:baseline;justify-content:space-between;gap:.6rem}
+.tworld h3{margin:0;font-family:var(--display);font-size:1.15rem;font-weight:500;color:var(--ivory)}
+.tworld .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.tgal{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:.6rem;margin:.2rem 0 .4rem}
+.ttile{border:1px solid rgba(201,162,39,.22);border-radius:12px;background:var(--panel);padding:.9rem .5rem .7rem;text-align:center;cursor:pointer;color:var(--ivory);font-family:var(--body);font-size:.88rem;line-height:1.2;transition:.14s;min-height:0;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.ttile:hover,.ttile:focus-visible{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,162,39,.14),var(--panel));transform:translateY(-1px);outline:none}
+.ttile .ic{font-size:1.7rem;line-height:1}
+.ttile small{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.tgal.film .ttile{border-color:rgba(200,55,45,.3)}.tgal.television .ttile{border-color:rgba(91,139,208,.35)}.tgal.animation .ttile{border-color:rgba(122,92,224,.4)}.tgal.writing-and-literature .ttile{border-color:rgba(201,162,39,.3)}
+.lib-tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.3rem 0 .6rem}
+.lib-tools input{flex:1 1 14rem;min-height:38px}
+.doccards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.8rem;margin:.4rem 0 1rem}
+.doccard{border:1px solid rgba(201,162,39,.25);border-radius:12px;background:linear-gradient(135deg,rgba(122,92,224,.1),var(--panel) 60%);padding:.9rem 1.05rem;display:flex;flex-direction:column;gap:.3rem}
+.doccard .dc-top{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem}
+.doccard .dc-top b{font-family:var(--display);font-size:1.12rem;font-weight:500;color:var(--ivory);line-height:1.2}
+.doccard .pc-pairs{font-size:.84rem}
+.doccard .pc-acts{margin-top:.4rem}
+/* phones */
+@media (max-width:760px){.grid42,.grid42.three{grid-template-columns:1fr}.path42{grid-template-columns:repeat(2,minmax(0,1fr))}.pcards,.doccards{grid-template-columns:1fr}body.look42 h1{font-size:1.6rem}.pbar42 select{max-width:100%}}
+.p42-head h3,.tworld h3,.doccard .dc-top b{text-transform:none;letter-spacing:.01em}
+body.look42 .deadline-band{padding:.7rem 1.1rem}body.look42 .deadline-band .dl-title{font-size:1.2rem}body.look42 .deadline-band .dl-count{font-size:1.3rem}
+@media (max-width:760px){.tworld{flex-wrap:wrap}.tworld h3{font-size:1.05rem}.p42-open{white-space:normal;font-size:.64rem}.pbar42 .pills{width:100%}.tiles42{grid-template-columns:repeat(2,minmax(0,1fr))}.wtiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile42 .v{white-space:normal;font-size:1.02rem}.start42{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -493,7 +650,7 @@ body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40
 <div class="frame">
   <aside class="rail" id="rail" aria-label="Sections">
     <a class="brand" href="#/home">House of Worlds<small>Team Portal</small></a>
-    <p class="ver">Version 36.2</p>
+    <p class="ver">Version 37.0</p>
     <nav id="nav" aria-label="Portal sections"></nav>
     <div class="who" id="who"></div>
   </aside>
@@ -503,7 +660,7 @@ body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40
 
 <script>
 /* ---------------------------------------------------------------------
-   House of Worlds - Team Portal v36.2 (5 October 2026)
+   House of Worlds - Team Portal v37.0 (5 October 2026)
    One file, on the live House. A member signs in with the House's own
    sign-in service; what they see afterwards is decided by the House's
    records (Database Steps 28-38: house_team_* functions), never by this page.
@@ -686,7 +843,7 @@ var CFG = null, SESSION = null, ME = null, OV = null, PORTAL = null;
 var ALLOWED = /^(house_team_[a-z_]+|house_my_assignments|house_assignment_act|house_assignment_actions|house_assignment_transitions|house_source_upload_begin|house_source_upload_finalize|house_client_me|house_public_doors|house_public_rooms|house_public_titles|house_founder_eyes_people|house_founder_through_eyes|house_founder_declared)$/;
 
 function headers(auth, json){
-  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/36.2" };
+  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/37.0" };
   if (json !== false) h["Content-Type"] = "application/json";
   if (auth && SESSION && SESSION.access_token) h["Authorization"] = "Bearer " + SESSION.access_token;
   return h;
@@ -791,14 +948,13 @@ function signInPanel(message, kind){
   box.appendChild(el("p", "lede", "Use the email address the House invited. What you see afterwards is decided by the House's records, not by this page."));
   if (message) box.appendChild(say(kind || "ask", kind === "no" ? "That did not work" : "Before you begin", message));
   var email = field(box, "House of Worlds email address", "s-email", "email", ""); email.autocomplete = "username";
-  var who = signInWho(box);
   var pass = password(box, "Password", "s-pass", "current-password");
   var said = el("div"); said.setAttribute("aria-live", "polite"); var acts = el("div", "actions");
   var go = el("button", "act", "Enter the House"); go.type = "button";
   function submit(){
-    if (!email.value.trim() || !pass.value || !who.ok()) { said.replaceChildren(say("no", "All four are needed", "Enter your House of Worlds email address, choose your department and your job title, and enter your password.")); return; }
+    if (!email.value.trim() || !pass.value) { said.replaceChildren(say("no", "Both are needed", "Enter the email address and the password.")); return; }
     go.disabled = true; said.replaceChildren(say("busy", "Signing in", "Asking the House…"));
-    authCall("POST", "/auth/v1/token?grant_type=password", { email:email.value.trim(), password:pass.value }).then(function (j){ saveSession(j); pass.value = ""; DECLARE_PENDING = who.value(); enter(); })
+    authCall("POST", "/auth/v1/token?grant_type=password", { email:email.value.trim(), password:pass.value }).then(function (j){ saveSession(j); pass.value = ""; enter(); })
       .catch(function (e){ go.disabled = false; said.replaceChildren(say("no", "Not signed in", /invalid/i.test(String(e.message)) ? "The email or password is not right." : explain(e, e.status || 0))); });
   }
   go.addEventListener("click", submit);
@@ -1516,7 +1672,7 @@ function viewHelp(){
   try { main.focus({ preventScroll:true }); window.scrollTo(0, 0); } catch (e) {}
 }
 var PRIVACY = [
-  ["What this portal keeps about you", "Your name as the House recorded it, your email address, the roles the House gave you, and what you do here: the work you make and every version of it, what you write on the Story Desk, the sources you attach, the reviews you write, each action you take on an assignment, the events, trips and time off that concern you, and the signals you send and read, each with the time. The department and job title you choose at sign-in are kept on your record for the Founder and shown to colleagues as the title you signed in under; they open nothing by themselves. These are the House's working record and are kept as part of it."],
+  ["What this portal keeps about you", "Your name as the House recorded it, your email address, the roles the House gave you, and what you do here: the work you make and every version of it, what you write on the Story Desk, the sources you attach, the reviews you write, each action you take on an assignment, the events, trips and time off that concern you, and the signals you send and read, each with the time. The job title you choose from the catalogue after sign-in is kept on your record for the Founder and shown to colleagues beside your name; it opens nothing by itself and changes neither your assigned role nor your department. These are the House's working record and are kept as part of it."],
   ["Where it is kept", "In the House's own database, run on Supabase, in the United States. This browser keeps a few things of its own, none of them sent anywhere: your session, until you sign out or thirty minutes pass without a touch; the time of your last touch, for that timer; a copy of what you type on the Story Desk, kept only until the House has saved it and then dropped; your choice of calendar view; and whether you have seen the walk-through. On a shared device the session and the desk copy are dropped when the tab closes. No password is ever kept on this device."],
   ["Who reads it", "The Founder, from her dashboard or from her Founder view in this portal; the team lead of the world your work belongs to; and you. A colleague sees your name, your roles and the worlds you work in, not your work. The Founder's view of a member is a summary of what this portal shows them (figures, work, review queue, client requests, service queue, notices), read-only; every such look is on the record."],
   ["Email from the House", "The sign-in service sends you an invitation and, when you ask, a password reset. When the House's mail is on, the House sends you one line when work is returned to you, decided, handed to your service or assigned to you; when you are asked to an event or a deadline is shared into your world; when an announcement is made; and, if you lead a world, when a client writes in it. Such a line names the piece and points you to this desk; it never carries the work itself, a decision's reasons, a client's words, or anything about a world under seal."],
@@ -1596,7 +1752,8 @@ function route(){
   var parts = String(location.hash || "").replace(/^#\/?/, "").split("#")[0].split("?")[0].split("/");
   var v = parts[0];
   if (ME && ME.founder) { if (v === "help") viewHelp(); else if (v === "privacy") viewPrivacy(); else if (v === "terms") viewTerms(); else viewFounderView(); return; }
-  if (v === "lead") viewLeadOverview();
+  if (v === "welcome" && typeof viewWelcome === "function") viewWelcome();
+  else  if (v === "lead") viewLeadOverview();
   else if (v === "signals" && parts[1]) viewSignal(decodeURIComponent(parts[1]));
   else if (v === "signals") viewSignals();
   else if (v === "calendar" && parts[1]) viewEvent(decodeURIComponent(parts[1]));
@@ -1699,7 +1856,7 @@ function enter(){
     try { entering.querySelector("span").textContent = "Reading your desk…"; } catch (e) {}
     Promise.all([refreshOverview(), loadKinds(), (typeof declareOnEnter === "function" ? declareOnEnter() : null)]).then(function (){
       if (!DESK) { main.replaceChildren(); refusal("The threshold", "Your desk could not be read", "You are signed in and the House knows your role, but your desk did not come back. This is a loading fault, not an empty desk.", null); var again = el("div", "actions"); again.appendChild(button("", "Try again", enter)); main.insertBefore(again, main.querySelector(".actions")); return; }
-      if (!/^#\/[a-z]/.test(location.hash || "")) { try { history.replaceState(null, "", location.pathname + location.search + (ME.isLead ? "#/lead" : "#/home")); } catch (e) { location.hash = ME.isLead ? "#/lead" : "#/home"; } }
+      if (!/^#\/[a-z]/.test(location.hash || "")) { try { history.replaceState(null, "", location.pathname + location.search + (typeof landingHash === "function" ? landingHash() : "#/home")); } catch (e) { location.hash = ME.isLead ? "#/lead" : "#/home"; } }
       route();
     });
   });
@@ -3520,75 +3677,370 @@ setTimeout(function (){
 }, 0);
 var _paintNav41b = paintNav;
 paintNav = function (current){ _paintNav41b(current); if (RAIL_SHUT) RAIL_SHUT(false); };
-/* ---- v36.2: the threshold asks for a department and a job title; the catalog is called by its name ----
-   At sign-in a member gives their House of Worlds email address, their department (one of the catalog's fifteen groups),
-   their job title (the titles of that group, read from the House before sign-in: titles only, no person, no sealed world)
-   and their password. What they chose is kept on their own member record for the Founder (Database Step 54) and shown
-   on their desk beside the title the Founder recorded, if any. It opens nothing by itself: what a member can see and do
-   is decided by the House's roles, as before. */
-var TITLES_PUBLIC = null, DECLARE_PENDING = null;
+/* ---- v37: who you are, confirmed after sign-in ----
+   Sign-in is the House email and the password. On first arrival a member meets a welcome page: what the House recorded
+   for them (assigned role, department, the working title the Founder set) and a picker for the job title that names
+   their work, from the catalogue (Steps 34/35). The choice is kept on their own member record (Step 54) and can be
+   changed under Your account. Four things are kept apart and labelled apart: the assigned role (decides access), the
+   department (comes with the role), the working title (the Founder's record), the job title (the member's own word
+   from the catalogue). The catalogue's fifteen groups are groupings of titles, not departments. */
+var TITLES_PUBLIC = null, TITLE_STATE = { declared:null, recorded:null, matches:false, say:"" };
+function cleanName(n){ return String(n || "").replace(/\(Example\)\s*/, ""); }
 function loadPublicTitles(){
   if (TITLES_PUBLIC) return Promise.resolve(TITLES_PUBLIC);
   return rpc("house_public_titles").then(function (r){ TITLES_PUBLIC = (r.ok && r.data && r.data.ok) ? r.data : null; return TITLES_PUBLIC; }).catch(function (){ return null; });
 }
-function signInWho(box){
-  var g = select(box, "Department", "s-dept", [["", "Reading the departments…"]], ""); g.disabled = true;
-  var t = select(box, "Job title", "s-title", [["", "Choose the department first"]], ""); t.disabled = true;
-  var note = el("p", "fine", "Choose the department you work in, then your job title from its list. Both are kept on your own record for the Founder; what you can open is decided by the House's record, not by this choice.");
-  box.appendChild(note);
-  function fillTitles(){
-    var gk = g.value; t.replaceChildren(); var o0 = document.createElement("option"); o0.value = ""; o0.textContent = gk ? "Choose your job title…" : "Choose the department first"; t.appendChild(o0);
+function applyDeclared(d){ TITLE_STATE = { declared:d.declared || null, recorded:d.recorded || null, matches:!!d.matches, say:d.say || "" }; }
+function declareOnEnter(){
+  if (!ME || !ME.desk) return Promise.resolve();
+  return rpc("house_team_declare", { p_group:null, p_function:null }).then(function (r){ if (r.ok && r.data && r.data.ok) applyDeclared(r.data); }).catch(function (){});
+}
+function welcomeSkipped(){ try { return sessionStorage.getItem("how.team.welcome.skip") === "1"; } catch (e) { return false; } }
+function landingHash(){ return (ME && ME.desk && !TITLE_STATE.declared && !welcomeSkipped()) ? "#/welcome" : "#/home"; }
+function roleLines(){ return ((ME && ME.roles) || []).map(function (r){ return roleWords(r.role) + " · " + (r.world ? worldName(r.world) : "every world") + (r.department ? " · " + words(r.department) : ""); }); }
+function departmentWords(){ var ds = ((ME && ME.roles) || []).map(function (r){ return r.department; }).filter(Boolean).map(words).filter(function (x, i, a){ return a.indexOf(x) === i; }); return ds.length ? ds.join(", ") : null; }
+/* what the House recorded: the four things, apart */
+function recordPanel(host){
+  var p = el("div", "panel tp-record"); p.appendChild(el("h3", null, "Your record at the House"));
+  var dl = el("dl", "pairs"); function pair(k, v){ dl.appendChild(el("dt", null, k)); dl.appendChild(el("dd", null, v)); }
+  pair("Name", ME.name || ""); pair("House email", ME.email || ((SESSION && SESSION.user && SESSION.user.email) || ""));
+  var rl = roleLines(); pair(rl.length === 1 ? "Assigned role" : "Assigned roles", rl.join(" / ") || "none"); pair("Department", departmentWords() || "none named on your assigned roles");
+  var rec = TITLE_STATE.recorded || {}; pair("Working title (recorded by the Founder)", rec.workingTitle || "not yet recorded"); if (rec.employmentType) pair("Employment type", words(rec.employmentType));
+  var d = TITLE_STATE.declared; pair("Job title (your choice from the catalogue)", d ? d.title + " · " + (d.groupName || "") : "not yet chosen");
+  p.appendChild(dl);
+  p.appendChild(el("p", "fine", "Your assigned role decides what you can open; your department comes with it. The working title is the Founder's record of you. The job title is your own word, from the catalogue. The four are kept apart; choosing a title changes none of the others."));
+  host.appendChild(p); return p;
+}
+/* the picker: the catalogue group, then the title; prefilled from the Founder's working title when the catalogue has it */
+function titlePicker(host, after){
+  var box = el("div", "panel decide tp-pick"); box.appendChild(el("h3", null, TITLE_STATE.declared ? "Change your job title" : "Choose your job title"));
+  box.appendChild(el("p", "lede", "Pick the catalogue title that names your work. The catalogue's fifteen groups are groupings of titles, not departments."));
+  var g = select(box, "Catalogue group", "tp-group", [["", "Reading the catalogue…"]], ""); g.disabled = true;
+  var t = select(box, "Job title", "tp-title", [["", "Choose the catalogue group first"]], ""); t.disabled = true;
+  var said = el("div"); said.setAttribute("aria-live", "polite"); var acts = el("div", "actions");
+  function fillTitles(keep){
+    var gk = g.value; t.replaceChildren(); var o0 = document.createElement("option"); o0.value = ""; o0.textContent = gk ? "Choose your job title…" : "Choose the catalogue group first"; t.appendChild(o0);
     if (!gk || !TITLES_PUBLIC) { t.disabled = true; return; }
     (TITLES_PUBLIC.titles || []).filter(function (x){ return x.group === gk; }).sort(function (a, b){ return a.title.localeCompare(b.title); }).forEach(function (x){ var o = document.createElement("option"); o.value = x.id; o.textContent = x.title; t.appendChild(o); });
-    t.disabled = false;
+    t.disabled = false; if (keep) t.value = keep;
   }
   loadPublicTitles().then(function (P){
     g.replaceChildren(); var o0 = document.createElement("option"); o0.value = ""; g.appendChild(o0);
-    if (!P || !(P.groups || []).length) { o0.textContent = "The departments could not be read"; g.disabled = true; t.disabled = true; note.textContent = "The House's list of departments could not be read just now. You can still sign in; choose your title afterwards under Job titles."; return; }
-    o0.textContent = "Choose your department…"; g.disabled = false;
+    if (!P || !(P.groups || []).length) { o0.textContent = "The catalogue could not be read"; g.disabled = true; said.replaceChildren(say("no", "Not readable just now", "The catalogue did not come back from the House. Try again later from Your account.")); return; }
+    o0.textContent = "Choose the catalogue group…"; g.disabled = false;
     P.groups.forEach(function (x){ var o = document.createElement("option"); o.value = x.key; o.textContent = (x.letter ? x.letter + " · " : "") + x.name; g.appendChild(o); });
+    var cur = TITLE_STATE.declared, rec = TITLE_STATE.recorded && TITLE_STATE.recorded.workingTitle, pre = cur ? { group:cur.group, func:cur["function"] } : null;
+    if (!pre && rec) { var m = (P.titles || []).filter(function (x){ return x.title.toLowerCase() === String(rec).toLowerCase(); })[0]; if (m) { pre = { group:m.group, func:m.id }; said.replaceChildren(say("", "Matched to your recorded title", "The Founder recorded you as " + rec + " and the catalogue has that title, so it is chosen for you. Change it if your work is named otherwise.")); } }
+    if (pre) { g.value = pre.group; fillTitles(pre.func); }
   });
-  g.addEventListener("change", fillTitles);
-  return { group:g, title:t,
-    ok:function (){ return !!(g.disabled || (g.value && t.value)); },
-    value:function (){ return (g.value && t.value) ? { group:g.value, func:t.value } : null; } };
+  g.addEventListener("change", function (){ fillTitles(null); });
+  var go = button("", "Confirm this title", function (){
+    if (!(g.value && t.value)) { said.replaceChildren(say("no", "Choose both", "The catalogue group, then the job title.")); return; }
+    go.disabled = true; said.replaceChildren(say("busy", "Keeping", "Asking the House…"));
+    act("house_team_declare", { p_group:g.value, p_function:t.value }).then(function (res){ go.disabled = false; if (!res.ok) { said.replaceChildren(say("no", "Not kept", res.say)); return; } applyDeclared(res.data); status(res.data.say || "Kept on your record."); if (after) after(res.data); else said.replaceChildren(say("ok", "Kept", "Job title: " + (TITLE_STATE.declared ? TITLE_STATE.declared.title : "") + ". " + (res.data.say || ""))); });
+  });
+  acts.appendChild(go); box.appendChild(acts); box.appendChild(said); host.appendChild(box); return box;
 }
-/* on arrival: the choice made at the threshold is recorded (or, with none, the record is read) */
-function declareOnEnter(){
-  var p = DECLARE_PENDING; DECLARE_PENDING = null;
-  if (!ME || !ME.desk) return Promise.resolve();
-  return rpc("house_team_declare", p ? { p_group:p.group, p_function:p.func } : { p_group:null, p_function:null }).then(function (r){
-    if (r.ok && r.data && r.data.ok) { ME.declared = r.data.declared || null; ME.recorded = r.data.recorded || null; ME.declaredMatches = !!r.data.matches; ME.declaredSay = r.data.say || ""; }
-    else if (p && r.data && r.data.say) status(r.data.say);
-  }).catch(function (){});
+/* the welcome page: first arrival, before the desk */
+function viewWelcome(){
+  if (!ME || !ME.desk) { location.hash = "#/home"; return; }
+  var host = el("div"); main.replaceChildren(host); paintNav("home");
+  head(host, "The threshold", "Welcome, " + cleanName(ME.name), "Before your desk: confirm who you are. Below is what the House recorded for you; choose the job title that names your work. You can change it later under Your account.");
+  document.title = "Welcome — House of Worlds";
+  recordPanel(host);
+  titlePicker(host, function (){ location.hash = "#/home"; });
+  var acts = el("div", "actions"); acts.appendChild(button("ghost", "Not now, open my desk", function (){ try { sessionStorage.setItem("how.team.welcome.skip", "1"); } catch (e) {} location.hash = "#/home"; })); host.appendChild(acts);
+  try { main.focus({ preventScroll:true }); window.scrollTo(0, 0); } catch (e) {}
 }
+/* the line under the welcome band */
 function declaredLine(){
   if (!ME || !ME.desk) return null;
-  var d = ME.declared, rec = ME.recorded || {}; if (!d && !rec.workingTitle) return null;
-  var s = el("div", "declared-line");
-  if (d) { s.appendChild(el("b", null, "Signed in as " + d.title)); s.appendChild(document.createTextNode(" · " + (d.groupName || "") + ". ")); }
-  if (rec.workingTitle) s.appendChild(document.createTextNode("The House records you as " + rec.workingTitle + (d ? (ME.declaredMatches ? ", which matches. " : "; your choice is kept beside it for the Founder. ") : ". ")));
-  else if (d) s.appendChild(document.createTextNode("The Founder has not yet recorded a title for you; your choice is kept on your record for her. "));
-  var a = el("a", null, "Every job title"); a.href = "#/roles"; s.appendChild(a);
+  var d = TITLE_STATE.declared, rec = TITLE_STATE.recorded || {}; var s = el("div", "declared-line");
+  if (d) { s.appendChild(el("b", null, "Job title: " + d.title)); s.appendChild(document.createTextNode(" (" + (d.groupName || "") + ")")); }
+  else { s.appendChild(el("b", null, "No job title chosen yet")); }
+  s.appendChild(document.createTextNode(" · Working title recorded by the Founder: " + (rec.workingTitle ? rec.workingTitle + (d ? (TITLE_STATE.matches ? ", which matches" : ", which differs") : "") : "none yet") + " · "));
+  var a = el("a", null, d ? "Change it under Your account" : "Choose it under Your account"); a.href = "#/account"; s.appendChild(a);
   return s;
 }
 var _heroBand43 = heroBand;
 heroBand = function (body, mark, sub, tone){ var h = _heroBand43(body, mark, sub, tone); try { if (/Welcome back/.test(String(mark))) { var l = declaredLine(); if (l) h.appendChild(l); } } catch (e) {} return h; };
-/* the titles people hold, beside their names: on People and Credits for members, on the Founder view for her */
+/* beside each name: the working title (the Founder's) and the job title (their own) */
 function annotateTitles(body, list, founder){
   (list || []).forEach(function (p){
-    var words = []; if (p.workingTitle) words.push((founder ? "recorded as " : "") + p.workingTitle); if (p.declaredTitle) words.push("signed in as " + p.declaredTitle + (p.declaredGroupName ? " (" + p.declaredGroupName + ")" : "") + (founder && p.workingTitle && !p.matches ? ", which differs" : ""));
-    if (!words.length) return;
-    body.querySelectorAll(".row .w, .fv-world .nm, .pres .n, .hd-head h3").forEach(function (n){ var nm = (n.childNodes[0] && n.childNodes[0].textContent || n.textContent).replace(/\s*\(you\)\s*$/, "").trim(); if (nm !== p.name) return; var host = n.tagName === "H3" ? n.parentNode : n; if (host.parentNode.querySelector(".declared-note")) return; var m = el("div", "fine declared-note", words.join(" · ")); host.parentNode.insertBefore(m, host.nextSibling); });
+    var words2 = []; if (p.workingTitle) words2.push("working title: " + p.workingTitle); if (p.declaredTitle) words2.push("job title: " + p.declaredTitle + (p.declaredGroupName ? " (" + p.declaredGroupName + ")" : "")); if (founder && p.workingTitle && p.declaredTitle) words2.push(p.matches ? "matches" : "differs");
+    if (!words2.length) return;
+    body.querySelectorAll(".row .w, .fv-world .nm, .pres .n, .hd-head h3").forEach(function (n){ var nm = (n.childNodes[0] && n.childNodes[0].textContent || n.textContent).replace(/\s*\(you\)\s*$/, "").trim(); if (nm !== p.name) return; var host = n.tagName === "H3" ? n.parentNode : n; if (host.parentNode.querySelector(".declared-note")) return; var m = el("div", "fine declared-note", words2.join(" · ")); host.parentNode.insertBefore(m, host.nextSibling); });
   });
+}
+/* the Founder's table: recorded, declared, and the differences, in one place */
+function founderTitlesPanel(body, declared, people){
+  var sec = el("section", "panel tt42-wrap"); sec.appendChild(el("h2", null, "🎭 Job titles: recorded, declared, and the differences"));
+  sec.appendChild(el("p", "lede", "For each member: the roles you assigned (these decide access), the working title you recorded, and the job title they chose from the catalogue. A member's choice is their own word; it grants nothing. Set the working title from People in your dashboard."));
+  var rows = declared || [], byId = {}; (people || []).forEach(function (p){ byId[p.userId] = p; });
+  var c = { match:0, differ:0, declaredOnly:0, recordedOnly:0, neither:0 };
+  rows.forEach(function (p){ if (p.workingTitle && p.declaredTitle) { if (p.matches) c.match++; else c.differ++; } else if (p.declaredTitle) c.declaredOnly++; else if (p.workingTitle) c.recordedOnly++; else c.neither++; });
+  var chips = el("div", "film-chips"); [["matches", c.match], ["differ", c.differ], ["chosen, none recorded", c.declaredOnly], ["recorded, none chosen", c.recordedOnly], ["neither yet", c.neither]].forEach(function (x){ chips.appendChild(el("span", "chip" + (x[0] === "differ" && x[1] ? " on" : ""), x[1] + " " + x[0])); }); sec.appendChild(chips);
+  if (!rows.length) sec.appendChild(say("", "Nobody holds a role yet", "Members appear here as the House gives them roles."));
+  else {
+    var tb = el("table", "tt42"); var thead = el("thead"); var tr = el("tr"); ["Member", "Assigned roles", "Working title (yours)", "Job title (theirs)", "State"].forEach(function (h){ tr.appendChild(el("th", null, h)); }); thead.appendChild(tr); tb.appendChild(thead);
+    var tbody = el("tbody");
+    rows.forEach(function (p){ var r = el("tr"); var pp = byId[p.userId] || {}; var state = p.workingTitle && p.declaredTitle ? (p.matches ? "matches" : "differs") : p.declaredTitle ? "chosen; none recorded" : p.workingTitle ? "recorded; none chosen" : "neither yet";
+      r.className = state === "differs" ? "differs" : (state === "matches" ? "ok" : "");
+      r.appendChild(el("td", null, cleanName(p.name))); r.appendChild(el("td", null, ((pp.roles || []).map(function (x){ return roleWords(x.role) + " · " + (x.worldName || "every world") + (x.department ? " · " + words(x.department) : ""); }).join(" / ")) || "—"));
+      r.appendChild(el("td", null, p.workingTitle || "—")); r.appendChild(el("td", null, p.declaredTitle ? p.declaredTitle + (p.declaredGroupName ? " (" + p.declaredGroupName + ")" : "") : "—")); r.appendChild(el("td", "st", state)); tbody.appendChild(r); });
+    tb.appendChild(tbody); var wrap = el("div", "tt42-scroll"); wrap.appendChild(tb); sec.appendChild(wrap);
+  }
+  var anchor = body.querySelector("h2"); if (anchor) body.insertBefore(sec, anchor); else body.appendChild(sec);
 }
 var _view43 = view;
 view = function (key, kicker, title, lede, reads, draw, backTo){
   var reads2 = reads, draw2 = draw;
   if (key === "people" && reads.length === 1 && reads[0][0] === "house_team_people") { reads2 = reads.concat([["house_team_titles_held"]]); draw2 = function (body, d, again, host){ draw(body, d, again, host); try { annotateTitles(body, (d[1] && d[1].people) || [], false); } catch (e) {} }; }
-  if (key === "founder" && reads.length === 1 && reads[0][0] === "house_founder_eyes_people") { reads2 = reads.concat([["house_founder_declared"]]); draw2 = function (body, d, again, host){ draw(body, d, again, host); try { annotateTitles(body, (d[1] && d[1].people) || [], true); } catch (e) {} }; }
+  if (key === "founder" && reads.length === 1 && reads[0][0] === "house_founder_eyes_people") { reads2 = reads.concat([["house_founder_declared"]]); draw2 = function (body, d, again, host){ draw(body, d, again, host); try { var dp = (d[1] && d[1].people) || []; annotateTitles(body, dp, true); founderTitlesPanel(body, dp, (d[0] && d[0].people) || []); } catch (e) {} }; }
+  if (key === "account" && reads.length === 1 && reads[0][0] === "house_team_me") { draw2 = function (body, d, again, host){ var keep = ME ? { declared:TITLE_STATE.declared || null, recorded:TITLE_STATE.recorded || null, declaredMatches:!!TITLE_STATE.matches } : null; draw(body, d, again, host); try { if (ME && ME.desk) { if (keep) { TITLE_STATE.declared = keep.declared; TITLE_STATE.recorded = keep.recorded; TITLE_STATE.matches = keep.declaredMatches; } body.appendChild(el("h2", null, "🎭 Your job title")); recordPanel(body); titlePicker(body, function (){ viewAccount(); }); } } catch (e) {} }; }
   _view43(key, kicker, title, lede, reads2, draw2, backTo);
 };
+
+/* ---- v37 preview: the July prototype's composition, on the real portal (a demo-only layer, 5 October 2026) ----
+   The dashboard with its panels, the project cards, the tabbed project workspace, the Story Desk with its gallery,
+   the rail regrouped. Every figure is read from the House's functions as before; nothing here writes anything new.
+   What is derived (a progress figure from stage and standing) says so. */
+try { document.body.classList.add("look42"); } catch (e) {}
+var STAGES42 = ["research", "learn", "develop", "create", "produce", "experience", "publish", "archive", "preserve", "innovate"];
+var PEOPLE42 = null;
+function clean42(n){ return String(n || "").replace(/\(Example\)\s*/, ""); }
+function progressOf(w){
+  var st = { draft:10, returned:25, lead_review:45, founder_review:70, deferred:60, approved_internal:85, release_ready:92, published:100, archived:100, rejected:100 };
+  var base = st[w.status] != null ? st[w.status] : 20, si = STAGES42.indexOf(w.stage);
+  if (si >= 0 && /^(draft|returned|lead_review|founder_review|deferred)$/.test(w.status)) base = Math.max(base, Math.round(((si + 1) / 10) * 60));
+  return Math.min(100, base);
+}
+function phaseOf(w){ var si = STAGES42.indexOf(w.stage); return si >= 0 ? (typeof STAGE_WORDS !== "undefined" && STAGE_WORDS[w.stage] ? STAGE_WORDS[w.stage] : words(w.stage)) + " · " + (si + 1) + " of 10" : "Not yet placed"; }
+function leadOf(w){
+  var wn = worldName(w.worldKey, w.worldName); var ps = (PEOPLE42 && PEOPLE42.people) || [];
+  var p = ps.filter(function (x){ var fs = (x.functions || []).join(" "); return /team lead/i.test(fs) && (String(x.roles || "").indexOf(wn) >= 0 || /every world/i.test(String(x.roles || ""))); })[0];
+  return p ? p.name : null;
+}
+function activeOf(list){ return (list || []).filter(function (w){ return /^(draft|returned|lead_review|founder_review|deferred)$/.test(w.status); }); }
+function daysWords(at){ var d = Math.round((new Date(at) - Date.now()) / 86400000); return d < 0 ? Math.abs(d) + " day" + (Math.abs(d) === 1 ? "" : "s") + " past" : d === 0 ? "today" : d === 1 ? "tomorrow" : "in " + d + " days"; }
+/* panel pieces */
+function p42(body, title, tone, openHref, openText, pill){ var p = el("section", "panel42 tone-" + (tone || "gold")); var h = el("div", "p42-head"); var t = el("h3", null, title); if (pill != null) t.appendChild(el("span", "pill " + (pill ? "gold" : "faint"), String(pill))); h.appendChild(t); if (openHref) { var a = el("a", "p42-open", (openText || "Open") + " →"); a.href = openHref; h.appendChild(a); } p.appendChild(h); body.appendChild(p); return p; }
+function line42(host, dot, title, sub, right, rightTone, href){ var a = el(href ? "a" : "div", "l42"); if (href) a.href = href; a.appendChild(el("span", "dot" + (dot ? " " + dot : ""))); var t = el("span", "t", title); if (sub) t.appendChild(el("small", null, sub)); a.appendChild(t); if (right) a.appendChild(el("span", "r" + (rightTone ? " " + rightTone : ""), right)); host.appendChild(a); return a; }
+function empty42(host, text){ host.appendChild(el("p", "empty", text)); }
+function progRow(host, title, sub, pct, href){ var r = el("div", "prog-row"); var t = el(href ? "a" : "span", "t", title); if (href) { t.href = href; t.style.textDecoration = "none"; } if (sub) t.appendChild(el("small", null, sub)); r.appendChild(t); r.appendChild(el("span", "pct", pct + "%")); var pb = el("div", "prog" + (pct >= 85 ? " ok" : "")); pb.setAttribute("role", "progressbar"); pb.setAttribute("aria-valuenow", String(pct)); pb.setAttribute("aria-valuemin", "0"); pb.setAttribute("aria-valuemax", "100"); var f = el("div", "fill"); f.style.width = pct + "%"; pb.appendChild(f); r.appendChild(pb); host.appendChild(r); }
+function tiles42(body, items){ var g = el("div", "tiles42"); items.forEach(function (x){ var a = el(x[3] ? "a" : "div", "tile42"); if (x[3]) a.href = x[3]; a.appendChild(el("div", "k", x[0])); a.appendChild(el("div", "v" + (x[4] ? " num" : ""), String(x[1]))); if (x[2]) a.appendChild(el("div", "s", x[2])); g.appendChild(a); }); body.appendChild(g); return g; }
+function startRow(body, items){ var g = el("div", "start42"); items.forEach(function (x){ var a = el("a"); a.href = x[2]; a.appendChild(el("span", "ic", x[0])); a.appendChild(el("span", null, x[1])); g.appendChild(a); }); body.appendChild(g); }
+function presence(host, p, me2){ var r = el("div", "pres"); r.appendChild(el("span", "avatar", initials(p.name))); var n = el("span", "n", clean42(p.name) + (p.me || me2 ? " (you)" : "")); var fs = (p.functions && p.functions.length) ? p.functions.join(", ") : ((p.roles && p.roles.map) ? p.roles.map(function (x){ return roleWords(x.role); }).join(", ") : String(p.roles || "")); if (fs) n.appendChild(el("small", null, fs)); r.appendChild(n); var la = p.lastActive ? new Date(p.lastActive) : null; var st = la ? ((Date.now() - la) < 86400000 ? "active today" : "seen " + when(p.lastActive)) : ((p.credits && p.credits.length) ? p.credits.length + " credit" + (p.credits.length === 1 ? "" : "s") : "on the record"); r.appendChild(el("span", "st" + (la && (Date.now() - la) < 86400000 ? " on" : ""), st)); host.appendChild(r); }
+/* ---- the rail, regrouped as the July prototype grouped it ---- */
+var _VIEWS42 = VIEWS;
+VIEWS = function (){
+  if (ME && ME.founder) return _VIEWS42();
+  var intake = [["home", "Dashboard"], ["signals", "Signals"]];
+  if (ME && ME.isLead) { intake.unshift(["lead", "Overview"]); intake.push(["review", "To review"]); intake.push(["requests", "Client requests"]); }
+  intake.push(["assignments", "Assignments"]); if (typeof myAreas === "function" && myAreas().length) intake.push(["service", "Service queue"]);
+  return [["Live intake", intake],
+    ["Creative", [["work", "Projects and Work"], ["write", "Story Desk"], ["workspaces", "Workspaces"], ["crafts", "Craft rooms"], ["canvas", "World canvas"]]],
+    ["Production", [["calendar", "Calendar"], ["drive", "House Drive"], ["announcements", "Announcements"], ["travel", "Travel"], ["decisions", "Reviews and Decisions"], ["archive", "Archive"], ["analytics", "Analytics"]]],
+    ["People", [["people", "People and Credits"], ["pay", "My pay"], ["timeoff", "Time off"], ["record", "My record"], ["handbook", "Employee handbook"]]],
+    ["The House", [["worlds", "Worlds and Programs"], ["roles", "Job titles"], ["departments", "Departments and Handoffs"]]],
+    ["Help and policies", [["help", "How this works"], ["account", "Your account"], ["privacy", "Privacy and this portal"], ["terms", "Terms of use"]]]];
+};
+/* ---- the dashboard ---- */
+function viewHome(){
+  var to30 = new Date(Date.now() + 30 * 86400000).toISOString();
+  view("home", "Team Portal", "Command Home", null, [["house_team_desk"], ["house_team_signals", { p_box:"inbox" }], ["house_team_calendar", { p_world:null, p_from:new Date().toISOString(), p_to:to30 }], ["house_team_announcements", { p_world:null, p_unread_only:false }], ["house_team_drive", { p_world:null }], ["house_team_travel"], ["house_team_people"], ["house_team_lead_overview"]], function (body, d, again, host){
+    DESK = d[0]; ME = DESK.me || ME; OV = { needs: DESK.figures || {} }; var sig = d[1], cal = d[2], ann = d[3], drv = d[4], trv = d[5], lov = d[7]; PEOPLE42 = d[6]; SIGNALS_UNREAD = Number(sig.unread) || 0; paintNav("home");
+    var firstWorld = (((ME && ME.roles) || [])[0] || {}).world; var wn = firstWorld ? worldName(firstWorld) : "House of Worlds";
+    host.querySelector("h1").textContent = (ME && ME.isLead && firstWorld ? wn + " Workspace" : "Command Home"); host.querySelector(".kicker").textContent = "Team Portal · " + wn;
+    var f = DESK.figures || {}, mine = DESK.mine || [], active = activeOf(mine), toReview = DESK.toReview || [], asg = DESK.assignments || [], offers = asg.filter(offered);
+    var events = (cal.events || []).filter(function (e){ return !e.cancelled; }).sort(function (a, b){ return a.startsAt < b.startsAt ? -1 : 1; }), deadlines = (cal.deadlines || []).slice().sort(function (a, b){ return a.startsAt < b.startsAt ? -1 : 1; });
+    var files = (drv.files || []).slice().sort(function (a, b){ return (b.placedAt || "") < (a.placedAt || "") ? -1 : 1; }), trips = (trv.mine || []).concat(trv.world || []), inbox = sig.inbox || [], anns = ann.announcements || [];
+    var sub = el("span"); sub.appendChild(el("b", null, myTitleWords())); sub.appendChild(document.createTextNode(" · everything on this page is read from the House's record, just now. " + (ME && ME.isLead ? "Your world's full overview is under Overview." : "What needs your hand comes first.")));
+    heroBand(body, "🎬 Welcome back, " + clean42(ME && ME.name), sub);
+    if (typeof deadlineBand === "function") deadlineBand(body, deadlines);
+    /* the project bar: the piece in motion, its phase, its standing, its progress */
+    if (active.length) {
+      var bar = el("div", "pbar42"); bar.appendChild(el("span", "k", "Project")); var sel = document.createElement("select"); sel.setAttribute("aria-label", "Your projects");
+      active.forEach(function (w){ var o = document.createElement("option"); o.value = w.id; o.textContent = w.title; sel.appendChild(o); }); bar.appendChild(sel);
+      var pills = el("span", "pills"); bar.appendChild(pills);
+      function paintPills(){ var w = active.filter(function (x){ return x.id === sel.value; })[0] || active[0]; pills.replaceChildren(); pills.appendChild(el("span", "pill " + (statusCls(w.status) === "wait" ? "gold" : "faint"), statusWords(w.status))); pills.appendChild(el("span", "pill", phaseOf(w))); pills.appendChild(el("span", "pill", words(w.kind || "work") + " · " + progressOf(w) + "%")); var go = el("a", "p42-open", "Open workspace →"); go.href = "#/work/" + encodeURIComponent(w.id); pills.appendChild(go); }
+      sel.addEventListener("change", paintPills); paintPills(); body.appendChild(bar);
+    }
+    /* the tiles */
+    var nextDl = deadlines[0], nextEv = events.filter(function (e){ return e.kind !== "deadline"; })[0], lastFile = files[0], lastSig = inbox[0];
+    tiles42(body, [
+      ["Next deadline", nextDl ? daysWords(nextDl.startsAt) : "None", nextDl ? nextDl.title : "Nothing dated", nextDl ? "#/calendar/" + encodeURIComponent(nextDl.id) : "#/calendar"],
+      ["Next event", nextEv ? when(nextEv.startsAt) + " · " + timeAt(nextEv.startsAt) : "None", nextEv ? nextEv.title : "Nothing on the calendar", nextEv ? "#/calendar/" + encodeURIComponent(nextEv.id) : "#/calendar"],
+      ["Latest file", lastFile ? lastFile.label : "None", lastFile ? (lastFile.folder || "") + " · " + (lastFile.worldName || "") : "House Drive is empty", "#/drive"],
+      ["Latest signal", lastSig ? lastSig.subject : "Inbox clear", lastSig ? "from " + clean42(lastSig.from) : "", "#/signals"],
+      [ME && ME.isLead ? "Waiting on you" : "In review", ME && ME.isLead ? toReview.length : mine.filter(function (w){ return /_review$/.test(w.status); }).length, ME && ME.isLead ? "pieces to review" : "with the lead or the Founder", ME && ME.isLead ? "#/review" : "#/work?s=lead", true],
+      ["With the Founder", Number(f.withFounder) || 0, "pending packets", "#/work?s=founder", true]
+    ]);
+    /* the panels */
+    var g = el("div", "grid42"); body.appendChild(g);
+    var pri = p42(g, "Priority work", "rose", "#/work?s=you", "All your work"); var prio = mine.filter(function (w){ return /^(returned|draft)$/.test(w.status) || (w.dueAt && new Date(w.dueAt) < new Date(Date.now() + 7 * 86400000) && /_review$|^deferred$/.test(w.status)); }).sort(function (a, b){ return (a.status === "returned" ? 0 : 1) - (b.status === "returned" ? 0 : 1) || ((a.dueAt || "9") < (b.dueAt || "9") ? -1 : 1); });
+    if (!prio.length) empty42(pri, "Nothing is waiting on your hand."); prio.slice(0, 6).forEach(function (w){ line42(pri, w.status === "returned" ? "hot" : (w.dueAt && new Date(w.dueAt) < new Date() ? "hot" : ""), w.title, statusWords(w.status) + " · " + worldName(w.worldKey, w.worldName), w.dueAt ? when(w.dueAt) : "", w.dueAt && new Date(w.dueAt) < new Date(Date.now() + 2 * 86400000) ? "hot" : "", "#/work/" + encodeURIComponent(w.id)); });
+    if (offers.length) line42(pri, "cool", offers.length + " assignment" + (offers.length === 1 ? "" : "s") + " offered to you", "waiting for your acceptance", "", "", "#/assignments");
+    var rev = p42(g, ME && ME.isLead ? "Reviews waiting" : "Reviews and decisions", "gold", ME && ME.isLead ? "#/review" : "#/decisions", ME && ME.isLead ? "To review" : "All decisions", ME && ME.isLead ? toReview.length : null);
+    if (ME && ME.isLead) { if (!toReview.length) empty42(rev, "Nothing waits for your review."); toReview.slice(0, 5).forEach(function (w){ line42(rev, "", w.title, "from " + clean42(w.creatorName) + " · submitted " + whenAt(w.submittedAt), "review", "gold", "#/work/" + encodeURIComponent(w.id)); }); }
+    else { var dec = DESK.decisions || []; mine.filter(function (w){ return /_review$/.test(w.status); }).slice(0, 3).forEach(function (w){ line42(rev, "cool", w.title, statusWords(w.status) + " since " + (w.submittedAt ? when(w.submittedAt) : "recently"), "", "", "#/work/" + encodeURIComponent(w.id)); }); dec.slice(0, 3).forEach(function (x){ line42(rev, /approve|release|publish/.test(x.action) ? "ok" : "hot", x.title, words(x.action) + " · " + whenAt(x.at), "", "", "#/work/" + encodeURIComponent(x.workItemId)); }); if (!rev.querySelector(".l42")) empty42(rev, "No reviews or decisions yet."); }
+    var pp = p42(g, "Project progress", "purple", "#/work", "Project cards"); if (!active.length) empty42(pp, "No project in motion."); active.slice(0, 6).forEach(function (w){ progRow(pp, w.title, phaseOf(w), progressOf(w), "#/work/" + encodeURIComponent(w.id)); }); pp.appendChild(el("p", "fine", "A figure the portal derives from the stage and the standing of each piece; the record itself keeps no percentage."));
+    var dl = p42(g, "Upcoming deadlines", "gold", "#/calendar", "Calendar", deadlines.length); if (!deadlines.length) empty42(dl, "No deadline on your calendar."); deadlines.slice(0, 5).forEach(function (e){ line42(dl, new Date(e.startsAt) < new Date(Date.now() + 3 * 86400000) ? "hot" : "", e.title, (e.worldName || worldName(e.world)) + (typeof sharedWords === "function" ? sharedWords(e) : ""), daysWords(e.startsAt), "gold", "#/calendar/" + encodeURIComponent(e.id)); });
+    var rf = p42(g, "Recent files", "blue", "#/drive", "House Drive"); if (!files.length) empty42(rf, "Nothing in the House Drive yet."); files.slice(0, 5).forEach(function (x){ line42(rf, "cool", x.label, (x.folder || "") + " · " + (x.worldName || "") + " · placed by " + clean42(x.placedBy), when(x.placedAt), "", "#/drive"); });
+    var tv = p42(g, "Travel", "blue", "#/travel", "Travel"); if (!trips.length) empty42(tv, "No trip is proposed or booked."); trips.slice(0, 4).forEach(function (t){ line42(tv, t.status === "booked" ? "ok" : (t.status === "proposed" ? "" : "cool"), t.title, (t.destination || "") + " · " + (t.startsOn ? when(t.startsOn) : "") + (t.endsOn ? " to " + when(t.endsOn) : ""), words(t.status), t.status === "booked" ? "gold" : "", "#/travel/" + encodeURIComponent(t.id)); });
+    var ps = (PEOPLE42 && PEOPLE42.people) || [], team = (lov && lov.lead && lov.team) || [];
+    var tw = p42(g, ME && ME.isLead ? "Team workload" : "Team and presence", "green", "#/people", "People and Credits");
+    if (ME && ME.isLead && team.length) { var pipe = lov.pipe || {}; var tl = el("div", "tiles42"); [["To review", pipe.toReview || 0], ["With the Founder", pipe.withFounder || 0], ["Due soon", pipe.dueSoon || 0], ["Blocked", pipe.blocked || 0]].forEach(function (x){ var t = el("div", "tile42"); t.appendChild(el("div", "k", x[0])); t.appendChild(el("div", "v num", String(x[1]))); tl.appendChild(t); }); tw.appendChild(tl); team.slice(0, 6).forEach(function (p){ presence(tw, p); }); }
+    else { if (!ps.length) empty42(tw, "Nobody else holds a role yet."); ps.slice(0, 6).forEach(function (p){ presence(tw, p); }); }
+    var an = p42(g, "Announcements", "gold", "#/announcements", "All", anns.filter(function (x){ return !x.read; }).length); if (!anns.length) empty42(an, "Nothing announced."); anns.slice(0, 4).forEach(function (a){ line42(an, a.read ? "off" : "", a.title, (a.worldName || "Every world") + " · " + clean42(a.postedBy) + " · " + whenAt(a.postedAt), a.read ? "" : "new", "gold", "#/announcements"); });
+    var sg = p42(g, "Latest signals", "purple", "#/signals", "Inbox", SIGNALS_UNREAD); if (!inbox.length) empty42(sg, "Your inbox is clear."); inbox.slice(0, 4).forEach(function (m){ line42(sg, m.read ? "off" : "", m.subject, "from " + clean42(m.from) + " · " + whenAt(m.at), m.read ? "" : "unread", "gold", "#/signals/" + encodeURIComponent(m.id)); });
+    var meP = ps.filter(function (p){ return p.me; })[0]; var cr = p42(g, "Credits and achievements", "green", "#/people", "Credits");
+    var approved = mine.filter(function (w){ return /^(approved_internal|release_ready|published)$/.test(w.status); }).length; if (approved) cr.appendChild(el("p", "cred", "✦ " + approved + " piece" + (approved === 1 ? "" : "s") + " of yours approved by the Founder, on the record."));
+    if (meP && meP.functions && meP.functions.length) cr.appendChild(el("p", "cred", "✦ Holds " + meP.functions.join(", ") + "."));
+    (meP && meP.credits || []).slice(0, 4).forEach(function (c){ var p = el("p", "cred"); p.appendChild(el("b", null, c.as)); p.appendChild(document.createTextNode(" on " + c.on + " · " + c.world)); cr.appendChild(p); });
+    if (!cr.querySelector(".cred")) empty42(cr, "Credits appear here as the House records them against finished work.");
+    /* the rooms, the start row, the quick actions */
+    body.appendChild(el("h2", null, "Rooms"));
+    bigCards(body, [
+      { title:"✍️ Story Desk", sub:"Scripts, pilots, treatments, chapters and notes; a gallery of forms for each world; every version kept.", href:"#/write", cta:"Open the Story Desk", tone:"purple" },
+      { title:"🧩 Workspaces", sub:"Seventeen kinds of work, each with the fields its craft needs.", href:"#/workspaces", cta:"Workspaces", tone:"gold" },
+      { title:"🎞️ Craft rooms", sub:"The writers' room, camera, editing, sound, music and the rest, drawn from the record.", href:"#/crafts", cta:"Craft rooms", tone:"blue" }
+    ]);
+    body.appendChild(el("h2", null, "Start work"));
+    startRow(body, [["📁", "New project", "#/work/new"], ["✍️", "New script", "#/write"], ["☁️", "Place a file", "#/drive"], ["📅", ME && ME.isLead ? "New event" : "Calendar", "#/calendar"], ["📩", "Compose a signal", "#/signals"], ["🌴", "Ask for time off", "#/timeoff"]]);
+    chipRow(body, [["📌 My assignments", "#/assignments"], ["⚖️ Decisions", "#/decisions"], ["🗺️ World canvas", "#/canvas"], ["📊 Analytics", "#/analytics"], ["📖 Handbook", "#/handbook"], ["🪪 My record", "#/record"]]);
+    if (typeof serviceStrip === "function") serviceStrip(body); if (typeof requestsStrip === "function") requestsStrip(body);
+    body.appendChild(el("p", "fine", readAt()));
+  });
+}
+/* ---- the project cards ---- */
+function pcard(w){
+  var c = el("article", "pcard k-" + (w.kind || "work")); var band = el("div", "pc-band"); band.appendChild(el("span", null, (WORLD_ICONS[w.worldKey] || "🏛️") + " " + worldName(w.worldKey, w.worldName))); band.appendChild(el("span", null, words(w.kind || "work"))); c.appendChild(band);
+  var b = el("div", "pc-body"); var t = el("div", "pc-title"); var a = el("a", null, w.title); a.href = "#/work/" + encodeURIComponent(w.id); t.appendChild(a); if (w.priority && w.priority !== "normal") t.appendChild(el("span", "pill " + (w.priority === "urgent" ? "hot" : "gold"), words(w.priority))); if (w.blocked) t.appendChild(el("span", "pill hot", "blocked")); b.appendChild(t);
+  var log = w.summary || w.requestedDecision || ""; if (log) b.appendChild(el("p", "pc-log", log.length > 150 ? log.slice(0, 147) + "…" : log));
+  var pct = progressOf(w); var pb = el("div", "prog" + (pct >= 85 ? " ok" : "")); var fl = el("div", "fill"); fl.style.width = pct + "%"; pb.appendChild(fl); b.appendChild(pb);
+  var dl = el("dl", "pc-pairs"); function pair(k, v){ dl.appendChild(el("dt", null, k)); var dd = el("dd", null, ""); if (typeof v === "string") dd.textContent = v; else dd.appendChild(v); dl.appendChild(dd); }
+  var sv = el("span", null, phaseOf(w).replace(/ · .*$/, "")); sv.appendChild(el("span", "pill " + (statusCls(w.status) === "wait" ? "gold" : (/^(approved_internal|release_ready|published)$/.test(w.status) ? "green" : "faint")), statusWords(w.status)));
+  pair("Status / phase", sv); pair("Progress", pct + "%"); pair("Due", w.dueAt ? when(w.dueAt) + (isPastDay(w.dueAt) && /_review$|^(draft|returned)$/.test(w.status) ? " · past" : "") : "—"); var ld = leadOf(w); pair("Lead", ld ? clean42(ld) : "the team lead of " + worldName(w.worldKey, w.worldName)); pair("Made by", clean42(w.creatorName)); if (w.nextAction) pair("Next", w.nextAction); pair("Last updated", when(w.updatedAt)); b.appendChild(dl);
+  var ch = el("div", "pc-chips"); ch.appendChild(el("span", "chip", "version " + (w.version || 1))); ch.appendChild(el("span", "chip", (w.sourceCount || 0) + " source" + (w.sourceCount === 1 ? "" : "s"))); if (w.department) ch.appendChild(el("span", "chip", w.department)); if (w.reviewCount) ch.appendChild(el("span", "chip", w.reviewCount + " review" + (w.reviewCount === 1 ? "" : "s"))); b.appendChild(ch);
+  var acts = el("div", "pc-acts"); acts.appendChild(link("", "Open workspace", "#/work/" + encodeURIComponent(w.id))); if (w.kind === "writing" && /^(draft|returned)$/.test(w.status)) acts.appendChild(link("ghost", "Story Desk", "#/write/" + encodeURIComponent(w.id))); b.appendChild(acts);
+  c.appendChild(b); return c;
+}
+function pcardGrid(host, list){ var g = el("div", "pcards"); list.forEach(function (w){ g.appendChild(pcard(w)); }); host.appendChild(g); }
+function viewWork(){
+  var fkey = workFilterArg(), filt = fkey && WORK_FILTERS[fkey];
+  view("work", "Creative", filt ? filt[0] : "Projects and Work", "Every piece you made or own, as a card: its world and kind, its phase and standing, its progress, its lead and its due date. Open a card for the full workspace.", [["house_team_desk"], ["house_team_people"]], function (body, d){
+    DESK = d[0]; ME = DESK.me || ME; OV = { needs: DESK.figures || {} }; PEOPLE42 = d[1]; paintNav("work");
+    var mine = DESK.mine || [];
+    var acts = el("div", "actions"); acts.appendChild(link("", "＋ New project", "#/work/new")); acts.appendChild(link("ghost", "✍️ Story Desk", "#/write"));
+    var chips = el("div", "film-chips"); [["all", "Everything"], ["you", "With you"], ["lead", "With the team lead"], ["founder", "With the Founder"], ["decided", "Decided"], ["due", "Due soon"]].forEach(function (c){ var a = el("a", "chip link" + ((c[0] === "all" && !filt) || c[0] === fkey ? " on" : ""), c[1]); a.href = "#/work" + (c[0] === "all" ? "" : "?s=" + c[0]); chips.appendChild(a); });
+    body.appendChild(acts); body.appendChild(chips);
+    if (!mine.length) { body.appendChild(say("", "No project yet", "Nothing you made or own is on the record. Begin one above; it stays a draft until you submit it.")); return; }
+    if (filt) {
+      var xs = fkey === "due" ? mine.filter(function (w){ return w.dueAt && new Date(w.dueAt) < new Date(Date.now() + 7 * 86400000) && !/^(archived|published|rejected)$/.test(w.status); }) : mine.filter(function (w){ return filt[1].test(w.status); });
+      if (!xs.length) body.appendChild(say("", "Nothing here", "No piece of yours is " + filt[0].toLowerCase() + " right now.")); else pcardGrid(body, xs);
+      body.appendChild(link("ghost", "All your projects", "#/work"));
+    } else {
+      [["With you", function (w){ return w.status === "draft" || w.status === "returned"; }], ["In review", function (w){ return w.status === "lead_review" || w.status === "founder_review"; }], ["Decided", function (w){ return !/^(draft|returned|lead_review|founder_review)$/.test(w.status); }]].forEach(function (g){ var ys = mine.filter(g[1]); if (!ys.length) return; var h = el("h2", null, g[0]); h.appendChild(el("span", "pill faint", String(ys.length))); body.appendChild(h); pcardGrid(body, ys); });
+    }
+    body.appendChild(el("p", "fine", "Progress is a figure the portal derives from each piece's stage and standing; the record keeps no percentage. " + readAt()));
+  });
+}
+/* ---- the project workspace: the record's page, regrouped under tabs; every control stays the control it was ---- */
+var WS_TAB = {};
+var _view42 = view;
+view = function (key, kicker, title, lede, reads, draw, backTo){
+  var draw2 = draw;
+  if (key === "work" && reads.length === 1 && reads[0][0] === "house_team_work") draw2 = function (body, d, again, host){ draw(body, d, again, host); try { if (d[0] && d[0].item) composeWorkspace(body, d[0], host); } catch (e) { console.error(e); } };
+  _view42(key, kicker, title, lede, reads, draw2, backTo);
+};
+function composeWorkspace(body, r, host){
+  var w = r.item; var kick = host.querySelector(".kicker"); if (kick) kick.textContent = "Project · " + worldName(w.worldKey, w.worldName);
+  var TABS = [["overview", "Overview"], ["creative", "Creative materials"], ["timeline", "Timeline"], ["tasks", "Tasks"], ["team", "Team"], ["files", "Files"], ["reviews", "Reviews"], ["delivery", "Delivery"]];
+  var where = { "sources":"files", "or attach a link as a source":"files", "reviews":"reviews", "the founder's decisions on it":"reviews", "your review, as team lead":"reviews", "revise":"creative", "submit to the team lead":"delivery", "the commission's path":"delivery", "shared services":"tasks" };
+  var kindName = (typeof kindOf === "function" && kindOf(w.kind)) ? kindOf(w.kind).name.toLowerCase() : null;
+  function tabFor(text){ var t = String(text || "").replace(/^[^\w]+/, "").trim().toLowerCase(); if (where[t]) return where[t]; if (kindName && t === kindName) return "creative"; if (t === words(w.kind || "").toLowerCase()) return "creative"; return null; }
+  var nodes = Array.from(body.childNodes), panels = {}; TABS.forEach(function (t){ panels[t[0]] = el("div", "wpanel"); panels[t[0]].id = "ws-" + t[0]; });
+  var cur = "overview";
+  nodes.forEach(function (n){
+    if (n.nodeType !== 1) { panels[cur].appendChild(n); return; }
+    if (n.tagName === "H2") { var t = tabFor(n.textContent); if (t) cur = t; panels[cur].appendChild(n); return; }
+    if (n.classList && n.classList.contains("panel")) { var h = n.querySelector("h2"); var t2 = h ? tabFor(h.textContent) : null; panels[t2 || cur].appendChild(n); return; }
+    panels[cur].appendChild(n);
+  });
+  /* the header tiles */
+  var ld = leadOf(w);
+  var tiles = el("div", "wtiles"); [["Type", words(w.kind || "work")], ["Phase", phaseOf(w)], ["Status", statusWords(w.status) + (w.blocked ? " · blocked" : "")], ["Progress", progressOf(w) + "%"], ["Priority", words(w.priority || "normal")], ["Lead", ld ? clean42(ld) : "the team lead of " + worldName(w.worldKey, w.worldName)], ["Due", w.dueAt ? when(w.dueAt) : "Not set"], ["Next", w.nextAction || "—"]].forEach(function (x){ var t = el("div", "tile42"); t.appendChild(el("div", "k", x[0])); t.appendChild(el("div", "v", x[1])); t.title = x[1]; tiles.appendChild(t); });
+  body.appendChild(tiles);
+  /* the creative tab: the writing itself, when the piece is writing */
+  var wr = w.details && w.details.writing;
+  if (wr && wr.body) { var cp = el("section", "panel42 tone-purple"); var ch = el("div", "p42-head"); ch.appendChild(el("h3", null, "✍️ The text · " + (typeof formWords === "function" ? formWords(wr.form) : "") + " · " + (wr.words || 0) + " words")); var oa = el("a", "p42-open", (r.canEdit ? "Open the Story Desk" : "Read on the Story Desk") + " →"); oa.href = "#/write/" + encodeURIComponent(w.id); ch.appendChild(oa); cp.appendChild(ch); cp.appendChild(el("pre", "wtext", wr.body.length > 1600 ? wr.body.slice(0, 1600) + "\n…" : wr.body)); panels.creative.insertBefore(cp, panels.creative.firstChild); }
+  if (!panels.creative.querySelector("h2, .panel, section")) panels.creative.appendChild(say("", "No creative material on the record", "This kind of work carries no fields of its own; its sources are under Files."));
+  /* the timeline tab: the dates, then the versions and the events when asked */
+  var tl = el("section", "panel42"); var th = el("div", "p42-head"); th.appendChild(el("h3", null, "📅 Key dates")); tl.appendChild(th);
+  [["Begun", w.createdAt, "ok"], ["Submitted", w.submittedAt, "ok"], ["Last changed", w.updatedAt, "ok"], ["Due", w.dueAt, w.dueAt && isPastDay(w.dueAt) ? "hot" : ""]].forEach(function (x){ if (!x[1]) return; line42(tl, x[2], x[0], null, whenAt(x[1]), "", null); });
+  panels.timeline.appendChild(tl); var vh = el("div"); panels.timeline.appendChild(vh);
+  var evh = el("div"); panels.timeline.appendChild(evh);
+  function fillTimeline(){ if (vh.dataset.done) return; vh.dataset.done = "1";
+    vh.appendChild(say("busy", "Reading", "The versions and the events linked to this piece…"));
+    Promise.all([rpc("house_team_work_versions", { p_id:w.id }), rpc("house_team_calendar", { p_world:w.worldKey, p_from:new Date(Date.now() - 120 * 86400000).toISOString(), p_to:new Date(Date.now() + 365 * 86400000).toISOString() })]).then(function (rs){
+      vh.replaceChildren(); var vs = (rs[0].ok && rs[0].data && (rs[0].data.versions || rs[0].data.items)) || [];
+      var vp = el("section", "panel42 tone-purple"); var vhd = el("div", "p42-head"); vhd.appendChild(el("h3", null, "🗂️ Versions")); vp.appendChild(vhd); if (!vs.length) empty42(vp, "One version so far."); vs.slice().reverse().forEach(function (v){ line42(vp, "", "Version " + v.version + (v.status ? " · " + statusWords(v.status) : ""), (v.byName ? "by " + clean42(v.byName) + " · " : "") + (v.title || ""), v.at ? whenAt(v.at) : "", "", null); }); vh.appendChild(vp);
+      var evs = (rs[1].ok && rs[1].data && rs[1].data.events || []).filter(function (e){ return e.workItemId === w.id; }); var ep = el("section", "panel42 tone-blue"); var ehd = el("div", "p42-head"); ehd.appendChild(el("h3", null, "📆 Events linked to this piece")); var ea = el("a", "p42-open", "Calendar →"); ea.href = "#/calendar?world=" + encodeURIComponent(w.worldKey); ehd.appendChild(ea); ep.appendChild(ehd); if (!evs.length) empty42(ep, "No event names this piece."); evs.forEach(function (e){ line42(ep, e.kind === "deadline" ? "hot" : (e.cancelled ? "off" : "cool"), e.title, words(e.kind) + " · " + (e.worldName || "") + (e.location ? " · " + e.location : ""), when(e.startsAt), "", "#/calendar/" + encodeURIComponent(e.id)); }); evh.appendChild(ep);
+    }); }
+  /* the tasks tab */
+  var tk = el("section", "panel42 tone-gold"); var tkh = el("div", "p42-head"); tkh.appendChild(el("h3", null, "✅ What this piece asks")); tk.appendChild(tkh);
+  line42(tk, w.nextAction ? "" : "off", "Next action", null, w.nextAction || "none set", "", null); line42(tk, "", "The decision it asks of the Founder", null, w.requestedDecision || "—", "", null); if (w.blocked) line42(tk, "hot", "Blocked", w.blockedReason || "", "blocked", "hot", null); line42(tk, w.sourceCount ? "ok" : "hot", "Sources attached", null, String(w.sourceCount || 0), w.sourceCount ? "" : "hot", null);
+  panels.tasks.insertBefore(tk, panels.tasks.firstChild);
+  /* the team tab */
+  var tm = el("section", "panel42 tone-green"); var tmh = el("div", "p42-head"); tmh.appendChild(el("h3", null, "👥 Who is on it")); var ta = el("a", "p42-open", "People and Credits →"); ta.href = "#/people"; tmh.appendChild(ta); tm.appendChild(tmh);
+  var names = [[w.creatorName, "made it"]]; if (ld) names.push([ld, "team lead of " + worldName(w.worldKey, w.worldName)]); (r.reviews || []).forEach(function (x){ if (x.reviewerName && !names.some(function (n){ return n[0] === x.reviewerName; })) names.push([x.reviewerName, "reviewed version " + x.version]); });
+  names.forEach(function (n){ var pp = ((PEOPLE42 && PEOPLE42.people) || []).filter(function (p){ return p.name === n[0]; })[0] || { name:n[0] }; var row = el("div", "pres"); row.appendChild(el("span", "avatar", initials(n[0]))); var nn = el("span", "n", clean42(n[0])); nn.appendChild(el("small", null, n[1] + ((pp.functions && pp.functions.length) ? " · " + pp.functions.join(", ") : ""))); row.appendChild(nn); row.appendChild(el("span", "st", (pp.credits && pp.credits.length) ? pp.credits.length + " credit" + (pp.credits.length === 1 ? "" : "s") : "on the record")); tm.appendChild(row); });
+  panels.team.appendChild(tm);
+  function fillTeam(){ if (tm.dataset.done || PEOPLE42) return; tm.dataset.done = "1"; rpc("house_team_people").then(function (x){ if (x.ok) { PEOPLE42 = x.data; } }); }
+  /* the delivery tab: the path of the piece */
+  var steps = [["Draft", /^(draft|returned)$/], ["Team lead", /^lead_review$/], ["Founder", /^(founder_review|deferred)$/], ["Decided", /^(approved_internal|release_ready|rejected)$/], ["Published", /^(published|archived)$/]];
+  var idx = steps.findIndex(function (s){ return s[1].test(w.status); }); var path = el("div", "path42"); steps.forEach(function (s, i){ path.appendChild(el("div", "step" + (i < idx ? " done" : i === idx ? " now" : ""), s[0])); }); panels.delivery.insertBefore(path, panels.delivery.firstChild);
+  panels.delivery.insertBefore(el("h2", null, "🚚 Delivery"), panels.delivery.firstChild);
+  if (!panels.delivery.querySelector(".panel, .rows")) panels.delivery.appendChild(el("p", "fine", w.status === "published" ? "Published; the piece is delivered." : /^(draft|returned)$/.test(w.status) ? "Submit from the Overview once a source is attached; the path above then moves." : "The piece is with " + statusWords(w.status).toLowerCase().replace(/^with /, "") + "; it comes back here when decided."));
+  /* the tabs */
+  var counts = { files:(r.sources || []).length, reviews:(r.reviews || []).length + (r.history || []).length };
+  var tabs = el("div", "wtabs"); tabs.setAttribute("role", "tablist"); var cur2 = WS_TAB[w.id] || "overview";
+  TABS.forEach(function (t){ var b = el("button", "wtab" + (t[0] === cur2 ? " on" : ""), t[1]); b.type = "button"; b.setAttribute("role", "tab"); b.setAttribute("aria-controls", "ws-" + t[0]); if (counts[t[0]]) b.appendChild(el("span", "n", String(counts[t[0]]))); b.addEventListener("click", function (){ WS_TAB[w.id] = t[0]; tabs.querySelectorAll(".wtab").forEach(function (x){ x.classList.toggle("on", x === b); x.setAttribute("aria-selected", x === b ? "true" : "false"); }); TABS.forEach(function (u){ panels[u[0]].hidden = u[0] !== t[0]; }); if (t[0] === "timeline") fillTimeline(); if (t[0] === "team") fillTeam(); }); b.setAttribute("aria-selected", t[0] === cur2 ? "true" : "false"); tabs.appendChild(b); });
+  body.appendChild(tabs); TABS.forEach(function (t){ panels[t[0]].hidden = t[0] !== cur2; panels[t[0]].setAttribute("role", "tabpanel"); body.appendChild(panels[t[0]]); });
+  if (cur2 === "timeline") fillTimeline();
+}
+/* ---- the Story Desk: a gallery of forms for each world, then the library ---- */
+var GALLERY42 = {
+  film:[["🎬", "Screenplay", "screenplay"], ["📋", "Treatment", "treatment"], ["🎯", "Pitch", "pitch"], ["🗒️", "Shooting notes", "notes"]],
+  television:[["📺", "Pilot", "teleplay"], ["📺", "Episode", "teleplay"], ["📖", "Series bible", "treatment"], ["🗒️", "Writers' room notes", "notes"]],
+  animation:[["🎞️", "Script", "screenplay"], ["🖼️", "Board notes", "notes"], ["📋", "Treatment", "treatment"], ["🎯", "Pitch", "pitch"]],
+  "writing-and-literature":[["📖", "Chapter", "prose"], ["✒️", "Short story", "prose"], ["📝", "Essay", "prose"], ["🎯", "Pitch", "pitch"], ["🗒️", "Notes", "notes"]]
+};
+var GALLERY42_OTHER = [["📄", "Blank page", "notes"]];
+function beginPiece42(form, worldKey){ beginPiece(form); setTimeout(function (){ try { var s = document.getElementById("wp-world"); if (s && worldKey) s.value = worldKey; var t = document.getElementById("wp-title"); if (t) t.focus(); } catch (e) {} }, 30); }
+function viewWritingDesk(){
+  view("write", "Creative", "Story Desk", null, [["house_team_desk"]], function (body, d, again, host){
+    DESK = d[0]; ME = DESK.me || ME; paintNav("write");
+    var hero = el("div", "sd-hero"); hero.appendChild(el("h2", null, "✍️ Story Desk")); hero.appendChild(el("p", null, "Write scripts, pilots, treatments, pitches, chapters and notes inside your worlds. Everything you type is saved to the House by itself; every version is kept; when a piece is ready it is submitted like any work, the text its own source.")); body.appendChild(hero);
+    var mine = (DESK.mine || []).filter(function (w){ return w.kind === "writing"; }), editable = mine.filter(function (w){ return /^(draft|returned)$/.test(w.status); }).sort(function (a, b){ return a.updatedAt < b.updatedAt ? 1 : -1; });
+    var top = el("div", "tworld"); top.appendChild(el("h3", null, "Start a new document")); if (editable[0]) { var cont = el("a", "p42-open", "Continue last document: " + editable[0].title + " →"); cont.href = "#/write/" + encodeURIComponent(editable[0].id); top.appendChild(cont); } body.appendChild(top);
+    var worlds = (ME && ME.worlds) || []; if (!worlds.length) body.appendChild(say("ask", "No world is open to you", "Writing is made inside a world; ask the person who gave you your role."));
+    worlds.forEach(function (wd){ var tiles = GALLERY42[wd.key] || GALLERY42_OTHER; var hd = el("div", "tworld"); hd.appendChild(el("h3", null, (WORLD_ICONS[wd.key] || "🏛️") + " " + wd.name)); hd.appendChild(el("span", "k", tiles.length + " forms")); body.appendChild(hd); var g = el("div", "tgal " + wd.key); tiles.forEach(function (t){ var b = el("button", "ttile"); b.type = "button"; b.appendChild(el("span", "ic", t[0])); b.appendChild(el("span", null, t[1])); b.appendChild(el("small", null, formWords(t[2]))); b.setAttribute("aria-label", "Begin a " + t[1].toLowerCase() + " in " + wd.name); b.addEventListener("click", function (){ beginPiece42(t[2], wd.key); }); g.appendChild(b); }); body.appendChild(g); });
+    var oth = el("div", "actions"); oth.appendChild(button("ghost", "Something else", function (){ beginPiece(null); })); body.appendChild(oth);
+    /* the library */
+    var lh = el("div", "tworld"); lh.appendChild(el("h3", null, "Document library")); lh.appendChild(el("span", "k", mine.length + (mine.length === 1 ? " document" : " documents"))); body.appendChild(lh);
+    if (!mine.length) { body.appendChild(say("", "Nothing on the desk yet", "Begin a piece above. It stays a draft, in your name, until you submit it.")); body.appendChild(el("p", "fine", readAt())); return; }
+    var tools = el("div", "lib-tools"); var q = document.createElement("input"); q.type = "search"; q.placeholder = "Search documents…"; q.setAttribute("aria-label", "Search documents"); tools.appendChild(q); var LIB_F = "all"; var chips = el("div", "film-chips"); [["all", "All"], ["you", "With you"], ["review", "In review"], ["decided", "Decided"]].forEach(function (c){ var a = el("button", "chip link" + (c[0] === "all" ? " on" : "")); a.type = "button"; a.textContent = c[1]; a.addEventListener("click", function (){ LIB_F = c[0]; chips.querySelectorAll(".chip").forEach(function (x){ x.classList.toggle("on", x === a); }); paintLib(); }); chips.appendChild(a); }); tools.appendChild(chips); body.appendChild(tools);
+    var grid = el("div", "doccards"); body.appendChild(grid);
+    function paintLib(){ grid.replaceChildren(); var qq = q.value.trim().toLowerCase(); var xs = mine.filter(function (w){ var okF = LIB_F === "all" || (LIB_F === "you" && /^(draft|returned)$/.test(w.status)) || (LIB_F === "review" && /_review$/.test(w.status)) || (LIB_F === "decided" && !/^(draft|returned|lead_review|founder_review)$/.test(w.status)); return okF && (!qq || w.title.toLowerCase().indexOf(qq) >= 0); }); if (!xs.length) { grid.appendChild(el("p", "empty", "No document matches.")); return; }
+      xs.forEach(function (w){ var wr = (w.details && w.details.writing) || {}; var f = wr.form || "prose"; var dr = draftOf(w.id); var c = el("article", "doccard"); var t = el("div", "dc-top"); t.appendChild(el("b", null, w.title)); t.appendChild(el("span", "pill " + (statusCls(w.status) === "wait" ? "gold" : (/^(approved_internal|release_ready|published)$/.test(w.status) ? "green" : "faint")), statusWords(w.status))); c.appendChild(t);
+        var dl = el("dl", "pc-pairs"); [["Type", formWords(f)], ["World", worldName(w.worldKey, w.worldName)], ["Owner / writer", clean42(w.creatorName)], ["Last edited", whenAt(w.updatedAt)], ["Words · version", (wr.words != null ? wr.words : "—") + " · v" + (w.version || 1)], dr ? ["Unsaved copy", "kept in this browser"] : null].forEach(function (x){ if (!x) return; dl.appendChild(el("dt", null, x[0])); dl.appendChild(el("dd", null, x[1])); }); c.appendChild(dl);
+        var acts = el("div", "pc-acts"); acts.appendChild(link("", /^(draft|returned)$/.test(w.status) ? "Open" : "Read", "#/write/" + encodeURIComponent(w.id))); acts.appendChild(link("ghost", "Record", "#/work/" + encodeURIComponent(w.id))); c.appendChild(acts); grid.appendChild(c); }); }
+    q.addEventListener("input", paintLib); paintLib();
+    body.appendChild(el("p", "fine", readAt()));
+  });
+}
 
 /* v5.2: a hosted copy reads its connection from portal-config.json beside it. Only the project address and the
    publishable key are accepted (validConfig refuses anything else), the same two things the dashboard hands over. */
