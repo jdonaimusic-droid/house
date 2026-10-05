@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; media-src blob:; frame-src blob:; font-src data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex, nofollow">
-<meta name="team-portal-release" content="v36.1">
+<meta name="team-portal-release" content="v36.2">
 <meta name="theme-color" content="#08070B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308070B'/%3E%3Cpath d='M9 28V12a7 7 0 0 1 14 0v16' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='1.6' fill='%23E4C55A'/%3E%3C/svg%3E">
 <title>House of Worlds — Team Portal</title>
@@ -493,7 +493,7 @@ body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40
 <div class="frame">
   <aside class="rail" id="rail" aria-label="Sections">
     <a class="brand" href="#/home">House of Worlds<small>Team Portal</small></a>
-    <p class="ver">Version 36.1</p>
+    <p class="ver">Version 36.2</p>
     <nav id="nav" aria-label="Portal sections"></nav>
     <div class="who" id="who"></div>
   </aside>
@@ -503,7 +503,7 @@ body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40
 
 <script>
 /* ---------------------------------------------------------------------
-   House of Worlds - Team Portal v36.1 (5 October 2026)
+   House of Worlds - Team Portal v36.2 (5 October 2026)
    One file, on the live House. A member signs in with the House's own
    sign-in service; what they see afterwards is decided by the House's
    records (Database Steps 28-38: house_team_* functions), never by this page.
@@ -683,10 +683,10 @@ function linkConfig(p){
 
 /* ---- the smallest client ---- */
 var CFG = null, SESSION = null, ME = null, OV = null, PORTAL = null;
-var ALLOWED = /^(house_team_[a-z_]+|house_my_assignments|house_assignment_act|house_assignment_actions|house_assignment_transitions|house_source_upload_begin|house_source_upload_finalize|house_client_me|house_public_doors|house_public_rooms|house_founder_eyes_people|house_founder_through_eyes)$/;
+var ALLOWED = /^(house_team_[a-z_]+|house_my_assignments|house_assignment_act|house_assignment_actions|house_assignment_transitions|house_source_upload_begin|house_source_upload_finalize|house_client_me|house_public_doors|house_public_rooms|house_public_titles|house_founder_eyes_people|house_founder_through_eyes|house_founder_declared)$/;
 
 function headers(auth, json){
-  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/36.1" };
+  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/36.2" };
   if (json !== false) h["Content-Type"] = "application/json";
   if (auth && SESSION && SESSION.access_token) h["Authorization"] = "Bearer " + SESSION.access_token;
   return h;
@@ -790,14 +790,15 @@ function signInPanel(message, kind){
   box.appendChild(el("h1", null, "Sign in"));
   box.appendChild(el("p", "lede", "Use the email address the House invited. What you see afterwards is decided by the House's records, not by this page."));
   if (message) box.appendChild(say(kind || "ask", kind === "no" ? "That did not work" : "Before you begin", message));
-  var email = field(box, "Email address", "s-email", "email", ""); email.autocomplete = "username";
+  var email = field(box, "House of Worlds email address", "s-email", "email", ""); email.autocomplete = "username";
+  var who = signInWho(box);
   var pass = password(box, "Password", "s-pass", "current-password");
   var said = el("div"); said.setAttribute("aria-live", "polite"); var acts = el("div", "actions");
   var go = el("button", "act", "Enter the House"); go.type = "button";
   function submit(){
-    if (!email.value.trim() || !pass.value) { said.replaceChildren(say("no", "Both are needed", "Enter the email address and the password.")); return; }
+    if (!email.value.trim() || !pass.value || !who.ok()) { said.replaceChildren(say("no", "All four are needed", "Enter your House of Worlds email address, choose your department and your job title, and enter your password.")); return; }
     go.disabled = true; said.replaceChildren(say("busy", "Signing in", "Asking the House…"));
-    authCall("POST", "/auth/v1/token?grant_type=password", { email:email.value.trim(), password:pass.value }).then(function (j){ saveSession(j); pass.value = ""; enter(); })
+    authCall("POST", "/auth/v1/token?grant_type=password", { email:email.value.trim(), password:pass.value }).then(function (j){ saveSession(j); pass.value = ""; DECLARE_PENDING = who.value(); enter(); })
       .catch(function (e){ go.disabled = false; said.replaceChildren(say("no", "Not signed in", /invalid/i.test(String(e.message)) ? "The email or password is not right." : explain(e, e.status || 0))); });
   }
   go.addEventListener("click", submit);
@@ -874,7 +875,7 @@ function VIEWS(){
   if (ME && ME.isLead) { desk.push(["review", "To review"]); desk.push(["requests", "Client requests"]); }
   desk.push(["assignments", "Assignments"]); desk.push(["decisions", "Reviews and Decisions"]);
   return [["Your desk", desk],
-    ["The House", [["worlds", "Worlds and Programs"], ["roles", "Roles and Functions"], ["departments", "Departments and Handoffs"], ["people", "People and Credits"], ["crafts", "Craft rooms"], ["canvas", "World canvas"], ["archive", "Archive"], ["analytics", "Analytics"]]],
+    ["The House", [["worlds", "Worlds and Programs"], ["roles", "Job titles"], ["departments", "Departments and Handoffs"], ["people", "People and Credits"], ["crafts", "Craft rooms"], ["canvas", "World canvas"], ["archive", "Archive"], ["analytics", "Analytics"]]],
     ["Help and policies", [["help", "How this works"], ["handbook", "Employee handbook"], ["account", "Your account"], ["privacy", "Privacy and this portal"], ["terms", "Terms of use"]]]];
 }
 function offered(a){ return a.acceptance === "assigned" || a.acceptance === "sent"; }
@@ -1485,7 +1486,7 @@ var HELP = [
   ["The team lead", "Submitting sends the work to the team lead for its world. Nobody reviews their own work. The team lead recommends it, returns it with a review, blocks it with a reason, or abstains with a note; the review is kept with the work and you can read it."],
   ["The Founder", "A recommendation becomes a packet in the Founder's queue, in her dashboard. The Founder is not in this portal: she reads the packet there and her decision, with her reason, comes back to the work's record and to your Decisions page."],
   ["Assignments", "The Founder can place work with you from her dashboard. Only you can accept it, and the record shows who agreed and when. From there: start, update progress, mark blocked, ask for help, and submit with evidence of what was done."],
-  ["Roles and Functions", "A private catalog of every kind of work the House may need, in fifteen groups. A title is a definition, with its deliverables and collaborators; it is not a vacancy, a hire, a pay rate or a permission. Proposed means the Founder has not yet approved the definition; approved means she has. Search it by name, discipline, deliverable, department or world."],
+  ["Job titles", "A private catalog of every kind of work the House may need, in fifteen groups. A title is a definition, with its deliverables and collaborators; it is not a vacancy, a hire, a pay rate or a permission. Proposed means the Founder has not yet approved the definition; approved means she has. Search it by name, discipline, deliverable, department or world."],
   ["Departments and Handoffs", "Nineteen shared services, each with its purpose and when to involve it, the departments of the open worlds, and the ten stages of the House's work: Research, Learn, Develop, Create, Produce, Experience, Publish, Archive, Preserve, Innovate. A piece of work carries its stage."],
   ["People and Credits", "The colleagues who hold a role, the functions they fill, and their confirmed credits. A proposed title is not a person. A person can hold several functions and carry different credits on different projects without being two people."],
   ["Worlds under seal", "Four worlds are open. The others are under seal; a sealed world is named to you only if the House has scoped you to it, and it is never to be named outside the House. The catalog, the search, the counts and the colleagues' records keep the same rule."],
@@ -1515,7 +1516,7 @@ function viewHelp(){
   try { main.focus({ preventScroll:true }); window.scrollTo(0, 0); } catch (e) {}
 }
 var PRIVACY = [
-  ["What this portal keeps about you", "Your name as the House recorded it, your email address, the roles the House gave you, and what you do here: the work you make and every version of it, what you write on the Story Desk, the sources you attach, the reviews you write, each action you take on an assignment, the events, trips and time off that concern you, and the signals you send and read, each with the time. These are the House's working record and are kept as part of it."],
+  ["What this portal keeps about you", "Your name as the House recorded it, your email address, the roles the House gave you, and what you do here: the work you make and every version of it, what you write on the Story Desk, the sources you attach, the reviews you write, each action you take on an assignment, the events, trips and time off that concern you, and the signals you send and read, each with the time. The department and job title you choose at sign-in are kept on your record for the Founder and shown to colleagues as the title you signed in under; they open nothing by themselves. These are the House's working record and are kept as part of it."],
   ["Where it is kept", "In the House's own database, run on Supabase, in the United States. This browser keeps a few things of its own, none of them sent anywhere: your session, until you sign out or thirty minutes pass without a touch; the time of your last touch, for that timer; a copy of what you type on the Story Desk, kept only until the House has saved it and then dropped; your choice of calendar view; and whether you have seen the walk-through. On a shared device the session and the desk copy are dropped when the tab closes. No password is ever kept on this device."],
   ["Who reads it", "The Founder, from her dashboard or from her Founder view in this portal; the team lead of the world your work belongs to; and you. A colleague sees your name, your roles and the worlds you work in, not your work. The Founder's view of a member is a summary of what this portal shows them (figures, work, review queue, client requests, service queue, notices), read-only; every such look is on the record."],
   ["Email from the House", "The sign-in service sends you an invitation and, when you ask, a password reset. When the House's mail is on, the House sends you one line when work is returned to you, decided, handed to your service or assigned to you; when you are asked to an event or a deadline is shared into your world; when an announcement is made; and, if you lead a world, when a client writes in it. Such a line names the piece and points you to this desk; it never carries the work itself, a decision's reasons, a client's words, or anything about a world under seal."],
@@ -1696,7 +1697,7 @@ function enter(){
     }
     ME = m;
     try { entering.querySelector("span").textContent = "Reading your desk…"; } catch (e) {}
-    Promise.all([refreshOverview(), loadKinds()]).then(function (){
+    Promise.all([refreshOverview(), loadKinds(), (typeof declareOnEnter === "function" ? declareOnEnter() : null)]).then(function (){
       if (!DESK) { main.replaceChildren(); refusal("The threshold", "Your desk could not be read", "You are signed in and the House knows your role, but your desk did not come back. This is a loading fault, not an empty desk.", null); var again = el("div", "actions"); again.appendChild(button("", "Try again", enter)); main.insertBefore(again, main.querySelector(".actions")); return; }
       if (!/^#\/[a-z]/.test(location.hash || "")) { try { history.replaceState(null, "", location.pathname + location.search + (ME.isLead ? "#/lead" : "#/home")); } catch (e) { location.hash = ME.isLead ? "#/lead" : "#/home"; } }
       route();
@@ -1736,7 +1737,7 @@ function functionRow(f){
   return rowOf(catStatusCls(f.status), catWords(f.status, CAT_STATUS_WORDS), f.title, meta, null, "#/roles/" + encodeURIComponent(f.id));
 }
 function viewRoles(){
-  view("roles", "The House", "Roles and Functions", "Every kind of work the House may need, in fifteen groups: a private catalog, searchable, with each title's definition, deliverables, collaborators and state. A title is not a vacancy, a hire, a pay rate or a permission; proposed means the Founder has not yet approved the definition.", [["house_team_functions", catArgs()]], function (body, d, again){
+  view("roles", "The House", "Job titles and functions", "Every kind of work the House may need, in fifteen groups: a private catalog, searchable, with each title's definition, deliverables, collaborators and state. A title is not a vacancy, a hire, a pay rate or a permission; proposed means the Founder has not yet approved the definition.", [["house_team_functions", catArgs()]], function (body, d, again){
     var D = d[0]; REGISTRY_CAT = D;
     again = viewRoles;   /* the reads are built from the filters, so a changed filter needs a fresh view, not a re-read of the old one */
     catFilters(body, again);
@@ -2386,7 +2387,7 @@ function viewLeadOverview(){
     host.querySelector("h1").textContent = (o.everyWorld ? "Every world" : worlds.join(", ")) + " · Overview";
     document.title = "Overview — House of Worlds";
     body.appendChild(el("p", "lede", "What you lead, read from the record: " + where + ". What waits on you is counted first; the Founder decides, and anything about money reaches her only."));
-    if (typeof heroBand === "function") heroBand(body, "🎬 Welcome back, " + String((ME && ME.name) || "").replace(/(Example)s*/, ""), "Team lead of " + where + ". What waits on you is counted first; the Founder decides, and anything about money reaches her only.", "lead");
+    if (typeof heroBand === "function") heroBand(body, "🎬 Welcome back, " + String((ME && ME.name) || "").replace(/\(Example\)\s*/, ""), "Team lead of " + where + ". What waits on you is counted first; the Founder decides, and anything about money reaches her only.", "lead");
     var p = o.pipeline || {}, rq = o.requests || {}, ho = o.handoffs || {};
     /* needs */
     var needs = [
@@ -3519,6 +3520,76 @@ setTimeout(function (){
 }, 0);
 var _paintNav41b = paintNav;
 paintNav = function (current){ _paintNav41b(current); if (RAIL_SHUT) RAIL_SHUT(false); };
+/* ---- v36.2: the threshold asks for a department and a job title; the catalog is called by its name ----
+   At sign-in a member gives their House of Worlds email address, their department (one of the catalog's fifteen groups),
+   their job title (the titles of that group, read from the House before sign-in: titles only, no person, no sealed world)
+   and their password. What they chose is kept on their own member record for the Founder (Database Step 54) and shown
+   on their desk beside the title the Founder recorded, if any. It opens nothing by itself: what a member can see and do
+   is decided by the House's roles, as before. */
+var TITLES_PUBLIC = null, DECLARE_PENDING = null;
+function loadPublicTitles(){
+  if (TITLES_PUBLIC) return Promise.resolve(TITLES_PUBLIC);
+  return rpc("house_public_titles").then(function (r){ TITLES_PUBLIC = (r.ok && r.data && r.data.ok) ? r.data : null; return TITLES_PUBLIC; }).catch(function (){ return null; });
+}
+function signInWho(box){
+  var g = select(box, "Department", "s-dept", [["", "Reading the departments…"]], ""); g.disabled = true;
+  var t = select(box, "Job title", "s-title", [["", "Choose the department first"]], ""); t.disabled = true;
+  var note = el("p", "fine", "Choose the department you work in, then your job title from its list. Both are kept on your own record for the Founder; what you can open is decided by the House's record, not by this choice.");
+  box.appendChild(note);
+  function fillTitles(){
+    var gk = g.value; t.replaceChildren(); var o0 = document.createElement("option"); o0.value = ""; o0.textContent = gk ? "Choose your job title…" : "Choose the department first"; t.appendChild(o0);
+    if (!gk || !TITLES_PUBLIC) { t.disabled = true; return; }
+    (TITLES_PUBLIC.titles || []).filter(function (x){ return x.group === gk; }).sort(function (a, b){ return a.title.localeCompare(b.title); }).forEach(function (x){ var o = document.createElement("option"); o.value = x.id; o.textContent = x.title; t.appendChild(o); });
+    t.disabled = false;
+  }
+  loadPublicTitles().then(function (P){
+    g.replaceChildren(); var o0 = document.createElement("option"); o0.value = ""; g.appendChild(o0);
+    if (!P || !(P.groups || []).length) { o0.textContent = "The departments could not be read"; g.disabled = true; t.disabled = true; note.textContent = "The House's list of departments could not be read just now. You can still sign in; choose your title afterwards under Job titles."; return; }
+    o0.textContent = "Choose your department…"; g.disabled = false;
+    P.groups.forEach(function (x){ var o = document.createElement("option"); o.value = x.key; o.textContent = (x.letter ? x.letter + " · " : "") + x.name; g.appendChild(o); });
+  });
+  g.addEventListener("change", fillTitles);
+  return { group:g, title:t,
+    ok:function (){ return !!(g.disabled || (g.value && t.value)); },
+    value:function (){ return (g.value && t.value) ? { group:g.value, func:t.value } : null; } };
+}
+/* on arrival: the choice made at the threshold is recorded (or, with none, the record is read) */
+function declareOnEnter(){
+  var p = DECLARE_PENDING; DECLARE_PENDING = null;
+  if (!ME || !ME.desk) return Promise.resolve();
+  return rpc("house_team_declare", p ? { p_group:p.group, p_function:p.func } : { p_group:null, p_function:null }).then(function (r){
+    if (r.ok && r.data && r.data.ok) { ME.declared = r.data.declared || null; ME.recorded = r.data.recorded || null; ME.declaredMatches = !!r.data.matches; ME.declaredSay = r.data.say || ""; }
+    else if (p && r.data && r.data.say) status(r.data.say);
+  }).catch(function (){});
+}
+function declaredLine(){
+  if (!ME || !ME.desk) return null;
+  var d = ME.declared, rec = ME.recorded || {}; if (!d && !rec.workingTitle) return null;
+  var s = el("div", "declared-line");
+  if (d) { s.appendChild(el("b", null, "Signed in as " + d.title)); s.appendChild(document.createTextNode(" · " + (d.groupName || "") + ". ")); }
+  if (rec.workingTitle) s.appendChild(document.createTextNode("The House records you as " + rec.workingTitle + (d ? (ME.declaredMatches ? ", which matches. " : "; your choice is kept beside it for the Founder. ") : ". ")));
+  else if (d) s.appendChild(document.createTextNode("The Founder has not yet recorded a title for you; your choice is kept on your record for her. "));
+  var a = el("a", null, "Every job title"); a.href = "#/roles"; s.appendChild(a);
+  return s;
+}
+var _heroBand43 = heroBand;
+heroBand = function (body, mark, sub, tone){ var h = _heroBand43(body, mark, sub, tone); try { if (/Welcome back/.test(String(mark))) { var l = declaredLine(); if (l) h.appendChild(l); } } catch (e) {} return h; };
+/* the titles people hold, beside their names: on People and Credits for members, on the Founder view for her */
+function annotateTitles(body, list, founder){
+  (list || []).forEach(function (p){
+    var words = []; if (p.workingTitle) words.push((founder ? "recorded as " : "") + p.workingTitle); if (p.declaredTitle) words.push("signed in as " + p.declaredTitle + (p.declaredGroupName ? " (" + p.declaredGroupName + ")" : "") + (founder && p.workingTitle && !p.matches ? ", which differs" : ""));
+    if (!words.length) return;
+    body.querySelectorAll(".row .w, .fv-world .nm, .pres .n, .hd-head h3").forEach(function (n){ var nm = (n.childNodes[0] && n.childNodes[0].textContent || n.textContent).replace(/\s*\(you\)\s*$/, "").trim(); if (nm !== p.name) return; var host = n.tagName === "H3" ? n.parentNode : n; if (host.parentNode.querySelector(".declared-note")) return; var m = el("div", "fine declared-note", words.join(" · ")); host.parentNode.insertBefore(m, host.nextSibling); });
+  });
+}
+var _view43 = view;
+view = function (key, kicker, title, lede, reads, draw, backTo){
+  var reads2 = reads, draw2 = draw;
+  if (key === "people" && reads.length === 1 && reads[0][0] === "house_team_people") { reads2 = reads.concat([["house_team_titles_held"]]); draw2 = function (body, d, again, host){ draw(body, d, again, host); try { annotateTitles(body, (d[1] && d[1].people) || [], false); } catch (e) {} }; }
+  if (key === "founder" && reads.length === 1 && reads[0][0] === "house_founder_eyes_people") { reads2 = reads.concat([["house_founder_declared"]]); draw2 = function (body, d, again, host){ draw(body, d, again, host); try { annotateTitles(body, (d[1] && d[1].people) || [], true); } catch (e) {} }; }
+  _view43(key, kicker, title, lede, reads2, draw2, backTo);
+};
+
 /* v5.2: a hosted copy reads its connection from portal-config.json beside it. Only the project address and the
    publishable key are accepted (validConfig refuses anything else), the same two things the dashboard hands over. */
 function hostedConfig(){
