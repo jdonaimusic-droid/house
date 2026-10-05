@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; media-src blob:; frame-src blob:; font-src data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex, nofollow">
-<meta name="team-portal-release" content="v36.0">
+<meta name="team-portal-release" content="v36.1">
 <meta name="theme-color" content="#08070B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308070B'/%3E%3Cpath d='M9 28V12a7 7 0 0 1 14 0v16' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='1.6' fill='%23E4C55A'/%3E%3C/svg%3E">
 <title>House of Worlds — Team Portal</title>
@@ -469,6 +469,22 @@ body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40
 .rail-fold[open] summary::after{content:" ▴"}
 .chip.on{color:var(--ivory);border-color:rgba(201,162,39,.6);background:rgba(75,46,131,.3)}
 @media (max-width:640px){.demo-bar{padding:.35rem .6rem;gap:.3rem .5rem}.demo-bar strong{font-size:.7rem;line-height:1.2}.demo-bar select,.demo-bar button{min-height:30px;font-size:.74rem;padding:.1rem .45rem}.tour-bar .tour-words{display:none}.tour-bar strong{font-size:.72rem}}
+/* v36.1: the phone menu's Close button and backdrop; the day agenda under the month grid */
+.rail-close{display:none}
+.rail.open .rail-close{display:block;position:sticky;top:0;z-index:2;width:100%;text-align:left;padding:.9rem 1.25rem;border:0;border-bottom:1px solid rgba(201,162,39,.25);background:#120F1B;color:var(--gold-bright);font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.rail.open .rail-close:focus-visible{outline:2px solid var(--gold-bright);outline-offset:-2px}
+.rail-back{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:59}
+.rail-back[hidden]{display:none}
+.cal-num{border:0;background:transparent;cursor:pointer;min-height:0;padding:.1rem .3rem;border-radius:4px;line-height:1}
+.cal-num:hover,.cal-num:focus-visible{color:var(--gold-bright);background:rgba(201,162,39,.12);outline:none}
+.cal-cell.sel{border-color:var(--purple-lit);box-shadow:inset 0 0 0 1px rgba(179,157,255,.5)}
+.cal-cell.sel .cal-num{color:var(--ivory);font-weight:700}
+.cal-more{border:0;background:transparent;cursor:pointer;min-height:0;color:var(--gold);text-decoration:underline}
+.cal-agenda{margin:1rem 0 .5rem;padding:1rem 1.1rem;border:1px solid rgba(179,157,255,.35);border-radius:10px;background:var(--panel)}
+.cal-agenda:focus{outline:none}
+.cal-ag-head{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin-bottom:.5rem}
+.cal-ag-head h2{margin:0;font-size:1.15rem}
+@media (max-width:640px){.cal-ev{pointer-events:none}.cal-cell.has{cursor:pointer}.cal-cell.has .cal-ev{font-size:0;height:6px;padding:0;margin:.2rem .1rem;border-left-width:0;border-radius:3px}.cal-cell.has .cal-ev b{display:none}.cal-num{font-size:.8rem}}
 </style>
 </head>
 <body>
@@ -477,7 +493,7 @@ body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40
 <div class="frame">
   <aside class="rail" id="rail" aria-label="Sections">
     <a class="brand" href="#/home">House of Worlds<small>Team Portal</small></a>
-    <p class="ver">Version 36.0</p>
+    <p class="ver">Version 36.1</p>
     <nav id="nav" aria-label="Portal sections"></nav>
     <div class="who" id="who"></div>
   </aside>
@@ -487,7 +503,7 @@ body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40
 
 <script>
 /* ---------------------------------------------------------------------
-   House of Worlds - Team Portal v36.0 (4 October 2026)
+   House of Worlds - Team Portal v36.1 (5 October 2026)
    One file, on the live House. A member signs in with the House's own
    sign-in service; what they see afterwards is decided by the House's
    records (Database Steps 28-38: house_team_* functions), never by this page.
@@ -670,7 +686,7 @@ var CFG = null, SESSION = null, ME = null, OV = null, PORTAL = null;
 var ALLOWED = /^(house_team_[a-z_]+|house_my_assignments|house_assignment_act|house_assignment_actions|house_assignment_transitions|house_source_upload_begin|house_source_upload_finalize|house_client_me|house_public_doors|house_public_rooms|house_founder_eyes_people|house_founder_through_eyes)$/;
 
 function headers(auth, json){
-  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/36.0" };
+  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/36.1" };
   if (json !== false) h["Content-Type"] = "application/json";
   if (auth && SESSION && SESSION.access_token) h["Authorization"] = "Bearer " + SESSION.access_token;
   return h;
@@ -1488,7 +1504,7 @@ var HELP = [
   ["The team lead's overview", "A team lead opens on one page for the worlds they lead: what waits on them (colleagues' work to review, client requests unread, handoffs in a queue they serve, work past due or blocked), where the world's work stands, the Story Desk, the team and its load, the Founder's decisions in the world, and what the House told them lately. Every figure is counted from the record when the page opens; a member who leads no world is told the page is the team lead's."],
   ["The Story Desk", "A desk for writing itself: a screenplay, a pilot, a treatment, a pitch, a chapter, notes. A script is written in the plain screenplay convention (INT. or EXT. begins a scene heading, a name in capitals on its own line is a character, the lines beneath are their speech, a line ending in TO: is a transition) and the page view lays it out as a script page; it downloads as a .fountain file that screenwriting programs open. Plain text, saved every minute while you type and whenever you press Save, every version kept, any two versions comparable. A piece travels the same path as any work: a draft, the team lead, the Founder. The text is its own source. A team lead's own piece goes straight to the Founder."],
   ["Client requests", "A client who writes to the House from the client portal chooses the world it is about. That conversation reaches the Founder, and also the team lead of that world, under Client requests: the Film team lead sees Film and nothing else; a lead for every world sees every world's. A team lead reads it, takes it up, and replies in the House's name; the record keeps who wrote it and the Founder is told. Anything about money (a proposal, licensing) reaches the Founder only. Closing a conversation is the Founder's."],
-  ["Email from the House", "When the House's mail is on, you are sent one line when work is returned to you, decided, handed to your service, or assigned to you. The email never carries the work: it points you to this desk. Your account page lists what was sent."],
+  ["Email from the House", "When the House's mail is on, you are sent one line when work is returned to you, decided, handed to your service, or assigned to you. The email never carries the work: it points you to this desk. A signal is the exception: what you write in Signals goes out in full, as an email, to the person you chose. Your account page lists what was sent."],
   ["When something cannot be read", "The page says so and shows nothing in its place. Try again; if it continues, tell the House."]
 ];
 function viewHelp(){
@@ -1499,16 +1515,16 @@ function viewHelp(){
   try { main.focus({ preventScroll:true }); window.scrollTo(0, 0); } catch (e) {}
 }
 var PRIVACY = [
-  ["What this portal keeps about you", "Your name as the House recorded it, your email address, the roles the House gave you, and what you do here: the work you make, every version of it, the sources you attach, the reviews you write, and each action you take on an assignment, with the time. These are the House's working record and are kept as part of it."],
-  ["Where it is kept", "In the House's own database, run on Supabase, in the United States. Your session is kept in this browser until you sign out, or for thirty minutes without a touch; on a shared device, nothing is kept once the tab closes. No password is ever kept on this device."],
-  ["Who reads it", "The Founder, from her dashboard; the team lead of the world your work belongs to; and you. A colleague sees your name, your roles and the worlds you work in, not your work. The Founder can also look at your desk as this portal shows it to you, read-only, from her dashboard; every such look is on the record."],
-  ["Email", "The sign-in service sends you an invitation and, when you ask, a password reset. When the House's mail is on, the House sends you one line when work is returned to you, decided, handed to your service, assigned to you, or a client writes in a world you lead. The email names the piece of work and points you to this desk; it never carries the work itself, a decision's reasons, a client's words, or anything about a world under seal. Nothing else is sent."],
-  ["Signals and email", "Signals is the House's email. A signal you write goes out as an email from the House to the colleague, team lead or Founder you chose, and is kept on the record with who wrote it, to whom and when, with read and unread. What the House tells you (work returned, decided, handed, assigned; an event; an announcement) is kept the same way."],
+  ["What this portal keeps about you", "Your name as the House recorded it, your email address, the roles the House gave you, and what you do here: the work you make and every version of it, what you write on the Story Desk, the sources you attach, the reviews you write, each action you take on an assignment, the events, trips and time off that concern you, and the signals you send and read, each with the time. These are the House's working record and are kept as part of it."],
+  ["Where it is kept", "In the House's own database, run on Supabase, in the United States. This browser keeps a few things of its own, none of them sent anywhere: your session, until you sign out or thirty minutes pass without a touch; the time of your last touch, for that timer; a copy of what you type on the Story Desk, kept only until the House has saved it and then dropped; your choice of calendar view; and whether you have seen the walk-through. On a shared device the session and the desk copy are dropped when the tab closes. No password is ever kept on this device."],
+  ["Who reads it", "The Founder, from her dashboard or from her Founder view in this portal; the team lead of the world your work belongs to; and you. A colleague sees your name, your roles and the worlds you work in, not your work. The Founder's view of a member is a summary of what this portal shows them (figures, work, review queue, client requests, service queue, notices), read-only; every such look is on the record."],
+  ["Email from the House", "The sign-in service sends you an invitation and, when you ask, a password reset. When the House's mail is on, the House sends you one line when work is returned to you, decided, handed to your service or assigned to you; when you are asked to an event or a deadline is shared into your world; when an announcement is made; and, if you lead a world, when a client writes in it. Such a line names the piece and points you to this desk; it never carries the work itself, a decision's reasons, a client's words, or anything about a world under seal."],
+  ["Signals", "Signals is the House's email between people. A signal you write goes out in full, as an email from the House, to the colleague, team lead or Founder you chose, and a reply comes back the same way: its subject and its words travel in that email, so write in a signal only what may leave the House, and never a world under seal by name. Each signal is kept on the record with who wrote it, to whom, when, and whether it was read. The lines the House sends you (above) land in Signals too."],
   ["Pay and your record", "Your pay record and statements are read by you and the Founder only; a team lead sees no pay. Your start date, employment type and working title are set by the Founder; your emergency contact is set by you and read by the Founder and, on a trip or a shoot day, by the team lead of that world. The House keeps no bank account, tax number or benefit detail."],
   ["Shared services", "A piece of work handed to a shared service (Legal, Finance, Archives and the others) is read by the members the Founder scoped to that service, for that handoff: its record, its sources and the note that came with it, not your other work."],
-  ["What this portal does not do","It sets no cookies, runs no analytics, and loads no third-party script. It never asks you for a technical address or a key."],
+  ["What this portal does not do", "It sets no cookies, runs no analytics, and loads no third-party script. What it keeps in this browser is listed under Where it is kept and is read by this page alone. It never asks you for a technical address or a key."],
   ["What you can ask", "To see what the House holds about you, or to correct it, write to the House. The working record of the House's own work is kept."],
-  ["This note", "Version 1 · 3 October 2026. It changes when the portal's practice changes."]
+  ["This note", "Version 2 · 5 October 2026. It changes when the portal's practice changes; this version adds Signals, the Story Desk's browser copy, and the Founder view."]
 ];
 function privacyNodes(host){ PRIVACY.forEach(function (x){ host.appendChild(el("h2", null, x[0])); host.appendChild(el("p", "lede", x[1])); }); }
 function viewPrivacy(){
@@ -2248,9 +2264,10 @@ function insertAt(ta, before, placeholder, after){
 }
 /* the unsaved copy kept in this browser: per piece, with the time and the version it was typed over */
 function draftKey(id){ return "how.team.draft." + id; }
-function draftOf(id){ try { var s = localStorage.getItem(draftKey(id)); return s ? JSON.parse(s) : null; } catch (e) { return null; } }
-function keepDraft(id, text, form, version){ try { localStorage.setItem(draftKey(id), JSON.stringify({ text:text, form:form, version:version, at:Date.now() })); } catch (e) {} }
-function dropDraft(id){ try { localStorage.removeItem(draftKey(id)); } catch (e) {} }
+function draftStore(){ try { return (typeof SHARED !== "undefined" && SHARED) ? sessionStorage : localStorage; } catch (e) { return null; } }
+function draftOf(id){ try { var s = draftStore().getItem(draftKey(id)); return s ? JSON.parse(s) : null; } catch (e) { return null; } }
+function keepDraft(id, text, form, version){ try { draftStore().setItem(draftKey(id), JSON.stringify({ text:text, form:form, version:version, at:Date.now() })); } catch (e) {} }
+function dropDraft(id){ try { localStorage.removeItem(draftKey(id)); sessionStorage.removeItem(draftKey(id)); } catch (e) {} }
 var WRITE_TIMER = null, WRITE_DIRTY = false, WRITE_FLUSH = null, WRITE_DEBOUNCE = null;
 window.addEventListener("beforeunload", function (e){ if (WRITE_DIRTY) { try { if (WRITE_FLUSH) WRITE_FLUSH(); } catch (x) {} e.preventDefault(); e.returnValue = "Your text is being saved to the House; a copy is kept in this browser."; return e.returnValue; } });
 window.addEventListener("hashchange", function (){ if (WRITE_DIRTY && WRITE_FLUSH) { try { WRITE_FLUSH(); } catch (x) {} } });
@@ -2513,7 +2530,7 @@ function deadlineBand(body, deadlines){
 }
 /* ---- the calendar: a month grid and a list ---- */
 var CAL_MODE = (function (){ try { return localStorage.getItem("how.team.calmode") || "grid"; } catch (e) { return "grid"; } })();
-var CAL_OFF = 0;
+var CAL_OFF = 0, CAL_DAY = null;
 function viewCalendar(){
   var world = worldArg ? worldArg() : null;
   var base = new Date(); base.setDate(1); base.setMonth(base.getMonth() + CAL_OFF);
@@ -2529,25 +2546,47 @@ function viewCalendar(){
     if (ws.length > 1) { var sel = select(bar, "World", "cal-world", [["", "Every world open to you"]].concat(ws), world || ""); sel.addEventListener("change", function (){ location.hash = "#/calendar" + (sel.value ? "?world=" + encodeURIComponent(sel.value) : ""); }); }
     body.appendChild(bar);
     if (CAL_MODE === "grid") {
-      var nav2 = el("div", "cal-head");
-      nav2.appendChild(button("ghost small", "←", function (){ CAL_OFF--; again(); }));
-      nav2.appendChild(el("span", "cal-month", base.toLocaleDateString(undefined, { month:"long", year:"numeric" })));
-      nav2.appendChild(button("ghost small", "→", function (){ CAL_OFF++; again(); }));
-      if (CAL_OFF) nav2.appendChild(button("ghost small", "Today", function (){ CAL_OFF = 0; again(); }));
-      body.appendChild(nav2);
-      var grid = el("div", "cal-grid"); ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(function (x){ grid.appendChild(el("div", "cal-dow", x)); });
-      var first = new Date(base.getFullYear(), base.getMonth(), 1).getDay(), days = new Date(base.getFullYear(), base.getMonth() + 1, 0).getDate(), todayKey = ymd(new Date());
-      for (var i = 0; i < first; i++) grid.appendChild(el("div", "cal-cell empty"));
+      /* the arrows rebuild the whole view (new month, new date range read from the House); a day's number opens that day in full beneath the grid */
+      var monthWords = base.toLocaleDateString(undefined, { month:"long", year:"numeric" });
       var byDay = {}; evs.forEach(function (e){ var k = ymd(new Date(e.startsAt)); (byDay[k] = byDay[k] || []).push(e); });
-      for (var dd = 1; dd <= days; dd++) {
-        var dt = new Date(base.getFullYear(), base.getMonth(), dd), k = ymd(dt); var cell = el("div", "cal-cell" + (k === todayKey ? " today" : "")); cell.appendChild(el("div", "cal-num", String(dd)));
-        (byDay[k] || []).slice(0, 4).forEach(function (e){ var a = el("a", "cal-ev k-" + e.kind + (e.cancelled ? " off" : "")); a.href = "#/calendar/" + encodeURIComponent(e.id); a.title = e.title; a.appendChild(el("b", null, timeAt(e.startsAt))); a.appendChild(document.createTextNode(" " + e.title)); cell.appendChild(a); });
-        if ((byDay[k] || []).length > 4) cell.appendChild(el("div", "cal-more", "+" + ((byDay[k] || []).length - 4)));
-        if (canEdit) (function (dt2){ var add = el("button", "cal-add", "＋"); add.type = "button"; add.setAttribute("aria-label", "Add an event on " + calDayKey(dt2)); add.addEventListener("click", function (){ eventDialog(null, c.canEditWorlds, c.shareWorlds || [], dt2, function (ev){ location.hash = "#/calendar/" + encodeURIComponent(ev.id); }); }); cell.appendChild(add); })(dt);
-        grid.appendChild(cell);
+      if (CAL_DAY && CAL_DAY.slice(0, 7) !== ymd(base).slice(0, 7)) CAL_DAY = null;
+      var gridHost = el("div", "cal-host"); body.appendChild(gridHost);
+      function newOn(dt2){ eventDialog(null, c.canEditWorlds, c.shareWorlds || [], dt2, function (ev){ location.hash = "#/calendar/" + encodeURIComponent(ev.id); }); }
+      function paintGrid(scrollTo){
+        gridHost.replaceChildren();
+        var nav2 = el("div", "cal-head");
+        var prevB = button("ghost small", "←", function (){ CAL_OFF--; CAL_DAY = null; viewCalendar(); }); prevB.setAttribute("aria-label", "The month before"); nav2.appendChild(prevB);
+        nav2.appendChild(el("span", "cal-month", monthWords));
+        var nextB = button("ghost small", "→", function (){ CAL_OFF++; CAL_DAY = null; viewCalendar(); }); nextB.setAttribute("aria-label", "The month after"); nav2.appendChild(nextB);
+        if (CAL_OFF) nav2.appendChild(button("ghost small", "Today", function (){ CAL_OFF = 0; CAL_DAY = null; viewCalendar(); }));
+        gridHost.appendChild(nav2);
+        var grid = el("div", "cal-grid"); grid.setAttribute("aria-label", monthWords); ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(function (x){ grid.appendChild(el("div", "cal-dow", x)); });
+        var first = new Date(base.getFullYear(), base.getMonth(), 1).getDay(), days = new Date(base.getFullYear(), base.getMonth() + 1, 0).getDate(), todayKey = ymd(new Date());
+        for (var i = 0; i < first; i++) grid.appendChild(el("div", "cal-cell empty"));
+        for (var dd = 1; dd <= days; dd++) (function (dd){
+          var dt = new Date(base.getFullYear(), base.getMonth(), dd), k = ymd(dt), list = byDay[k] || [];
+          var cell = el("div", "cal-cell" + (k === todayKey ? " today" : "") + (k === CAL_DAY ? " sel" : "") + (list.length ? " has" : ""));
+          var num = el("button", "cal-num", String(dd)); num.type = "button"; num.setAttribute("aria-label", calDayKey(dt) + (list.length ? ", " + list.length + (list.length === 1 ? " event" : " events") : ", nothing on it") + (k === CAL_DAY ? ", open below" : "")); num.setAttribute("aria-pressed", k === CAL_DAY ? "true" : "false");
+          num.addEventListener("click", function (){ CAL_DAY = CAL_DAY === k ? null : k; paintGrid(CAL_DAY ? k : null); }); cell.appendChild(num);
+          list.slice(0, 4).forEach(function (e){ var a = el("a", "cal-ev k-" + e.kind + (e.cancelled ? " off" : "")); a.href = "#/calendar/" + encodeURIComponent(e.id); a.title = e.title; a.appendChild(el("b", null, timeAt(e.startsAt))); a.appendChild(document.createTextNode(" " + e.title)); cell.appendChild(a); });
+          if (list.length > 4) { var more = el("button", "cal-more", "+" + (list.length - 4) + " more"); more.type = "button"; more.addEventListener("click", function (){ CAL_DAY = k; paintGrid(k); }); cell.appendChild(more); }
+          if (canEdit) { var add = el("button", "cal-add", "＋"); add.type = "button"; add.setAttribute("aria-label", "Add an event on " + calDayKey(dt)); add.addEventListener("click", function (){ newOn(dt); }); cell.appendChild(add); }
+          grid.appendChild(cell);
+        })(dd);
+        gridHost.appendChild(grid);
+        gridHost.appendChild(el("p", "fine", "A deadline is marked gold, a shoot day purple, a cancelled event struck through. Press a day's number to read that day in full. " + (canEdit ? "Press ＋ on a day to put an event there." : "")));
+        if (CAL_DAY) {
+          var dsel = new Date(CAL_DAY + "T12:00:00"), dlist = byDay[CAL_DAY] || [];
+          var ag = el("section", "cal-agenda"); ag.setAttribute("aria-label", "The day in full"); ag.tabIndex = -1;
+          var agHead = el("div", "cal-ag-head"); agHead.appendChild(el("h2", null, calDayKey(dsel))); agHead.appendChild(button("ghost small", "Close the day", function (){ CAL_DAY = null; paintGrid(null); })); ag.appendChild(agHead);
+          if (!dlist.length) ag.appendChild(el("p", "fine", "Nothing on this day."));
+          else { var rows = el("div", "rows"); dlist.forEach(function (e){ rows.appendChild(eventRow(e)); }); ag.appendChild(rows); }
+          if (canEdit) { var aa = el("div", "actions"); aa.appendChild(button("ghost", "＋ An event on this day", function (){ newOn(dsel); })); ag.appendChild(aa); }
+          gridHost.appendChild(ag);
+          if (scrollTo) { try { ag.scrollIntoView({ block:"nearest", behavior:"smooth" }); ag.focus({ preventScroll:true }); } catch (e) {} }
+        }
       }
-      body.appendChild(grid);
-      body.appendChild(el("p", "fine", "A deadline is marked gold, a shoot day purple, a cancelled event struck through. " + (canEdit ? "Press ＋ on a day to put an event there." : "")));
+      paintGrid(null);
     } else {
       var now = Date.now(), past = evs.filter(function (e){ return new Date(e.startsAt) < now; }), coming = evs.filter(function (e){ return new Date(e.startsAt) >= now; });
       if (!evs.length) body.appendChild(say("", "Nothing on the calendar", canEdit ? "Put the first event on it above. From its page you ask people to it; each is told by the House." : "The team lead of your world puts events here; when you are asked to one, the House tells you by email and it shows here."));
@@ -2576,7 +2615,10 @@ function eventDialog(ev, worlds, shareWorlds, onDate, after){
       if (t.value.trim().length < 2) { said.replaceChildren(say("no", "A title is needed", "")); t.focus(); return; }
       if (!fromInput(s.value)) { said.replaceChildren(say("no", "When does it begin?", "")); s.focus(); return; }
       said.replaceChildren(say("busy", ev ? "Saving" : "Placing", "Asking the House…"));
-      var fields = { kind:k.value, title:t.value.trim(), startsAt:fromInput(s.value), endsAt:fromInput(e2.value), location:loc.value.trim(), notes:notes.value.trim(), sharedWorlds:checks.filter(function (c){ return c.checked; }).map(function (c){ return c.value; }) };
+      var fields = { kind:k.value, title:t.value.trim(), startsAt:fromInput(s.value), endsAt:fromInput(e2.value), location:loc.value.trim(), notes:notes.value.trim() };
+      /* shared worlds: sent only when the form offered the choice; a world the event is already shared with but which was not offered (closed since) is kept, not dropped */
+      var offered = checks.map(function (c){ return c.value; }), kept = ev ? (ev.sharedWorlds || []).map(function (x){ return x.key; }).filter(function (x){ return x && offered.indexOf(x) < 0; }) : [];
+      if (checks.length || !ev) fields.sharedWorlds = checks.filter(function (c){ return c.checked; }).map(function (c){ return c.value; }).concat(kept);
       if (!ev) fields.world = w.value;
       act("house_team_event_act", { p_id:ev ? ev.id : null, p_action:ev ? "save" : "create", p_fields:fields }).then(function (res){
         if (!res.ok) { said.replaceChildren(say("no", ev ? "Not saved" : "Not placed", res.say)); return; }
@@ -3459,6 +3501,24 @@ function foldRail(current){
 var _paintNav41 = paintNav;
 paintNav = function (current){ _paintNav41(current); foldRail(current); };
 
+/* the phone menu: a Close button at the top of the open rail (above the overlay), a backdrop behind it, Escape closes it, a chosen page closes it, focus returns to Menu */
+var RAIL_SHUT = null;
+setTimeout(function (){
+  try {
+    var pull = document.getElementById("railpull"); if (!pull || typeof rail === "undefined" || !rail) return;
+    var closeB = document.createElement("button"); closeB.type = "button"; closeB.className = "rail-close"; closeB.id = "railclose"; closeB.textContent = "✕ Close menu"; closeB.setAttribute("aria-label", "Close the menu");
+    var back = document.createElement("div"); back.className = "rail-back"; back.hidden = true;
+    RAIL_SHUT = function (focusPull){ rail.classList.remove("open"); pull.setAttribute("aria-expanded", "false"); back.hidden = true; if (focusPull) { try { pull.focus(); } catch (e) {} } };
+    closeB.addEventListener("click", function (){ RAIL_SHUT(true); });
+    back.addEventListener("click", function (){ RAIL_SHUT(true); });
+    document.addEventListener("keydown", function (e){ if (e.key === "Escape" && rail.classList.contains("open")) RAIL_SHUT(true); });
+    pull.addEventListener("click", function (){ var open = rail.classList.contains("open"); back.hidden = !open; if (open) { try { closeB.focus(); } catch (e) {} } });
+    rail.addEventListener("click", function (e){ var a = e.target && e.target.closest ? e.target.closest("a") : null; if (a && rail.classList.contains("open")) RAIL_SHUT(false); });
+    rail.insertBefore(closeB, rail.firstChild); document.body.appendChild(back);
+  } catch (e) {}
+}, 0);
+var _paintNav41b = paintNav;
+paintNav = function (current){ _paintNav41b(current); if (RAIL_SHUT) RAIL_SHUT(false); };
 /* v5.2: a hosted copy reads its connection from portal-config.json beside it. Only the project address and the
    publishable key are accepted (validConfig refuses anything else), the same two things the dashboard hands over. */
 function hostedConfig(){
