@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; media-src blob:; frame-src blob:; font-src data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex, nofollow">
-<meta name="client-portal-release" content="v5.12">
+<meta name="client-portal-release" content="v6.0">
 <meta name="theme-color" content="#08070B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308070B'/%3E%3Cpath d='M9 28V12a7 7 0 0 1 14 0v16' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='1.6' fill='%23E4C55A'/%3E%3C/svg%3E">
 <title>House of Worlds — Client Portal</title>
@@ -218,6 +218,170 @@ body.status-on main{padding-bottom:9rem}
   .pairs{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto!important} }
+
+/* client portal v6: the House look on the client portal. Warmer type, tinted panels, fine gold borders, gradients
+   kept subtle, every size readable. A demo-only layer until the Founder approves it for the live portal. */
+body.look6{font-family:"Newsreader","Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",serif;font-size:16.5px;line-height:1.55}
+body.look6 main{max-width:1180px}
+body.look6 h1{font-size:2rem;font-weight:400}
+body.look6 .lede{font-size:.95rem;color:var(--muted);max-width:78ch}
+body.look6 .say{padding:.65rem .95rem}
+body.look6 .say h2,body.look6 .say h3{font-size:1rem;margin:0 0 .15rem}
+body.look6 .say p{font-size:.9rem;margin:0}
+body.look6 .word-hero{padding:1rem 1.3rem;margin-bottom:.8rem}
+body.look6 .wh-mark{font-size:1.5rem}
+body.look6 .wh-sub{font-size:.9rem}
+body.look6 .demo-bar{padding:.3rem .8rem;font-size:.78rem;gap:.3rem .6rem}
+body.look6 .demo-bar strong{font-size:.72rem;letter-spacing:.06em}
+body.look6 .demo-bar select,body.look6 .demo-bar button{min-height:30px;font-size:.76rem;padding:.1rem .5rem}
+body.look6 .tour-bar{font-size:.8rem}
+body.look6 .tour-bar .tour-words{font-size:.8rem}
+body.look6 h2{font-size:1.3rem;margin:1.5rem 0 .5rem}
+body.look6 .kicker{letter-spacing:.3em}
+/* the panels: tinted, bordered fine, gold-headed */
+.panel42{border:1px solid rgba(201,162,39,.28);border-radius:12px;padding:.95rem 1.1rem 1rem;background:linear-gradient(135deg,rgba(198,160,74,.12),var(--panel) 58%);box-shadow:0 1px 0 rgba(255,255,255,.03) inset;min-width:0}
+.panel42.tone-purple{background:linear-gradient(135deg,rgba(122,92,224,.18),var(--panel) 58%);border-color:rgba(122,92,224,.4)}
+.panel42.tone-blue{background:linear-gradient(135deg,rgba(91,139,208,.16),var(--panel) 58%);border-color:rgba(91,139,208,.4)}
+.panel42.tone-green{background:linear-gradient(135deg,rgba(63,163,77,.14),var(--panel) 58%);border-color:rgba(63,163,77,.4)}
+.panel42.tone-rose{background:linear-gradient(135deg,rgba(200,55,45,.14),var(--panel) 58%);border-color:rgba(200,55,45,.4)}
+.p42-head{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin-bottom:.55rem}
+.p42-head h3{margin:0;font-family:var(--display);font-size:1.12rem;font-weight:500;color:var(--ivory);letter-spacing:.01em}
+.p42-head .pill{margin-left:.4rem;vertical-align:middle}
+.p42-open{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap}
+.p42-open:hover{color:var(--gold-bright)}
+.panel42 .rows{border-top:0}
+.panel42 .row{padding:.45rem 0;font-size:.92rem}
+.panel42 .row .w{font-size:.95rem}
+.panel42 .row .m{font-size:.8rem}
+.panel42 .empty{font-size:.9rem;color:var(--faint);padding:.4rem 0;font-style:italic}
+.panel42 .fine{font-size:.78rem}
+.grid42{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:.6rem 0 .8rem}
+.grid42.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid42 .panel42.wide{grid-column:1 / -1}
+/* lines inside panels: a dot, a title, a right-hand word */
+.l42{display:flex;align-items:baseline;gap:.55rem;padding:.38rem 0;border-bottom:1px solid rgba(244,241,234,.06);text-decoration:none;color:inherit}
+.l42:last-child{border-bottom:0}
+.l42 .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;position:relative;top:-1px}
+.l42 .dot.hot{background:var(--ember)}.l42 .dot.ok{background:var(--emerald)}.l42 .dot.cool{background:var(--sky)}.l42 .dot.off{background:#555}
+.l42 .t{flex:1;min-width:0;color:var(--ivory);font-size:.95rem;line-height:1.3}
+.l42 .t small{display:block;font-size:.78rem;color:var(--faint);margin-top:.05rem}
+.l42 .r{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.l42 .r.hot{color:#ffb3ad}.l42 .r.gold{color:var(--gold-bright)}
+a.l42:hover .t{color:var(--gold-bright)}
+/* the progress line */
+.prog{height:7px;border-radius:999px;background:rgba(244,241,234,.08);overflow:hidden;margin:.3rem 0}
+.prog .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),#C8372D)}
+.prog.ok .fill{background:linear-gradient(90deg,var(--gold),var(--emerald))}
+.prog-row{display:grid;grid-template-columns:minmax(0,1fr) 3.2rem;align-items:center;gap:.6rem;padding:.3rem 0}
+.prog-row .t{font-size:.92rem;color:var(--ivory);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog-row .t small{color:var(--faint);font-size:.76rem;margin-left:.4rem}
+.prog-row .pct{font-family:var(--mono);font-size:.74rem;color:var(--gold-bright);text-align:right}
+.prog-row .prog{grid-column:1 / -1;margin:0 0 .15rem}
+/* the project bar and the tiles */
+.pbar42{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .8rem;margin:.2rem 0 .9rem;padding:.6rem .9rem;border:1px solid rgba(201,162,39,.22);border-radius:10px;background:rgba(255,255,255,.02)}
+.pbar42 .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.pbar42 select{min-height:36px;padding:.2rem .6rem;font-size:.92rem;max-width:26rem}
+.pbar42 .pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.tiles42{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.7rem;margin:.3rem 0 1rem}
+.tile42{border:1px solid rgba(201,162,39,.2);border-radius:12px;background:var(--panel);padding:.75rem .9rem;text-decoration:none;color:inherit;display:block;min-width:0}
+a.tile42:hover{border-color:rgba(201,162,39,.5)}
+.tile42 .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.tile42 .v{font-family:var(--display);font-size:1.15rem;color:var(--ivory);margin:.3rem 0 .1rem;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tile42 .v.num{font-size:1.7rem;color:var(--gold-bright)}
+.tile42 .s{font-size:.78rem;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* the start row and the quick actions */
+.start42{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin:.4rem 0 1rem}
+.start42 a{display:flex;align-items:center;gap:.6rem;padding:.8rem .9rem;border:1px solid rgba(201,162,39,.25);border-radius:10px;background:var(--panel);color:var(--ivory);text-decoration:none;font-size:.95rem}
+.start42 a:hover{border-color:var(--gold);background:rgba(201,162,39,.08)}
+.start42 .ic{width:1.9rem;height:1.9rem;border-radius:8px;background:rgba(75,46,131,.45);display:flex;align-items:center;justify-content:center;font-size:1rem;flex:none}
+body.look6 .film-chips{margin:.2rem 0 .8rem}
+body.look6 .chip{font-size:.84rem;padding:.25rem .8rem}
+/* people and presence */
+.pres{display:flex;align-items:center;gap:.6rem;padding:.4rem 0;border-bottom:1px solid rgba(244,241,234,.06)}
+.pres:last-child{border-bottom:0}
+.pres .avatar{margin:0;width:30px;height:30px;font-size:.8rem}
+.pres .n{flex:1;min-width:0;font-size:.93rem;color:var(--ivory)}
+.pres .n small{display:block;font-size:.76rem;color:var(--faint)}
+.pres .st{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.pres .st.on{color:#7fd48b}
+.cred{font-size:.9rem;color:var(--muted);padding:.3rem 0;border-bottom:1px solid rgba(244,241,234,.06)}
+.cred b{color:var(--ivory);font-weight:500}
+.cred:last-child{border-bottom:0}
+/* project cards */
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.9rem;margin:.5rem 0 1rem}
+.pcard{border:1px solid rgba(201,162,39,.28);border-radius:14px;background:var(--panel);overflow:hidden;display:flex;flex-direction:column;transition:.16s}
+.pcard:hover{border-color:rgba(201,162,39,.55);transform:translateY(-1px)}
+.pc-band{padding:.8rem 1.05rem;background:linear-gradient(135deg,rgba(200,55,45,.35),rgba(75,46,131,.35));font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory);display:flex;justify-content:space-between;gap:.5rem;min-height:3.6rem;align-items:flex-end}
+.pcard.k-writing .pc-band{background:linear-gradient(135deg,rgba(122,92,224,.45),rgba(201,162,39,.25))}
+.pcard.k-document .pc-band,.pcard.k-correction .pc-band{background:linear-gradient(135deg,rgba(91,139,208,.4),rgba(75,46,131,.3))}
+.pcard.k-proposal .pc-band{background:linear-gradient(135deg,rgba(198,160,74,.45),rgba(75,46,131,.3))}
+.pcard.k-production .pc-band,.pcard.k-commission .pc-band{background:linear-gradient(135deg,rgba(200,55,45,.4),rgba(198,160,74,.3))}
+.pc-body{padding:.85rem 1.05rem 1rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.pc-title{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+.pc-title a{font-family:var(--display);font-size:1.2rem;color:var(--ivory);text-decoration:none;line-height:1.2}
+.pc-title a:hover{color:var(--gold-bright)}
+.pc-log{font-size:.9rem;color:var(--muted);line-height:1.45;margin:0 0 .2rem}
+.pc-pairs{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.2rem .9rem;font-size:.86rem;margin:.2rem 0}
+.pc-pairs dt{color:var(--faint);margin:0}
+.pc-pairs dd{margin:0;color:var(--ivory);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-pairs dd .pill{margin-left:.3rem}
+.pc-chips{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0 .5rem}
+.pc-acts{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:auto}
+body.look6 .pc-acts .act{min-height:2.2rem;padding:.25rem .8rem;font-size:.88rem}
+/* the workspace: tiles, tabs, panels */
+.wtiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin:.2rem 0 .9rem}
+.wtabs{display:flex;flex-wrap:wrap;gap:.35rem;margin:.2rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(201,162,39,.2)}
+.wtab{border:1px solid rgba(201,162,39,.25);border-radius:999px;padding:.35rem .9rem;background:transparent;color:var(--muted);font-family:var(--body);font-size:.9rem;cursor:pointer;min-height:0;display:inline-flex;align-items:center;gap:.4rem}
+.wtab .n{font-family:var(--mono);font-size:.64rem;padding:0 .4rem;border-radius:999px;border:1px solid rgba(201,162,39,.35);color:var(--gold)}
+.wtab:hover{color:var(--ivory);border-color:rgba(201,162,39,.5)}
+.wtab.on{background:var(--gold);color:#0B0B0F;border-color:var(--gold);font-weight:600}
+.wtab.on .n{color:#0B0B0F;border-color:rgba(0,0,0,.3)}
+.wpanel[hidden]{display:none}
+.wpanel > h2:first-child{margin-top:.4rem}
+.wpanel .say{margin-bottom:.8rem}
+.path42{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.4rem;margin:.5rem 0 1rem}
+.path42 .step{border:1px solid rgba(244,241,234,.1);border-radius:8px;padding:.5rem .6rem;font-size:.82rem;color:var(--faint);text-align:center}
+.path42 .step.done{border-color:rgba(63,163,77,.5);color:#9fdba7}
+.path42 .step.now{border-color:var(--gold-bright);color:var(--ivory);background:rgba(201,162,39,.12);font-weight:600}
+.wtext{white-space:pre-wrap;font-family:var(--mono);font-size:.84rem;line-height:1.6;max-height:18rem;overflow:auto;border:1px solid rgba(201,162,39,.2);border-radius:10px;padding:.8rem 1rem;background:#0F0E15;color:var(--ivory)}
+/* the story desk's gallery and library */
+.sd-hero{border:1px solid rgba(201,162,39,.4);border-radius:14px;padding:1.1rem 1.4rem;margin:0 0 1rem;background:linear-gradient(135deg,rgba(201,162,39,.16),rgba(75,46,131,.18) 70%)}
+.sd-hero h2{margin:0;font-family:var(--display);font-size:1.6rem;color:var(--gold-bright);display:flex;gap:.5rem;align-items:center}
+.sd-hero p{margin:.4rem 0 0;color:var(--muted);font-size:.95rem;max-width:80ch}
+.tworld{margin:1rem 0 .4rem;display:flex;align-items:baseline;justify-content:space-between;gap:.6rem}
+.tworld h3{margin:0;font-family:var(--display);font-size:1.15rem;font-weight:500;color:var(--ivory)}
+.tworld .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.tgal{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:.6rem;margin:.2rem 0 .4rem}
+.ttile{border:1px solid rgba(201,162,39,.22);border-radius:12px;background:var(--panel);padding:.9rem .5rem .7rem;text-align:center;cursor:pointer;color:var(--ivory);font-family:var(--body);font-size:.88rem;line-height:1.2;transition:.14s;min-height:0;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.ttile:hover,.ttile:focus-visible{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,162,39,.14),var(--panel));transform:translateY(-1px);outline:none}
+.ttile .ic{font-size:1.7rem;line-height:1}
+.ttile small{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.tgal.film .ttile{border-color:rgba(200,55,45,.3)}.tgal.television .ttile{border-color:rgba(91,139,208,.35)}.tgal.animation .ttile{border-color:rgba(122,92,224,.4)}.tgal.writing-and-literature .ttile{border-color:rgba(201,162,39,.3)}
+.lib-tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.3rem 0 .6rem}
+.lib-tools input{flex:1 1 14rem;min-height:38px}
+.doccards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.8rem;margin:.4rem 0 1rem}
+.doccard{border:1px solid rgba(201,162,39,.25);border-radius:12px;background:linear-gradient(135deg,rgba(122,92,224,.1),var(--panel) 60%);padding:.9rem 1.05rem;display:flex;flex-direction:column;gap:.3rem}
+.doccard .dc-top{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem}
+.doccard .dc-top b{font-family:var(--display);font-size:1.12rem;font-weight:500;color:var(--ivory);line-height:1.2}
+.doccard .pc-pairs{font-size:.84rem}
+.doccard .pc-acts{margin-top:.4rem}
+/* phones */
+@media (max-width:760px){.grid42,.grid42.three{grid-template-columns:1fr}.path42{grid-template-columns:repeat(2,minmax(0,1fr))}.pcards,.doccards{grid-template-columns:1fr}body.look6 h1{font-size:1.6rem}.pbar42 select{max-width:100%}}
+.p42-head h3,.tworld h3,.doccard .dc-top b{text-transform:none;letter-spacing:.01em}
+body.look6 .deadline-band{padding:.7rem 1.1rem}body.look6 .deadline-band .dl-title{font-size:1.2rem}body.look6 .deadline-band .dl-count{font-size:1.3rem}
+@media (max-width:760px){.tworld{flex-wrap:wrap}.tworld h3{font-size:1.05rem}.p42-open{white-space:normal;font-size:.64rem}.pbar42 .pills{width:100%}.tiles42{grid-template-columns:repeat(2,minmax(0,1fr))}.wtiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile42 .v{white-space:normal;font-size:1.02rem}.start42{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* v37.1: the phone: useful work sooner, nothing truncated */
+@media (max-width:640px){body.look6 .demo-bar{padding:.2rem .6rem;gap:.25rem .5rem}body.look6 .demo-bar strong{font-size:.6rem;letter-spacing:.04em;flex:1 1 100%;line-height:1.2}body.look6 .demo-bar select{flex:1 1 60%;min-height:26px;font-size:.7rem;max-width:62%}body.look6 .demo-bar button{min-height:26px;font-size:.68rem;padding:.05rem .4rem}body.look6 .tour-bar{padding:.15rem .6rem}body.look6 .tour-bar strong{font-size:.66rem}body.look6 .tour-bar button{min-height:26px;font-size:.68rem}
+body.look6 .word-hero{padding:.7rem .9rem;margin-bottom:.55rem}body.look6 .wh-mark{font-size:1.15rem}body.look6 .wh-sub{font-size:.8rem;margin-top:.25rem}body.look6 .wh-sub br{display:none}body.look6 .declared-line{font-size:.8rem;margin-top:.35rem}
+body.look6 .deadline-band{padding:.55rem .8rem;margin-bottom:.6rem;gap:.1rem .6rem}body.look6 .deadline-band .dl-k{font-size:.58rem}body.look6 .deadline-band .dl-title{font-size:1rem;line-height:1.2}body.look6 .deadline-band .dl-count{font-size:1.05rem}body.look6 .deadline-band .dl-when{font-size:.78rem}body.look6 .deadline-band .dl-more{font-size:.58rem}
+body.look6 h1{font-size:1.45rem;margin-bottom:.3rem}body.look6 .lede{font-size:.86rem}.pbar42{padding:.5rem .7rem}.pbar42 select{font-size:.86rem;min-height:32px}
+.prog-row .t,.tile42 .v,.tile42 .s,.pc-pairs dd,.pc-title a,.l42 .t,.l42 .r{white-space:normal;overflow:visible;text-overflow:clip}.pc-pairs{grid-template-columns:1fr}.pc-pairs dd{text-align:left;margin-bottom:.25rem}.pc-pairs dt{margin-top:.1rem}.l42 .r{white-space:nowrap}.prog-row{grid-template-columns:minmax(0,1fr) auto}.wtiles .tile42 .v{font-size:.95rem}.start42 a{font-size:.88rem;padding:.6rem .7rem}}
+/* client portal v6 additions */
+body.look6 .cards .card{border-radius:12px;background:#131019;border-color:rgba(201,162,39,.28)}body.look6 .card .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#8A857A}body.look6 .card .t{font-family:var(--display);font-size:1.15rem;color:#F4F1EA}
+.c6-sg{border:1px solid rgba(201,162,39,.2);border-radius:10px;background:#131019;padding:.7rem .9rem;margin:.4rem 0;display:block;text-decoration:none;color:inherit}.c6-sg:hover{border-color:rgba(201,162,39,.5)}.c6-sg.unread{border-color:rgba(228,190,69,.45);background:linear-gradient(135deg,rgba(201,162,39,.08),#131019)}.c6-sg .top{display:flex;justify-content:space-between;gap:.6rem;font-size:.8rem;color:#B7B1A6}.c6-sg .sub{font-family:var(--display);font-size:1.05rem;color:#F4F1EA;margin:.2rem 0}.c6-sg .pre{font-size:.85rem;color:#B7B1A6}
+.c6-next{font-size:.82rem;color:#ffb3ad;margin:.15rem 0 0}.c6-next.ok{color:#7fd48b}.c6-next.wait{color:var(--gold-bright)}
+body.look6 .rail-close{display:none}body.look6 .rail.open .rail-close{display:block}
+
 </style>
 </head>
 <body>
@@ -226,7 +390,7 @@ body.status-on main{padding-bottom:9rem}
 <div class="frame">
   <aside class="rail" id="rail" aria-label="Sections">
     <a class="brand" href="#/home">House of Worlds<small>Client Portal</small></a>
-    <p class="ver">Version 5.12</p>
+    <p class="ver">Version 6.0</p>
     <nav id="nav" aria-label="Portal sections"></nav>
     <div class="who" id="who"></div>
   </aside>
@@ -451,7 +615,7 @@ var CFG = null, SESSION = null, ME = null, OV = null, PORTAL = null;
 var ALLOWED = /^(house_client_[a-z_]+|house_team_me|house_newsroom|house_offerings|house_public_doors|house_public_rooms)$/;
 var BUCKET = "client-files";
 function headers(auth, json){
-  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-client-portal/5.12" };
+  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-client-portal/6.0" };
   if (json !== false) h["Content-Type"] = "application/json";
   if (auth && SESSION && SESSION.access_token) h["Authorization"] = "Bearer " + SESSION.access_token;
   return h;
@@ -1766,6 +1930,153 @@ function enter(){
     });
   });
 }
+/* ---- Client Portal v6: the House's look, a client home, the project view with its tabs and milestones, messages ----
+   Laid over v5.12. Every figure is read from the same client functions as before; nothing new is written. The milestones
+   are computed from the client's own records (the proposal answered, the agreement acknowledged, the invoices paid, the
+   deliverables delivered and accepted) and say so; no percentage is estimated. */
+try { document.body.classList.add("look6"); } catch (e) {}
+var C6 = { needs:null };
+function c6clean(n){ return String(n || ""); }
+function c6days(at){ var d = Math.round((new Date(at) - Date.now()) / 86400000); return d < 0 ? Math.abs(d) + " day" + (Math.abs(d) === 1 ? "" : "s") + " past" : d === 0 ? "today" : d === 1 ? "tomorrow" : "in " + d + " days"; }
+function p6(host, title, tone, href, cta, pill){ var p = el("section", "panel42 tone-" + (tone || "gold")); var h = el("div", "p42-head"); var t = el("h3", null, title); if (pill != null) t.appendChild(el("span", "pill " + (pill ? "gold" : "faint"), String(pill))); h.appendChild(t); if (href) { var a = el("a", "p42-open", (cta || "Open") + " →"); a.href = href; h.appendChild(a); } p.appendChild(h); host.appendChild(p); return p; }
+function l6(host, dot, title, sub, right, tone, href){ var a = el(href ? "a" : "div", "l42"); if (href) a.href = href; a.appendChild(el("span", "dot" + (dot ? " " + dot : ""))); var t = el("span", "t", title); if (sub) t.appendChild(el("small", null, sub)); a.appendChild(t); if (right) a.appendChild(el("span", "r" + (tone ? " " + tone : ""), right)); host.appendChild(a); return a; }
+function e6(host, text){ host.appendChild(el("p", "empty", text)); }
+function tiles6(host, items){ var g = el("div", "tiles42"); items.forEach(function (x){ var a = el(x[3] ? "a" : "div", "tile42"); if (x[3]) a.href = x[3]; a.appendChild(el("div", "k", x[0])); a.appendChild(el("div", "v" + (x[4] ? " num" : ""), String(x[1]))); if (x[2]) a.appendChild(el("div", "s", x[2])); g.appendChild(a); }); host.appendChild(g); return g; }
+function hero6(host, mark, sub){ var h = el("div", "word-hero"); h.appendChild(el("div", "wh-mark", mark)); var s = el("div", "wh-sub"); if (typeof sub === "string") s.textContent = sub; else s.appendChild(sub); h.appendChild(s); host.insertBefore(h, host.firstChild); return h; }
+/* the next step for a thing in a state that needs one: never a blank, never a hidden failure */
+function nextStep6(kind, x){
+  if (kind === "invoice") { if (x.overdue) return ["no", "Overdue. Pay it, or tell the House a payment was sent from the invoice's page."]; if (Number(x.balanceCents) > 0) return ["wait", "Outstanding. " + (x.payOnline ? "Payable online from its page." : "How to pay is on its page.")]; if (x.onlineState === "failed") return ["no", "The online payment did not go through. Try again from the invoice's page, or pay another way."]; return ["ok", "Paid, as the House records it."]; }
+  if (kind === "deliverable") { if (x.status === "returned" || x.status === "declined") return ["no", "Returned with notes. The House sends the next version; your decision is asked again then."]; if (x.status === "submitted" && !x.acceptedOn && x.canDecide !== false) return ["wait", "Waiting for your decision: review and accept or return it."]; if (x.acceptedOn) return ["ok", "Accepted by you."]; if (x.deliveredOn) return ["ok", "Delivered."]; return ["wait", "Promised; not yet delivered."]; }
+  if (kind === "proposal") { if (x.yourAnswer && x.yourAnswer.decision === "accepted") return ["ok", "Accepted by you."]; if (x.yourAnswer) return ["no", "Declined by you. Ask for a fresh proposal if the work should go on."]; if (x.expired) return ["no", "Past its validity. Ask for a fresh proposal."]; if (x.awaitingYou) return ["wait", "For your answer: read it and accept or decline."]; return ["wait", "With the House."]; }
+  if (kind === "thread") { if (x.status === "declined") return ["no", "The House declined this request; its reason is in the conversation."]; if (x.status === "waiting_on_you" || Number(x.unread) > 0) return ["wait", "Something new from the House waits for you."]; if (x.status === "closed") return ["ok", "Closed."]; return ["wait", "With the House."]; }
+  if (kind === "meeting") { if (x.status === "proposed") return ["wait", "Proposed by the House: confirm or ask for another time."]; if (x.status === "confirmed") return ["ok", "Confirmed."]; if (x.status === "reschedule_requested") return ["wait", "You asked for another time; the House answers."]; return ["", ""]; }
+  return ["", ""];
+}
+function nextLine6(host, kind, x){ var n = nextStep6(kind, x); if (!n[1]) return; host.appendChild(el("p", "c6-next " + (n[0] === "ok" ? "ok" : n[0] === "wait" ? "wait" : ""), n[1])); }
+/* the milestones of an engagement, from the client's own records */
+var PATH6 = [["quote", "Quote accepted"], ["agreement", "Agreement acknowledged"], ["deposit", "Deposit paid"], ["begin", "Work under way"], ["revisions", "Revisions"], ["acceptance", "Your acceptance"], ["balance", "Balance paid"], ["delivery", "Delivery"], ["archive", "Closed"]];
+function forProject6(list, e, idKey, titleKey){ var xs = (list || []).filter(function (x){ return (idKey && x[idKey] != null && String(x[idKey]) === String(e.id)) || (titleKey && x[titleKey] && x[titleKey] === e.title); }); return xs.length ? xs : ((list || []).length && !(list || []).some(function (x){ return (idKey && x[idKey] != null) || (titleKey && x[titleKey]); }) ? list : []); }
+function pathOf6(e, quotes, contracts, invoices, deliverables){
+  var qs = forProject6(quotes, e, "projectId", "opportunity"), cs = forProject6(contracts, e, "projectId", "projectTitle"), is = forProject6(invoices, e, "projectId", "projectTitle"), ds = deliverables || [];
+  var out = {};
+  var qa = qs.filter(function (q){ return q.yourAnswer && q.yourAnswer.decision === "accepted"; })[0]; out.quote = qa ? { state:"done", at:qa.yourAnswer.at || qa.sentAt, words:qa.reference || "accepted" } : qs.some(function (q){ return q.awaitingYou; }) ? { state:"with you", words:"a proposal waits for your answer" } : { state:"not yet" };
+  var ca = cs.filter(function (c){ return c.acknowledged || c.signedOn; })[0]; out.agreement = ca ? { state:"done", at:ca.signedOn || ca.effectiveOn, words:ca.number || ca.title || "signed" } : cs.some(function (c){ return c.canAcknowledge; }) ? { state:"with you", words:"an agreement waits for your acknowledgement" } : { state:"not yet" };
+  var dep = is.filter(function (i){ return /deposit/i.test((i.title || "") + " " + (i.kind || "")); })[0] || is[0]; out.deposit = dep ? (Number(dep.balanceCents) > 0 ? { state: dep.overdue ? "overdue" : "with you", words:(dep.number || "invoice") + " outstanding" } : { state:"done", at:dep.paidOn || dep.issuedOn, words:dep.number || "paid" }) : { state:"not yet" };
+  out.begin = /^(active|in_progress|underway|under_way|open|delivering)$/.test(String(e.status)) || ds.length ? { state:"done", at:e.startsOn, words:words(e.status) } : { state:"not yet", words:words(e.status) };
+  var rev = ds.filter(function (d){ return d.status === "returned" || (d.review && Number(d.review.version) > 1); }); out.revisions = rev.length ? { state:"under way", words:rev.length + " deliverable" + (rev.length === 1 ? "" : "s") + " in revision" } : (ds.length ? { state:"done", words:"none asked" } : { state:"not yet" });
+  var acc = ds.filter(function (d){ return d.acceptedOn; }); out.acceptance = ds.length && acc.length === ds.length ? { state:"done", at:acc[acc.length - 1].acceptedOn, words:"all " + ds.length + " accepted" } : ds.some(function (d){ return d.status === "submitted" && !d.acceptedOn; }) ? { state:"with you", words:"a deliverable waits for your decision" } : acc.length ? { state:"under way", words:acc.length + " of " + ds.length + " accepted" } : { state:"not yet" };
+  var bal = is.filter(function (i){ return /balance|final/i.test((i.title || "") + " " + (i.kind || "")); })[0] || (is.length > 1 ? is[is.length - 1] : null); out.balance = bal ? (Number(bal.balanceCents) > 0 ? { state: bal.overdue ? "overdue" : "with you", words:(bal.number || "invoice") + " outstanding" } : { state:"done", at:bal.paidOn, words:bal.number || "paid" }) : { state:"not yet" };
+  var del = ds.filter(function (d){ return d.deliveredOn; }); out.delivery = ds.length && del.length === ds.length ? { state:"done", at:del[del.length - 1].deliveredOn, words:"all delivered" } : del.length ? { state:"under way", words:del.length + " of " + ds.length + " delivered" } : { state:"not yet" };
+  out.archive = /^(closed|completed|complete|archived|done)$/.test(String(e.status)) ? { state:"done", at:e.closedOn, words:words(e.status) } : { state:"not yet" };
+  return out;
+}
+function pathIndex6(path){ var n = 0; PATH6.forEach(function (s){ if (path[s[0]] && path[s[0]].state === "done") n++; }); return n; }
+function pathBlock6(host, e, path){
+  var sec = el("section", "panel42 tone-purple"); var h = el("div", "p42-head"); h.appendChild(el("h3", null, "The path of this engagement")); h.appendChild(el("span", "pill gold", pathIndex6(path) + " of 9 done")); sec.appendChild(h);
+  var grid = el("div", "path42"); grid.style.gridTemplateColumns = "repeat(3,minmax(0,1fr))";
+  PATH6.forEach(function (s){ var m = path[s[0]] || { state:"not yet" }; var box = el("div", "step" + (m.state === "done" ? " done" : m.state === "with you" || m.state === "overdue" || m.state === "under way" ? " now" : "")); box.appendChild(el("b", null, s[1])); box.appendChild(document.createTextNode(" · " + m.state + (m.at ? " · " + when(m.at) : "") + (m.words && m.words !== m.state ? " · " + m.words : ""))); grid.appendChild(box); });
+  sec.appendChild(grid); sec.appendChild(el("p", "fine", "Read from your own records: the proposal you answered, the agreement you acknowledged, the invoices as the House records them, the deliverables delivered and accepted, and the engagement's standing. Nothing is estimated.")); host.appendChild(sec);
+}
+/* ---- the client home ---- */
+var _viewHome6 = viewHome;
+viewHome = function (){
+  view("home", "Welcome", (ME && ME.name) ? ME.name : "The House", null, [["house_client_overview"], ["house_client_threads"], ["house_client_invoices"], ["house_client_proposals"], ["house_client_agreements"], ["house_client_meetings"]], function (body, d, again, host){
+    OV = d[0]; paintNav("home"); C6.needs = OV.needs || {};
+    host.querySelector("h1").textContent = "Your desk at the House"; host.querySelector(".kicker").textContent = "Client Portal";
+    var n = OV.needs || {}, eng = OV.engagements || [], threads = d[1].threads || [], invoices = d[2].invoices || [], quotes = d[3].quotes || [], contracts = d[4].contracts || [], meetings = d[5].meetings || [];
+    var sub = el("span"); sub.appendChild(el("b", null, (ME && ME.clients && ME.clients.length) ? ME.clients.map(function (x){ return x.name; }).join(", ") : "Client of the House")); sub.appendChild(document.createTextNode(" · everything on this page is read from the House's record, just now. What waits on you comes first; the House's side is named too."));
+    hero6(body, "🏛️ Welcome back, " + c6clean(ME && ME.name), sub);
+    tiles6(body, [[n.deliverablesToAccept || 0, "deliverables to decide", "#/deliverables"], [n.proposalsAwaiting || 0, "proposals for your answer", "#/proposals"], [n.agreementsToAcknowledge || 0, "agreements to acknowledge", "#/agreements"], [n.invoicesOutstanding || 0, "invoices outstanding" + (n.invoicesOverdue ? " · " + n.invoicesOverdue + " overdue" : ""), "#/invoices"], [n.meetingsProposed || 0, "meetings proposed", "#/meetings"], [n.conversationsWaiting || 0, "messages with news", "#/conversations"]].map(function (x){ return [x[1], x[0], null, x[2], true]; }));
+    if (eng.length) { var bar = el("div", "pbar42"); bar.appendChild(el("span", "k", "Engagement")); var sel = document.createElement("select"); eng.forEach(function (e){ var o = document.createElement("option"); o.value = e.id; o.textContent = (e.number ? e.number + " · " : "") + e.title; sel.appendChild(o); }); bar.appendChild(sel); var pills = el("span", "pills"); bar.appendChild(pills); function paintPills(){ var e = eng.filter(function (x){ return String(x.id) === String(sel.value); })[0] || eng[0]; pills.replaceChildren(); pills.appendChild(el("span", "pill gold", words(e.status))); pills.appendChild(el("span", "pill", (e.deliverablesAccepted || 0) + " of " + (e.deliverables || 0) + " deliverables accepted")); if (e.targetOn) pills.appendChild(el("span", "pill", "target " + when(e.targetOn))); var go = el("a", "p42-open", "Open the engagement →"); go.href = "#/engagement/" + e.id; pills.appendChild(go); } sel.addEventListener("change", paintPills); paintPills(); body.appendChild(bar); }
+    var g = el("div", "grid42"); body.appendChild(g);
+    var you = p6(g, "What waits on you", "rose", null, null);
+    var youRows = 0;
+    quotes.filter(function (q){ return q.awaitingYou; }).forEach(function (q){ youRows++; l6(you, "hot", q.reference || "A proposal", "proposal · " + money(q.totalCents, q.currency) + (q.validUntil ? " · valid until " + when(q.validUntil) : ""), "answer", "hot", "#/proposal/" + q.id); });
+    contracts.filter(function (c){ return c.canAcknowledge && !c.acknowledged; }).forEach(function (c){ youRows++; l6(you, "hot", c.title || c.number || "An agreement", "agreement · read and acknowledge", "acknowledge", "hot", "#/agreements"); });
+    invoices.filter(function (i){ return Number(i.balanceCents) > 0; }).forEach(function (i){ youRows++; l6(you, i.overdue ? "hot" : "", (i.number ? i.number + " · " : "") + (i.title || "Invoice"), money(i.balanceCents, i.currency) + " outstanding" + (i.dueOn ? " · due " + when(i.dueOn) : "") + (i.overdue ? " · overdue" : ""), i.overdue ? "overdue" : "pay", i.overdue ? "hot" : "gold", "#/invoice/" + i.source + "/" + i.id); });
+    meetings.filter(function (m){ return m.status === "proposed"; }).forEach(function (m){ youRows++; l6(you, "cool", m.title, "meeting proposed · " + whenAt(m.startsAt), "confirm", "gold", "#/meetings"); });
+    threads.filter(function (t){ return Number(t.unread) > 0 || t.status === "waiting_on_you"; }).forEach(function (t){ youRows++; l6(you, "", t.subject, "message · " + (t.projectTitle ? t.projectTitle + " · " : "") + "last " + whenAt(t.lastAt), (Number(t.unread) || 0) ? t.unread + " new" : "waits", "gold", "#/conversation/" + t.id); });
+    if (Number(n.deliverablesToAccept) > 0) { youRows++; l6(you, "hot", n.deliverablesToAccept + " deliverable" + (n.deliverablesToAccept === 1 ? "" : "s") + " for your decision", "review and accept or return", "decide", "hot", "#/deliverables"); }
+    if (!youRows) e6(you, "Nothing waits on you. Every register was read just now.");
+    var hs = p6(g, "With the House", "blue", "#/conversations", "Messages");
+    var hsRows = 0; threads.filter(function (t){ return !(Number(t.unread) > 0 || t.status === "waiting_on_you") && t.status !== "closed"; }).slice(0, 4).forEach(function (t){ hsRows++; l6(hs, "cool", t.subject, (t.projectTitle ? t.projectTitle + " · " : "") + "with the House since " + whenAt(t.lastAt), words(t.status), "", "#/conversation/" + t.id); });
+    quotes.filter(function (q){ return !q.awaitingYou && !q.yourAnswer && !q.expired; }).forEach(function (q){ hsRows++; l6(hs, "cool", q.reference || "A proposal", "being written by the House", words(q.state), "", "#/proposals"); });
+    if (!hsRows) e6(hs, "Nothing is with the House right now.");
+    var en = p6(g, "Your engagements", "purple", "#/engagements", "All", eng.length); en.classList.add("wide");
+    if (!eng.length) e6(en, "No engagement is open to you yet. When the House opens one, it appears here with its path, its dates and what has been promised.");
+    else { var cards = el("div", "pcards"); eng.forEach(function (e){ var synth = []; for (var si = 0; si < (Number(e.deliverables) || 0); si++) synth.push({ acceptedOn: si < (Number(e.deliverablesAccepted) || 0) ? (e.targetOn || e.startsOn || null) : null, deliveredOn: si < (Number(e.deliverablesAccepted) || 0) ? (e.targetOn || e.startsOn || null) : null, status: si < (Number(e.deliverablesAccepted) || 0) ? "accepted" : "promised" }); var path = pathOf6(e, quotes, contracts, invoices, synth); var done = pathIndex6(path); var c = el("article", "pcard k-commission"); var band = el("div", "pc-band"); band.appendChild(el("span", null, (e.worlds && e.worlds.length) ? e.worlds.join(", ") : "House of Worlds")); band.appendChild(el("span", null, e.number || "Engagement")); c.appendChild(band); var b = el("div", "pc-body"); var t = el("div", "pc-title"); var a = el("a", null, e.title); a.href = "#/engagement/" + e.id; t.appendChild(a); t.appendChild(el("span", "pill gold", words(e.status))); b.appendChild(t); if (e.scope) b.appendChild(el("p", "pc-log", e.scope.length > 150 ? e.scope.slice(0, 147) + "…" : e.scope)); var pb = el("div", "prog" + (done >= 8 ? " ok" : "")); var fl = el("div", "fill"); fl.style.width = Math.round(done / 9 * 100) + "%"; pb.appendChild(fl); pb.title = done + " of 9 steps done"; b.appendChild(pb); var dl = el("dl", "pc-pairs"); [["Path", done + " of 9 steps done"], ["Target", e.targetOn ? when(e.targetOn) : "—"], ["Deliverables", (e.deliverablesAccepted || 0) + " of " + (e.deliverables || 0) + " accepted"], ["Your access", e.access === "collaborative" ? "read, decide, share files" : "read and decide"]].forEach(function (x){ dl.appendChild(el("dt", null, x[0])); dl.appendChild(el("dd", null, x[1])); }); b.appendChild(dl); var acts = el("div", "pc-acts"); acts.appendChild(link("", "Open the engagement", "#/engagement/" + e.id)); acts.appendChild(link("ghost", "Ask about it", "#/ask/-/question/" + e.id)); b.appendChild(acts); c.appendChild(b); cards.appendChild(c); }); en.appendChild(cards); }
+    var dates = OV.dates || []; var dt = p6(g, "Dates ahead", "gold", "#/dates", "All dates", dates.length); if (!dates.length) e6(dt, "No date ahead on your record."); dates.slice(0, 6).forEach(function (x){ l6(dt, isPastDay(x.on) ? "off" : "", x.what, words(x.kind), c6days(x.on), "gold", x.projectId ? "#/engagement/" + x.projectId : "#/dates"); });
+    var pay = p6(g, "Payments", "green", "#/invoices", "Invoices and payments"); if (!invoices.length) e6(pay, "No invoice has been issued to you."); else { l6(pay, "", "Issued", null, money(invoices.reduce(function (s, i){ return s + (Number(i.totalCents) || 0); }, 0), invoices[0].currency), "", null); l6(pay, "ok", "Paid, as the House records it", null, money(invoices.reduce(function (s, i){ return s + (Number(i.paidCents) || 0); }, 0), invoices[0].currency), "", null); var out = invoices.reduce(function (s, i){ return s + (Number(i.balanceCents) || 0); }, 0); l6(pay, out > 0 ? "hot" : "ok", "Outstanding", (n.invoicesOverdue ? n.invoicesOverdue + " overdue" : null), money(out, invoices[0].currency), out > 0 ? "hot" : "", null); }
+    var fh = OV.fromTheHouse, n0 = fh && (fh.latest || (fh.notices && fh.notices[0])); var fr = p6(g, "From the House", "gold", "#/house", "All notices"); if (!n0) e6(fr, "No notice yet."); else l6(fr, "", n0.headline || n0.title || "Notice", (n0.summary || "") + (n0.published ? " · " + when(n0.published) : ""), "", "", "#/house");
+    body.appendChild(el("h2", null, "Ask the House"));
+    var doorsHost = el("div"); body.appendChild(doorsHost); doorsHost.appendChild(say("busy", "Reading", "Asking the House which doors are open…"));
+    rpc("house_client_worlds").then(function (r){ doorsHost.replaceChildren(); if (!r.ok || r.data.ok === false) { doorsHost.appendChild(say("no", "The doors could not be read", ((r.why || (r.data && r.data.say) || "") + " Everything else on this page was read and is shown.").trim())); return; } drawDoors(doorsHost, r.data, true); });
+    var chips = el("div", "film-chips"); [["✉️ Write to the House", "#/ask"], ["📄 Ask for a proposal", "#/ask/-/proposal"], ["📅 Ask for a meeting", "#/ask/-/meeting"], ["📁 Files", "#/files"], ["📜 Rights you hold", "#/rights"], ["🔐 Your account", "#/account"]].forEach(function (x){ var a = el("a", "chip link", x[0]); a.href = x[1]; chips.appendChild(a); }); body.appendChild(chips);
+    body.appendChild(el("p", "fine", "Read from the House at " + new Date().toLocaleTimeString(undefined, { hour:"numeric", minute:"2-digit", timeZoneName:"short" }) + ". A figure that could not be read is never shown as zero."));
+  });
+};
+/* ---- the engagement as a project view with tabs ---- */
+var E6_TAB = {};
+var _view6 = view;
+view = function (key, kicker, title, lede, reads, draw, backTo){
+  var reads2 = reads, draw2 = draw;
+  if (key === "engagements" && reads.length === 4 && reads[0][0] === "house_client_engagements" && reads[1][0] === "house_client_deliverables") {
+    reads2 = reads.concat([["house_client_proposals"], ["house_client_agreements"], ["house_client_invoices"], ["house_client_meetings"]]);
+    draw2 = function (body, d, again, host){ draw(body, d, again, host); try { composeEngagement6(body, d, host); } catch (e) { console.error(e); } };
+  }
+  _view6(key, kicker, title, lede, reads2, draw2, backTo);
+};
+function composeEngagement6(body, d, host){
+  var id = String(location.hash || "").split("/")[2]; var e = (d[0].engagements || []).filter(function (x){ return String(x.id) === String(id); })[0]; if (!e) return;
+  var ds = d[1].deliverables || [], quotes = d[4].quotes || [], contracts = d[5].contracts || [], invoices = d[6].invoices || [], meetings = d[7].meetings || [];
+  var path = pathOf6(e, quotes, contracts, invoices, ds), done = pathIndex6(path);
+  var TABS = [["overview", "Overview"], ["brief", "Brief"], ["quote", "Quote and agreement"], ["milestones", "Milestones"], ["files", "Files and deliverables"], ["messages", "Messages"], ["payments", "Payments"]];
+  var where = { "deliverables":"files", "files":"files", "conversations about this engagement":"messages" };
+  var nodes = Array.from(body.childNodes), panels = {}; TABS.forEach(function (t){ panels[t[0]] = el("div", "wpanel"); panels[t[0]].id = "eg-" + t[0]; });
+  var cur = "overview"; nodes.forEach(function (n){ if (n.nodeType === 1 && n.tagName === "H2") { var t = where[String(n.textContent).trim().toLowerCase()]; if (t) cur = t; } panels[cur].appendChild(n); });
+  var tiles = el("div", "wtiles"); [["Standing", words(e.status)], ["Path", done + " of 9 done"], ["Target", e.targetOn ? when(e.targetOn) : "Not set"], ["Deliverables", (e.deliverablesAccepted || ds.filter(function (x){ return x.acceptedOn; }).length) + " of " + (ds.length || e.deliverables || 0) + " accepted"], ["Outstanding", money(forProject6(invoices, e, "projectId", "projectTitle").reduce(function (s, i){ return s + (Number(i.balanceCents) || 0); }, 0), (invoices[0] || {}).currency)], ["Worlds", (e.worlds && e.worlds.length) ? e.worlds.join(", ") : "—"]].forEach(function (x){ var t = el("div", "tile42"); t.appendChild(el("div", "k", x[0])); t.appendChild(el("div", "v", x[1])); t.title = x[1]; tiles.appendChild(t); }); body.appendChild(tiles);
+  var bf = el("section", "panel42"); bf.appendChild(el("h3", null, "The brief as agreed")); [["Scope", e.scope], ["Completion criteria", e.completionCriteria], ["Acceptance", e.acceptance], ["Starts", e.startsOn ? when(e.startsOn) : null], ["Target", e.targetOn ? when(e.targetOn) : null]].forEach(function (x){ if (!x[1]) return; bf.appendChild(el("h4", null, x[0])); var p = el("p", "lede", x[1]); p.style.whiteSpace = "pre-wrap"; bf.appendChild(p); }); if (!e.scope) e6(bf, "The House has not written the scope on this record yet; it is in the proposal and the agreement."); panels.brief.appendChild(bf);
+  var qa = p6(panels.quote, "Proposals", "gold", "#/proposals", "All proposals"); var pq = forProject6(quotes, e, "projectId", "opportunity"); if (!pq.length) e6(qa, "No proposal is on record for this engagement."); pq.forEach(function (q){ var n = nextStep6("proposal", q); l6(qa, n[0] === "ok" ? "ok" : n[0] === "no" ? "hot" : "", (q.reference || "Proposal") + " · " + money(q.totalCents, q.currency), n[1], q.awaitingYou ? "answer" : words(q.state), q.awaitingYou ? "hot" : "", "#/proposal/" + q.id); });
+  var ag = p6(panels.quote, "Agreements", "gold", "#/agreements", "All agreements"); var pc = forProject6(contracts, e, "projectId", "projectTitle"); if (!pc.length) e6(ag, "No agreement is on record for this engagement."); pc.forEach(function (c){ l6(ag, c.acknowledged || c.signedOn ? "ok" : "hot", (c.number ? c.number + " · " : "") + (c.title || "Agreement"), words(c.status) + (c.signedOn ? " · signed " + when(c.signedOn) : "") + (c.canAcknowledge && !c.acknowledged ? " · waits for your acknowledgement" : ""), c.acknowledged ? "acknowledged" : (c.canAcknowledge ? "acknowledge" : ""), c.acknowledged ? "" : "hot", "#/agreements"); });
+  pathBlock6(panels.milestones, e, path);
+  var dv = panels.files.querySelectorAll(".row"); ds.forEach(function (x){ var n = nextStep6("deliverable", x); if (n[1] && (n[0] === "no" || n[0] === "wait")) { var row = Array.from(dv).filter(function (r){ return (r.querySelector(".w") || {}).textContent === x.title; })[0]; if (row) { var p = el("p", "c6-next " + (n[0] === "wait" ? "wait" : "")); p.textContent = n[1]; row.appendChild(p); } } });
+  var th = (d[3].threads || []).filter(function (t){ return String(t.projectId) === String(e.id); }); var ms = p6(panels.messages, "Messages about this engagement", "purple", "#/ask/-/question/" + e.id, "Write to the House", th.length); if (!th.length) e6(ms, "No message about this engagement yet."); th.forEach(function (t){ var card = el("a", "c6-sg" + (Number(t.unread) > 0 ? " unread" : "")); card.href = "#/conversation/" + t.id; var top = el("div", "top"); top.appendChild(el("span", null, t.reference + (t.door ? " · " + t.door : ""))); top.appendChild(el("span", null, whenAt(t.lastAt))); card.appendChild(top); card.appendChild(el("div", "sub", t.subject)); if (t.last) card.appendChild(el("div", "pre", "“" + t.last + "”")); nextLine6(card, "thread", t); ms.appendChild(card); });
+  var mt = p6(panels.messages, "Meetings", "blue", "#/meetings", "All meetings"); var pm = forProject6(meetings, e, "projectId", "projectTitle"); if (!pm.length) e6(mt, "No meeting on this engagement."); pm.forEach(function (m){ var n = nextStep6("meeting", m); l6(mt, m.status === "confirmed" ? "ok" : "cool", m.title, whenAt(m.startsAt) + (m.location ? " · " + m.location : "") + (n[1] ? " · " + n[1] : ""), words(m.status), m.status === "proposed" ? "gold" : "", "#/meetings"); });
+  var pi = forProject6(invoices, e, "projectId", "projectTitle"); var py = p6(panels.payments, "Invoices for this engagement", "green", "#/invoices", "All invoices and payments", pi.length); if (!pi.length) e6(py, "No invoice has been issued for this engagement."); pi.forEach(function (i){ var n = nextStep6("invoice", i); l6(py, i.overdue ? "hot" : Number(i.balanceCents) > 0 ? "" : "ok", (i.number ? i.number + " · " : "") + (i.title || "Invoice") + " · " + money(i.totalCents, i.currency), n[1] + (i.dueOn ? " Due " + when(i.dueOn) + "." : ""), Number(i.balanceCents) > 0 ? money(i.balanceCents, i.currency) + " due" : "paid", i.overdue ? "hot" : Number(i.balanceCents) > 0 ? "gold" : "", "#/invoice/" + i.source + "/" + i.id); }); py.appendChild(el("p", "fine", "Paid means the House recorded the payment's arrival. Telling the House a payment was sent is done from the invoice's page."));
+  var counts = { files:ds.length, messages:th.length, payments:pi.length, quote:pq.length + pc.length };
+  var tabs = el("div", "wtabs"); var cur2 = E6_TAB[e.id] || "overview";
+  TABS.forEach(function (t){ var b = el("button", "wtab" + (t[0] === cur2 ? " on" : ""), t[1]); b.type = "button"; if (counts[t[0]]) b.appendChild(el("span", "n", String(counts[t[0]]))); b.addEventListener("click", function (){ E6_TAB[e.id] = t[0]; tabs.querySelectorAll(".wtab").forEach(function (x){ x.classList.toggle("on", x === b); }); TABS.forEach(function (u){ panels[u[0]].hidden = u[0] !== t[0]; }); }); tabs.appendChild(b); });
+  body.appendChild(tabs); TABS.forEach(function (t){ panels[t[0]].hidden = t[0] !== cur2; body.appendChild(panels[t[0]]); });
+}
+/* ---- messages: the conversations as cards, unread first ---- */
+var _viewConversations6 = viewConversations;
+viewConversations = function (){
+  view("conversations", "Between us", "Messages", "Every conversation between you and the House, the newest word first. Open one to read it in full and reply; what the House wrote lands in your email too.", [["house_client_threads"]], function (body, d){
+    var ts = (d[0].threads || []).slice().sort(function (a, b){ var ua = Number(a.unread) > 0 || a.status === "waiting_on_you", ub = Number(b.unread) > 0 || b.status === "waiting_on_you"; if (ua !== ub) return ua ? -1 : 1; return (a.lastAt || "") < (b.lastAt || "") ? 1 : -1; });
+    var acts = el("div", "actions"); acts.appendChild(link("", "✉️ Write to the House", "#/ask")); body.appendChild(acts);
+    tiles6(body, [["With news for you", ts.filter(function (t){ return Number(t.unread) > 0 || t.status === "waiting_on_you"; }).length, null, null, true], ["With the House", ts.filter(function (t){ return !(Number(t.unread) > 0 || t.status === "waiting_on_you") && t.status !== "closed"; }).length, null, null, true], ["Closed", ts.filter(function (t){ return t.status === "closed"; }).length, null, null, true]]);
+    if (!ts.length) { body.appendChild(say("", "No conversation yet", "Write to the House and it is kept here, with its reference and its status.")); return; }
+    ts.forEach(function (t){ var card = el("a", "c6-sg" + (Number(t.unread) > 0 ? " unread" : "")); card.href = "#/conversation/" + t.id; var top = el("div", "top"); top.appendChild(el("span", null, [t.reference, t.door, purposeWords(t.purpose), t.projectTitle].filter(Boolean).join(" · "))); top.appendChild(el("span", null, (Number(t.unread) > 0 ? t.unread + " new · " : "") + whenAt(t.lastAt))); card.appendChild(top); card.appendChild(el("div", "sub", t.subject)); if (t.last) card.appendChild(el("div", "pre", "“" + t.last + (String(t.last).length >= 140 ? "…" : "") + "”")); nextLine6(card, "thread", t); body.appendChild(card); });
+  });
+};
+/* ---- invoices: a summary on top of the list ---- */
+var _viewInvoices6 = viewInvoices;
+viewInvoices = function (){
+  view("invoices", "Your documents", "Invoices and payments", "Issued, paid and outstanding, as the House records them. Open an invoice for its lines, its document, how to pay, and its receipt.", [["house_client_invoices"], ["house_client_payments"]], function (body, d){
+    var list = d[0].invoices || []; var cur = (list[0] || {}).currency;
+    tiles6(body, [["Issued", money(list.reduce(function (s, i){ return s + (Number(i.totalCents) || 0); }, 0), cur), null, null], ["Paid", money(list.reduce(function (s, i){ return s + (Number(i.paidCents) || 0); }, 0), cur), null, null], ["Outstanding", money(list.reduce(function (s, i){ return s + (Number(i.balanceCents) || 0); }, 0), cur), list.filter(function (i){ return i.overdue; }).length ? list.filter(function (i){ return i.overdue; }).length + " overdue" : null, null]]);
+    if (!list.length) body.appendChild(say("", "No invoice has been issued to you", "When one is, it appears here with its document and how to pay it."));
+    else { var rows = el("div", "rows"); list.forEach(function (i){ var st = invoiceState(i), href = "#/invoice/" + i.source + "/" + i.id; var acts = el("span", "acts"); acts.appendChild(el("span", "v", money(i.totalCents, i.currency))); acts.appendChild(link(Number(i.balanceCents) > 0 ? "primary" : "ghost", Number(i.balanceCents) > 0 ? "Open and pay" : "Open", href)); var r = rowOf(st[0], st[1], (i.number ? i.number + " · " : "") + (i.title || "Invoice"), [["issued " + when(i.issuedOn), i.dueOn ? "due " + when(i.dueOn) : null, Number(i.balanceCents) > 0 ? money(i.balanceCents, i.currency) + " outstanding" : null, i.payOnline ? "payable online" : i.onlineState === "paid" ? "paid online" : null].filter(Boolean).join(" · ")], acts, href); var n = nextStep6("invoice", i); if (n[1]) r.appendChild(el("p", "c6-next " + (n[0] === "ok" ? "ok" : n[0] === "wait" ? "wait" : ""), n[1])); rows.appendChild(r); }); body.appendChild(rows); }
+    var pays = d[1].payments || [], notices = d[1].notices || [];
+    body.appendChild(el("h2", null, "Payments the House has recorded")); if (!pays.length) body.appendChild(el("p", "fine", "None yet.")); else { var r2 = el("div", "rows"); pays.forEach(function (p){ r2.appendChild(rowOf("go", "received", money(p.amountCents, p.currency), [[when(p.receivedAt), p.method, p.reference ? "ref " + p.reference : null, "recorded " + p.recorded].filter(Boolean).join(" · ")], "")); }); body.appendChild(r2); }
+    if (notices.length) { body.appendChild(el("h2", null, "Payments you told the House about")); var r3 = el("div", "rows"); notices.forEach(function (n){ r3.appendChild(rowOf(n.seenByHouse ? "go" : "wait", n.seenByHouse ? "seen by the House" : "not yet seen", money(n.amountCents, n.currency) + " for " + (n.invoice || "an invoice"), [[n.sentOn ? "sent " + when(n.sentOn) : null, n.method].filter(Boolean).join(" · ")], "")); }); body.appendChild(r3); body.appendChild(el("p", "fine", "Telling the House a payment was sent does not mark an invoice paid. The invoice changes when the House records the payment's arrival.")); }
+  });
+};
+/* ---- the rail: the same groups, plainer words ---- */
+try { VIEWS.forEach(function (g){ g[1].forEach(function (v){ if (v[0] === "conversations") v[1] = "Messages"; if (v[0] === "home") v[1] = "Your desk"; if (v[0] === "housedoors") v[1] = "How we work together"; }); }); } catch (e) {}
+/* the phone menu: a Close button at the top of the open rail and a backdrop */
+setTimeout(function (){ try { var pull = document.getElementById("railpull"); if (!pull || !rail || document.getElementById("railclose")) return; var closeB = document.createElement("button"); closeB.type = "button"; closeB.className = "rail-close"; closeB.id = "railclose"; closeB.textContent = "✕ Close menu"; var back = document.createElement("div"); back.className = "rail-back"; back.hidden = true; function shut(){ rail.classList.remove("open"); pull.setAttribute("aria-expanded", "false"); back.hidden = true; try { pull.focus(); } catch (e) {} } closeB.addEventListener("click", shut); back.addEventListener("click", shut); pull.addEventListener("click", function (){ var open = rail.classList.contains("open"); back.hidden = !open; if (open) { try { closeB.focus(); } catch (e) {} } }); rail.addEventListener("click", function (e){ var a = e.target && e.target.closest ? e.target.closest("a") : null; if (a && rail.classList.contains("open")) { rail.classList.remove("open"); back.hidden = true; } }); rail.insertBefore(closeB, rail.firstChild); document.body.appendChild(back); } catch (e) {} }, 0);
+
 /* v5.2: a hosted copy reads its connection from portal-config.json beside it. Only the project address and the
    publishable key are accepted (validConfig refuses anything else), the same two things the dashboard hands over. */
 function hostedConfig(){
