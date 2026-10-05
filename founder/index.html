@@ -6,10 +6,10 @@
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src data: blob:; media-src data: blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
-<title>House of Worlds Founder/CEO Dashboard — Live r25.37</title>
+<title>House of Worlds Founder/CEO Dashboard — Live r26.0</title>
 <meta name="author" content="JDONAI">
 
-<meta name="dashboard-release" content="r25.37-live-candidate">
+<meta name="dashboard-release" content="r26.0-live-candidate">
 <meta name="dashboard-mode" content="live-production-connector">
 <meta name="homepage-contract" content="29.12.0">
 
@@ -4196,7 +4196,7 @@ window.HOW_PRICING_CATALOG = null; /* r25.5: the 376-offering draft catalog is n
         "apikey": key,
         "Authorization": "Bearer " + ((options.useSession !== false && session && session.access_token) || key),
         "Accept": "application/json",
-        "X-Client-Info": "house-of-worlds-founder-dashboard/25.36.0"
+        "X-Client-Info": "house-of-worlds-founder-dashboard/26.0.0"
       };
       Object.keys(options.headers || {}).forEach(function (name){ headers[name] = options.headers[name]; });
       var init = { method:options.method || "GET", headers:headers, credentials:"omit", cache:"no-store" };
@@ -46223,6 +46223,365 @@ SCREENS.peoplepay = function (host){
   }
   draw();
 };
+
+</script>
+
+<style id="r26-look">
+/* r26: the Founder's dashboard in the House's own look. The Team Portal's warmer serif, tinted panels, fine gold borders,
+   tiles and cards, applied over the dashboard's shell; readable sizes; a phone layout that holds together. */
+body.look26{--ui:"Newsreader","Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",serif;--body:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;--display:"Bodoni Moda","Cormorant Garamond",Georgia,serif;--sheet:#131019;--line:rgba(201,162,39,.28);--hair:rgba(244,241,234,.08);--gold:#C9A227;--gold-lit:#E4BE45;font-size:16.5px;line-height:1.5}
+body.look26{background:radial-gradient(1200px 700px at 82% -12%,rgba(75,46,131,.22),transparent 60%),radial-gradient(900px 500px at -10% 110%,rgba(201,162,39,.08),transparent 55%),#0B0B0F}
+body.look26 .page-h{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,3.2vw,2.3rem);letter-spacing:.01em;line-height:1.1}
+body.look26 .kicker-lg,body.look26 .kicker{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:#7A5CE0}
+body.look26 .lede-lg,body.look26 .lede{font-size:.95rem;color:#B7B1A6;max-width:80ch;line-height:1.5}
+body.look26 .say{border:1px solid rgba(201,162,39,.28);border-radius:12px;background:#131019;padding:.7rem .95rem}
+body.look26 .say b{font-family:var(--display);font-weight:500;font-size:1.02rem}
+body.look26 .band-open{padding:1rem 0 1.2rem}
+body.look26 .band-h{font-family:var(--display);font-weight:400;font-size:1.3rem}
+body.look26 .risk-row{border:1px solid rgba(201,162,39,.2);border-radius:10px;background:#131019;margin:.4rem 0;padding:.6rem .9rem}
+body.look26 .dest{border-radius:7px;margin:0 .5rem;padding:.42rem .75rem;font-size:.95rem}
+body.look26 .dest[aria-current=page],body.look26 .dest.here{background:rgba(75,46,131,.32);box-shadow:inset 2px 0 0 var(--gold)}
+body.look26 .area h2{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.68rem;letter-spacing:.2em}
+body.look26 .area-n,body.look26 .dest .n{border-radius:999px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.68rem;padding:0 .45rem;border:1px solid rgba(201,162,39,.5);background:rgba(201,162,39,.12);color:var(--gold-lit)}
+body.look26 button,body.look26 .btn,body.look26 .act{border-radius:8px;font-family:var(--ui)}
+body.look26 input,body.look26 select,body.look26 textarea{border-radius:8px;border-color:rgba(201,162,39,.25);font-family:var(--ui);font-size:.95rem}
+/* the panels, tiles, lines, cards and tables of r26 */
+.r26-hero{border:1px solid rgba(201,162,39,.35);background:linear-gradient(135deg,rgba(122,92,224,.16),rgba(201,162,39,.06) 60%,rgba(255,255,255,.02));border-radius:14px;padding:1rem 1.3rem;margin:0 0 .9rem}
+.r26-hero .mark{font-family:var(--display);font-size:1.5rem;color:var(--gold);line-height:1.15}
+.r26-hero .sub{font-size:.92rem;color:#B7B1A6;margin-top:.35rem;max-width:80ch}
+.r26-hero .sub b{color:#F4F1EA;font-weight:600}
+.r26-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;margin:.3rem 0 1rem}
+.r26-tile{border:1px solid rgba(201,162,39,.2);border-radius:12px;background:#131019;padding:.8rem .95rem;text-decoration:none;color:inherit;display:block;min-width:0}
+a.r26-tile:hover{border-color:rgba(201,162,39,.55)}
+.r26-tile.hot{border-color:rgba(200,55,45,.5);background:linear-gradient(135deg,rgba(200,55,45,.12),#131019)}
+.r26-tile .k{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#8A857A}
+.r26-tile .v{font-family:var(--display);font-size:1.75rem;color:var(--gold-lit);line-height:1;margin:.35rem 0 .15rem}
+.r26-tile .v.text{font-size:1.1rem;color:#F4F1EA;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r26-tile .s{font-size:.8rem;color:#8A857A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r26-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:.6rem 0 1rem}
+.r26-grid .wide{grid-column:1 / -1}
+.r26-panel{border:1px solid rgba(201,162,39,.28);border-radius:12px;padding:.95rem 1.1rem 1rem;background:linear-gradient(135deg,rgba(198,160,74,.12),#131019 58%);min-width:0}
+.r26-panel.purple{background:linear-gradient(135deg,rgba(122,92,224,.18),#131019 58%);border-color:rgba(122,92,224,.4)}
+.r26-panel.blue{background:linear-gradient(135deg,rgba(91,139,208,.16),#131019 58%);border-color:rgba(91,139,208,.4)}
+.r26-panel.green{background:linear-gradient(135deg,rgba(63,163,77,.14),#131019 58%);border-color:rgba(63,163,77,.4)}
+.r26-panel.rose{background:linear-gradient(135deg,rgba(200,55,45,.14),#131019 58%);border-color:rgba(200,55,45,.4)}
+.r26-ph{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin-bottom:.5rem}
+.r26-ph h3{margin:0;font-family:var(--display);font-size:1.12rem;font-weight:500;color:#F4F1EA;text-transform:none;letter-spacing:.01em}
+.r26-ph .pill{display:inline-block;margin-left:.4rem;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.12rem .55rem;border:1px solid rgba(201,162,39,.5);color:var(--gold);vertical-align:middle}
+.r26-ph .pill.faint{opacity:.6;border-color:rgba(201,162,39,.2);color:#B7B1A6}
+.r26-open{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap}
+.r26-open:hover{color:var(--gold-lit)}
+.r26-line{display:flex;align-items:baseline;gap:.55rem;padding:.38rem 0;border-bottom:1px solid rgba(244,241,234,.06);text-decoration:none;color:inherit}
+.r26-line:last-child{border-bottom:0}
+.r26-line .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;position:relative;top:-1px}
+.r26-line .dot.hot{background:#C8372D}.r26-line .dot.ok{background:#3FA34D}.r26-line .dot.cool{background:#5B8BD0}.r26-line .dot.off{background:#555}
+.r26-line .t{flex:1;min-width:0;color:#F4F1EA;font-size:.95rem;line-height:1.3}
+.r26-line .t small{display:block;font-size:.78rem;color:#8A857A;margin-top:.05rem}
+.r26-line .r{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.68rem;letter-spacing:.06em;color:#B7B1A6;white-space:nowrap}
+.r26-line .r.hot{color:#ffb3ad}.r26-line .r.gold{color:var(--gold-lit)}
+a.r26-line:hover .t{color:var(--gold-lit)}
+.r26-empty{font-size:.9rem;color:#8A857A;padding:.4rem 0;font-style:italic}
+.r26-fine{font-size:.78rem;color:#8A857A;margin:.5rem 0 0}
+.r26-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.7rem;margin:.4rem 0 .8rem}
+.r26-card{border:1px solid rgba(201,162,39,.25);border-radius:12px;background:#131019;padding:.8rem .95rem;display:flex;flex-direction:column;gap:.25rem;text-decoration:none;color:inherit;min-width:0}
+a.r26-card:hover{border-color:rgba(201,162,39,.55)}
+.r26-card .nm{font-family:var(--display);font-size:1.08rem;color:#F4F1EA;line-height:1.2;display:flex;align-items:center;gap:.5rem}
+.r26-card .av{width:30px;height:30px;border-radius:50%;background:rgba(75,46,131,.5);border:1px solid rgba(201,162,39,.35);display:inline-flex;align-items:center;justify-content:center;font-family:var(--display);font-size:.8rem;flex:none}
+.r26-card .m{font-size:.82rem;color:#B7B1A6;line-height:1.4}
+.r26-card .m b{color:#F4F1EA;font-weight:500}
+.r26-card.sealed{opacity:.75}
+.r26-card .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.3rem}
+.r26-chip{font-size:.76rem;color:#B7B1A6;border:1px solid rgba(244,241,234,.1);border-radius:999px;padding:.12rem .55rem}
+.r26-chip.gold{color:var(--gold);border-color:rgba(201,162,39,.5)}.r26-chip.hot{color:#ffb3ad;border-color:rgba(200,55,45,.5)}.r26-chip.ok{color:#7fd48b;border-color:rgba(63,163,77,.5)}
+.r26-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.r26-table th{text-align:left;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8A857A;padding:.4rem .5rem;border-bottom:1px solid rgba(201,162,39,.3)}
+.r26-table td{padding:.5rem;border-bottom:1px solid rgba(244,241,234,.07);vertical-align:top;color:#F4F1EA}
+.r26-table td.st{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#8A857A;white-space:nowrap}
+.r26-table tr.differs td.st{color:#ffb3ad}.r26-table tr.ok td.st{color:#7fd48b}
+.r26-scroll{overflow:auto}
+.r26-acts{display:flex;flex-wrap:wrap;gap:.45rem;margin:.6rem 0}
+.r26-btn{min-height:2.3rem;padding:.3rem .9rem;border-radius:8px;border:1px solid rgba(201,162,39,.5);background:var(--gold);color:#0B0B0F;font-weight:600;font-family:var(--ui);font-size:.9rem;cursor:pointer}
+.r26-btn.ghost{background:transparent;color:#F4F1EA;border-color:rgba(201,162,39,.3)}
+.r26-btn.ghost:hover{background:rgba(75,46,131,.22)}
+.r26-btn.small{min-height:1.9rem;padding:.15rem .6rem;font-size:.8rem}
+.r26-btn:disabled{opacity:.5;cursor:default}
+.r26-field{display:block;margin:.5rem 0}
+.r26-field span{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#8A857A;margin-bottom:.25rem}
+.r26-field input,.r26-field select,.r26-field textarea{width:100%;box-sizing:border-box;min-height:2.4rem;padding:.4rem .6rem;background:#0F0E15;color:#F4F1EA;border:1px solid rgba(201,162,39,.25);border-radius:8px}
+.r26-said{margin:.4rem 0;font-size:.9rem;color:#B7B1A6}
+.r26-said.no{color:#ffb3ad}.r26-said.ok{color:#7fd48b}
+.r26-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin:.5rem 0}
+.r26-step{border:1px solid rgba(244,241,234,.1);border-radius:10px;padding:.6rem .7rem;background:#0F0E15}
+.r26-step.done{border-color:rgba(63,163,77,.5)}.r26-step.way{border-color:var(--gold-lit)}
+.r26-step .k{font-family:var(--display);font-size:.98rem;color:#F4F1EA}
+.r26-step .s{font-size:.78rem;color:#8A857A;margin:.15rem 0 .4rem;min-height:1.1rem}
+.r26-step .row{display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+.r26-step select,.r26-step input{min-height:1.9rem;padding:.1rem .4rem;font-size:.82rem;background:#131019;color:#F4F1EA;border:1px solid rgba(201,162,39,.25);border-radius:6px}
+.r26-step input{flex:1 1 7rem;min-width:0}
+.r26-sg{border:1px solid rgba(201,162,39,.2);border-radius:10px;background:#131019;padding:.7rem .9rem;margin:.4rem 0;cursor:pointer}
+.r26-sg.unread{border-color:rgba(228,190,69,.45);background:linear-gradient(135deg,rgba(201,162,39,.08),#131019)}
+.r26-sg .top{display:flex;justify-content:space-between;gap:.6rem;font-size:.8rem;color:#B7B1A6}
+.r26-sg .sub{font-family:var(--display);font-size:1.05rem;color:#F4F1EA;margin:.2rem 0}
+.r26-sg .body{white-space:pre-wrap;line-height:1.6;font-size:.95rem;margin:.5rem 0 0;color:#F4F1EA}
+.r26-cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.r26-dow{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#8A857A;text-align:center;padding:.3rem 0}
+.r26-cell{position:relative;min-height:6rem;border:1px solid rgba(201,162,39,.16);border-radius:8px;background:#131019;padding:1.5rem .35rem .3rem}
+.r26-cell.empty{background:transparent;border-color:transparent}
+.r26-cell.today{border-color:var(--gold-lit)}
+.r26-cell.sel{border-color:#7A5CE0}
+.r26-num{position:absolute;top:.25rem;left:.4rem;border:0;background:transparent;color:#8A857A;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.7rem;cursor:pointer;padding:.1rem .3rem;border-radius:4px;min-height:0}
+.r26-num:hover{color:var(--gold-lit);background:rgba(201,162,39,.12)}
+.r26-ev{display:block;font-size:.72rem;line-height:1.25;padding:.15rem .35rem;margin:.15rem 0;border-radius:5px;background:rgba(122,92,224,.2);border-left:3px solid #7A5CE0;color:#F4F1EA;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.r26-ev.deadline{background:rgba(228,190,69,.18);border-left-color:var(--gold-lit);font-weight:600}
+.r26-ev.shoot{background:rgba(75,46,131,.35);border-left-color:#B39DFF}
+.r26-ev.off{text-decoration:line-through;opacity:.6}
+.r26-calhead{display:flex;align-items:center;gap:.5rem;margin:.4rem 0 .5rem}
+.r26-month{font-family:var(--display);font-size:1.3rem;color:#F4F1EA;margin:0 .4rem}
+.r26-agenda{margin:1rem 0 .5rem;padding:1rem 1.1rem;border:1px solid rgba(179,157,255,.35);border-radius:10px;background:#131019}
+.r26-agenda h3{margin:0 0 .5rem;font-family:var(--display);font-size:1.1rem;font-weight:500;text-transform:none}
+@media (max-width:760px){.r26-grid{grid-template-columns:1fr}.r26-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.r26-tile .v.text,.r26-tile .s,.r26-ev,.r26-line .t{white-space:normal;overflow:visible;text-overflow:clip}.r26-steps{grid-template-columns:1fr}.r26-cell{min-height:4.2rem;padding-top:1.3rem}.r26-ev{font-size:0;height:6px;padding:0;margin:.2rem .1rem;border-left-width:0}.r26-hero{padding:.7rem .9rem}.r26-hero .mark{font-size:1.15rem}.r26-hero .sub{font-size:.8rem}body.look26 .page-h{font-size:1.5rem}body.look26 .lede-lg{font-size:.86rem}body.look26 main{padding-left:.6rem;padding-right:.6rem}}
+body.look26 .page-h,body.look26 .band-h,body.look26 .r26-ph h3,body.look26 .r26-card .nm,body.look26 .r26-hero .mark{font-style:normal}
+.r26-table .r26-btn{white-space:nowrap}.r26-table td:last-child{min-width:7rem}.r26-table .r26-acts{margin:0}
+@media (max-width:760px){.r26-table{font-size:.82rem}.r26-table th,.r26-table td{padding:.35rem .35rem}.r26-cards{grid-template-columns:1fr}.r26-step .row{flex-direction:column;align-items:stretch}}
+
+</style>
+<script id="r26-rooms">
+/* ---- Founder dashboard r26: the command home, the people and world cards, four rooms, the rail's badges ----
+   Reads: house_founder_waits, house_founder_packets, house_founder_signals, house_founder_calendar, house_founder_people,
+   house_founder_eyes_people, house_founder_declared, house_founder_commissions, house_ops_money (as before).
+   Acts: house_founder_people_act (record_set), house_founder_milestone_act, house_founder_signal_act. Database Steps 54 and 56.
+   Nothing here moves money; nothing is written as anyone but the Founder. */
+(function (){
+  try { document.body.classList.add("look26"); } catch (e) {}
+  var WORLD_ICONS = { film:"🎥", television:"📺", animation:"🎬", "writing-and-literature":"✍️" };
+  function clean(n){ return String(n || "").replace(/\(Example\)\s*/, ""); }
+  function initials(n){ return clean(n).split(/\s+/).filter(Boolean).slice(0, 2).map(function (w){ return w[0].toUpperCase(); }).join("") || "?"; }
+  function okd(r){ return r && r.ok && r.data && r.data.ok !== false && r.data.visible !== false; }
+  function whenShort(iso){ if (!iso) return ""; var d = new Date(iso); return isNaN(d) ? "" : d.toLocaleDateString(undefined, { month:"short", day:"numeric" }); }
+  function whenFull(iso){ if (!iso) return ""; try { return fmtWhen(iso); } catch (e) { var d = new Date(iso); return isNaN(d) ? "" : d.toLocaleString(); } }
+  function timeAt(iso){ var d = new Date(iso); return isNaN(d) ? "" : d.toLocaleTimeString(undefined, { hour:"numeric", minute:"2-digit" }); }
+  function ymd(d){ var p = function (n){ return (n < 10 ? "0" : "") + n; }; return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()); }
+  function daysWords(at){ var d = Math.round((new Date(at) - Date.now()) / 86400000); return d < 0 ? Math.abs(d) + " day" + (Math.abs(d) === 1 ? "" : "s") + " past" : d === 0 ? "today" : d === 1 ? "tomorrow" : "in " + d + " days"; }
+  function words(s){ return String(s || "").replace(/_/g, " ").replace(/^\w/, function (c){ return c.toUpperCase(); }); }
+  function cents(c){ try { return money(c); } catch (e) { return String(c); } }
+  /* pieces */
+  function panel(host, title, tone, href, cta, pill){ var p = el("section", "r26-panel" + (tone ? " " + tone : "")); var h = el("div", "r26-ph"); var t = el("h3", null, title); if (pill != null) t.appendChild(el("span", "pill" + (pill ? "" : " faint"), String(pill))); h.appendChild(t); if (href) { var a = el("a", "r26-open", (cta || "Open") + " →"); a.href = href; h.appendChild(a); } p.appendChild(h); host.appendChild(p); return p; }
+  function line(host, dot, title, sub, right, tone, href){ var a = el(href ? "a" : "div", "r26-line"); if (href) a.href = href; a.appendChild(el("span", "dot" + (dot ? " " + dot : ""))); var t = el("span", "t", title); if (sub) t.appendChild(el("small", null, sub)); a.appendChild(t); if (right) a.appendChild(el("span", "r" + (tone ? " " + tone : ""), right)); host.appendChild(a); return a; }
+  function empty(host, text){ host.appendChild(el("p", "r26-empty", text)); }
+  function fine(host, text){ host.appendChild(el("p", "r26-fine", text)); }
+  function tiles(host, items){ var g = el("div", "r26-tiles"); items.forEach(function (x){ var a = el(x.href ? "a" : "div", "r26-tile" + (x.hot ? " hot" : "")); if (x.href) a.href = x.href; a.appendChild(el("div", "k", x.k)); a.appendChild(el("div", "v" + (x.text ? " text" : ""), String(x.v))); if (x.s) a.appendChild(el("div", "s", x.s)); g.appendChild(a); }); host.appendChild(g); return g; }
+  function btn(words2, fn, cls){ var b = el("button", "r26-btn" + (cls ? " " + cls : ""), words2); b.type = "button"; b.addEventListener("click", fn); return b; }
+  function field(host, label, kind, value, rows){ var w = el("label", "r26-field"); w.appendChild(el("span", null, label)); var i = document.createElement(kind === "textarea" ? "textarea" : kind === "select" ? "select" : "input"); if (kind !== "textarea" && kind !== "select") i.type = kind; if (kind === "textarea") i.rows = rows || 4; if (value != null && kind !== "select") i.value = value; w.appendChild(i); host.appendChild(w); return i; }
+  function option(sel, v, t){ var o = document.createElement("option"); o.value = v; o.textContent = t; sel.appendChild(o); return o; }
+  function said(host){ var p = el("p", "r26-said"); p.setAttribute("role", "status"); host.appendChild(p); return p; }
+  function hero(host, mark, sub){ var h = el("div", "r26-hero"); h.appendChild(el("div", "mark", mark)); var s = el("div", "sub"); if (typeof sub === "string") s.textContent = sub; else s.appendChild(sub); h.appendChild(s); host.appendChild(h); return h; }
+  /* the register of what waits: read for the rail's badges and the home */
+  var WAITS = null;
+  function badge(){
+    if (!WAITS) return;
+    try {
+      COUNTS.home = { n:(WAITS.packets || 0) + (WAITS.signalsUnread || 0) + (WAITS.timeOff || 0) + (WAITS.trips || 0) + (WAITS.expenses || 0), alert:(WAITS.packets || 0) > 0 };
+      COUNTS.packets = { n:WAITS.packets || 0, alert:(WAITS.packets || 0) > 0 };
+      COUNTS.teamsignals = { n:WAITS.signalsUnread || 0 };
+      COUNTS.titles = { n:(WAITS.titlesDiffer || 0) + (WAITS.titlesUnrecorded || 0) };
+      COUNTS.peoplepay = { n:(WAITS.timeOff || 0) + (WAITS.trips || 0) + (WAITS.expenses || 0), alert:(WAITS.expenses || 0) > 0 };
+      COUNTS.worldcal = { n:WAITS.deadlines7 || 0 };
+      if (typeof paintRail === "function") paintRail();
+    } catch (e) {}
+  }
+  function readWaits(){ return asked("house_founder_waits", {}).then(function (r){ if (okd(r)) { WAITS = r.data; badge(); } return r; }); }
+  /* ---- the command home ---- */
+  SCREENS.home = function (host){
+    var frag = document.createDocumentFragment();
+    screenHead(frag, "The Founder Desk", "Command Home", "What waits on you, read from the House just now. Every tile and panel opens its room.");
+    var body = el("div", "r26-home"); frag.appendChild(body); host.replaceChildren(frag);
+    body.appendChild(state("busy", "Reading the House", "Packets, signals, the calendar, the people, the money…"));
+    var now = new Date(), to30 = new Date(Date.now() + 30 * 86400000);
+    Promise.all([readWaits(), asked("house_founder_packets", {}), asked("house_founder_signals", {}), asked("house_founder_calendar", { p_from:now.toISOString(), p_to:to30.toISOString() }),
+                 asked("house_founder_eyes_people", {}), asked("house_founder_declared", {}), asked("house_ops_money", {}), asked("house_founder_commissions", {})]).then(function (rs){
+      if (!document.body.contains(host)) return;
+      body.replaceChildren();
+      var W = okd(rs[0]) ? rs[0].data : null, P = okd(rs[1]) ? rs[1].data : null, S = okd(rs[2]) ? rs[2].data : null, C = okd(rs[3]) ? rs[3].data : null;
+      var E = okd(rs[4]) ? rs[4].data : null, D = okd(rs[5]) ? rs[5].data : null, M = (rs[6] && rs[6].ok && rs[6].data && rs[6].data.readable !== false) ? rs[6].data : null, K = okd(rs[7]) ? rs[7].data : null;
+      var sub = el("span"); sub.appendChild(el("b", null, "Founder and CEO")); sub.appendChild(document.createTextNode(" · House of Worlds. " + (W ? (W.worldsOpen || 0) + " worlds open · " + (W.members || 0) + " members · " + (W.leads || 0) + " team leads · " + (W.workOpen || 0) + " pieces of work open." : "The register of what waits could not be read; the rooms still open from the rail.")));
+      hero(body, "👑 Good " + (now.getHours() < 12 ? "morning" : now.getHours() < 18 ? "afternoon" : "evening") + ", Founder", sub);
+      if (!W) body.appendChild(state("no", "The register could not be read", rpcWhy(rs[0])));
+      var packets = P ? (P.packets || P.items || P.waiting || []) : []; if (!Array.isArray(packets)) packets = [];
+      var inbox = S ? (S.inbox || []) : [], unread = S ? (Number(S.unread) || 0) : (W ? W.signalsUnread : 0);
+      var deadlines = C ? (C.deadlines || []) : [], events = C ? (C.events || []).filter(function (e){ return !e.cancelled; }) : [];
+      var people = E ? (E.people || []) : [], worlds = E ? (E.worlds || []) : [], decl = D ? (D.people || []) : [], byId = {}; decl.forEach(function (d){ byId[d.userId] = d; });
+      var differ = decl.filter(function (d){ return d.workingTitle && d.declaredTitle && !d.matches; }), unrecorded = decl.filter(function (d){ return !d.workingTitle; });
+      tiles(body, [
+        { k:"Packets to decide", v:W ? W.packets : packets.length, s:"from the team", href:"#/desk/packets", hot:W && W.packets > 0 },
+        { k:"Signals unread", v:unread, s:"from the team", href:"#/desk/teamsignals" },
+        { k:"Time off and trips", v:W ? (W.timeOff || 0) + (W.trips || 0) : "—", s:"waiting on your decision", href:"#/people/peoplepay" },
+        { k:"Expenses submitted", v:W ? W.expenses : "—", s:"money; yours only", href:"#/people/peoplepay", hot:W && W.expenses > 0 },
+        { k:"Titles to settle", v:differ.length + unrecorded.length, s:differ.length + " differ · " + unrecorded.length + " unrecorded", href:"#/desk/titles" },
+        { k:"Deadlines in 7 days", v:W ? W.deadlines7 : deadlines.length, s:"across every world", href:"#/desk/worldcal" }
+      ]);
+      var g = el("div", "r26-grid"); body.appendChild(g);
+      var pk = panel(g, "Packets from the team", "rose", "#/desk/packets", "Decide", packets.length);
+      if (!packets.length) empty(pk, "Nothing waits for your decision."); packets.slice(0, 6).forEach(function (x){ line(pk, "hot", x.title || x.workTitle || "A packet", (x.worldName || x.world || "") + (x.creatorName || x.ownerName ? " · " + clean(x.creatorName || x.ownerName) : "") + (x.lastReview && x.lastReview.verdict ? " · lead: " + words(x.lastReview.verdict) : ""), whenShort(x.submittedAt || x.at || x.updatedAt), "", "#/desk/packets"); });
+      var sg = panel(g, "Signals from the team", "purple", "#/desk/teamsignals", "Inbox", unread);
+      if (!inbox.length) empty(sg, "Your inbox is clear."); inbox.slice(0, 5).forEach(function (m){ line(sg, m.read ? "off" : "", m.subject || "(no subject)", "from " + clean(m.from || "") + " · " + whenFull(m.at), m.read ? "" : "unread", "gold", "#/desk/teamsignals"); });
+      var dl = panel(g, "Upcoming deadlines", "", "#/desk/worldcal", "Calendar", deadlines.length);
+      if (!deadlines.length) empty(dl, "No deadline on any world's calendar."); deadlines.slice(0, 6).forEach(function (e){ line(dl, new Date(e.startsAt) < new Date(Date.now() + 3 * 86400000) ? "hot" : "", e.title, (e.worldName || "") + ((e.sharedWorlds || []).length ? " · shared with " + e.sharedWorlds.join(", ") : ""), daysWords(e.startsAt), "gold", "#/desk/worldcal"); });
+      var ev = panel(g, "This week across the worlds", "blue", "#/desk/worldcal", "Calendar");
+      var week = events.filter(function (e){ return e.kind !== "deadline" && new Date(e.startsAt) < new Date(Date.now() + 7 * 86400000); });
+      if (!week.length) empty(ev, "Nothing on the calendars this week."); week.slice(0, 6).forEach(function (e){ line(ev, e.kind === "shoot" ? "cool" : "", e.title, words(e.kind) + " · " + (e.worldName || "") + (e.location ? " · " + e.location : ""), whenShort(e.startsAt) + " · " + timeAt(e.startsAt), "", "#/desk/worldcal"); });
+      var tt = panel(g, "Job titles", "green", "#/desk/titles", "Review", differ.length + unrecorded.length);
+      if (!differ.length && !unrecorded.length) empty(tt, "Every member's title is recorded and matches their own choice.");
+      differ.slice(0, 4).forEach(function (d){ line(tt, "hot", clean(d.name), "recorded " + d.workingTitle + " · chose " + d.declaredTitle, "differs", "hot", "#/desk/titles"); });
+      unrecorded.slice(0, 4).forEach(function (d){ line(tt, "", clean(d.name), d.declaredTitle ? "chose " + d.declaredTitle + "; no working title recorded" : "no title recorded or chosen", "set it", "gold", "#/desk/titles"); });
+      var mo = panel(g, "Money", "", "#/business/money", "The register");
+      if (!M) empty(mo, "The money figures could not be read just now."); else { [["approved", "Approved"], ["committed", "Committed"], ["invoiced", "Invoiced"], ["collected", "Collected"], ["overdue", "Overdue"], ["payable", "Payable"]].forEach(function (x){ if (M[x[0]] == null) return; line(mo, x[0] === "overdue" && M[x[0]] > 0 ? "hot" : (x[0] === "collected" ? "ok" : ""), x[1], null, cents(M[x[0]]), x[0] === "overdue" && M[x[0]] > 0 ? "hot" : "", null); }); fine(mo, "Read from house_ops_money; nothing here moves money."); }
+      var cm = panel(g, "Commissions in motion", "", "#/desk/milestones", "Milestones", K ? (K.commissions || []).length : null);
+      if (!K || !(K.commissions || []).length) empty(cm, "No commission is open."); (K ? K.commissions || [] : []).slice(0, 5).forEach(function (c){ var ms = c.milestones || {}, done = Object.keys(ms).filter(function (k){ return ms[k] && ms[k].state === "done"; }).length; line(cm, done >= 8 ? "ok" : "", c.title, (c.worldName || "") + " · " + words(c.status) + " · " + clean(c.creatorName || ""), done + " of 9", "gold", "#/desk/milestones"); });
+      /* the people and the worlds, as cards */
+      var h2 = el("h2", "band-h", "The people of the House"); body.appendChild(h2);
+      var pc = el("div", "r26-cards"); body.appendChild(pc);
+      if (!people.length) empty(pc, "Nobody holds a role yet.");
+      people.forEach(function (p){ var d = byId[p.userId] || {}; var c = el("a", "r26-card"); c.href = "#/people/peoplepay"; var nm = el("div", "nm"); nm.appendChild(el("span", "av", initials(p.name))); nm.appendChild(document.createTextNode(clean(p.name))); c.appendChild(nm);
+        var m = el("div", "m"); m.appendChild(el("b", null, ((p.roles || []).map(function (r){ return words(r.role) + " · " + (r.worldName || "every world"); }).join(" / ")) || "no role")); c.appendChild(m);
+        c.appendChild(el("div", "m", (d.workingTitle ? d.workingTitle : "no working title recorded") + (d.declaredTitle ? " · chose " + d.declaredTitle : "")));
+        var ch = el("div", "chips"); ch.appendChild(el("span", "r26-chip", (p.openWork || 0) + " open")); if (p.isLead) ch.appendChild(el("span", "r26-chip gold", "team lead")); if (d.workingTitle && d.declaredTitle && !d.matches) ch.appendChild(el("span", "r26-chip hot", "title differs")); if (!d.workingTitle) ch.appendChild(el("span", "r26-chip", "set title")); c.appendChild(ch); pc.appendChild(c); });
+      var h3 = el("h2", "band-h", "The sixteen worlds"); body.appendChild(h3);
+      var wc = el("div", "r26-cards"); body.appendChild(wc);
+      worlds.forEach(function (w){ var c = el("a", "r26-card" + (w.open ? "" : " sealed")); c.href = "#/worlds/worlds"; var nm = el("div", "nm", (w.open ? (WORLD_ICONS[w.key] || "🏛️") : "🔒") + " " + w.name + (w.open ? "" : " (sealed)")); c.appendChild(nm);
+        var nextDl = deadlines.filter(function (e){ return e.world === w.key || (e.sharedWorlds || []).indexOf(w.name) >= 0; })[0];
+        c.appendChild(el("div", "m", "Door " + w.door + " · " + ((w.leads || []).length ? "lead " + w.leads.map(function (l){ return clean(l.name); }).join(", ") : "no team lead yet")));
+        c.appendChild(el("div", "m", (w.members || 0) + " member" + (w.members === 1 ? "" : "s") + " · " + (w.openWork || 0) + " piece" + (w.openWork === 1 ? "" : "s") + " open" + (nextDl ? " · next deadline " + daysWords(nextDl.startsAt) : ""))); wc.appendChild(c); });
+      fine(body, "Read from the House " + whenFull((W && W.readAt) || new Date().toISOString()) + ". A figure that could not be read is never shown as zero.");
+    });
+  };
+  /* ---- job titles: recorded, declared, differences; set the working title here ---- */
+  SCREENS.titles = function (host){
+    var frag = document.createDocumentFragment();
+    screenHead(frag, "The Founder Desk", "Job titles", "Each member's assigned roles (these decide access), the working title you recorded, and the job title they chose from the catalogue. Set or change the working title from the row; the member is told.");
+    var body = el("div"); frag.appendChild(body); host.replaceChildren(frag);
+    body.appendChild(state("busy", "Reading the people", "Declarations and records…"));
+    function draw(){
+      Promise.all([asked("house_founder_declared", {}), asked("house_founder_eyes_people", {})]).then(function (rs){
+        if (!document.body.contains(host)) return; body.replaceChildren();
+        if (!okd(rs[0])) { body.appendChild(state("no", "Not readable", rpcWhy(rs[0]))); return; }
+        var rows = rs[0].data.people || [], byId = {}; ((okd(rs[1]) && rs[1].data.people) || []).forEach(function (p){ byId[p.userId] = p; });
+        var c = { match:0, differ:0, declaredOnly:0, recordedOnly:0, neither:0 };
+        rows.forEach(function (p){ if (p.workingTitle && p.declaredTitle) { if (p.matches) c.match++; else c.differ++; } else if (p.declaredTitle) c.declaredOnly++; else if (p.workingTitle) c.recordedOnly++; else c.neither++; });
+        tiles(body, [{ k:"Matches", v:c.match }, { k:"Differ", v:c.differ, hot:c.differ > 0 }, { k:"Chosen, none recorded", v:c.declaredOnly }, { k:"Recorded, none chosen", v:c.recordedOnly }, { k:"Neither yet", v:c.neither }]);
+        if (!rows.length) { body.appendChild(state("", "Nobody holds a role yet", "Members appear here as the House gives them roles.")); return; }
+        var wrap = el("div", "r26-scroll"); var tb = el("table", "r26-table"); var thead = el("thead"); var tr = el("tr"); ["Member", "Assigned roles", "Working title (yours)", "Job title (theirs)", "State", ""].forEach(function (h){ tr.appendChild(el("th", null, h)); }); thead.appendChild(tr); tb.appendChild(thead);
+        var tbody = el("tbody");
+        rows.forEach(function (p){ var r = el("tr"); var pp = byId[p.userId] || {}; var st = p.workingTitle && p.declaredTitle ? (p.matches ? "matches" : "differs") : p.declaredTitle ? "chosen; none recorded" : p.workingTitle ? "recorded; none chosen" : "neither yet"; r.className = st === "differs" ? "differs" : st === "matches" ? "ok" : "";
+          r.appendChild(el("td", null, clean(p.name))); r.appendChild(el("td", null, ((pp.roles || []).map(function (x){ return words(x.role) + " · " + (x.worldName || "every world") + (x.department ? " · " + words(x.department) : ""); }).join(" / ")) || "—"));
+          var wt = el("td", null, p.workingTitle || "—"); r.appendChild(wt); r.appendChild(el("td", null, p.declaredTitle ? p.declaredTitle + (p.declaredGroupName ? " (" + p.declaredGroupName + ")" : "") : "—")); r.appendChild(el("td", "st", st));
+          var td = el("td"); var row = el("div", "r26-acts");
+          row.appendChild(btn(p.workingTitle ? "Change" : "Set title", function (){ var old = tbody.querySelector(".r26-editrow"); if (old) old.remove(); var er = el("tr", "r26-editrow"); var cell = el("td"); cell.colSpan = 6; var f = field(cell, "Working title for " + clean(p.name), "text", p.workingTitle || p.declaredTitle || ""); if (p.declaredTitle && !p.workingTitle) { var use = btn("Use their choice: " + p.declaredTitle, function (){ f.value = p.declaredTitle; }, "ghost small"); cell.appendChild(use); } var s = said(cell); var acts = el("div", "r26-acts");
+            acts.appendChild(btn("Record this working title", function (){ var v = f.value.trim(); if (v.length < 2) { s.className = "r26-said no"; s.textContent = "Give a title of at least two characters."; return; } s.className = "r26-said"; s.textContent = "Recording…"; asked("house_founder_people_act", { p_user:p.userId, p_action:"record_set", p_fields:{ workingTitle:v } }).then(function (res){ if (!(res.ok && res.data && res.data.ok !== false)) { s.className = "r26-said no"; s.textContent = (res.data && res.data.say) || rpcWhy(res); return; } s.className = "r26-said ok"; s.textContent = (res.data.say || "Recorded.") + " Re-reading…"; readWaits(); setTimeout(draw, 600); }); }));
+            acts.appendChild(btn("Not now", function (){ er.remove(); }, "ghost")); cell.appendChild(acts); er.appendChild(cell); r.parentNode.insertBefore(er, r.nextSibling); f.focus(); }, "small" + (p.workingTitle ? " ghost" : "")));
+          td.appendChild(row); r.appendChild(td); tbody.appendChild(r); });
+        tb.appendChild(tbody); wrap.appendChild(tb); body.appendChild(wrap);
+        fine(body, (rs[0].data.note || "") + " Read from the House " + whenFull(rs[0].data.readAt) + ".");
+      });
+    }
+    draw();
+  };
+  /* ---- commission milestones ---- */
+  SCREENS.milestones = function (host){
+    var frag = document.createDocumentFragment();
+    screenHead(frag, "The Founder Desk", "Commission milestones", "Every open commission and its path from quote to archive. What you record here is what the Team Portal shows on the commission's page; the maker is told by email. Amounts are not here: they live in the money path.");
+    var body = el("div"); frag.appendChild(body); host.replaceChildren(frag);
+    body.appendChild(state("busy", "Reading the commissions", "Asking the House…"));
+    function draw(){
+      asked("house_founder_commissions", {}).then(function (r){
+        if (!document.body.contains(host)) return; body.replaceChildren();
+        if (!okd(r)) { body.appendChild(state("no", "Not readable", rpcWhy(r))); return; }
+        var K = r.data, steps = K.steps || [], list = K.commissions || [];
+        if (!list.length) { body.appendChild(state("", "No commission is open", "A commission begins as a piece of work of the kind commission in the Team Portal, or from a client's accepted quote. It appears here then.")); return; }
+        list.forEach(function (c){ var ms = c.milestones || {}; var done = steps.filter(function (s){ return ms[s.key] && ms[s.key].state === "done"; }).length;
+          var p = panel(body, c.title, done >= 8 ? "green" : "", null, null, done + " of 9 done");
+          p.appendChild(el("p", "r26-fine", (c.worldName || "") + " · " + words(c.status) + " · made by " + clean(c.creatorName || "") + (c.dueAt ? " · due " + whenShort(c.dueAt) : "") + " · last changed " + whenFull(c.updatedAt) + (c.summary ? " · " + c.summary : "")));
+          var grid = el("div", "r26-steps");
+          steps.forEach(function (s){ var m = ms[s.key] || null; var st = m ? (m.state || "done") : "not yet"; var box = el("div", "r26-step" + (st === "done" ? " done" : st === "under way" ? " way" : "")); box.appendChild(el("div", "k", s.name)); box.appendChild(el("div", "s", m ? (words(st) + " · " + whenFull(m.at) + (m.note ? " · " + m.note : "")) : "Not yet"));
+            var row = el("div", "row"); var sel = document.createElement("select"); [["not yet", "Not yet"], ["under way", "Under way"], ["done", "Done"]].forEach(function (o){ option(sel, o[0], o[1]); }); sel.value = st; var note = document.createElement("input"); note.type = "text"; note.placeholder = "A note (optional)"; note.value = m && m.note ? m.note : ""; row.appendChild(sel); row.appendChild(note);
+            var sd = el("span", "r26-said"); row.appendChild(btn("Record", function (){ sd.textContent = "Recording…"; asked("house_founder_milestone_act", { p_work:c.id, p_key:s.key, p_fields:{ state:sel.value, note:note.value.trim() } }).then(function (res){ if (!(res.ok && res.data && res.data.ok !== false)) { sd.className = "r26-said no"; sd.textContent = (res.data && res.data.say) || rpcWhy(res); return; } sd.className = "r26-said ok"; sd.textContent = res.data.say || "Recorded."; setTimeout(draw, 700); }); }, "small")); box.appendChild(row); box.appendChild(sd); grid.appendChild(box); });
+          p.appendChild(grid); });
+        fine(body, (K.note || "") + " Read from the House " + whenFull(K.readAt) + ".");
+      });
+    }
+    draw();
+  };
+  /* ---- signals from the team: read, reply, write ---- */
+  SCREENS.teamsignals = function (host){
+    var frag = document.createDocumentFragment();
+    screenHead(frag, "The Founder Desk", "Signals from the team", "What members wrote to you through Signals, and your replies. A signal you send goes out in full as an email from the House and stays on the record.");
+    var body = el("div"); frag.appendChild(body); host.replaceChildren(frag);
+    body.appendChild(state("busy", "Reading your inbox", "Asking the House…"));
+    var PEOPLE = [];
+    function compose(hostEl, to, subject, replyTo){ var box = el("div", "r26-panel purple"); box.appendChild(el("h3", null, replyTo ? "Reply" : "Write a signal")); var toSel = null; if (!to) { toSel = field(box, "To", "select"); option(toSel, "", "Choose a member…"); PEOPLE.forEach(function (p){ option(toSel, p.userId, clean(p.name) + (p.isLead ? " · team lead" : "")); }); } else box.appendChild(el("p", "r26-fine", "To " + clean(to.name))); var sub = field(box, "Subject", "text", subject || ""); var msg = field(box, "Message", "textarea", "", 5); var s = said(box); var acts = el("div", "r26-acts");
+      acts.appendChild(btn("Send", function (){ var uid = to ? to.userId : (toSel ? toSel.value : ""); if (!uid) { s.className = "r26-said no"; s.textContent = "Choose who it is for."; return; } if (!msg.value.trim()) { s.className = "r26-said no"; s.textContent = "Write the message."; return; } s.className = "r26-said"; s.textContent = "Sending…"; asked("house_founder_signal_act", { p_action:"send", p_fields:{ to:uid, subject:sub.value.trim(), body:msg.value.trim(), replyToId:replyTo || null } }).then(function (res){ if (!(res.ok && res.data && res.data.ok !== false)) { s.className = "r26-said no"; s.textContent = (res.data && res.data.say) || rpcWhy(res); return; } s.className = "r26-said ok"; s.textContent = res.data.say || "Sent."; msg.value = ""; setTimeout(draw, 800); }); }));
+      acts.appendChild(btn("Not now", function (){ box.remove(); }, "ghost")); box.appendChild(acts); hostEl.appendChild(box); (toSel || sub).focus(); }
+    function draw(){
+      Promise.all([asked("house_founder_signals", {}), asked("house_founder_eyes_people", {})]).then(function (rs){
+        if (!document.body.contains(host)) return; body.replaceChildren();
+        if (!okd(rs[0])) { body.appendChild(state("no", "Not readable", rpcWhy(rs[0]))); return; }
+        PEOPLE = (okd(rs[1]) && rs[1].data.people) || [];
+        var S = rs[0].data, inbox = S.inbox || [], unread = Number(S.unread) || 0;
+        var top = el("div", "r26-acts"); var composeHost = el("div"); top.appendChild(btn("✍️ Write a signal", function (){ composeHost.replaceChildren(); compose(composeHost, null, "", null); })); if (unread) top.appendChild(btn("Mark all read", function (){ asked("house_founder_signal_act", { p_action:"read_all", p_fields:{} }).then(function (){ readWaits(); draw(); }); }, "ghost")); body.appendChild(top); body.appendChild(composeHost);
+        tiles(body, [{ k:"Unread", v:unread, hot:unread > 0 }, { k:"In the inbox", v:inbox.length }, { k:"Members who can write to you", v:PEOPLE.length }]);
+        if (!inbox.length) { body.appendChild(state("", "Your inbox is clear", "A signal a member writes to you through the Team Portal lands here and in your email.")); }
+        inbox.forEach(function (m){ var card = el("div", "r26-sg" + (m.read ? "" : " unread")); var t = el("div", "top"); t.appendChild(el("span", null, (m.read ? "" : "● ") + "from " + clean(m.from || "a member"))); t.appendChild(el("span", null, whenFull(m.at))); card.appendChild(t); card.appendChild(el("div", "sub", m.subject || "(no subject)")); var pre = el("div", "r26-fine", String(m.preview || m.body || "").slice(0, 160)); card.appendChild(pre);
+          var open = el("div"); open.hidden = true; card.appendChild(open);
+          card.addEventListener("click", function (ev){ if (ev.target.closest && ev.target.closest(".r26-panel, button, input, textarea, select")) return; if (!open.hidden) { open.hidden = true; return; } open.hidden = false; open.replaceChildren(); open.appendChild(el("div", "body", m.body || "")); var acts = el("div", "r26-acts"); var rh = el("div"); acts.appendChild(btn("Reply", function (){ rh.replaceChildren(); compose(rh, { userId:m.fromUserId, name:m.from }, /^Re:/i.test(m.subject || "") ? m.subject : "Re: " + (m.subject || ""), m.id); })); if (!m.read) acts.appendChild(btn("Mark read", function (){ asked("house_founder_signal_act", { p_action:"read", p_fields:{ id:m.id } }).then(function (){ card.classList.remove("unread"); m.read = true; readWaits(); }); }, "ghost")); else acts.appendChild(btn("Mark unread", function (){ asked("house_founder_signal_act", { p_action:"unread", p_fields:{ id:m.id } }).then(function (){ card.classList.add("unread"); m.read = false; readWaits(); }); }, "ghost")); open.appendChild(acts); open.appendChild(rh); if (!m.read) asked("house_founder_signal_act", { p_action:"read", p_fields:{ id:m.id } }).then(function (){ m.read = true; card.classList.remove("unread"); readWaits(); }); });
+          body.appendChild(card); });
+        fine(body, "Read from the House " + whenFull(S.readAt) + ". A signal you send is kept on the record with who, to whom and when.");
+      });
+    }
+    draw();
+  };
+  /* ---- the calendar across every world ---- */
+  var CAL_OFF = 0, CAL_DAY = null;
+  SCREENS.worldcal = function (host){
+    var frag = document.createDocumentFragment();
+    screenHead(frag, "The Founder Desk", "Calendar of the worlds", "Every world's events as its team leads keep them, with the deadlines shared between worlds. You read; the leads make the events in the Team Portal.");
+    var body = el("div"); frag.appendChild(body); host.replaceChildren(frag);
+    body.appendChild(state("busy", "Reading the calendars", "Asking the House…"));
+    var base = new Date(); base.setDate(1); base.setMonth(base.getMonth() + CAL_OFF);
+    var from = new Date(base.getFullYear(), base.getMonth() - 1, 1), to = new Date(base.getFullYear(), base.getMonth() + 2, 1);
+    asked("house_founder_calendar", { p_from:from.toISOString(), p_to:to.toISOString() }).then(function (r){
+      if (!document.body.contains(host)) return; body.replaceChildren();
+      if (!okd(r)) { body.appendChild(state("no", "Not readable", rpcWhy(r))); return; }
+      var C = r.data, evs = (C.events || []), dls = C.deadlines || [];
+      if (dls.length) { var band = el("div", "r26-hero"); band.appendChild(el("div", "mark", "⏳ Next deadline: " + dls[0].title + " · " + daysWords(dls[0].startsAt))); band.appendChild(el("div", "sub", (dls[0].worldName || "") + ((dls[0].sharedWorlds || []).length ? ", shared with " + dls[0].sharedWorlds.join(", ") : "") + " · " + whenFull(dls[0].startsAt) + (dls.length > 1 ? " · " + (dls.length - 1) + " more deadline" + (dls.length > 2 ? "s" : "") : ""))); body.appendChild(band); }
+      var monthWords = base.toLocaleDateString(undefined, { month:"long", year:"numeric" });
+      var byDay = {}; evs.forEach(function (e){ var k = ymd(new Date(e.startsAt)); (byDay[k] = byDay[k] || []).push(e); });
+      var gridHost = el("div"); body.appendChild(gridHost);
+      function paint(scroll){ gridHost.replaceChildren(); var nav = el("div", "r26-calhead"); nav.appendChild(btn("←", function (){ CAL_OFF--; CAL_DAY = null; SCREENS.worldcal(host); }, "ghost small")); nav.appendChild(el("span", "r26-month", monthWords)); nav.appendChild(btn("→", function (){ CAL_OFF++; CAL_DAY = null; SCREENS.worldcal(host); }, "ghost small")); if (CAL_OFF) nav.appendChild(btn("Today", function (){ CAL_OFF = 0; CAL_DAY = null; SCREENS.worldcal(host); }, "ghost small")); gridHost.appendChild(nav);
+        var grid = el("div", "r26-cal"); ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(function (x){ grid.appendChild(el("div", "r26-dow", x)); });
+        var first = new Date(base.getFullYear(), base.getMonth(), 1).getDay(), days = new Date(base.getFullYear(), base.getMonth() + 1, 0).getDate(), todayKey = ymd(new Date());
+        for (var i = 0; i < first; i++) grid.appendChild(el("div", "r26-cell empty"));
+        for (var dd = 1; dd <= days; dd++) (function (dd){ var dt = new Date(base.getFullYear(), base.getMonth(), dd), k = ymd(dt), list = byDay[k] || []; var cell = el("div", "r26-cell" + (k === todayKey ? " today" : "") + (k === CAL_DAY ? " sel" : "")); var num = el("button", "r26-num", String(dd)); num.type = "button"; num.setAttribute("aria-label", dt.toDateString() + (list.length ? ", " + list.length + " events" : "")); num.addEventListener("click", function (){ CAL_DAY = CAL_DAY === k ? null : k; paint(!!CAL_DAY); }); cell.appendChild(num);
+          list.slice(0, 4).forEach(function (e){ var a = el("div", "r26-ev " + e.kind + (e.cancelled ? " off" : "")); a.title = e.title + " · " + (e.worldName || ""); a.textContent = timeAt(e.startsAt) + " " + e.title; cell.appendChild(a); }); if (list.length > 4) cell.appendChild(el("div", "r26-fine", "+" + (list.length - 4) + " more")); grid.appendChild(cell); })(dd);
+        gridHost.appendChild(grid); gridHost.appendChild(el("p", "r26-fine", "A deadline is gold, a shoot day purple, a cancelled event struck through. Press a day's number to read that day in full."));
+        if (CAL_DAY) { var ag = el("section", "r26-agenda"); ag.appendChild(el("h3", null, new Date(CAL_DAY + "T12:00:00").toLocaleDateString(undefined, { weekday:"long", year:"numeric", month:"long", day:"numeric" }))); var dl = byDay[CAL_DAY] || []; if (!dl.length) empty(ag, "Nothing on this day."); dl.forEach(function (e){ line(ag, e.kind === "deadline" ? "hot" : (e.cancelled ? "off" : "cool"), e.title, words(e.kind) + " · " + (e.worldName || "") + (e.location ? " · " + e.location : "") + ((e.sharedWorlds || []).length ? " · shared with " + e.sharedWorlds.map(function (w){ return w.name; }).join(", ") : "") + (e.workTitle ? " · " + e.workTitle : "") + " · made by " + clean(e.madeBy || ""), timeAt(e.startsAt) + (e.endsAt ? "–" + timeAt(e.endsAt) : ""), "", null); }); ag.appendChild(btn("Close the day", function (){ CAL_DAY = null; paint(false); }, "ghost small")); gridHost.appendChild(ag); if (scroll) { try { ag.scrollIntoView({ block:"nearest" }); } catch (e) {} } }
+      }
+      paint(false);
+      fine(body, (C.note || "") + " Read from the House " + whenFull(C.readAt) + ".");
+    });
+  };
+  /* ---- the rail: the home first, the four rooms after Packets; the landing is the home; the badges ---- */
+  try {
+    var desk = AREAS.filter(function (a){ return a.key === "desk"; })[0];
+    if (desk && !desk.dests.some(function (d){ return d.key === "home"; })) {
+      desk.dests.unshift({ key:"home", name:"Command Home", need:"founder", group:"open" });
+      var at = desk.dests.map(function (d){ return d.key; }).indexOf("packets");
+      desk.dests.splice(at + 1, 0, { key:"teamsignals", name:"Signals from the team", need:"founder", group:"open" }, { key:"worldcal", name:"Calendar of the worlds", need:"founder", group:"open" }, { key:"titles", name:"Job titles", need:"founder", group:"open" }, { key:"milestones", name:"Commission milestones", need:"founder", group:"open" });
+    }
+    if (typeof NAV_GROUP_OF === "object") { NAV_GROUP_OF["desk/home"] = "today"; NAV_GROUP_OF["desk/teamsignals"] = "decide"; NAV_GROUP_OF["desk/titles"] = "govern"; NAV_GROUP_OF["desk/milestones"] = "build"; NAV_GROUP_OF["desk/worldcal"] = "monitor"; }
+    CANONICAL = "#/desk/home";
+    if (!location.hash || location.hash === "#/desk/overview" || location.hash === "#/" || location.hash === "#") { try { history.replaceState(null, "", location.pathname + location.search + "#/desk/home"); } catch (e) {} }
+    window.addEventListener("load", function (){ setTimeout(function (){ try { if (typeof ME !== "undefined" && ME && ME.signedIn) readWaits(); } catch (e) {} }, 1500); });
+  } catch (e) { try { console.error("r26 rail", e); } catch (x) {} }
+})();
 
 </script>
 </body>
