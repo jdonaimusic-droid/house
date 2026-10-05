@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; media-src blob:; frame-src blob:; font-src data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex, nofollow">
-<meta name="team-portal-release" content="v35.0">
+<meta name="team-portal-release" content="v36.0">
 <meta name="theme-color" content="#08070B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308070B'/%3E%3Cpath d='M9 28V12a7 7 0 0 1 14 0v16' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='1.6' fill='%23E4C55A'/%3E%3C/svg%3E">
 <title>House of Worlds — Team Portal</title>
@@ -431,6 +431,44 @@ body.look40 h2{font-family:var(--display);font-size:1.25rem;margin:1.6rem 0 .5re
 .fv-look{border:1px solid rgba(228,190,69,.45);border-radius:14px;padding:1rem 1.2rem;margin:1rem 0;background:rgba(201,162,39,.06)}
 @media (max-width:640px){.fv-world{grid-template-columns:4rem minmax(0,1fr)}.fv-world .acts{grid-column:1 / -1;justify-content:flex-start}.wh-mark{font-size:1.3rem}}
 @media print{.word-hero,.stats{display:none}}
+/* v36: the deadline band, the month grid, bigger labels, the rail folds, the demo bars on a phone */
+.deadline-band{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 1rem;align-items:center;margin:0 0 1rem;padding:.9rem 1.2rem;border:2px solid var(--gold-bright);border-radius:14px;background:linear-gradient(135deg,rgba(228,190,69,.18),rgba(75,46,131,.18));color:var(--ivory);text-decoration:none}
+.deadline-band.static{cursor:default}
+.deadline-band .dl-k{grid-column:1 / -1;font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-bright)}
+.deadline-band .dl-title{font-family:var(--display);font-size:1.45rem;font-weight:700;line-height:1.15}
+.deadline-band .dl-count{font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--gold-bright);text-align:right;white-space:nowrap}
+.deadline-band .dl-when{grid-column:1 / -1;font-size:.92rem;color:var(--muted)}
+.deadline-band .dl-more{grid-column:1 / -1;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.cal-head{display:flex;align-items:center;gap:.5rem;margin:.4rem 0 .5rem}
+.cal-month{font-family:var(--display);font-size:1.3rem;color:var(--ivory);margin:0 .4rem}
+.act.small{min-height:2.1rem;padding:.2rem .7rem}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal-dow{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);text-align:center;padding:.3rem 0}
+.cal-cell{position:relative;min-height:6.2rem;border:1px solid rgba(201,162,39,.16);border-radius:8px;background:var(--panel);padding:1.5rem .35rem .3rem}
+.cal-cell.empty{background:transparent;border-color:transparent}
+.cal-cell.today{border-color:var(--gold-bright);box-shadow:inset 0 0 0 1px rgba(228,190,69,.4)}
+.cal-num{position:absolute;top:.3rem;left:.45rem;font-family:var(--mono);font-size:.7rem;color:var(--faint)}
+.cal-cell.today .cal-num{color:var(--gold-bright);font-weight:700}
+.cal-ev{display:block;font-size:.72rem;line-height:1.25;padding:.15rem .35rem;margin:.15rem 0;border-radius:5px;background:rgba(122,92,224,.2);border-left:3px solid var(--purple-lit);color:var(--ivory);text-decoration:none;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cal-ev b{font-weight:600;color:var(--muted)}
+.cal-ev.k-deadline{background:rgba(228,190,69,.18);border-left-color:var(--gold-bright);font-weight:600}
+.cal-ev.k-shoot{background:rgba(75,46,131,.35);border-left-color:#B39DFF}
+.cal-ev.k-screening{border-left-color:#8fb39a;background:rgba(63,163,77,.15)}
+.cal-ev.off{text-decoration:line-through;opacity:.6}
+.cal-more{font-family:var(--mono);font-size:.62rem;color:var(--faint);padding:0 .35rem}
+.cal-add{position:absolute;top:.15rem;right:.25rem;border:0;background:transparent;color:var(--faint);font-size:.95rem;line-height:1;cursor:pointer;min-height:0;padding:.1rem .3rem;border-radius:4px}
+.cal-add:hover{color:var(--gold-bright);background:rgba(201,162,39,.12)}
+@media (max-width:640px){.cal-cell{min-height:4.4rem;padding-top:1.3rem}.cal-ev{font-size:.62rem}.cal-ev b{display:none}.deadline-band{grid-template-columns:1fr}.deadline-band .dl-count{text-align:left}}
+body.look40 .stat .l,body.look40 .cards.figs .card .k{font-size:.72rem;letter-spacing:.1em}
+body.look40 .pill{font-size:.68rem}
+body.look40 .rail-g,body.look40 .sg-dt,body.look40 .dept-badge .db-r,body.look40 .me-chip .mc-r{font-size:.7rem}
+.rail-fold{margin:.2rem 0}
+.rail-fold summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);padding:.8rem 1.25rem .25rem}
+.rail-fold summary::-webkit-details-marker{display:none}
+.rail-fold summary::after{content:" ▾";color:var(--gold)}
+.rail-fold[open] summary::after{content:" ▴"}
+.chip.on{color:var(--ivory);border-color:rgba(201,162,39,.6);background:rgba(75,46,131,.3)}
+@media (max-width:640px){.demo-bar{padding:.35rem .6rem;gap:.3rem .5rem}.demo-bar strong{font-size:.7rem;line-height:1.2}.demo-bar select,.demo-bar button{min-height:30px;font-size:.74rem;padding:.1rem .45rem}.tour-bar .tour-words{display:none}.tour-bar strong{font-size:.72rem}}
 </style>
 </head>
 <body>
@@ -439,7 +477,7 @@ body.look40 h2{font-family:var(--display);font-size:1.25rem;margin:1.6rem 0 .5re
 <div class="frame">
   <aside class="rail" id="rail" aria-label="Sections">
     <a class="brand" href="#/home">House of Worlds<small>Team Portal</small></a>
-    <p class="ver">Version 35.0</p>
+    <p class="ver">Version 36.0</p>
     <nav id="nav" aria-label="Portal sections"></nav>
     <div class="who" id="who"></div>
   </aside>
@@ -449,7 +487,7 @@ body.look40 h2{font-family:var(--display);font-size:1.25rem;margin:1.6rem 0 .5re
 
 <script>
 /* ---------------------------------------------------------------------
-   House of Worlds - Team Portal v35.0 (4 October 2026)
+   House of Worlds - Team Portal v36.0 (4 October 2026)
    One file, on the live House. A member signs in with the House's own
    sign-in service; what they see afterwards is decided by the House's
    records (Database Steps 28-38: house_team_* functions), never by this page.
@@ -632,7 +670,7 @@ var CFG = null, SESSION = null, ME = null, OV = null, PORTAL = null;
 var ALLOWED = /^(house_team_[a-z_]+|house_my_assignments|house_assignment_act|house_assignment_actions|house_assignment_transitions|house_source_upload_begin|house_source_upload_finalize|house_client_me|house_public_doors|house_public_rooms|house_founder_eyes_people|house_founder_through_eyes)$/;
 
 function headers(auth, json){
-  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/35.0" };
+  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/36.0" };
   if (json !== false) h["Content-Type"] = "application/json";
   if (auth && SESSION && SESSION.access_token) h["Authorization"] = "Bearer " + SESSION.access_token;
   return h;
@@ -1182,6 +1220,7 @@ function viewWorkOne(id){
     sectionText(body, "Summary", w.summary); sectionText(body, "Stakes", w.stakes); sectionText(body, "The decision it asks", w.requestedDecision); sectionText(body, "Next action", w.nextAction);
     /* sources */
     detailsBlock(body, w);
+    if (typeof milestonesBlock === "function") milestonesBlock(body, w);
     body.appendChild(el("h2", null, "Sources"));
     var src = r.sources || [];
     if (!src.length) body.appendChild(say("", "No source yet", "A source is what the work rests on: a file in the House's store, or a link. Nothing is submitted without one (House Standard 8)."));
@@ -1434,7 +1473,7 @@ var HELP = [
   ["Departments and Handoffs", "Nineteen shared services, each with its purpose and when to involve it, the departments of the open worlds, and the ten stages of the House's work: Research, Learn, Develop, Create, Produce, Experience, Publish, Archive, Preserve, Innovate. A piece of work carries its stage."],
   ["People and Credits", "The colleagues who hold a role, the functions they fill, and their confirmed credits. A proposed title is not a person. A person can hold several functions and carry different credits on different projects without being two people."],
   ["Worlds under seal", "Four worlds are open. The others are under seal; a sealed world is named to you only if the House has scoped you to it, and it is never to be named outside the House. The catalog, the search, the counts and the colleagues' records keep the same rule."],
-  ["Workspaces", "Sixteen kinds of work, each with its own sections and fields, the stages it passes through, the shared services it usually hands to and when, a checklist before it leaves a stage, and the record the House retains: productions, the House's side of a commission, rights and licensing, partnerships and grants, research and learning, Journal and press, archive and preservation, finance and operations, digital product and trust, people operations, and the plain kinds. Every kind runs on the one engine; the kind only changes what the record asks for. A confidential kind is read by its maker, its owner, the team lead and the service it is handed to."],
+  ["Workspaces", "Seventeen kinds of work (Storyboard and Writing among them), each with its own sections and fields, the stages it passes through, the shared services it usually hands to and when, a checklist before it leaves a stage, and the record the House retains: productions, the House's side of a commission, rights and licensing, partnerships and grants, research and learning, Journal and press, archive and preservation, finance and operations, digital product and trust, people operations, and the plain kinds. Every kind runs on the one engine; the kind only changes what the record asks for. A confidential kind is read by its maker, its owner, the team lead and the service it is handed to."],
   ["Shared services and handoffs", "A piece of work is handed to a shared service from its own page: a request on the record, with what you need. The members the Founder scoped to that service see it in their Service queue, accept it, mark it done with an answer, or decline with why; the work itself stays yours. A service listed as proposed is not yet staffed, and a handoff to it waits on the record."],
   ["Signals", "Signals is the House's email. What the House tells you (work returned, decided, handed, assigned; a calendar event; an announcement) lands in your Signals inbox and in your email. You write a signal to a colleague in your worlds, to your team lead, or to the Founder; it goes out as an email from the House and stays on the record, with read and unread."],
   ["The Founder's view", "The Founder has no desk here and nothing is written as her. Signed in with her own account and her second factor, she sees every team portal read-only: each world, each member, and what that member's own portal shows them, read as the House answers them. Every look is on the record."],
@@ -1464,7 +1503,10 @@ var PRIVACY = [
   ["Where it is kept", "In the House's own database, run on Supabase, in the United States. Your session is kept in this browser until you sign out, or for thirty minutes without a touch; on a shared device, nothing is kept once the tab closes. No password is ever kept on this device."],
   ["Who reads it", "The Founder, from her dashboard; the team lead of the world your work belongs to; and you. A colleague sees your name, your roles and the worlds you work in, not your work. The Founder can also look at your desk as this portal shows it to you, read-only, from her dashboard; every such look is on the record."],
   ["Email", "The sign-in service sends you an invitation and, when you ask, a password reset. When the House's mail is on, the House sends you one line when work is returned to you, decided, handed to your service, assigned to you, or a client writes in a world you lead. The email names the piece of work and points you to this desk; it never carries the work itself, a decision's reasons, a client's words, or anything about a world under seal. Nothing else is sent."],
-  ["What this portal does not do", "It sets no cookies, runs no analytics, and loads no third-party script. It never asks you for a technical address or a key."],
+  ["Signals and email", "Signals is the House's email. A signal you write goes out as an email from the House to the colleague, team lead or Founder you chose, and is kept on the record with who wrote it, to whom and when, with read and unread. What the House tells you (work returned, decided, handed, assigned; an event; an announcement) is kept the same way."],
+  ["Pay and your record", "Your pay record and statements are read by you and the Founder only; a team lead sees no pay. Your start date, employment type and working title are set by the Founder; your emergency contact is set by you and read by the Founder and, on a trip or a shoot day, by the team lead of that world. The House keeps no bank account, tax number or benefit detail."],
+  ["Shared services", "A piece of work handed to a shared service (Legal, Finance, Archives and the others) is read by the members the Founder scoped to that service, for that handoff: its record, its sources and the note that came with it, not your other work."],
+  ["What this portal does not do","It sets no cookies, runs no analytics, and loads no third-party script. It never asks you for a technical address or a key."],
   ["What you can ask", "To see what the House holds about you, or to correct it, write to the House. The working record of the House's own work is kept."],
   ["This note", "Version 1 · 3 October 2026. It changes when the portal's practice changes."]
 ];
@@ -1773,7 +1815,7 @@ function viewPeople(){
 }
 
 /* ---- v32: the workspaces ----
-   One engine, many kinds of work. The House holds sixteen kinds (Database Step 38): each with its own sections and
+   One engine, many kinds of work. The House holds seventeen kinds (Database Steps 38, 44 and 48): each with its own sections and
    fields, the stages it passes through, the shared services it hands to and when, the checklist before it leaves a
    stage, and the record the House retains. The page draws the form from the kind; a piece of work keeps its fields in
    its details record. A member scoped to a shared service sees the work handed to that service in a queue. */
@@ -2083,14 +2125,13 @@ function requestsStrip(body){
   });
 }
 
-/* ---- v33: the Story Desk ----
+/* ---- v33 / v36: the Story Desk ----
    A desk for writing itself: a screenplay, a pilot, a treatment, a pitch, a chapter, notes. The text is plain text in
    the work's own record (details.writing.body, with its form in details.writing.form); every save is a version the
-   engine keeps, and any two versions can be compared. Nothing is HTML, nothing is injected: a script is written in the
-   plain screenplay convention (a scene heading begins INT. or EXT., a character's name in capitals on its own line, the
-   speech beneath it, a transition ends in TO:) and the page view lays it out as a script page from that text alone.
-   A piece travels the same path as any work: a draft, the team lead, the Founder; a team lead's own piece goes straight
-   to the Founder (Database Step 44). The House refuses an empty piece at submission (Step 46). */
+   engine keeps, and any two versions can be compared. Nothing is HTML, nothing is injected.
+   v36: everything typed is saved by itself. The House is asked to keep the text a few seconds after typing stops,
+   and whenever the page is left; a copy of the unsaved text is also kept in this browser, so a closed tab, a lost
+   connection or a reload loses nothing: on return the desk offers to restore it or discard it. */
 function wordCount(s){ s = String(s || "").trim(); return s ? s.split(/\s+/).length : 0; }
 var FORMS = [["prose", "Prose: a chapter, a story, an essay"], ["screenplay", "Screenplay (film)"], ["teleplay", "Teleplay: a pilot or an episode"], ["treatment", "Treatment"], ["pitch", "Pitch"], ["notes", "Notes"]];
 function formWords(k){ return ({ prose:"Prose", screenplay:"Screenplay", teleplay:"Teleplay", treatment:"Treatment", pitch:"Pitch", notes:"Notes" })[k] || "Prose"; }
@@ -2105,7 +2146,6 @@ function starterText(form, title, name){
   if (form === "notes") return title + "\nNotes · " + date + "\n\n";
   return title + "\n\nChapter One\n\n";
 }
-/* the plain screenplay convention, read line by line; nothing here is HTML */
 function parseScript(text){
   var lines = String(text || "").replace(/\r\n?/g, "\n").split("\n"), out = [], title = {}, start = 0, i;
   for (i = 0; i < lines.length; i++) { var m = lines[i].match(/^([A-Za-z][A-Za-z ]{1,30}):\s*(.*)$/); if (!m) break; title[m[1].trim().toLowerCase()] = m[2].trim(); start = i + 1; }
@@ -2133,23 +2173,17 @@ function pageWords(form, text){
   var parsed = parseScript(text), pages = Math.max(1, Math.ceil(scriptLines(parsed) / 55));
   return wordCount(text) + " words · about " + pages + " " + (pages === 1 ? "page" : "pages") + " · " + parsed.parts.filter(function (p){ return p.type === "scene"; }).length + " scenes";
 }
-/* the page: a script laid out as a script page, or prose laid out as a page, from the text alone */
 function renderPage(form, text){
   var page = el("div", "sd-page" + (isScript(form) ? " script" : ""));
   if (isScript(form)) {
     var parsed = parseScript(text);
     if (parsed.title.title) {
-      var tp = el("div", "sd-title");
-      tp.appendChild(el("h1", null, parsed.title.title));
+      var tp = el("div", "sd-title"); tp.appendChild(el("h1", null, parsed.title.title));
       if (parsed.title.credit || parsed.title.author) tp.appendChild(el("p", null, (parsed.title.credit || "Written by") + (parsed.title.author ? "\n" + parsed.title.author : "")));
       if (parsed.title["draft date"]) tp.appendChild(el("p", "sd-date", parsed.title["draft date"]));
       page.appendChild(tp); page.appendChild(el("hr"));
     }
-    parsed.parts.forEach(function (p){
-      if (p.type === "blank") return;
-      if (p.type === "pagebreak") { page.appendChild(el("hr")); return; }
-      page.appendChild(el("p", "sd-" + p.type, p.text));
-    });
+    parsed.parts.forEach(function (p){ if (p.type === "blank") return; if (p.type === "pagebreak") { page.appendChild(el("hr")); return; } page.appendChild(el("p", "sd-" + p.type, p.text)); });
     return page;
   }
   String(text || "").replace(/\r\n?/g, "\n").split(/\n{2,}/).forEach(function (para, i){
@@ -2161,7 +2195,7 @@ function renderPage(form, text){
   return page;
 }
 function viewWritingDesk(){
-  view("write", "Your desk", "Story Desk", "Scripts, pilots, treatments, pitches, chapters and notes, each with every version kept. Begin one, write, save as you go; when it is ready, submit it like any work. The text is the source.", [["house_team_desk"]], function (body, d){
+  view("write", "Your desk", "Story Desk", "Scripts, pilots, treatments, pitches, chapters and notes, each with every version kept. Begin one and write; what you type is saved by itself. When it is ready, submit it like any work: the text is its own source.", [["house_team_desk"]], function (body, d){
     DESK = d[0]; ME = DESK.me || ME; paintNav("write");
     var acts = el("div", "actions");
     acts.appendChild(button("", "New script", function (){ beginPiece("screenplay"); }));
@@ -2175,7 +2209,7 @@ function viewWritingDesk(){
     [["With you", /^(draft|returned)$/], ["In review", /^(lead_review|founder_review)$/], ["Decided", /^(approved_internal|rejected|release_ready|published|deferred|archived)$/]].forEach(function (g){
       var xs = mine.filter(function (w){ return g[1].test(w.status); }); if (!xs.length) return;
       body.appendChild(el("h2", null, g[0])); var rows = el("div", "rows");
-      xs.forEach(function (w){ var f = (w.details && w.details.writing && w.details.writing.form) || "prose"; rows.appendChild(rowOf(statusCls(w.status), statusWords(w.status), w.title, [formWords(f) + " · version " + w.version, worldName(w.worldKey, w.worldName), "changed " + whenAt(w.updatedAt)], null, /^(draft|returned)$/.test(w.status) ? "#/write/" + encodeURIComponent(w.id) : "#/work/" + encodeURIComponent(w.id))); });
+      xs.forEach(function (w){ var f = (w.details && w.details.writing && w.details.writing.form) || "prose"; var dr = draftOf(w.id); rows.appendChild(rowOf(statusCls(w.status), statusWords(w.status), w.title, [formWords(f) + " · version " + w.version, worldName(w.worldKey, w.worldName), "changed " + whenAt(w.updatedAt) + (dr ? " · unsaved text kept in this browser" : "")], null, /^(draft|returned)$/.test(w.status) ? "#/write/" + encodeURIComponent(w.id) : "#/work/" + encodeURIComponent(w.id))); });
       body.appendChild(rows);
     });
     body.appendChild(el("p", "fine", readAt()));
@@ -2205,7 +2239,6 @@ function dialogBox(title, fill){
   if (typeof dialog === "function") return dialog(title, fill);
   var host = el("div", "panel decide"); host.appendChild(el("h2", null, title)); main.appendChild(host); fill(host, function (){ host.remove(); });
 }
-/* insert at the caret: before + a placeholder the writer types over + after */
 function insertAt(ta, before, placeholder, after){
   var s = ta.selectionStart, e = ta.selectionEnd, v = ta.value, left = v.slice(0, s), right = v.slice(e);
   var pre = before; if (left && !/\n$/.test(left)) pre = "\n" + pre; else if (left && /\n$/.test(left) && !/\n\n$/.test(left) && /^\n/.test(before)) pre = before.replace(/^\n/, "");
@@ -2213,9 +2246,18 @@ function insertAt(ta, before, placeholder, after){
   var a = left.length + pre.length; ta.setSelectionRange(a, a + placeholder.length); ta.focus();
   ta.dispatchEvent(new Event("input", { bubbles:true }));
 }
-var WRITE_TIMER = null, WRITE_DIRTY = false;
+/* the unsaved copy kept in this browser: per piece, with the time and the version it was typed over */
+function draftKey(id){ return "how.team.draft." + id; }
+function draftOf(id){ try { var s = localStorage.getItem(draftKey(id)); return s ? JSON.parse(s) : null; } catch (e) { return null; } }
+function keepDraft(id, text, form, version){ try { localStorage.setItem(draftKey(id), JSON.stringify({ text:text, form:form, version:version, at:Date.now() })); } catch (e) {} }
+function dropDraft(id){ try { localStorage.removeItem(draftKey(id)); } catch (e) {} }
+var WRITE_TIMER = null, WRITE_DIRTY = false, WRITE_FLUSH = null, WRITE_DEBOUNCE = null;
+window.addEventListener("beforeunload", function (e){ if (WRITE_DIRTY) { try { if (WRITE_FLUSH) WRITE_FLUSH(); } catch (x) {} e.preventDefault(); e.returnValue = "Your text is being saved to the House; a copy is kept in this browser."; return e.returnValue; } });
+window.addEventListener("hashchange", function (){ if (WRITE_DIRTY && WRITE_FLUSH) { try { WRITE_FLUSH(); } catch (x) {} } });
 function viewWriting(id){
   if (WRITE_TIMER) { clearInterval(WRITE_TIMER); WRITE_TIMER = null; }
+  if (WRITE_DEBOUNCE) { clearTimeout(WRITE_DEBOUNCE); WRITE_DEBOUNCE = null; }
+  WRITE_FLUSH = null; WRITE_DIRTY = false;
   view("write", "Story Desk", "A piece", null, [["house_team_work", { p_id:id }]], function (body, d, again, host){
     var r = d[0], w = r.item, wr = (w.details && w.details.writing) || {}, text = wr.body || "", form = wr.form || "prose";
     host.querySelector("h1").textContent = w.title; document.title = w.title + " — House of Worlds";
@@ -2223,7 +2265,6 @@ function viewWriting(id){
     var top = el("p", "fine", ""); function topLine(){ top.textContent = formWords(form) + " · " + statusWords(w.status) + " · version " + current + (r.versionCount > 1 ? " of " + r.versionCount + " kept" : "") + " · " + worldName(w.worldKey, w.worldName) + " · last changed " + whenAt(w.updatedAt); }
     body.appendChild(top);
     if (!canEdit) body.appendChild(say("ask", "Read only", standing(w, r) || "This piece is with the House and cannot be changed now."));
-    /* the form, and the script tools */
     var tools = el("div", "sd-tools"); body.appendChild(tools);
     var fsel = null;
     if (canEdit) { var fw = el("label", "sd-form"); fw.appendChild(el("span", null, "Form")); fsel = document.createElement("select"); FORMS.forEach(function (x){ var o = document.createElement("option"); o.value = x[0]; o.textContent = x[1]; if (x[0] === form) o.selected = true; fsel.appendChild(o); }); fw.appendChild(fsel); tools.appendChild(fw); }
@@ -2233,36 +2274,38 @@ function viewWriting(id){
       elements.replaceChildren();
       if (!canEdit || !isScript(form)) { elements.hidden = true; return; }
       elements.hidden = false; elements.appendChild(el("span", "k", "Script"));
-      [["Scene heading", function (){ insertAt(ta, "\n\n", "INT. LOCATION - DAY", "\n\n"); }],
-       ["Action", function (){ insertAt(ta, "\n\n", "What we see.", "\n"); }],
-       ["Character", function (){ insertAt(ta, "\n\n", "CHARACTER", "\n"); }],
-       ["Parenthetical", function (){ insertAt(ta, "\n", "(beat)", "\n"); }],
-       ["Transition", function (){ insertAt(ta, "\n\n", "CUT TO:", "\n\n"); }],
-       ["Act break", function (){ insertAt(ta, "\n\n", "END OF ACT ONE", "\n\n"); }]
-      ].forEach(function (x){ var b = el("button", "act ghost small", x[0]); b.type = "button"; b.addEventListener("click", x[1]); elements.appendChild(b); });
+      [["Scene heading", function (){ insertAt(ta, "\n\n", "INT. LOCATION - DAY", "\n\n"); }], ["Action", function (){ insertAt(ta, "\n\n", "What we see.", "\n"); }], ["Character", function (){ insertAt(ta, "\n\n", "CHARACTER", "\n"); }], ["Parenthetical", function (){ insertAt(ta, "\n", "(beat)", "\n"); }], ["Transition", function (){ insertAt(ta, "\n\n", "CUT TO:", "\n\n"); }], ["Act break", function (){ insertAt(ta, "\n\n", "END OF ACT ONE", "\n\n"); }]]
+        .forEach(function (x){ var b = el("button", "act ghost small", x[0]); b.type = "button"; b.addEventListener("click", x[1]); elements.appendChild(b); });
       elements.appendChild(el("span", "fine", "Tab inserts a character's name; a scene heading begins INT. or EXT.; a name in capitals on its own line is a character, the lines beneath it their speech; a line ending in TO: is a transition."));
     }
     tools.appendChild(elements); paintElements();
     var sheet = el("div", "sd-sheet"); body.appendChild(sheet); sheet.appendChild(ta);
     var pageHost = el("div", "sd-pagehost"); pageHost.hidden = true; sheet.appendChild(pageHost);
-    var bar = el("div", "wd-bar"); var count = el("span", "fine", pageWords(form, text)); bar.appendChild(count); var saidS = el("span", "fine", canEdit ? "Nothing to save yet." : ""); saidS.setAttribute("role", "status"); bar.appendChild(saidS); body.appendChild(bar);
+    var bar = el("div", "wd-bar"); var count = el("span", "fine", pageWords(form, text)); bar.appendChild(count); var saidS = el("span", "fine", canEdit ? "Saved by itself as you write." : ""); saidS.setAttribute("role", "status"); bar.appendChild(saidS); body.appendChild(bar);
     var acts = el("div", "actions"); body.appendChild(acts);
     var said = el("div"); said.setAttribute("aria-live", "polite"); body.appendChild(said);
-    /* Saves are serialized: one in flight at a time, the next waits. The text sent is captured at the start of a save;
-       the dirty flag is cleared only if the box still holds exactly that text when the House answers, so typing during
-       a save is never lost or mistaken for saved. A failed save keeps the text on screen and keeps it dirty. */
-    var current = w.version, saving = null, queued = false, savedForm = form; WRITE_DIRTY = false; topLine();
+    var current = w.version, saving = null, queued = false, savedForm = form; topLine();
+    /* a copy of unsaved text from an earlier visit: restore it or discard it, the choice is the writer's */
+    var dr = canEdit ? draftOf(w.id) : null;
+    if (dr && dr.text !== text && dr.text && dr.text.trim()) {
+      var rec = el("div", "panel decide"); rec.appendChild(el("h3", null, "Unsaved text from " + whenAt(new Date(dr.at).toISOString())));
+      rec.appendChild(el("p", "lede", "This browser kept " + wordCount(dr.text) + " words you typed that the House has not got (the House has version " + current + "). Restore them onto the desk and they are saved; discard them and they are gone."));
+      var ra = el("div", "actions");
+      ra.appendChild(button("", "Restore my text", function (){ ta.value = dr.text; if (dr.form && fsel) { fsel.value = dr.form; form = dr.form; ta.className = "wd-body" + (isScript(form) ? " script" : ""); paintElements(); } WRITE_DIRTY = true; count.textContent = pageWords(form, ta.value); rec.remove(); save(false); }));
+      ra.appendChild(button("ghost", "Discard it", function (){ dropDraft(w.id); rec.remove(); saidS.textContent = "The unsaved copy was discarded; the House's version " + current + " is on the desk."; }));
+      rec.appendChild(ra); body.insertBefore(rec, tools);
+    }
     function saveNow(quiet){
       var val = ta.value, fv = form;
       if (val === text && fv === savedForm && !WRITE_DIRTY) { if (!quiet) saidS.textContent = "Nothing changed since the last save."; return Promise.resolve({ ok:true, unchanged:true }); }
       saidS.textContent = "Saving…";
       return act("house_team_work_save", { p_id:w.id, p_expected_version:current, p_fields:{ details:{ writing:{ body:val, words:wordCount(val), form:fv } } } }).then(function (res){
-        if (!res.ok) { saidS.textContent = "Not saved. Your text is still on this screen."; said.replaceChildren(say("no", "Not saved", res.say + " Nothing was lost: the text is still here. Try again, or copy it before leaving if the House cannot be reached.")); return { ok:false }; }
+        if (!res.ok) { saidS.textContent = "Not saved to the House yet; a copy is kept in this browser."; said.replaceChildren(say("no", "Not saved", res.say + " Nothing was lost: the text is still here and a copy is kept in this browser until it reaches the House.")); return { ok:false }; }
         text = val; savedForm = fv; current = res.data.item.version;
-        if (ta.value === val && form === fv) { WRITE_DIRTY = false; saidS.textContent = "Saved as version " + current + " at " + whenAt(new Date().toISOString()) + "."; }
+        if (ta.value === val && form === fv) { WRITE_DIRTY = false; dropDraft(w.id); saidS.textContent = "Saved as version " + current + " at " + whenAt(new Date().toISOString()) + "."; }
         else { WRITE_DIRTY = true; saidS.textContent = "Saved as version " + current + "; you kept typing, so there is more to save."; }
         topLine(); said.replaceChildren(); return { ok:true };
-      }).catch(function (e){ saidS.textContent = "Not saved. Your text is still on this screen."; said.replaceChildren(say("no", "Not saved", String(e && e.message || e))); return { ok:false }; });
+      }).catch(function (e){ saidS.textContent = "Not saved to the House yet; a copy is kept in this browser."; said.replaceChildren(say("no", "Not saved", String(e && e.message || e))); return { ok:false }; });
     }
     function save(quiet){
       if (!canEdit) return Promise.resolve({ ok:false });
@@ -2270,41 +2313,41 @@ function viewWriting(id){
       saving = saveNow(quiet).then(function (r){ saving = null; if (queued && WRITE_DIRTY) { queued = false; return save(true).then(function (){ return r; }); } queued = false; return r; });
       return saving;
     }
-    ta.addEventListener("input", function (){ WRITE_DIRTY = true; count.textContent = pageWords(form, ta.value); if (!saving) saidS.textContent = "Not yet saved."; if (!pageHost.hidden) { pageHost.replaceChildren(renderPage(form, ta.value)); } });
+    WRITE_FLUSH = function (){ if (canEdit) { keepDraft(w.id, ta.value, form, current); save(true); } };
+    ta.addEventListener("input", function (){
+      WRITE_DIRTY = true; count.textContent = pageWords(form, ta.value); if (!saving) saidS.textContent = "Typing… saved in a moment.";
+      keepDraft(w.id, ta.value, form, current);
+      if (WRITE_DEBOUNCE) clearTimeout(WRITE_DEBOUNCE); WRITE_DEBOUNCE = setTimeout(function (){ if (WRITE_DIRTY && document.body.contains(ta)) save(true); }, 2500);
+      if (!pageHost.hidden) pageHost.replaceChildren(renderPage(form, ta.value));
+    });
     ta.addEventListener("keydown", function (e){
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") { e.preventDefault(); save(false); return; }
       if (e.key === "Tab" && !e.shiftKey && canEdit && isScript(form)) { e.preventDefault(); insertAt(ta, "\n\n", "CHARACTER", "\n"); }
     });
-    if (fsel) fsel.addEventListener("change", function (){ form = fsel.value; WRITE_DIRTY = true; ta.className = "wd-body" + (isScript(form) ? " script" : ""); paintElements(); count.textContent = pageWords(form, ta.value); topLine(); if (!saving) saidS.textContent = "Not yet saved."; if (!pageHost.hidden) pageHost.replaceChildren(renderPage(form, ta.value)); });
+    if (fsel) fsel.addEventListener("change", function (){ form = fsel.value; WRITE_DIRTY = true; keepDraft(w.id, ta.value, form, current); ta.className = "wd-body" + (isScript(form) ? " script" : ""); paintElements(); count.textContent = pageWords(form, ta.value); topLine(); save(true); if (!pageHost.hidden) pageHost.replaceChildren(renderPage(form, ta.value)); });
     if (canEdit) {
-      acts.appendChild(button("", "Save as a new version", function (){ save(false); }));
+      acts.appendChild(button("", "Save now", function (){ save(false); }));
       acts.appendChild(button("ghost", "Submit this piece", function (){
-        /* the piece is submitted only when the last save succeeded and the box still holds exactly the saved text */
         save(true).then(function (r){
           if (!r || !r.ok) { said.replaceChildren(say("no", "Not submitted", "The last save did not reach the House, so nothing was submitted. Save again first.")); return; }
           if (ta.value !== text || WRITE_DIRTY) { said.replaceChildren(say("no", "Not submitted", "The text changed after the last save. Save again, then submit.")); return; }
           if (!ta.value.trim()) { said.replaceChildren(say("no", "Not submitted", "The piece has no text yet.")); return; }
           var submitVersion = current;
-          ask({ head:"Submit “" + w.title + "”?", body:"Version " + submitVersion + " goes to the team lead of " + worldName(w.worldKey, w.worldName) + " (or straight to the Founder if you lead this world). You cannot change it until it comes back.", yes:"Submit it", no:"Not yet" }).then(function (a){
-            if (!a || !a.ok) return;   /* "Not yet", Escape and closing the dialog answer {ok:false}: nothing is submitted */
+          ask({ head:"Submit “" + w.title + "”?", body:"Version " + submitVersion + " goes to the team lead of " + worldName(w.worldKey, w.worldName) + " (or straight to the Founder if you lead this world). The text is its own source. You cannot change it until it comes back.", yes:"Submit it", no:"Not yet" }).then(function (a){
+            if (!a || !a.ok) return;
             if (ta.value !== text || WRITE_DIRTY || current !== submitVersion) { said.replaceChildren(say("no", "Not submitted", "The text changed while the question was open. Save again, then submit.")); return; }
-            act("house_team_work_submit", { p_id:w.id, p_expected_version:submitVersion }).then(function (res){ if (!res.ok) { said.replaceChildren(say("no", "Not submitted", res.say)); return; } status(res.say); refreshOverview().then(function (){ location.hash = "#/work/" + encodeURIComponent(w.id); }); });
+            act("house_team_work_submit", { p_id:w.id, p_expected_version:submitVersion }).then(function (res){ if (!res.ok) { said.replaceChildren(say("no", "Not submitted", res.say)); return; } dropDraft(w.id); WRITE_DIRTY = false; status(res.say); refreshOverview().then(function (){ location.hash = "#/work/" + encodeURIComponent(w.id); }); });
           });
         });
       }));
       WRITE_TIMER = setInterval(function (){ if (WRITE_DIRTY && !saving && document.body.contains(ta)) save(true); }, 60000);
     }
-    var pageBtn = button("ghost", "Page view", function (){
-      if (pageHost.hidden) { pageHost.replaceChildren(renderPage(form, ta.value)); pageHost.hidden = false; ta.hidden = true; pageBtn.textContent = "Back to writing"; }
-      else { pageHost.hidden = true; ta.hidden = false; pageBtn.textContent = "Page view"; try { ta.focus(); } catch (e) {} }
-    });
+    var pageBtn = button("ghost", "Page view", function (){ if (pageHost.hidden) { pageHost.replaceChildren(renderPage(form, ta.value)); pageHost.hidden = false; ta.hidden = true; pageBtn.textContent = "Back to writing"; } else { pageHost.hidden = true; ta.hidden = false; pageBtn.textContent = "Page view"; try { ta.focus(); } catch (e) {} } });
     acts.appendChild(pageBtn);
-    acts.appendChild(button("ghost", "Download the text", function (){
-      try { var blob = new Blob([ta.value], { type:"text/plain;charset=utf-8" }); var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = w.title.replace(/[^\w\- ]+/g, "").trim().replace(/\s+/g, "_") + (isScript(form) ? ".fountain" : ".txt"); document.body.appendChild(a); a.click(); setTimeout(function (){ URL.revokeObjectURL(a.href); a.remove(); }, 1000); } catch (e) { status("The browser could not offer the file."); }
-    }));
+    acts.appendChild(button("ghost", "Download the text", function (){ try { var blob = new Blob([ta.value], { type:"text/plain;charset=utf-8" }); var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = w.title.replace(/[^\w\- ]+/g, "").trim().replace(/\s+/g, "_") + (isScript(form) ? ".fountain" : ".txt"); document.body.appendChild(a); a.click(); setTimeout(function (){ URL.revokeObjectURL(a.href); a.remove(); }, 1000); } catch (e) { status("The browser could not offer the file."); } }));
     acts.appendChild(link("ghost", "The piece's record (sources, reviews, decisions)", "#/work/" + encodeURIComponent(w.id)));
     if (r.versionCount > 1) acts.appendChild(button("ghost", "Compare versions", function (){ compareVersions(w); }));
-    body.appendChild(el("p", "fine", "Plain text only: what you type is what is kept, and nothing on this page runs as code. Saved every minute while you type, and whenever you press Save or Ctrl+S. Every version is kept. A script downloads in the plain screenplay convention (.fountain), which screenwriting programs open."));
+    body.appendChild(el("p", "fine", "Plain text only: what you type is what is kept, and nothing on this page runs as code. Saved to the House a few seconds after you stop typing, when you leave the page, and whenever you press Save now or Ctrl+S; a copy of unsaved text is kept in this browser until it reaches the House. Every version is kept. A script downloads in the plain screenplay convention (.fountain)."));
     try { if (canEdit) ta.focus(); } catch (e) {}
   }, ["#/write", "Story Desk"]);
 }
@@ -2426,56 +2469,114 @@ function viewLeadOverview(){
   });
 }
 
-/* ---- v33.1: the rooms of a world (Database Step 48) ----
-   The calendar (meetings, shoot days with their call sheets, deadlines, screenings, rehearsals), the announcements a
-   team lead posts to their world, and the House Drive: files that belong to a world rather than to one piece of work.
-   Every figure is read from the House when the page opens; a team lead of a world makes its events and posts to it; a
-   member with a role in the world reads them. Nothing here is the Founder's decision; she has no desk here. */
-var EVENT_KINDS = [["meeting", "Meeting"], ["shoot", "Shoot day (with a call sheet)"], ["deadline", "Deadline"], ["screening", "Screening"], ["rehearsal", "Rehearsal"], ["other", "Other"]];
+/* ---- v33.1 / v36: the rooms of a world (Database Steps 48 and 53) ----
+   The calendar as a month grid and as a list (meetings, shoot days with their call sheets, deadlines, screenings,
+   rehearsals), shared across worlds when worlds work together; the deadline band with its countdown on every desk;
+   the announcements a team lead posts; and the House Drive. The calendar's own day formatter is calDayKey: the
+   portal's dayKey (used by date inputs) is left alone. */
+var EVENT_KINDS = [["meeting", "Meeting"], ["shoot", "Shoot day (with a call sheet)"], ["deadline", "Deadline (shows on every overview with a countdown)"], ["screening", "Screening"], ["rehearsal", "Rehearsal"], ["other", "Other"]];
 function kindWords(k){ return ({ meeting:"Meeting", shoot:"Shoot day", deadline:"Deadline", screening:"Screening", rehearsal:"Rehearsal", other:"Event" })[k] || "Event"; }
-function dayKey(v){ var d = new Date(v); return isNaN(d) ? "" : d.toLocaleDateString(undefined, { weekday:"long", year:"numeric", month:"long", day:"numeric" }); }
+function calDayKey(v){ var d = new Date(v); return isNaN(d) ? "" : d.toLocaleDateString(undefined, { weekday:"long", year:"numeric", month:"long", day:"numeric" }); }
+function ymd(d){ var p = function (n){ return (n < 10 ? "0" : "") + n; }; return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()); }
 function timeAt(v){ var d = new Date(v); return isNaN(d) ? "" : d.toLocaleTimeString(undefined, { hour:"numeric", minute:"2-digit" }); }
 function localInput(v){ if (!v) return ""; var d = new Date(v); if (isNaN(d)) return ""; var p = function (n){ return (n < 10 ? "0" : "") + n; }; return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + "T" + p(d.getHours()) + ":" + p(d.getMinutes()); }
 function fromInput(v){ if (!v) return null; var d = new Date(v); return isNaN(d) ? null : d.toISOString(); }
+function sharedWords(e){ var s = e.sharedWorlds || []; return s.length ? " · shared with " + s.map(function (w){ return w.name; }).join(", ") : ""; }
 function eventRow(e){
-  var meta = [kindWords(e.kind) + " · " + (e.worldName || worldName(e.world)) + (e.location ? " · " + e.location : ""), (e.cancelled ? "Cancelled: " + (e.cancelReason || "") : (e.asked ? "You are asked" : (e.people ? e.people + " asked" : "")) + (e.hasCallSheet ? " · call sheet" : "") + (e.workTitle ? " · " + e.workTitle : ""))];
-  return rowOf(e.cancelled ? "held" : (e.asked ? "hot" : ""), timeAt(e.startsAt) + (e.endsAt ? "–" + timeAt(e.endsAt) : ""), e.title, meta, null, "#/calendar/" + encodeURIComponent(e.id));
+  var meta = [kindWords(e.kind) + " · " + (e.worldName || worldName(e.world)) + sharedWords(e) + (e.location ? " · " + e.location : ""), (e.cancelled ? "Cancelled: " + (e.cancelReason || "") : (e.asked ? "You are asked" : (e.people ? e.people + " asked" : "")) + (e.hasCallSheet ? " · call sheet" : "") + (e.workTitle ? " · " + e.workTitle : ""))];
+  return rowOf(e.cancelled ? "held" : (e.kind === "deadline" ? "hot" : (e.asked ? "hot" : "")), timeAt(e.startsAt) + (e.endsAt ? "–" + timeAt(e.endsAt) : ""), e.title, meta, null, "#/calendar/" + encodeURIComponent(e.id));
 }
-/* ---- the calendar ---- */
+/* the deadline band: the next deadline, big, with a countdown that ticks */
+var DEADLINE_TIMER = null;
+function countdownWords(at){
+  var ms = new Date(at) - Date.now(); if (isNaN(ms)) return "";
+  if (ms < 0) return "passed " + Math.floor(-ms / 86400000) + " day" + (Math.floor(-ms / 86400000) === 1 ? "" : "s") + " ago";
+  var d = Math.floor(ms / 86400000), h = Math.floor((ms % 86400000) / 3600000), m = Math.floor((ms % 3600000) / 60000);
+  if (d >= 2) return "in " + d + " days, " + h + " h";
+  if (d === 1) return "in 1 day, " + h + " h";
+  if (h >= 1) return "in " + h + " h " + m + " min";
+  return "in " + m + " min";
+}
+function deadlineBand(body, deadlines){
+  var list = (deadlines || []).filter(function (e){ return !e.cancelled; }).sort(function (a, b){ return new Date(a.startsAt) - new Date(b.startsAt); });
+  if (!list.length) return;
+  var next = list[0];
+  var band = el("a", "deadline-band"); band.href = "#/calendar/" + encodeURIComponent(next.id);
+  band.appendChild(el("span", "dl-k", "⏰ Next deadline · " + (next.worldName || "") + sharedWords(next)));
+  band.appendChild(el("span", "dl-title", next.title));
+  var cd = el("span", "dl-count", countdownWords(next.startsAt)); band.appendChild(cd);
+  band.appendChild(el("span", "dl-when", whenAt(next.startsAt) + (next.notes ? " · " + next.notes : "")));
+  if (list.length > 1) band.appendChild(el("span", "dl-more", (list.length - 1) + " more deadline" + (list.length === 2 ? "" : "s") + " on the calendar"));
+  body.insertBefore(band, body.firstChild && body.firstChild.classList && body.firstChild.classList.contains("word-hero") ? body.firstChild.nextSibling : body.firstChild);
+  if (DEADLINE_TIMER) clearInterval(DEADLINE_TIMER);
+  DEADLINE_TIMER = setInterval(function (){ if (!document.body.contains(cd)) { clearInterval(DEADLINE_TIMER); return; } cd.textContent = countdownWords(next.startsAt); }, 30000);
+}
+/* ---- the calendar: a month grid and a list ---- */
+var CAL_MODE = (function (){ try { return localStorage.getItem("how.team.calmode") || "grid"; } catch (e) { return "grid"; } })();
+var CAL_OFF = 0;
 function viewCalendar(){
-  var world = (location.hash.split("?")[1] || "").replace(/^world=/, "") || null;
-  view("calendar", "Your desk", "Calendar", "The calendar of the worlds open to you: meetings, shoot days with their call sheets, deadlines, screenings, rehearsals. A team lead of a world keeps its calendar; a person asked to an event is told by the House.", [["house_team_calendar", { p_world:world, p_from:null, p_to:null }]], function (body, d, again){
+  var world = worldArg ? worldArg() : null;
+  var base = new Date(); base.setDate(1); base.setMonth(base.getMonth() + CAL_OFF);
+  var from = new Date(base.getFullYear(), base.getMonth() - 1, 1), to = new Date(base.getFullYear(), base.getMonth() + 2, 1);
+  view("calendar", "Your desk", "Calendar", null, [["house_team_calendar", { p_world:world, p_from:from.toISOString(), p_to:to.toISOString() }]], function (body, d, again){
     var c = d[0], evs = c.events || [], canEdit = (c.canEditWorlds || []).length > 0;
+    if (typeof heroBand === "function") heroBand(body, "📅 Calendar", "Meetings, shoot days with their call sheets, deadlines, screenings, rehearsals, for the worlds open to you and what other worlds share into them. A team lead keeps the world's calendar; a person asked to an event is told by the House.");
+    deadlineBand(body, c.deadlines || []);
     var bar = el("div", "actions");
-    if (canEdit) bar.appendChild(button("", "New event", function (){ eventDialog(null, c.canEditWorlds, function (ev){ location.hash = "#/calendar/" + encodeURIComponent(ev.id); }); }));
+    if (canEdit) bar.appendChild(button("", "＋ New event", function (){ eventDialog(null, c.canEditWorlds, c.shareWorlds || [], null, function (ev){ location.hash = "#/calendar/" + encodeURIComponent(ev.id); }); }));
+    var modeB = button("ghost", CAL_MODE === "grid" ? "List view" : "Month grid", function (){ CAL_MODE = CAL_MODE === "grid" ? "list" : "grid"; try { localStorage.setItem("how.team.calmode", CAL_MODE); } catch (e) {} again(); }); bar.appendChild(modeB);
     var ws = ((ME && ME.worlds) || []).map(function (w){ return [w.key, w.name]; });
     if (ws.length > 1) { var sel = select(bar, "World", "cal-world", [["", "Every world open to you"]].concat(ws), world || ""); sel.addEventListener("change", function (){ location.hash = "#/calendar" + (sel.value ? "?world=" + encodeURIComponent(sel.value) : ""); }); }
     body.appendChild(bar);
-    var now = Date.now(), past = evs.filter(function (e){ return new Date(e.startsAt) < now; }), coming = evs.filter(function (e){ return new Date(e.startsAt) >= now; });
-    if (!evs.length) body.appendChild(say("", "Nothing on the calendar", canEdit ? "Put the first event on it above. From its page you ask people to it; each is told by the House." : "The team lead of your world puts events here; when you are asked to one, the House tells you by email and it shows here."));
-    function group(list, head){
-      if (!list.length) return; body.appendChild(el("h2", null, head)); var last = null, rows = null;
-      list.forEach(function (e){ var k = dayKey(e.startsAt); if (k !== last) { last = k; body.appendChild(el("h3", "cal-day", k)); rows = el("div", "rows"); body.appendChild(rows); } rows.appendChild(eventRow(e)); });
+    if (CAL_MODE === "grid") {
+      var nav2 = el("div", "cal-head");
+      nav2.appendChild(button("ghost small", "←", function (){ CAL_OFF--; again(); }));
+      nav2.appendChild(el("span", "cal-month", base.toLocaleDateString(undefined, { month:"long", year:"numeric" })));
+      nav2.appendChild(button("ghost small", "→", function (){ CAL_OFF++; again(); }));
+      if (CAL_OFF) nav2.appendChild(button("ghost small", "Today", function (){ CAL_OFF = 0; again(); }));
+      body.appendChild(nav2);
+      var grid = el("div", "cal-grid"); ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(function (x){ grid.appendChild(el("div", "cal-dow", x)); });
+      var first = new Date(base.getFullYear(), base.getMonth(), 1).getDay(), days = new Date(base.getFullYear(), base.getMonth() + 1, 0).getDate(), todayKey = ymd(new Date());
+      for (var i = 0; i < first; i++) grid.appendChild(el("div", "cal-cell empty"));
+      var byDay = {}; evs.forEach(function (e){ var k = ymd(new Date(e.startsAt)); (byDay[k] = byDay[k] || []).push(e); });
+      for (var dd = 1; dd <= days; dd++) {
+        var dt = new Date(base.getFullYear(), base.getMonth(), dd), k = ymd(dt); var cell = el("div", "cal-cell" + (k === todayKey ? " today" : "")); cell.appendChild(el("div", "cal-num", String(dd)));
+        (byDay[k] || []).slice(0, 4).forEach(function (e){ var a = el("a", "cal-ev k-" + e.kind + (e.cancelled ? " off" : "")); a.href = "#/calendar/" + encodeURIComponent(e.id); a.title = e.title; a.appendChild(el("b", null, timeAt(e.startsAt))); a.appendChild(document.createTextNode(" " + e.title)); cell.appendChild(a); });
+        if ((byDay[k] || []).length > 4) cell.appendChild(el("div", "cal-more", "+" + ((byDay[k] || []).length - 4)));
+        if (canEdit) (function (dt2){ var add = el("button", "cal-add", "＋"); add.type = "button"; add.setAttribute("aria-label", "Add an event on " + calDayKey(dt2)); add.addEventListener("click", function (){ eventDialog(null, c.canEditWorlds, c.shareWorlds || [], dt2, function (ev){ location.hash = "#/calendar/" + encodeURIComponent(ev.id); }); }); cell.appendChild(add); })(dt);
+        grid.appendChild(cell);
+      }
+      body.appendChild(grid);
+      body.appendChild(el("p", "fine", "A deadline is marked gold, a shoot day purple, a cancelled event struck through. " + (canEdit ? "Press ＋ on a day to put an event there." : "")));
+    } else {
+      var now = Date.now(), past = evs.filter(function (e){ return new Date(e.startsAt) < now; }), coming = evs.filter(function (e){ return new Date(e.startsAt) >= now; });
+      if (!evs.length) body.appendChild(say("", "Nothing on the calendar", canEdit ? "Put the first event on it above. From its page you ask people to it; each is told by the House." : "The team lead of your world puts events here; when you are asked to one, the House tells you by email and it shows here."));
+      function group(list, head){ if (!list.length) return; body.appendChild(el("h2", null, head)); var last = null, rows = null; list.forEach(function (e){ var k = calDayKey(e.startsAt); if (k !== last) { last = k; body.appendChild(el("h3", "cal-day", k)); rows = el("div", "rows"); body.appendChild(rows); } rows.appendChild(eventRow(e)); }); }
+      group(coming, "Coming up"); group(past.reverse(), "Earlier");
     }
-    group(coming, "Coming up"); group(past.reverse(), "The last seven days");
     body.appendChild(el("p", "fine", (c.note ? c.note + " " : "") + readAt()));
   });
 }
-function eventDialog(ev, worlds, after){
+function eventDialog(ev, worlds, shareWorlds, onDate, after){
   dialog(ev ? "Change the event" : "A new event", function (box, close){
     var w = ev ? null : select(box, "World", "ev-world", worlds.map(function (x){ return [x.key, x.name]; }), (worlds[0] || {}).key);
     var k = select(box, "Kind", "ev-kind", EVENT_KINDS, ev ? ev.kind : "meeting");
     var t = field(box, "Title", "ev-title", "text", ev ? ev.title : "");
-    var s = field(box, "Begins", "ev-start", "datetime-local", ev ? localInput(ev.startsAt) : "");
+    var startDefault = ev ? localInput(ev.startsAt) : (onDate ? localInput(new Date(onDate.getFullYear(), onDate.getMonth(), onDate.getDate(), 10, 0)) : "");
+    var s = field(box, "Begins", "ev-start", "datetime-local", startDefault);
     var e2 = field(box, "Ends (optional)", "ev-end", "datetime-local", ev && ev.endsAt ? localInput(ev.endsAt) : "");
     var loc = field(box, "Where", "ev-loc", "text", ev ? (ev.location || "") : "");
-    var notes = field(box, "Notes", "ev-notes", "text", ev ? (ev.notes || "") : "", 4);
+    var notes = field(box, "Notes (a deadline's words show on every overview)", "ev-notes", "text", ev ? (ev.notes || "") : "", 3);
+    var own = ev ? ev.world : (worlds[0] || {}).key; var checks = [];
+    var shareBox = el("fieldset", "kind-sec"); shareBox.appendChild(el("legend", null, "Share with other worlds")); shareBox.appendChild(el("p", "fine", "When worlds work together: the event shows on each world's calendar; a deadline shows on each of their overviews with its countdown; their team leads are told."));
+    (shareWorlds || []).forEach(function (sw){ if (sw.key === own) return; var lab = el("label", "field chk"); var cb = document.createElement("input"); cb.type = "checkbox"; cb.value = sw.key; cb.checked = !!(ev && (ev.sharedWorlds || []).some(function (x){ return x.key === sw.key; })); lab.appendChild(cb); lab.appendChild(el("span", null, sw.name)); shareBox.appendChild(lab); checks.push(cb); });
+    if (checks.length) box.appendChild(shareBox);
     var said = el("div"); said.setAttribute("aria-live", "polite"); var acts = el("div", "actions");
     acts.appendChild(button("", ev ? "Save" : "Put it on the calendar", function (){
       if (t.value.trim().length < 2) { said.replaceChildren(say("no", "A title is needed", "")); t.focus(); return; }
       if (!fromInput(s.value)) { said.replaceChildren(say("no", "When does it begin?", "")); s.focus(); return; }
       said.replaceChildren(say("busy", ev ? "Saving" : "Placing", "Asking the House…"));
-      var fields = { kind:k.value, title:t.value.trim(), startsAt:fromInput(s.value), endsAt:fromInput(e2.value), location:loc.value.trim(), notes:notes.value.trim() };
+      var fields = { kind:k.value, title:t.value.trim(), startsAt:fromInput(s.value), endsAt:fromInput(e2.value), location:loc.value.trim(), notes:notes.value.trim(), sharedWorlds:checks.filter(function (c){ return c.checked; }).map(function (c){ return c.value; }) };
       if (!ev) fields.world = w.value;
       act("house_team_event_act", { p_id:ev ? ev.id : null, p_action:ev ? "save" : "create", p_fields:fields }).then(function (res){
         if (!res.ok) { said.replaceChildren(say("no", ev ? "Not saved" : "Not placed", res.say)); return; }
@@ -2501,13 +2602,13 @@ function viewEvent(id){
   view("calendar", "Calendar", "An event", null, [["house_team_event", { p_id:id }]], function (body, d, again, host){
     var r = d[0], e = r.event, people = r.people || [];
     host.querySelector("h1").textContent = e.title; document.title = e.title + " — House of Worlds";
-    body.appendChild(el("p", "lede", kindWords(e.kind) + " in " + (e.worldName || worldName(e.world)) + " · " + whenAt(e.startsAt) + (e.endsAt ? " until " + timeAt(e.endsAt) : "") + (e.location ? " · " + e.location : "")));
+    body.appendChild(el("p", "lede", kindWords(e.kind) + " in " + (e.worldName || worldName(e.world)) + sharedWords(e) + " · " + whenAt(e.startsAt) + (e.endsAt ? " until " + timeAt(e.endsAt) : "") + (e.location ? " · " + e.location : "")));
+    if (e.kind === "deadline" && !e.cancelled) { var cd = el("div", "deadline-band static"); cd.appendChild(el("span", "dl-k", "⏰ Deadline")); cd.appendChild(el("span", "dl-title", e.title)); cd.appendChild(el("span", "dl-count", countdownWords(e.startsAt))); cd.appendChild(el("span", "dl-when", whenAt(e.startsAt))); body.appendChild(cd); }
     if (e.cancelled) body.appendChild(say("no", "Cancelled", e.cancelReason || ""));
     if (e.asked && !e.cancelled) body.appendChild(say("", "You are asked to this", "The House told you by email when you were asked."));
     var dl = el("dl", "pairs");
-    [["Made by", e.madeBy + ", " + whenAt(e.madeAt)], ["Changed", whenAt(e.changedAt)], ["Notes", e.notes], ["Linked work", e.workTitle]].forEach(function (x){ if (!x[1]) return; dl.appendChild(el("dt", null, x[0])); var dd = el("dd", null, x[1]); if (x[0] === "Linked work") { dd.replaceChildren(); var a = el("a", null, e.workTitle); a.href = "#/work/" + encodeURIComponent(e.workItemId); dd.appendChild(a); } dl.appendChild(dd); });
+    [["Made by", e.madeBy + ", " + whenAt(e.madeAt)], ["Changed", whenAt(e.changedAt)], ["Notes", e.notes], ["Shared with", (e.sharedWorlds || []).map(function (w){ return w.name; }).join(", ") || null], ["Linked work", e.workTitle]].forEach(function (x){ if (!x[1]) return; dl.appendChild(el("dt", null, x[0])); var dd = el("dd", null, x[1]); if (x[0] === "Linked work") { dd.replaceChildren(); var a = el("a", null, e.workTitle); a.href = "#/work/" + encodeURIComponent(e.workItemId); dd.appendChild(a); } dl.appendChild(dd); });
     body.appendChild(dl);
-    /* the call sheet */
     if (e.kind === "shoot") {
       var csHead = el("div", "hd-head"); csHead.appendChild(el("h2", null, "Call sheet")); body.appendChild(csHead);
       var csHost = el("div", "callsheet-host"); csHost.appendChild(callSheetNodes(e.callSheet || {})); body.appendChild(csHost);
@@ -2516,7 +2617,6 @@ function viewEvent(id){
       if (e.canEdit && !e.cancelled) csActs.appendChild(button("", "Edit the call sheet", function (){ callSheetDialog(e, again); }));
       body.appendChild(csActs);
     }
-    /* the people */
     body.appendChild(el("h2", null, "Asked to it"));
     if (!people.length) body.appendChild(el("p", "lede", e.canEdit ? "Nobody yet. Ask people below; each is told by the House." : "Nobody has been asked yet."));
     else { var rows = el("div", "rows"); people.forEach(function (p){ var right = null; if (e.canEdit && !e.cancelled) right = button("ghost", "Remove", function (){ act("house_team_event_act", { p_id:e.id, p_action:"unask", p_fields:{ userId:p.userId } }).then(function (res){ done(res, again); }); }); rows.appendChild(rowOf("", p.told ? "Told" : "Asked", p.name + (p.me ? " (you)" : ""), ["asked " + whenAt(p.askedAt)], right, null)); }); body.appendChild(rows); }
@@ -2528,7 +2628,7 @@ function viewEvent(id){
     }
     var acts = el("div", "actions");
     if (e.canEdit && !e.cancelled) {
-      acts.appendChild(button("", "Change the event", function (){ eventDialog(e, [], function (){ again(); }); }));
+      acts.appendChild(button("", "Change the event", function (){ eventDialog(e, [], r.shareWorlds || [], null, function (){ again(); }); }));
       acts.appendChild(button("ghost", "Cancel the event", function (){
         dialog("Cancel “" + e.title + "”?", function (box, close){ var why = field(box, "Why (recorded, and told to everyone asked)", "ev-why", "text", ""); var a2 = el("div", "actions"); a2.appendChild(button("", "Cancel it", function (){ if (why.value.trim().length < 3) { why.focus(); return; } act("house_team_event_act", { p_id:e.id, p_action:"cancel", p_fields:{ reason:why.value.trim() } }).then(function (res){ close(); done(res, again); }); })); a2.appendChild(button("ghost", "Keep it", close)); box.appendChild(a2); });
       }));
@@ -2554,8 +2654,7 @@ function callSheetDialog(e, again){
 }
 /* ---- announcements ---- */
 function announcementRow(a, again){
-  var right = null;
-  var row = rowOf(a.read ? "" : "hot", a.pinned ? "Pinned" : (a.read ? "Read" : "New"), a.title, [(a.worldName || "Every world") + " · " + a.postedBy + " · " + whenAt(a.postedAt) + (a.emailedTo ? " · emailed to " + a.emailedTo : "")], right, null);
+  var row = rowOf(a.read ? "" : "hot", a.pinned ? "Pinned" : (a.read ? "Read" : "New"), a.title, [(a.worldName || "Every world") + " · " + a.postedBy + " · " + whenAt(a.postedAt) + (a.emailedTo ? " · emailed to " + a.emailedTo : "")], null, null);
   var w = row.querySelector(".w"); var a1 = el("a", "w", a.title); a1.href = "#/announcements/" + encodeURIComponent(a.id); w.replaceWith(a1);
   return row;
 }
@@ -2664,8 +2763,8 @@ function placeDriveFile(r, existing, again){
   });
 }
 function viewDrive(){
-  var world = (location.hash.split("?")[1] || "").replace(/^world=/, "") || null;
-  view("drive", "Your desk", "House Drive", "Files that belong to a world rather than to one piece of work: reference, boards, agreements, stills. Every file is recorded before its bytes arrive; every opening is on the record.", [["house_team_drive", { p_world:world }]], function (body, d, again){
+  var world = worldArg ? worldArg() : null;
+  view("drive", "Your desk", "House Drive", "Files that belong to a world rather than to one piece of work: reference, boards, agreements, stills. Every file is recorded before its bytes arrive; every opening is on the record. What you type on the Story Desk is saved by itself as you write; a file here is placed once and kept, version by version.", [["house_team_drive", { p_world:world }]], function (body, d, again){
     var r = d[0], files = r.files || [];
     var bar = el("div", "actions"); bar.appendChild(button("", "Place a file", function (){ placeDriveFile(r, null, again); }));
     var ws = (r.worlds || []).map(function (w){ return [w.key, w.name]; });
@@ -2685,18 +2784,19 @@ function viewDrive(){
     body.appendChild(el("p", "fine", (r.note ? r.note + " " : "") + readAt()));
   });
 }
-/* ---- the strips on the desk and the overview ---- */
+/* ---- the strips on the desk and the overview: the deadline band, announcements, this week ---- */
 function roomsStrips(body){
   var host = el("div"); body.appendChild(host);
   var to = new Date(Date.now() + 7 * 86400000).toISOString();
   Promise.all([rpc("house_team_calendar", { p_world:null, p_from:new Date().toISOString(), p_to:to }), rpc("house_team_announcements", { p_world:null, p_unread_only:true })]).then(function (rs){
     var cal = rs[0].ok && rs[0].data && rs[0].data.ok ? rs[0].data : null, ann = rs[1].ok && rs[1].data && rs[1].data.ok ? rs[1].data : null;
+    if (cal) deadlineBand(body, cal.deadlines || []);
     if (ann && (ann.announcements || []).length) {
-      host.appendChild(el("h2", null, "Announcements not yet read"));
+      host.appendChild(el("h2", null, "📢 Announcements not yet read"));
       var r1 = el("div", "rows"); ann.announcements.slice(0, 4).forEach(function (a){ r1.appendChild(announcementRow(a)); }); host.appendChild(r1);
     }
     if (cal && (cal.events || []).length) {
-      host.appendChild(el("h2", null, "This week on the calendar"));
+      host.appendChild(el("h2", null, "📅 This week on the calendar"));
       var r2 = el("div", "rows"); cal.events.filter(function (e){ return !e.cancelled; }).slice(0, 6).forEach(function (e){ r2.appendChild(eventRow(e)); }); host.appendChild(r2);
       host.appendChild(link("ghost", "The calendar", "#/calendar"));
     }
@@ -3199,7 +3299,8 @@ function viewHome(){
     var offers = asg.filter(offered), events = (cal.events || []).filter(function (e){ return !e.cancelled; }), unreadAnn = (ann.announcements || []).length;
     var sub = el("span"); sub.appendChild(document.createTextNode("")); var b = el("b", null, myTitleWords()); sub.appendChild(b); sub.appendChild(document.createTextNode(" · House of Worlds. Everything on this page is read from the House's record, just now. " + (ME && ME.isLead ? "Your world's overview is under Overview." : "What needs you comes first.")));
     heroBand(body, "🎬 Welcome back, " + String((ME && ME.name) || "").replace(/\(Example\)\s*/, ""), sub);
-    statGrid(body, [[returned.length + drafts.length, "with you", "#/work"], [Number(f.withLead) || 0, "with the team lead", "#/work"], [Number(f.withFounder) || 0, "with the Founder", "#/work"], [Number(f.dueSoon) || 0, "due in seven days", "#/work"], [SIGNALS_UNREAD, "signals unread", "#/signals"], [events.length, "events this week", "#/calendar"]]);
+    if (typeof deadlineBand === "function") deadlineBand(body, cal.deadlines || []);
+    statGrid(body, [[returned.length + drafts.length, "with you", "#/work?s=you"], [Number(f.withLead) || 0, "with the team lead", "#/work?s=lead"], [Number(f.withFounder) || 0, "with the Founder", "#/work?s=founder"], [Number(f.dueSoon) || 0, "due in seven days", "#/work?s=due"], [SIGNALS_UNREAD, "signals unread", "#/signals"], [events.length, "events this week", "#/calendar"]]);
     var needs = [];
     if (returned.length) needs.push([returned.length, "piece" + (returned.length === 1 ? "" : "s") + " of work returned to you with a review", "#/work"]);
     if (offers.length) needs.push([offers.length, "assignment" + (offers.length === 1 ? "" : "s") + " offered to you, waiting for your acceptance", "#/assignments"]);
@@ -3211,9 +3312,6 @@ function viewHome(){
     body.appendChild(el("h2", null, "Your work"));
     var inReview = mine.filter(function (w){ return w.status === "lead_review"; }).length, withF = mine.filter(function (w){ return w.status === "founder_review"; }).length;
     bigCards(body, [
-      { title:"📋 My work", pill:returned.length + drafts.length, sub:(returned.length ? returned.length + " returned with a review. " : "") + (drafts.length ? drafts.length + " draft" + (drafts.length === 1 ? "" : "s") + " not yet submitted." : "Nothing waiting with you."), href:"#/work", cta:"Open", tone:"purple" },
-      { title:"⏳ With the team lead", pill:inReview, sub:inReview ? inReview + " piece" + (inReview === 1 ? "" : "s") + " in review. It comes back returned, or goes on to the Founder as a packet." : "Nothing in review.", href:"#/work", cta:"See", tone:"gold" },
-      { title:"🛡 With the Founder", pill:withF, sub:withF ? withF + " packet" + (withF === 1 ? "" : "s") + " waiting for her decision; it comes back with her reason." : "Nothing with the Founder.", href:"#/decisions", cta:"Decisions", tone:"gold" },
       { title:"✍️ Story Desk", sub:"Scripts, pilots, treatments, chapters and notes, every version kept; a script is laid out as a script page.", href:"#/write", cta:"Write", tone:"purple" },
       { title:"📅 This week", pill:events.length, sub:events.length ? events.slice(0, 2).map(function (e){ return timeAt(e.startsAt) + " " + e.title; }).join(" · ") : "Nothing on the calendar this week.", href:"#/calendar", cta:"Calendar", tone:"blue" },
       { title:"📩 Signals", pill:SIGNALS_UNREAD, pillTone:SIGNALS_UNREAD ? "gold" : "faint", sub:SIGNALS_UNREAD ? SIGNALS_UNREAD + " unread. The House's email, on your desk." : "Your inbox is clear.", href:"#/signals", cta:"Inbox", tone:"gold" },
@@ -3243,7 +3341,7 @@ function viewFounderView(){
   view("founder", "Founder view", "Every team portal", null, [["house_founder_eyes_people"]], function (body, d, again){
     var P = d[0];
     if (P.visible === false) { body.appendChild(say("ask", "Not readable by this account", P.say || "")); return; }
-    heroBand(body, "👑 Founder view", "Every team portal, seen as the House shows it to each member, read-only. Nothing is written as you and nothing as them; every look is on the record. Your decisions are made in your dashboard.", "founder");
+    heroBand(body, "👑 Founder view", "Every team portal, as a read-only summary of what the House shows each member: their figures, work, review queue, client requests, service queue and notices. Nothing is written as you and nothing as them; every look is on the record. Your decisions are made in your dashboard.", "founder");
     var ws = P.worlds || [], ps = P.people || [];
     statGrid(body, [[ws.filter(function (w){ return w.open; }).length, "worlds open", null], [ps.length, "members", null], [ps.filter(function (p){ return p.isLead; }).length, "team leads", null], [ps.reduce(function (n, p){ return n + (Number(p.openWork) || 0); }, 0), "pieces of work open", null]]);
     body.appendChild(el("h2", null, "🚪 The sixteen worlds"));
@@ -3267,7 +3365,7 @@ function lookThrough(userId, name, body){
     var E = r.ok ? r.data : null;
     if (!E || !E.ok) { holder.replaceChildren(say("no", "Could not look", (E && E.say) || (r.why || ""))); return; }
     var box = el("section", "fv-look"); holder.replaceChildren(box);
-    heroBand(box, "👁 Through " + name.replace(/\(Example\)\s*/, "") + "'s eyes", "What their own Team Portal shows them, read as the House answers them. Read-only.", "founder");
+    heroBand(box, "👁 Through " + name.replace(/\(Example\)\s*/, "") + "'s eyes", "A summary of what their own Team Portal shows them (their figures, work, review queue, client requests, service queue and notices), read as the House answers them. Read-only; the full pages are theirs.", "founder");
     var me2 = E.me || {}, desk = E.desk || {}, f = desk.figures || {}, mine = desk.mine || [];
     box.appendChild(el("p", "fine", "Roles: " + ((me2.roles || []).map(function (x){ return roleWords(x.role) + (x.world ? " · " + x.world : " · every world"); }).join(", ") || "none") + " · worlds open to them: " + ((me2.worlds || []).map(function (w){ return w.name; }).join(", ") || "none") + " · " + (me2.sealedCount || 0) + " under seal and unnamed."));
     statGrid(box, [[Number(f.needsMe) || 0, "needs them", null], [Number(f.withLead) || 0, "with the team lead", null], [Number(f.withFounder) || 0, "with you", null], [Number(f.toReview) || 0, "waiting for their review", null], [Number(f.dueSoon) || 0, "due in seven days", null]]);
@@ -3303,6 +3401,63 @@ function founderSecondFactor(message){
   host.appendChild(el("p", "fine", "The code is checked by the House's sign-in service; this page never sees your authenticator's secret."));
   try { code.focus(); } catch (e) {}
 }
+
+/* ---- v36: the correction pass of 5 October ----
+   The work list opens filtered when a card counted it; a commission's milestones are shown on its record (amounts
+   never here: they are the Founder's and Finance's); the rail folds its secondary groups on a phone. */
+function workFilterArg(){ var q = (location.hash.split("?")[1] || ""); var m = q.match(/(?:^|&)s=([^&]+)/); return m ? decodeURIComponent(m[1]) : null; }
+var WORK_FILTERS = { you:["With you", /^(draft|returned)$/], lead:["With the team lead", /^lead_review$/], founder:["With the Founder", /^founder_review$/], review:["In review", /^(lead_review|founder_review)$/], decided:["Decided", /^(approved_internal|rejected|release_ready|published|deferred|archived)$/], due:["Due within seven days", null] };
+function viewWork(){
+  var fkey = workFilterArg(), filt = fkey && WORK_FILTERS[fkey];
+  view("work", "Your desk", filt ? filt[0] : "Your work", "Every piece of work you made or own, by where it stands. A draft goes to the team lead when it has a source (a piece of writing is its own source); the team lead returns it or sends it on to the Founder as a packet.", [["house_team_desk"]], function (body, d){
+    DESK = d[0]; ME = DESK.me || ME; OV = { needs: DESK.figures || {} }; paintNav("work");
+    var mine = DESK.mine || [];
+    var acts = el("div", "actions"); acts.appendChild(link("", "Begin a piece of work", "#/work/new"));
+    var chips = el("div", "film-chips"); [["all", "Everything"], ["you", "With you"], ["lead", "With the team lead"], ["founder", "With the Founder"], ["decided", "Decided"], ["due", "Due soon"]].forEach(function (c){ var a = el("a", "chip link" + ((c[0] === "all" && !filt) || c[0] === fkey ? " on" : ""), c[1]); a.href = "#/work" + (c[0] === "all" ? "" : "?s=" + c[0]); chips.appendChild(a); });
+    body.appendChild(acts); body.appendChild(chips);
+    if (!mine.length) { body.appendChild(say("", "No work yet", "Nothing you made or own is on the record. Begin a piece of work above; it stays a draft until you submit it.")); return; }
+    if (filt) {
+      var xs = fkey === "due" ? mine.filter(function (w){ return w.dueAt && new Date(w.dueAt) < new Date(Date.now() + 7 * 86400000) && !/^(archived|published|rejected)$/.test(w.status); }) : mine.filter(function (w){ return filt[1].test(w.status); });
+      if (!xs.length) body.appendChild(say("", "Nothing here", "No piece of yours is " + filt[0].toLowerCase() + " right now."));
+      else { var rows = el("div", "rows"); xs.forEach(function (w){ rows.appendChild(workRow(w)); }); body.appendChild(rows); }
+      body.appendChild(link("ghost", "All your work", "#/work"));
+    } else {
+      var groups = [["With you", function (w){ return w.status === "draft" || w.status === "returned"; }], ["In review", function (w){ return w.status === "lead_review" || w.status === "founder_review"; }], ["Decided", function (w){ return !/^(draft|returned|lead_review|founder_review)$/.test(w.status); }]];
+      groups.forEach(function (g){ var ys = mine.filter(g[1]); if (!ys.length) return; body.appendChild(el("h2", null, g[0])); var rows2 = el("div", "rows"); ys.forEach(function (w){ rows2.appendChild(workRow(w)); }); body.appendChild(rows2); });
+    }
+    body.appendChild(el("p", "fine", readAt()));
+  });
+}
+/* a commission's milestones: the path from quote to archive, on the record of the commission itself; money stays with the Founder and Finance */
+var MILESTONE_STEPS = [["quote", "Quote approved"], ["agreement", "Agreement signed"], ["deposit", "Deposit confirmed"], ["begin", "Authorised to begin"], ["revisions", "Revision rounds"], ["acceptance", "Client acceptance"], ["balance", "Balance and payment"], ["delivery", "Final delivery"], ["archive", "Archived"]];
+function milestonesBlock(body, w){
+  if (w.kind !== "commission") return;
+  var ms = (w.details && w.details.milestones) || {};
+  body.appendChild(el("h2", null, "💼 The commission's path"));
+  body.appendChild(el("p", "fine", "Each milestone is a record the House keeps against this commission. Amounts are not shown here: the quote, the deposit and the balance are read in the Founder's dashboard and the client's portal, where the money path runs (Database Step 40)."));
+  var rows = el("div", "rows");
+  MILESTONE_STEPS.forEach(function (s){
+    var m = ms[s[0]] || null; var state = m ? (m.state || "done") : "not yet";
+    rows.appendChild(rowOf(m ? (state === "done" ? "" : "hot") : "held", m ? words(state) : "Not yet", s[1], [m ? ((m.at ? whenAt(m.at) : "") + (m.by ? " · " + m.by : "") + (m.note ? " · " + m.note : "")) : (s[0] === "balance" ? "with the Founder and Finance" : "")], null, null));
+  });
+  body.appendChild(rows);
+}
+/* the rail folds The House and Help on a phone; everything stays one press away */
+function foldRail(current){
+  try {
+    if (window.innerWidth > 900) return;
+    var groups = nav.querySelectorAll("p.rail-g"); if (groups.length < 2) return;
+    for (var i = 1; i < groups.length; i++) {
+      var g = groups[i]; if (g.parentNode.tagName === "DETAILS") continue;
+      var det = document.createElement("details"); det.className = "rail-fold"; var sum = document.createElement("summary"); sum.textContent = g.textContent; det.appendChild(sum);
+      var n = g.nextSibling; var items = []; while (n && !(n.classList && n.classList.contains("rail-g"))) { items.push(n); n = n.nextSibling; }
+      g.parentNode.insertBefore(det, g); g.remove(); items.forEach(function (it){ det.appendChild(it); });
+      if (items.some(function (it){ return it.getAttribute && it.getAttribute("aria-current") === "page"; })) det.open = true;
+    }
+  } catch (e) {}
+}
+var _paintNav41 = paintNav;
+paintNav = function (current){ _paintNav41(current); foldRail(current); };
 
 /* v5.2: a hosted copy reads its connection from portal-config.json beside it. Only the project address and the
    publishable key are accepted (validConfig refuses anything else), the same two things the dashboard hands over. */
