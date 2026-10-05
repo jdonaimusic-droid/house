@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; media-src blob:; frame-src blob:; font-src data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex, nofollow">
-<meta name="team-portal-release" content="v37.0">
+<meta name="team-portal-release" content="v37.1">
 <meta name="theme-color" content="#08070B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308070B'/%3E%3Cpath d='M9 28V12a7 7 0 0 1 14 0v16' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3Ccircle cx='16' cy='18' r='1.6' fill='%23E4C55A'/%3E%3C/svg%3E">
 <title>House of Worlds — Team Portal</title>
@@ -642,6 +642,12 @@ body.look42 .pc-acts .act{min-height:2.2rem;padding:.25rem .8rem;font-size:.88re
 .p42-head h3,.tworld h3,.doccard .dc-top b{text-transform:none;letter-spacing:.01em}
 body.look42 .deadline-band{padding:.7rem 1.1rem}body.look42 .deadline-band .dl-title{font-size:1.2rem}body.look42 .deadline-band .dl-count{font-size:1.3rem}
 @media (max-width:760px){.tworld{flex-wrap:wrap}.tworld h3{font-size:1.05rem}.p42-open{white-space:normal;font-size:.64rem}.pbar42 .pills{width:100%}.tiles42{grid-template-columns:repeat(2,minmax(0,1fr))}.wtiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile42 .v{white-space:normal;font-size:1.02rem}.start42{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* v37.1: the phone: useful work sooner, nothing truncated */
+@media (max-width:640px){body.look42 .demo-bar{padding:.2rem .6rem;gap:.25rem .5rem}body.look42 .demo-bar strong{font-size:.6rem;letter-spacing:.04em;flex:1 1 100%;line-height:1.2}body.look42 .demo-bar select{flex:1 1 60%;min-height:26px;font-size:.7rem;max-width:62%}body.look42 .demo-bar button{min-height:26px;font-size:.68rem;padding:.05rem .4rem}body.look42 .tour-bar{padding:.15rem .6rem}body.look42 .tour-bar strong{font-size:.66rem}body.look42 .tour-bar button{min-height:26px;font-size:.68rem}
+body.look42 .word-hero{padding:.7rem .9rem;margin-bottom:.55rem}body.look42 .wh-mark{font-size:1.15rem}body.look42 .wh-sub{font-size:.8rem;margin-top:.25rem}body.look42 .wh-sub br{display:none}body.look42 .declared-line{font-size:.8rem;margin-top:.35rem}
+body.look42 .deadline-band{padding:.55rem .8rem;margin-bottom:.6rem;gap:.1rem .6rem}body.look42 .deadline-band .dl-k{font-size:.58rem}body.look42 .deadline-band .dl-title{font-size:1rem;line-height:1.2}body.look42 .deadline-band .dl-count{font-size:1.05rem}body.look42 .deadline-band .dl-when{font-size:.78rem}body.look42 .deadline-band .dl-more{font-size:.58rem}
+body.look42 h1{font-size:1.45rem;margin-bottom:.3rem}body.look42 .lede{font-size:.86rem}.pbar42{padding:.5rem .7rem}.pbar42 select{font-size:.86rem;min-height:32px}
+.prog-row .t,.tile42 .v,.tile42 .s,.pc-pairs dd,.pc-title a,.l42 .t,.l42 .r{white-space:normal;overflow:visible;text-overflow:clip}.pc-pairs{grid-template-columns:1fr}.pc-pairs dd{text-align:left;margin-bottom:.25rem}.pc-pairs dt{margin-top:.1rem}.l42 .r{white-space:nowrap}.prog-row{grid-template-columns:minmax(0,1fr) auto}.wtiles .tile42 .v{font-size:.95rem}.start42 a{font-size:.88rem;padding:.6rem .7rem}}
 </style>
 </head>
 <body>
@@ -650,7 +656,7 @@ body.look42 .deadline-band{padding:.7rem 1.1rem}body.look42 .deadline-band .dl-t
 <div class="frame">
   <aside class="rail" id="rail" aria-label="Sections">
     <a class="brand" href="#/home">House of Worlds<small>Team Portal</small></a>
-    <p class="ver">Version 37.0</p>
+    <p class="ver">Version 37.1</p>
     <nav id="nav" aria-label="Portal sections"></nav>
     <div class="who" id="who"></div>
   </aside>
@@ -843,7 +849,7 @@ var CFG = null, SESSION = null, ME = null, OV = null, PORTAL = null;
 var ALLOWED = /^(house_team_[a-z_]+|house_my_assignments|house_assignment_act|house_assignment_actions|house_assignment_transitions|house_source_upload_begin|house_source_upload_finalize|house_client_me|house_public_doors|house_public_rooms|house_public_titles|house_founder_eyes_people|house_founder_through_eyes|house_founder_declared)$/;
 
 function headers(auth, json){
-  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/37.0" };
+  var h = { "apikey": CFG.anonKey, "X-Client-Info": "house-of-worlds-team-portal/37.1" };
   if (json !== false) h["Content-Type"] = "application/json";
   if (auth && SESSION && SESSION.access_token) h["Authorization"] = "Bearer " + SESSION.access_token;
   return h;
@@ -3807,8 +3813,15 @@ view = function (key, kicker, title, lede, reads, draw, backTo){
    What is derived (a progress figure from stage and standing) says so. */
 try { document.body.classList.add("look42"); } catch (e) {}
 var STAGES42 = ["research", "learn", "develop", "create", "produce", "experience", "publish", "archive", "preserve", "innovate"];
-var PEOPLE42 = null;
+var PEOPLE42 = null, LEADS42 = null;
 function clean42(n){ return String(n || "").replace(/\(Example\)\s*/, ""); }
+/* the stage is the measure: the piece's place in the House's ten stages, as set on its record; nothing is estimated */
+function stageIndex(w){ return STAGES42.indexOf(w.stage); }
+function stageWords42(w){ var si = stageIndex(w); return si >= 0 ? "Stage " + (si + 1) + " of 10 · " + (typeof STAGE_WORDS !== "undefined" && STAGE_WORDS[w.stage] ? STAGE_WORDS[w.stage] : words(w.stage)) : "Not yet placed in the ten stages"; }
+function stagePct(w){ var si = stageIndex(w); return si >= 0 ? Math.round(((si + 1) / 10) * 100) : 0; }
+/* the lead of a world, by assignment (house_team_world_leads): never inferred from membership */
+function leadNamesOf(worldKey){ var ws = ((LEADS42 && LEADS42.worlds) || []).filter(function (x){ return x.key === worldKey; })[0]; return ws ? (ws.leads || []).map(function (l){ return clean42(l.name); }) : []; }
+function leadWords(w){ var ls = leadNamesOf(w.worldKey); return ls.length ? ls.join(", ") : (LEADS42 ? "No team lead assigned yet" : "Not read"); }
 function progressOf(w){
   var st = { draft:10, returned:25, lead_review:45, founder_review:70, deferred:60, approved_internal:85, release_ready:92, published:100, archived:100, rejected:100 };
   var base = st[w.status] != null ? st[w.status] : 20, si = STAGES42.indexOf(w.stage);
@@ -3816,18 +3829,14 @@ function progressOf(w){
   return Math.min(100, base);
 }
 function phaseOf(w){ var si = STAGES42.indexOf(w.stage); return si >= 0 ? (typeof STAGE_WORDS !== "undefined" && STAGE_WORDS[w.stage] ? STAGE_WORDS[w.stage] : words(w.stage)) + " · " + (si + 1) + " of 10" : "Not yet placed"; }
-function leadOf(w){
-  var wn = worldName(w.worldKey, w.worldName); var ps = (PEOPLE42 && PEOPLE42.people) || [];
-  var p = ps.filter(function (x){ var fs = (x.functions || []).join(" "); return /team lead/i.test(fs) && (String(x.roles || "").indexOf(wn) >= 0 || /every world/i.test(String(x.roles || ""))); })[0];
-  return p ? p.name : null;
-}
+function leadOf(w){ var ls = leadNamesOf(w.worldKey); return ls.length ? ls.join(", ") : null; }
 function activeOf(list){ return (list || []).filter(function (w){ return /^(draft|returned|lead_review|founder_review|deferred)$/.test(w.status); }); }
 function daysWords(at){ var d = Math.round((new Date(at) - Date.now()) / 86400000); return d < 0 ? Math.abs(d) + " day" + (Math.abs(d) === 1 ? "" : "s") + " past" : d === 0 ? "today" : d === 1 ? "tomorrow" : "in " + d + " days"; }
 /* panel pieces */
 function p42(body, title, tone, openHref, openText, pill){ var p = el("section", "panel42 tone-" + (tone || "gold")); var h = el("div", "p42-head"); var t = el("h3", null, title); if (pill != null) t.appendChild(el("span", "pill " + (pill ? "gold" : "faint"), String(pill))); h.appendChild(t); if (openHref) { var a = el("a", "p42-open", (openText || "Open") + " →"); a.href = openHref; h.appendChild(a); } p.appendChild(h); body.appendChild(p); return p; }
 function line42(host, dot, title, sub, right, rightTone, href){ var a = el(href ? "a" : "div", "l42"); if (href) a.href = href; a.appendChild(el("span", "dot" + (dot ? " " + dot : ""))); var t = el("span", "t", title); if (sub) t.appendChild(el("small", null, sub)); a.appendChild(t); if (right) a.appendChild(el("span", "r" + (rightTone ? " " + rightTone : ""), right)); host.appendChild(a); return a; }
 function empty42(host, text){ host.appendChild(el("p", "empty", text)); }
-function progRow(host, title, sub, pct, href){ var r = el("div", "prog-row"); var t = el(href ? "a" : "span", "t", title); if (href) { t.href = href; t.style.textDecoration = "none"; } if (sub) t.appendChild(el("small", null, sub)); r.appendChild(t); r.appendChild(el("span", "pct", pct + "%")); var pb = el("div", "prog" + (pct >= 85 ? " ok" : "")); pb.setAttribute("role", "progressbar"); pb.setAttribute("aria-valuenow", String(pct)); pb.setAttribute("aria-valuemin", "0"); pb.setAttribute("aria-valuemax", "100"); var f = el("div", "fill"); f.style.width = pct + "%"; pb.appendChild(f); r.appendChild(pb); host.appendChild(r); }
+function progRow(host, title, sub, pct, href, label){ var r = el("div", "prog-row"); var t = el(href ? "a" : "span", "t", title); if (href) { t.href = href; t.style.textDecoration = "none"; } if (sub) t.appendChild(el("small", null, sub)); r.appendChild(t); r.appendChild(el("span", "pct", label != null ? label : pct + "%")); var pb = el("div", "prog" + (pct >= 85 ? " ok" : "")); pb.setAttribute("role", "progressbar"); pb.setAttribute("aria-valuenow", String(pct)); pb.setAttribute("aria-valuemin", "0"); pb.setAttribute("aria-valuemax", "100"); var f = el("div", "fill"); f.style.width = pct + "%"; pb.appendChild(f); r.appendChild(pb); host.appendChild(r); }
 function tiles42(body, items){ var g = el("div", "tiles42"); items.forEach(function (x){ var a = el(x[3] ? "a" : "div", "tile42"); if (x[3]) a.href = x[3]; a.appendChild(el("div", "k", x[0])); a.appendChild(el("div", "v" + (x[4] ? " num" : ""), String(x[1]))); if (x[2]) a.appendChild(el("div", "s", x[2])); g.appendChild(a); }); body.appendChild(g); return g; }
 function startRow(body, items){ var g = el("div", "start42"); items.forEach(function (x){ var a = el("a"); a.href = x[2]; a.appendChild(el("span", "ic", x[0])); a.appendChild(el("span", null, x[1])); g.appendChild(a); }); body.appendChild(g); }
 function presence(host, p, me2){ var r = el("div", "pres"); r.appendChild(el("span", "avatar", initials(p.name))); var n = el("span", "n", clean42(p.name) + (p.me || me2 ? " (you)" : "")); var fs = (p.functions && p.functions.length) ? p.functions.join(", ") : ((p.roles && p.roles.map) ? p.roles.map(function (x){ return roleWords(x.role); }).join(", ") : String(p.roles || "")); if (fs) n.appendChild(el("small", null, fs)); r.appendChild(n); var la = p.lastActive ? new Date(p.lastActive) : null; var st = la ? ((Date.now() - la) < 86400000 ? "active today" : "seen " + when(p.lastActive)) : ((p.credits && p.credits.length) ? p.credits.length + " credit" + (p.credits.length === 1 ? "" : "s") : "on the record"); r.appendChild(el("span", "st" + (la && (Date.now() - la) < 86400000 ? " on" : ""), st)); host.appendChild(r); }
@@ -3848,8 +3857,8 @@ VIEWS = function (){
 /* ---- the dashboard ---- */
 function viewHome(){
   var to30 = new Date(Date.now() + 30 * 86400000).toISOString();
-  view("home", "Team Portal", "Command Home", null, [["house_team_desk"], ["house_team_signals", { p_box:"inbox" }], ["house_team_calendar", { p_world:null, p_from:new Date().toISOString(), p_to:to30 }], ["house_team_announcements", { p_world:null, p_unread_only:false }], ["house_team_drive", { p_world:null }], ["house_team_travel"], ["house_team_people"], ["house_team_lead_overview"]], function (body, d, again, host){
-    DESK = d[0]; ME = DESK.me || ME; OV = { needs: DESK.figures || {} }; var sig = d[1], cal = d[2], ann = d[3], drv = d[4], trv = d[5], lov = d[7]; PEOPLE42 = d[6]; SIGNALS_UNREAD = Number(sig.unread) || 0; paintNav("home");
+  view("home", "Team Portal", "Command Home", null, [["house_team_desk"], ["house_team_signals", { p_box:"inbox" }], ["house_team_calendar", { p_world:null, p_from:new Date().toISOString(), p_to:to30 }], ["house_team_announcements", { p_world:null, p_unread_only:false }], ["house_team_drive", { p_world:null }], ["house_team_travel"], ["house_team_people"], ["house_team_lead_overview"], ["house_team_world_leads"]], function (body, d, again, host){
+    DESK = d[0]; ME = DESK.me || ME; OV = { needs: DESK.figures || {} }; var sig = d[1], cal = d[2], ann = d[3], drv = d[4], trv = d[5], lov = d[7]; PEOPLE42 = d[6]; LEADS42 = (d[8] && d[8].ok) ? d[8] : LEADS42; SIGNALS_UNREAD = Number(sig.unread) || 0; paintNav("home");
     var firstWorld = (((ME && ME.roles) || [])[0] || {}).world; var wn = firstWorld ? worldName(firstWorld) : "House of Worlds";
     host.querySelector("h1").textContent = (ME && ME.isLead && firstWorld ? wn + " Workspace" : "Command Home"); host.querySelector(".kicker").textContent = "Team Portal · " + wn;
     var f = DESK.figures || {}, mine = DESK.mine || [], active = activeOf(mine), toReview = DESK.toReview || [], asg = DESK.assignments || [], offers = asg.filter(offered);
@@ -3863,7 +3872,7 @@ function viewHome(){
       var bar = el("div", "pbar42"); bar.appendChild(el("span", "k", "Project")); var sel = document.createElement("select"); sel.setAttribute("aria-label", "Your projects");
       active.forEach(function (w){ var o = document.createElement("option"); o.value = w.id; o.textContent = w.title; sel.appendChild(o); }); bar.appendChild(sel);
       var pills = el("span", "pills"); bar.appendChild(pills);
-      function paintPills(){ var w = active.filter(function (x){ return x.id === sel.value; })[0] || active[0]; pills.replaceChildren(); pills.appendChild(el("span", "pill " + (statusCls(w.status) === "wait" ? "gold" : "faint"), statusWords(w.status))); pills.appendChild(el("span", "pill", phaseOf(w))); pills.appendChild(el("span", "pill", words(w.kind || "work") + " · " + progressOf(w) + "%")); var go = el("a", "p42-open", "Open workspace →"); go.href = "#/work/" + encodeURIComponent(w.id); pills.appendChild(go); }
+      function paintPills(){ var w = active.filter(function (x){ return x.id === sel.value; })[0] || active[0]; pills.replaceChildren(); pills.appendChild(el("span", "pill " + (statusCls(w.status) === "wait" ? "gold" : "faint"), statusWords(w.status))); pills.appendChild(el("span", "pill", words(w.kind || "work") + " · " + stageWords42(w))); var go = el("a", "p42-open", "Open workspace →"); go.href = "#/work/" + encodeURIComponent(w.id); pills.appendChild(go); }
       sel.addEventListener("change", paintPills); paintPills(); body.appendChild(bar);
     }
     /* the tiles */
@@ -3884,7 +3893,7 @@ function viewHome(){
     var rev = p42(g, ME && ME.isLead ? "Reviews waiting" : "Reviews and decisions", "gold", ME && ME.isLead ? "#/review" : "#/decisions", ME && ME.isLead ? "To review" : "All decisions", ME && ME.isLead ? toReview.length : null);
     if (ME && ME.isLead) { if (!toReview.length) empty42(rev, "Nothing waits for your review."); toReview.slice(0, 5).forEach(function (w){ line42(rev, "", w.title, "from " + clean42(w.creatorName) + " · submitted " + whenAt(w.submittedAt), "review", "gold", "#/work/" + encodeURIComponent(w.id)); }); }
     else { var dec = DESK.decisions || []; mine.filter(function (w){ return /_review$/.test(w.status); }).slice(0, 3).forEach(function (w){ line42(rev, "cool", w.title, statusWords(w.status) + " since " + (w.submittedAt ? when(w.submittedAt) : "recently"), "", "", "#/work/" + encodeURIComponent(w.id)); }); dec.slice(0, 3).forEach(function (x){ line42(rev, /approve|release|publish/.test(x.action) ? "ok" : "hot", x.title, words(x.action) + " · " + whenAt(x.at), "", "", "#/work/" + encodeURIComponent(x.workItemId)); }); if (!rev.querySelector(".l42")) empty42(rev, "No reviews or decisions yet."); }
-    var pp = p42(g, "Project progress", "purple", "#/work", "Project cards"); if (!active.length) empty42(pp, "No project in motion."); active.slice(0, 6).forEach(function (w){ progRow(pp, w.title, phaseOf(w), progressOf(w), "#/work/" + encodeURIComponent(w.id)); }); pp.appendChild(el("p", "fine", "A figure the portal derives from the stage and the standing of each piece; the record itself keeps no percentage."));
+    var pp = p42(g, "Project progress", "purple", "#/work", "Project cards"); if (!active.length) empty42(pp, "No project in motion."); active.slice(0, 6).forEach(function (w){ var si = stageIndex(w); progRow(pp, w.title, statusWords(w.status), stagePct(w), "#/work/" + encodeURIComponent(w.id), si >= 0 ? "stage " + (si + 1) + "/10" : "no stage"); }); pp.appendChild(el("p", "fine", "The line is each piece's place in the House's ten stages, as set on its record. No percentage is estimated; a piece not yet placed shows an empty line."));
     var dl = p42(g, "Upcoming deadlines", "gold", "#/calendar", "Calendar", deadlines.length); if (!deadlines.length) empty42(dl, "No deadline on your calendar."); deadlines.slice(0, 5).forEach(function (e){ line42(dl, new Date(e.startsAt) < new Date(Date.now() + 3 * 86400000) ? "hot" : "", e.title, (e.worldName || worldName(e.world)) + (typeof sharedWords === "function" ? sharedWords(e) : ""), daysWords(e.startsAt), "gold", "#/calendar/" + encodeURIComponent(e.id)); });
     var rf = p42(g, "Recent files", "blue", "#/drive", "House Drive"); if (!files.length) empty42(rf, "Nothing in the House Drive yet."); files.slice(0, 5).forEach(function (x){ line42(rf, "cool", x.label, (x.folder || "") + " · " + (x.worldName || "") + " · placed by " + clean42(x.placedBy), when(x.placedAt), "", "#/drive"); });
     var tv = p42(g, "Travel", "blue", "#/travel", "Travel"); if (!trips.length) empty42(tv, "No trip is proposed or booked."); trips.slice(0, 4).forEach(function (t){ line42(tv, t.status === "booked" ? "ok" : (t.status === "proposed" ? "" : "cool"), t.title, (t.destination || "") + " · " + (t.startsOn ? when(t.startsOn) : "") + (t.endsOn ? " to " + when(t.endsOn) : ""), words(t.status), t.status === "booked" ? "gold" : "", "#/travel/" + encodeURIComponent(t.id)); });
@@ -3918,10 +3927,10 @@ function pcard(w){
   var c = el("article", "pcard k-" + (w.kind || "work")); var band = el("div", "pc-band"); band.appendChild(el("span", null, (WORLD_ICONS[w.worldKey] || "🏛️") + " " + worldName(w.worldKey, w.worldName))); band.appendChild(el("span", null, words(w.kind || "work"))); c.appendChild(band);
   var b = el("div", "pc-body"); var t = el("div", "pc-title"); var a = el("a", null, w.title); a.href = "#/work/" + encodeURIComponent(w.id); t.appendChild(a); if (w.priority && w.priority !== "normal") t.appendChild(el("span", "pill " + (w.priority === "urgent" ? "hot" : "gold"), words(w.priority))); if (w.blocked) t.appendChild(el("span", "pill hot", "blocked")); b.appendChild(t);
   var log = w.summary || w.requestedDecision || ""; if (log) b.appendChild(el("p", "pc-log", log.length > 150 ? log.slice(0, 147) + "…" : log));
-  var pct = progressOf(w); var pb = el("div", "prog" + (pct >= 85 ? " ok" : "")); var fl = el("div", "fill"); fl.style.width = pct + "%"; pb.appendChild(fl); b.appendChild(pb);
+  var pct = stagePct(w); var pb = el("div", "prog" + (pct >= 85 ? " ok" : "")); pb.title = stageWords42(w); var fl = el("div", "fill"); fl.style.width = pct + "%"; pb.appendChild(fl); b.appendChild(pb);
   var dl = el("dl", "pc-pairs"); function pair(k, v){ dl.appendChild(el("dt", null, k)); var dd = el("dd", null, ""); if (typeof v === "string") dd.textContent = v; else dd.appendChild(v); dl.appendChild(dd); }
-  var sv = el("span", null, phaseOf(w).replace(/ · .*$/, "")); sv.appendChild(el("span", "pill " + (statusCls(w.status) === "wait" ? "gold" : (/^(approved_internal|release_ready|published)$/.test(w.status) ? "green" : "faint")), statusWords(w.status)));
-  pair("Status / phase", sv); pair("Progress", pct + "%"); pair("Due", w.dueAt ? when(w.dueAt) + (isPastDay(w.dueAt) && /_review$|^(draft|returned)$/.test(w.status) ? " · past" : "") : "—"); var ld = leadOf(w); pair("Lead", ld ? clean42(ld) : "the team lead of " + worldName(w.worldKey, w.worldName)); pair("Made by", clean42(w.creatorName)); if (w.nextAction) pair("Next", w.nextAction); pair("Last updated", when(w.updatedAt)); b.appendChild(dl);
+  var sv = el("span", "pill " + (statusCls(w.status) === "wait" ? "gold" : (/^(approved_internal|release_ready|published)$/.test(w.status) ? "green" : "faint")), statusWords(w.status));
+  pair("Standing", sv); pair("Stage", stageWords42(w)); pair("Due", w.dueAt ? when(w.dueAt) + (isPastDay(w.dueAt) && /_review$|^(draft|returned)$/.test(w.status) ? " · past" : "") : "—"); pair("Lead of " + worldName(w.worldKey, w.worldName), leadWords(w)); pair("Made by", clean42(w.creatorName)); if (w.nextAction) pair("Next", w.nextAction); pair("Last updated", when(w.updatedAt)); b.appendChild(dl);
   var ch = el("div", "pc-chips"); ch.appendChild(el("span", "chip", "version " + (w.version || 1))); ch.appendChild(el("span", "chip", (w.sourceCount || 0) + " source" + (w.sourceCount === 1 ? "" : "s"))); if (w.department) ch.appendChild(el("span", "chip", w.department)); if (w.reviewCount) ch.appendChild(el("span", "chip", w.reviewCount + " review" + (w.reviewCount === 1 ? "" : "s"))); b.appendChild(ch);
   var acts = el("div", "pc-acts"); acts.appendChild(link("", "Open workspace", "#/work/" + encodeURIComponent(w.id))); if (w.kind === "writing" && /^(draft|returned)$/.test(w.status)) acts.appendChild(link("ghost", "Story Desk", "#/write/" + encodeURIComponent(w.id))); b.appendChild(acts);
   c.appendChild(b); return c;
@@ -3929,8 +3938,8 @@ function pcard(w){
 function pcardGrid(host, list){ var g = el("div", "pcards"); list.forEach(function (w){ g.appendChild(pcard(w)); }); host.appendChild(g); }
 function viewWork(){
   var fkey = workFilterArg(), filt = fkey && WORK_FILTERS[fkey];
-  view("work", "Creative", filt ? filt[0] : "Projects and Work", "Every piece you made or own, as a card: its world and kind, its phase and standing, its progress, its lead and its due date. Open a card for the full workspace.", [["house_team_desk"], ["house_team_people"]], function (body, d){
-    DESK = d[0]; ME = DESK.me || ME; OV = { needs: DESK.figures || {} }; PEOPLE42 = d[1]; paintNav("work");
+  view("work", "Creative", filt ? filt[0] : "Projects and Work", "Every piece you made or own, as a card: its world and kind, its standing, its place in the ten stages, the lead of its world and its due date. Open a card for the full workspace.", [["house_team_desk"], ["house_team_people"], ["house_team_world_leads"]], function (body, d){
+    DESK = d[0]; ME = DESK.me || ME; OV = { needs: DESK.figures || {} }; PEOPLE42 = d[1]; LEADS42 = (d[2] && d[2].ok) ? d[2] : LEADS42; paintNav("work");
     var mine = DESK.mine || [];
     var acts = el("div", "actions"); acts.appendChild(link("", "＋ New project", "#/work/new")); acts.appendChild(link("ghost", "✍️ Story Desk", "#/write"));
     var chips = el("div", "film-chips"); [["all", "Everything"], ["you", "With you"], ["lead", "With the team lead"], ["founder", "With the Founder"], ["decided", "Decided"], ["due", "Due soon"]].forEach(function (c){ var a = el("a", "chip link" + ((c[0] === "all" && !filt) || c[0] === fkey ? " on" : ""), c[1]); a.href = "#/work" + (c[0] === "all" ? "" : "?s=" + c[0]); chips.appendChild(a); });
@@ -3943,7 +3952,7 @@ function viewWork(){
     } else {
       [["With you", function (w){ return w.status === "draft" || w.status === "returned"; }], ["In review", function (w){ return w.status === "lead_review" || w.status === "founder_review"; }], ["Decided", function (w){ return !/^(draft|returned|lead_review|founder_review)$/.test(w.status); }]].forEach(function (g){ var ys = mine.filter(g[1]); if (!ys.length) return; var h = el("h2", null, g[0]); h.appendChild(el("span", "pill faint", String(ys.length))); body.appendChild(h); pcardGrid(body, ys); });
     }
-    body.appendChild(el("p", "fine", "Progress is a figure the portal derives from each piece's stage and standing; the record keeps no percentage. " + readAt()));
+    body.appendChild(el("p", "fine", "The line on each card is the piece's place in the House's ten stages, as set on its record; nothing is estimated. The lead is the team lead assigned to the piece's world. " + readAt()));
   });
 }
 /* ---- the project workspace: the record's page, regrouped under tabs; every control stays the control it was ---- */
@@ -3951,8 +3960,9 @@ var WS_TAB = {};
 var _view42 = view;
 view = function (key, kicker, title, lede, reads, draw, backTo){
   var draw2 = draw;
-  if (key === "work" && reads.length === 1 && reads[0][0] === "house_team_work") draw2 = function (body, d, again, host){ draw(body, d, again, host); try { if (d[0] && d[0].item) composeWorkspace(body, d[0], host); } catch (e) { console.error(e); } };
-  _view42(key, kicker, title, lede, reads, draw2, backTo);
+  var reads2 = reads;
+  if (key === "work" && reads.length === 1 && reads[0][0] === "house_team_work") { reads2 = reads.concat([["house_team_world_leads"]]); draw2 = function (body, d, again, host){ LEADS42 = (d[1] && d[1].ok) ? d[1] : LEADS42; draw(body, d, again, host); try { if (d[0] && d[0].item) composeWorkspace(body, d[0], host); } catch (e) { console.error(e); } }; }
+  _view42(key, kicker, title, lede, reads2, draw2, backTo);
 };
 function composeWorkspace(body, r, host){
   var w = r.item; var kick = host.querySelector(".kicker"); if (kick) kick.textContent = "Project · " + worldName(w.worldKey, w.worldName);
@@ -3970,7 +3980,7 @@ function composeWorkspace(body, r, host){
   });
   /* the header tiles */
   var ld = leadOf(w);
-  var tiles = el("div", "wtiles"); [["Type", words(w.kind || "work")], ["Phase", phaseOf(w)], ["Status", statusWords(w.status) + (w.blocked ? " · blocked" : "")], ["Progress", progressOf(w) + "%"], ["Priority", words(w.priority || "normal")], ["Lead", ld ? clean42(ld) : "the team lead of " + worldName(w.worldKey, w.worldName)], ["Due", w.dueAt ? when(w.dueAt) : "Not set"], ["Next", w.nextAction || "—"]].forEach(function (x){ var t = el("div", "tile42"); t.appendChild(el("div", "k", x[0])); t.appendChild(el("div", "v", x[1])); t.title = x[1]; tiles.appendChild(t); });
+  var tiles = el("div", "wtiles"); [["Type", words(w.kind || "work")], ["Stage", stageWords42(w)], ["Status", statusWords(w.status) + (w.blocked ? " · blocked" : "")], ["World", worldName(w.worldKey, w.worldName) + (w.department ? " · " + w.department : "")], ["Priority", words(w.priority || "normal")], ["Lead of " + worldName(w.worldKey, w.worldName), leadWords(w)], ["Due", w.dueAt ? when(w.dueAt) : "Not set"], ["Next", w.nextAction || "—"]].forEach(function (x){ var t = el("div", "tile42"); t.appendChild(el("div", "k", x[0])); t.appendChild(el("div", "v", x[1])); t.title = x[1]; tiles.appendChild(t); });
   body.appendChild(tiles);
   /* the creative tab: the writing itself, when the piece is writing */
   var wr = w.details && w.details.writing;
@@ -4002,6 +4012,14 @@ function composeWorkspace(body, r, host){
   var steps = [["Draft", /^(draft|returned)$/], ["Team lead", /^lead_review$/], ["Founder", /^(founder_review|deferred)$/], ["Decided", /^(approved_internal|release_ready|rejected)$/], ["Published", /^(published|archived)$/]];
   var idx = steps.findIndex(function (s){ return s[1].test(w.status); }); var path = el("div", "path42"); steps.forEach(function (s, i){ path.appendChild(el("div", "step" + (i < idx ? " done" : i === idx ? " now" : ""), s[0])); }); panels.delivery.insertBefore(path, panels.delivery.firstChild);
   panels.delivery.insertBefore(el("h2", null, "🚚 Delivery"), panels.delivery.firstChild);
+  /* the reviews tab is never blank: it says when a review will appear */
+  if (!panels.reviews.querySelector("h2, .rows, .panel")) {
+    var why = /^(draft|returned)$/.test(w.status) ? "A review appears here once this piece is submitted and the team lead reads it: they return it with notes or send it on to the Founder. The Founder's decision is kept here too." + (w.status === "returned" ? " The last review is in the standing above." : "")
+      : w.status === "lead_review" ? "The team lead has it now. Their review appears here when they return it or send it on to the Founder."
+      : w.status === "founder_review" ? "It is with the Founder. Her decision appears here when she makes it; the team lead's review, if any, sits above it."
+      : "No review or decision was recorded on this piece.";
+    panels.reviews.appendChild(el("h2", null, "Reviews")); panels.reviews.appendChild(say("", "No reviews yet", why));
+  }
   if (!panels.delivery.querySelector(".panel, .rows")) panels.delivery.appendChild(el("p", "fine", w.status === "published" ? "Published; the piece is delivered." : /^(draft|returned)$/.test(w.status) ? "Submit from the Overview once a source is attached; the path above then moves." : "The piece is with " + statusWords(w.status).toLowerCase().replace(/^with /, "") + "; it comes back here when decided."));
   /* the tabs */
   var counts = { files:(r.sources || []).length, reviews:(r.reviews || []).length + (r.history || []).length };
