@@ -6,7 +6,7 @@
 <title>House of Worlds — A Black woman-founded independent creative institute</title>
 <meta name="description" content="House of Worlds is a Black woman-founded independent creative institute where original worlds are built, studied, protected, and carried across forms. Founded and curated by JDONAI.">
 <meta name="theme-color" content="#0B0B0F">
-<meta name="release" content="31.0.0">
+<meta name="release" content="32.0.0">
 <meta name="author" content="JDONAI">
 <link rel="icon" type="image/svg+xml" href="/assets/house-of-worlds-mark.svg">
 <link rel="icon" type="image/png" sizes="180x180" href="/assets/house-of-worlds-mark.png">
@@ -2538,15 +2538,13 @@ a.ms-t:hover,a.ms-t:focus-visible{border-bottom-color:var(--gold)}
     <h1 class="thr-mark" id="home-h1" tabindex="-1">House<span class="l2"> of Worlds</span></h1>
     <span class="thr-accent" aria-hidden="true"></span>
     <p class="thr-id">A Black woman-founded independent creative institute</p>
-    <p class="thr-say">Where original worlds are built, studied, protected, and carried across
-    forms. Across sixteen worlds the House develops original work, builds a public
-    body of knowledge, collaborates with creators, clients and partners, and protects what is not
-    ready to open.</p>
+    <p class="thr-say">An independent creative institute that builds its own original worlds, studies them in public, protects what is not ready to open, and works with creators, clients and partners who want to build with it. Nobody uploads or self-publishes here: the House publishes its own work, and work it selects, through House Curated, the Journal and its literary rooms.</p>
     <p class="thr-by">Founded and curated by <b>JDONAI</b></p>
     <div class="thr-acts">
-      <a class="act" href="#/explore" data-link>Explore the Worlds <span class="arw">→</span></a>
-      <a class="act quiet" href="#/house" data-link>Enter the House <span class="arw">→</span></a>
+      <a class="act" href="#/explore" data-link>Walk the four open worlds <span class="arw">&#8594;</span></a>
+      <a class="act quiet" href="#build" data-jump="build">Work with the House <span class="arw">&#8594;</span></a>
     </div>
+    <p class="thr-third" id="thr-third">Or read today&#8217;s riddle from the <a href="#veiled" data-jump="veiled"><span data-sealed-count>twelve</span> sealed doors</a>.</p>
     <p class="thr-foot">Four worlds open · Twelve under seal · The record is public</p>
   </div>
 </section>
@@ -3406,7 +3404,7 @@ function roadmapKeys() {
   return out;
 }
 
-var RELEASE = "29.15.0";
+var RELEASE = "32.0.0";
 var RELEASE_KEY = "v" + RELEASE.split(".").slice(0, 2).join(".");   /* v29.10 */
 
 var HOW = {
@@ -6698,15 +6696,17 @@ function wireAsk(r) {
    approved by the Founder on 3 October 2026; a lawyer has not yet read
    it, and the page says so where it matters.
    ===================================================================== */
-var STATIC_VERSION = "Version 1 · 3 October 2026";
+var STATIC_VERSION = "Version 2 · 16 October 2026";
 var STATIC_PAGES = {
   "privacy": {
     name: "Privacy",
     lede: "What this site keeps about you, where, who reads it, and what you can ask.",
     sections: [
-      ["What this site keeps while you read", "Nothing. This page runs no analytics, sets no cookies, loads no advertising and no " +
-        "third-party script. It keeps your place in the page in your own browser so that Back returns you where you were; that " +
-        "never leaves your browser."],
+      ["What this site keeps while you read", "Nothing about you. This page runs no analytics, sets no cookies and loads no advertising. " +
+        "It loads one library from a content delivery network, the Supabase client from jsDelivr, in order to read the House's " +
+        "record; that request carries nothing about you beyond what any page load carries, and the library is loaded from a " +
+        "pinned version. It keeps your place in the page in your own browser so that Back returns you where you were; that never " +
+        "leaves your browser."],
       ["What it keeps when you write to the House", "Only what you put in the note: your name, your email address, the " +
         "organization if you give one, the note itself, the door and purpose you chose, and the fact that you ticked the consent " +
         "box. It is kept in the House's own database and read by the House. It is not added to any list, not shared with anyone " +
@@ -9027,198 +9027,205 @@ else boot();
 
 <!-- v30: the addresses of the two portals, in one place; the page reads them for its two sign-in doors. The Founder's dashboard is not public and is not here. -->
 <script type="application/json" id="how-portals">{"client":"https://jdonaimusic-droid.github.io/house/portal/","team":"https://jdonaimusic-droid.github.io/house/team/"}</script>
-<style id="main30-look">
-/* v30: the small captions up to size; the sign-in doors; the standard seal line; the meanwhile line; the news stamp */
-.cip-state{font-size:.74rem;letter-spacing:.16em}
-.cip-n{font-size:.95rem}
-.cip-read-t{font-size:.8rem}
-.dsp-cat,.stage-count{font-size:.76rem;letter-spacing:.12em}
-.links .s{font-size:.72rem;letter-spacing:.14em}
-.cip-standard{margin:.8rem 0 0;font-size:.95rem;line-height:1.55;color:var(--muted,#B7B1A6);border-top:1px solid rgba(201,162,39,.25);padding-top:.6rem}
-.pending-next{display:inline-block;margin-top:.45rem;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold,#C9A227);text-decoration:none}
-.pending-next:hover{color:#E4BE45}
+
+<!-- v32: one layer over the page: the chapter index, the folds, one riddle a day, the way home, the portal cards and counts from the record, the news stamp. -->
+<style id="main32-look">
+/* v32: one layer, refined to the page's own manner: fine rules, no gradients, no rounded cards, visible focus everywhere.
+   Replaces the v30 and v31 stylesheets. */
+/* captions up to size (from v30) */
+.cip-state{font-size:.74rem;letter-spacing:.16em}.cip-n{font-size:.95rem}.cip-read-t{font-size:.8rem}.dsp-cat,.stage-count{font-size:.76rem;letter-spacing:.12em}.links .s{font-size:.72rem;letter-spacing:.14em}
+.cip-standard{margin:.8rem 0 0;font-size:.95rem;line-height:1.55;color:var(--muted,#B7B1A6);border-top:1px solid var(--hair,rgba(244,239,229,.07));padding-top:.6rem}
+.pending-next{display:inline-block;margin-top:.45rem;font-family:var(--mono,ui-monospace,monospace);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold,#C6A15B);text-decoration:none}
+.pending-next:hover,.pending-next:focus-visible{color:#E4BE45;outline:none;text-decoration:underline}
 .dsp-read{margin:1rem 0 0;font-size:.82rem;color:var(--faint,#8A857A)}
-.links li.portal-door a{border-color:rgba(201,162,39,.5);background:linear-gradient(135deg,rgba(201,162,39,.1),transparent 60%)}
-.links li.portal-door .t::before{content:"🔐 ";font-size:.8em}
-
-</style>
-<script id="main30">
-/* v30: the public page's last half point. The two sign-in doors from one address block; the sealed doors say one thing;
-   every planned room ends with the one door to use meanwhile; the news band says when it read the record; the small
-   captions brought up to size. Nothing here changes what the page reads from the House or what it says about the worlds. */
-(function (){
-  function $(s, r){ return (r || document).querySelector(s); }
-  function esc(s){ return String(s || "").replace(/[&<>"]/g, function (c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
-  var portals = null; try { portals = JSON.parse(($("#how-portals") || {}).textContent || "null"); } catch (e) { portals = null; }
-  /* 1. the two sign-in doors, read from the one address block */
-  function portalCard(href, name, line){ return '<li class="portal-door"><a href="' + esc(href) + '" rel="noopener"><span class="t">' + esc(name) + '</span><span class="s" data-state="open">Open</span><p class="d">' + esc(line) + '</p></a></li>'; }
-  function addDoors(){
-    if (!portals) return;
-    [["enter-links", portals.team, "Sign in to the Team Portal", "For the people of the House: your desk, your work, the Story Desk, the calendar, Signals. Sign in with the email the House invited."],
-     ["build-links", portals.client, "Sign in to the Client Portal", "For clients of the House: your engagements, proposals, agreements, deliverables, invoices and messages. Sign in with the email the House invited."]].forEach(function (x){
-      var host = document.getElementById(x[0]); if (!host || !x[1] || host.querySelector(".portal-door")) return;
-      var ul = host.querySelector("ul.links");
-      if (!ul) { ul = document.createElement("ul"); ul.className = "links"; host.appendChild(ul); }
-      ul.insertAdjacentHTML("beforeend", portalCard(x[1], x[2], x[3]));
-    });
-  }
-  /* 4. the sealed doors: one standard line under every riddle */
-  var SEAL_LINE = "This door opens when the House opens it. There is nothing to send and nothing else to press; what is behind it stays unnamed until then.";
-  document.addEventListener("click", function (e){
-    var btn = e.target && e.target.closest ? e.target.closest("[data-cipher-toggle]") : null; if (!btn) return;
-    setTimeout(function (){ try { var id = btn.getAttribute("aria-controls"); var body = id ? btn.parentNode.querySelector('[data-cipher-body][id="' + id + '"]') || document.getElementById(id) : null; if (!body || body.hidden) return; if (!body.querySelector(".cip-standard")) { var p = document.createElement("p"); p.className = "cip-standard"; p.textContent = SEAL_LINE; body.appendChild(p); } } catch (x) {} }, 0);
-  });
-  /* 5. every planned room ends with the one door to use meanwhile */
-  function pendingNext(){
-    Array.prototype.forEach.call(document.querySelectorAll("li.pending"), function (li){
-      if (li.querySelector(".pending-next")) return;
-      var a = document.createElement("a"); a.className = "pending-next"; a.href = "#/connect"; a.setAttribute("data-link", ""); a.textContent = "Meanwhile, write to the House →"; li.appendChild(a);
-    });
-  }
-  /* 3. the news band says when it read the record */
-  function newsStamp(){
-    var sec = $("[data-dispatch-section]"); if (!sec || sec.querySelector(".dsp-read")) return;
-    var empty = sec.querySelector("[data-dispatch-empty]"), lead = sec.querySelector("[data-dispatch-lead]");
-    if ((!empty || empty.hidden) && (!lead || lead.hidden)) return;
-    var p = document.createElement("p"); p.className = "dsp-read"; p.textContent = "Read from the House's record at " + new Date().toLocaleTimeString(undefined, { hour:"numeric", minute:"2-digit", timeZoneName:"short" }) + ". What is published here is what the Founder released; nothing is written by this page.";
-    (sec.querySelector(".wrap") || sec).appendChild(p);
-  }
-  function pass(){ try { addDoors(); pendingNext(); newsStamp(); } catch (e) {} }
-  var mo = new MutationObserver(function (){ pass(); });
-  function start(){ pass(); try { mo.observe(document.body, { childList:true, subtree:true, attributes:true, attributeFilter:["hidden"] }); } catch (e) {} setTimeout(pass, 1500); setTimeout(pass, 4000); setTimeout(pass, 8000); }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
-})();
-
-</script>
-
-<!-- v31: the listening release: what three first readers asked for. -->
-<style id="main31-look">
-/* v31: the listening release. The sentence and the three doors; the chapter index; folded chapters; the sealed card;
-   the way home; the world marks brought forward. Gold on obsidian, the page's own type. */
-.sentence31,.index31{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-.sentence31{padding-top:clamp(28px,4vh,48px);padding-bottom:clamp(20px,3vh,36px);border-top:1px solid rgba(201,162,39,.25)}
-.s31-k{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A227;margin:0 0 .6rem}
-.s31-line{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.35rem,2.4vw,1.9rem);line-height:1.3;color:#F4F1EA;margin:0 0 .7rem;max-width:30ch}
-.s31-not{font-size:1.05rem;line-height:1.55;color:#B7B1A6;max-width:62ch;margin:0 0 1.6rem}
-.s31-doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem;margin:0 0 .4rem}
-.s31-door{display:flex;gap:.9rem;align-items:center;padding:1rem 1.1rem;border:1px solid rgba(201,162,39,.35);border-radius:12px;background:linear-gradient(135deg,rgba(201,162,39,.1),rgba(19,16,25,.9) 60%);color:#F4F1EA;text-decoration:none;transition:.16s}
-.s31-door:hover{border-color:#E4BE45;transform:translateY(-1px)}
-.s31-door svg{width:40px;height:40px;flex:none;color:#E4BE45}
-.s31-door b{display:block;font-family:"Bodoni Moda",Georgia,serif;font-weight:500;font-size:1.12rem;line-height:1.2}
-.s31-door small{display:block;font-size:.84rem;color:#B7B1A6;margin-top:.2rem}
-.index31{padding-bottom:clamp(20px,3vh,36px)}
-.index31 ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.3rem .9rem}
-.index31 a{display:flex;align-items:baseline;gap:.6rem;padding:.42rem 0;border-bottom:1px solid rgba(244,241,234,.08);color:#F4F1EA;text-decoration:none;font-size:1rem}
-.index31 a:hover{color:#E4BE45}
-.index31 .n{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.68rem;color:#C9A227;letter-spacing:.1em;min-width:1.4rem}
-/* folded chapters */
-section[data-folded="closed"] .fold31{max-height:34vh;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,#000 55%,transparent);-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent)}
+/* the hero: the definition inside it, the acts in a hierarchy, the counts from the record */
+.threshold .thr-say{max-width:58ch;font-size:clamp(17px,1.3vw,19px);line-height:1.6}
+.threshold .thr-acts{margin-top:clamp(26px,4vh,44px);gap:clamp(18px,3vw,40px)}
+.thr-third{margin:clamp(14px,2vh,22px) 0 0;font-size:.95rem;color:var(--muted)}
+.thr-third a{color:var(--ivory,#F4EFE5);text-decoration:none;border-bottom:1px solid rgba(198,161,91,.45)}
+.thr-third a:hover,.thr-third a:focus-visible{border-bottom-color:#E4BE45;outline:none}
+.thr-foot{font-family:var(--mono,ui-monospace,monospace)}
+/* the chapter index: a quiet list under a fine rule */
+.index32{max-width:1120px;margin:0 auto;padding:clamp(18px,2.6vh,30px) clamp(20px,4vw,48px) clamp(22px,3vh,38px);border-top:1px solid var(--hair,rgba(244,239,229,.07))}
+.i32-k{font-family:var(--mono,ui-monospace,monospace);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold,#C6A15B);margin:0 0 .5rem}
+.index32 ol{list-style:none;margin:0;padding:0;columns:2;column-gap:3rem}
+.index32 li{break-inside:avoid}
+.index32 a{display:flex;align-items:baseline;gap:.7rem;padding:.36rem 0;border-bottom:1px solid var(--hair,rgba(244,239,229,.07));color:var(--ivory,#F4EFE5);text-decoration:none;font-size:1rem}
+.index32 a:hover{color:#E4BE45}
+.index32 a:focus-visible{outline:2px solid #E4BE45;outline-offset:3px;color:#E4BE45}
+.index32 .n{font-family:var(--mono,ui-monospace,monospace);font-size:.66rem;color:var(--gold,#C6A15B);letter-spacing:.1em;min-width:1.4rem}
+/* folded chapters: the opening shows, the rest waits, and nothing hidden can be tabbed to */
+section[data-folded="closed"] .fold32{max-height:34vh;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,#000 55%,transparent);-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent)}
 section[data-folded="closed"]{padding-bottom:clamp(40px,5vh,70px)}
-section.stage-group[data-folded="closed"]{display:none}
-.fold31-more{display:inline-flex;align-items:center;gap:.5rem;margin-top:.6rem;min-height:2.6rem;padding:.4rem 1.1rem;border:1px solid rgba(201,162,39,.55);border-radius:999px;background:transparent;color:#E4BE45;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
-.fold31-more:hover{background:rgba(201,162,39,.12)}
-/* the sealed card */
-#veiled[data-seal31="closed"] ol.cipher-list,#veiled[data-seal31="closed"] .cipher-close,#veiled[data-seal31="closed"] .cipher-count{display:none}
-.seal31{border:1px solid rgba(201,162,39,.4);border-radius:14px;padding:1.3rem 1.4rem;background:linear-gradient(135deg,rgba(201,162,39,.12),rgba(75,46,131,.14) 70%);margin:0 0 1rem}
-.seal31-top{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem}
-.seal31-top svg{width:44px;height:44px;flex:none;color:#E4BE45}
-.seal31-say{margin:0;color:#B7B1A6;font-size:1rem;line-height:1.5;max-width:60ch}
-.seal31-n{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#C9A227;margin:0 0 .4rem}
-.seal31-riddle{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.3;color:#F4F1EA;margin:0 0 1rem;max-width:34ch}
-.seal31-acts{display:flex;gap:.6rem;flex-wrap:wrap}
-#veiled[data-seal31="open"] .seal31-acts{margin-bottom:1.2rem}
-/* the way home */
-.back31{position:fixed;left:16px;bottom:16px;z-index:50;display:inline-flex;align-items:center;gap:.45rem;padding:.55rem .95rem;border:1px solid rgba(201,162,39,.6);border-radius:999px;background:#131019;color:#F4F1EA;text-decoration:none;font-size:.92rem;box-shadow:0 6px 24px rgba(0,0,0,.5)}
-.back31:hover{border-color:#E4BE45;color:#E4BE45}
-/* the drawn marks on the worlds, brought forward */
-.world-row.marked31 .w-mark{opacity:1}
-.world-row.marked31 .w-mark line,.world-row.marked31 .w-mark path,.world-row.marked31 .w-mark circle,.world-row.marked31 .w-mark rect,.world-row.marked31 .w-mark polyline{stroke-opacity:1;stroke-width:1.6}
-.world-row.marked31 .w-cue{filter:drop-shadow(0 0 10px rgba(228,190,69,.25))}
-@media (max-width:760px){.s31-line{font-size:1.25rem}.s31-doors{grid-template-columns:1fr}.index31 ol{grid-template-columns:1fr}section[data-folded="closed"] .fold31{max-height:40vh}.back31{left:12px;bottom:12px;font-size:.86rem}.seal31{padding:1rem 1rem}}
+.fold32-more{display:inline-flex;align-items:center;gap:.5rem;margin-top:.8rem;min-height:2.4rem;padding:.3rem 0;border:0;border-bottom:1px solid rgba(198,161,91,.6);background:transparent;color:var(--ivory,#F4EFE5);font-family:var(--mono,ui-monospace,monospace);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.fold32-more:hover{color:#E4BE45;border-bottom-color:#E4BE45}
+.fold32-more:focus-visible{outline:2px solid #E4BE45;outline-offset:4px}
+/* the sealed doors: one riddle, framed by two fine rules, no card */
+#veiled[data-seal32="closed"] ol.cipher-list,#veiled[data-seal32="closed"] .cipher-close,#veiled[data-seal32="closed"] .cipher-count{display:none}
+.seal32{border-top:1px solid var(--hair,rgba(244,239,229,.07));border-bottom:1px solid var(--hair,rgba(244,239,229,.07));padding:clamp(18px,2.6vh,30px) 0;margin:0 0 1rem}
+.seal32-riddle{font-family:var(--display);font-style:italic;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.3;color:var(--ivory,#F4EFE5);margin:0 0 .7rem;max-width:36ch}
+.seal32-say{margin:0 0 .4rem;color:var(--muted,#B7B1A6);font-size:.95rem;line-height:1.5;max-width:60ch}
+#veiled[data-seal32="open"] .seal32-all{margin-bottom:1.2rem}
+/* the two portal cards: the page's own door rows, the state chip in the page's own words */
+.links li.portal-door .s{color:var(--gold,#C6A15B)}
+.links li.portal-door .go{display:block;margin-top:.5rem;font-family:var(--mono,ui-monospace,monospace);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C6A15B)}
+.links li.portal-door a:focus-visible{outline:2px solid #E4BE45;outline-offset:3px}
+/* the way home: a quiet fixed line, not a pill */
+.back32{position:fixed;left:16px;bottom:16px;z-index:50;display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .85rem;border:1px solid rgba(198,161,91,.5);background:var(--ink,#0E0D12);color:var(--ivory,#F4EFE5);text-decoration:none;font-size:.9rem}
+.back32:hover{border-color:#E4BE45;color:#E4BE45}
+.back32:focus-visible{outline:2px solid #E4BE45;outline-offset:3px}
+/* the drawn marks on the four worlds, at full strength */
+.world-row.marked32 .w-mark{opacity:1}
+.world-row.marked32 .w-mark line,.world-row.marked32 .w-mark path,.world-row.marked32 .w-mark circle,.world-row.marked32 .w-mark rect,.world-row.marked32 .w-mark polyline{stroke-opacity:1;stroke-width:1.6}
+/* keyboard: the page's own doors and buttons show where focus is */
+.links a:focus-visible,.act:focus-visible,[data-cipher-toggle]:focus-visible,.world-link:focus-visible{outline:2px solid #E4BE45;outline-offset:3px}
+h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
+h2[tabindex="-1"]:focus-visible{outline:2px solid #E4BE45;outline-offset:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:760px){.index32 ol{columns:1}section[data-folded="closed"] .fold32{max-height:40vh}.back32{left:12px;bottom:12px;font-size:.86rem}.seal32-riddle{font-size:1.2rem}.threshold .thr-say{font-size:16.5px}}
+/* the first screen: the definition and the two doors inside one viewport on an ordinary screen */
+.threshold .wrap{padding-top:clamp(20px,4vh,56px);padding-bottom:clamp(18px,3vh,40px)}
+.threshold .thr-label{margin-bottom:clamp(10px,1.6vh,22px)}
+.threshold .thr-mark{font-size:clamp(3rem,8vw,6.4rem);line-height:.95;margin-bottom:clamp(10px,1.6vh,20px)}
+.threshold .thr-id{margin:clamp(8px,1.4vh,16px) 0 clamp(8px,1.2vh,14px);font-size:clamp(1.3rem,2.4vw,2rem)}
+.threshold .thr-by{margin-top:clamp(8px,1.4vh,16px)}
+.threshold .thr-foot{margin-top:clamp(14px,2vh,26px)}
+@media (max-height:760px){.threshold .thr-mark{font-size:clamp(2.6rem,7vw,5rem)}.threshold .thr-say{font-size:16.5px;line-height:1.5}.threshold .thr-acts{margin-top:clamp(16px,2.6vh,28px)}}
+@media (max-width:760px){.threshold .wrap{padding-top:14px}.threshold .thr-label{display:flex;flex-wrap:wrap;gap:.2rem .8rem;margin-bottom:8px}.threshold .thr-label span{display:inline}.threshold .thr-mark{font-size:2.6rem;margin-bottom:8px}.threshold .thr-accent{margin:10px 0}.threshold .thr-id{font-size:1.2rem;margin:6px 0}.threshold .thr-say{font-size:15.5px;line-height:1.5}.threshold .thr-by{margin-top:8px;font-size:13px}.threshold .thr-acts{margin-top:14px;gap:12px}.thr-third{font-size:.9rem}}
 
 </style>
-<script id="main31">
-/* v31: the listening release. Three readers said: say what it is in one line; it is one long scroll; the twelve sealed
-   doors are too much at once; the sub-pages need a plain way home; more to look at. Each of those is answered here,
-   on top of v30, without changing a word the House says about the worlds. */
+<script id="main32">
+/* v32: one layer, refined. Replaces the v30 and v31 layers. The hero carries the definition and the hierarchy of doors;
+   the chapter index follows it; long chapters fold with their links out of the tab order; the twelve sealed doors show one
+   riddle a day; every sub-page has a way home; the two portal cards and the counts are derived from the approved record;
+   the news band names its real source and the time it was actually read. Nothing the House says about a world is changed. */
 (function (){
   function $(s, r){ return (r || document).querySelector(s); }
   function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
   function h(tag, cls, html){ var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
-  var EMBLEM = {
-    explore:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18h36M6 30h36M14 10v28M34 10v28" stroke="currentColor" stroke-width="1.4" opacity=".6"/></svg>',
-    riddle:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="6" width="24" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="25" r="2.2" fill="currentColor"/><path d="M12 6v36" stroke="currentColor" stroke-width="2"/></svg>',
-    work:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38L24 8l16 30z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 30h16" stroke="currentColor" stroke-width="1.6" opacity=".7"/></svg>',
-    seal:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="6" width="24" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M24 18v12M18 24h12" stroke="currentColor" stroke-width="1.4" opacity=".7"/></svg>'
-  };
-  /* 1. in one sentence, then the three doors: what a first reader asked for first */
-  function sentence(){
-    if ($("#sentence31")) return; var thr = $("#threshold .wrap"); if (!thr) return;
-    var box = h("aside", "sentence31"); box.id = "sentence31"; box.setAttribute("aria-label", "In one sentence");
-    box.innerHTML = '<p class="s31-k">In one sentence</p>' +
-      '<p class="s31-line">House of Worlds is an independent creative institute. It builds its own original worlds, studies them in public, protects what is not ready to open, and works with creators, clients and partners who want to build with it.</p>' +
-      '<p class="s31-not">It is not a gallery of other people’s work and not a publishing platform. Four of its sixteen worlds are open; twelve are sealed and only their riddles are shown.</p>' +
-      '<p class="s31-k">What you can do here</p>' +
-      '<div class="s31-doors">' +
-        '<a class="s31-door" href="#explore" data-jump="explore">' + EMBLEM.explore + '<span><b>Walk the four open worlds</b><small>Film, Television, Animation, Writing and Literature</small></span></a>' +
-        '<a class="s31-door" href="#veiled" data-jump="veiled">' + EMBLEM.riddle + '<span><b>Read the twelve riddles</b><small>One a day on this page; all twelve when you ask</small></span></a>' +
-        '<a class="s31-door" href="#build" data-jump="build">' + EMBLEM.work + '<span><b>Work with the House</b><small>Commission, partner, join, or write to it</small></span></a>' +
-      '</div>';
-    thr.parentNode.insertBefore(box, thr.nextSibling);
+  function esc(s){ return String(s || "").replace(/[&<>"]/g, function (c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
+  var reduced = false; try { reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  var portals = null; try { portals = JSON.parse(($("#how-portals") || {}).textContent || "null"); } catch (e) { portals = null; }
+  /* the record: the approved public state the page already holds (live, or the bundled snapshot) */
+  function entity(key){ try { if (typeof ent === "function") return ent(key) || null; } catch (e) {} try { return (window.HOW && HOW.byKey && HOW.byKey[key]) || null; } catch (e) { return null; } }
+  function recordSource(){ try { return (window.HOW && HOW.state && HOW.state.source) || "snapshot"; } catch (e) { return "snapshot"; } }
+  function snapshotBuilt(){ try { return window.HOW_SNAPSHOT["state.json"].builtAt || null; } catch (e) { return null; } }
+  function longDate(iso){ var d = new Date(iso + (String(iso).length === 10 ? "T12:00:00" : "")); return isNaN(d) ? String(iso) : d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" }); }
+  /* the time the record was actually read: recorded when the request succeeds, never the clock at paint */
+  var READ = { newsroom:null, state:null };
+  try {
+    var _fetch = window.fetch;
+    window.fetch = function (input, init){ var url = typeof input === "string" ? input : (input && input.url) || ""; var p = _fetch.apply(this, arguments);
+      if (/\/rpc\/house_newsroom\b/.test(url)) p.then(function (r){ if (r && r.ok) READ.newsroom = new Date(); }).catch(function (){});
+      if (/\/rpc\/house_public_state\b/.test(url)) p.then(function (r){ if (r && r.ok) READ.state = new Date(); }).catch(function (){});
+      return p; };
+  } catch (e) {}
+  function clock(d){ return d.toLocaleTimeString(undefined, { hour:"numeric", minute:"2-digit", second:"2-digit", timeZoneName:"short" }); }
+  /* 1. the hero: the counts from the record; the third door is quieter than the first two */
+  function counts(){
+    var open = $$("ul.worlds li").length, sealed = $$("#veiled .cip-entry").length; if (!open && !sealed) return;
+    var foot = $(".thr-foot"); if (foot && !foot.getAttribute("data-derived")) { foot.setAttribute("data-derived", "1"); }
+    var W = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen"];
+    function word(n){ return n >= 0 && n < W.length ? W[n] : String(n); } function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+    var words = cap(word(open)) + (open === 1 ? " world open" : " worlds open") + " · " + cap(word(sealed)) + " under seal · The record is public";
+    if (foot && foot.textContent !== words) foot.textContent = words;
+    var ribbon = $("#thr-third"); if (ribbon) { var t = ribbon.querySelector("[data-sealed-count]"); if (t && t.textContent !== word(sealed)) t.textContent = word(sealed); }
   }
-  /* 2. the page in chapters: an index after the sentence, so the long scroll has a map */
-  var CHAPTERS = [["explore", "The four open worlds"], ["veiled", "The twelve sealed doors"], ["model", "How the House works"], ["house", "What the House is"], ["standards", "The ten rules"], ["work", "The work and the learning"], ["building", "What is being built"], ["build", "Enter, build, connect"]];
+  /* 2. the chapter index, after the hero */
+  var CHAPTERS = [["explore", "The four open worlds"], ["veiled", "The sealed doors"], ["model", "How the House works"], ["house", "What the House is"], ["standards", "The ten rules"], ["founder", "A note from the founder"], ["work", "The work"], ["learn", "Learn at the House"], ["now", "Now in the House"], ["building", "What is being built"], ["enter", "Enter the House"], ["build", "Build with the House"], ["protected", "Protected at the House"], ["connect", "Connect"]];
   function index(){
-    if ($("#index31")) return; var at = $("#sentence31"); if (!at) return;
-    var nav = h("nav", "index31"); nav.id = "index31"; nav.setAttribute("aria-label", "The page, chapter by chapter");
-    var list = CHAPTERS.filter(function (c){ var s = document.getElementById(c[0]); return s && !s.hidden; });
-    nav.innerHTML = '<p class="s31-k">The page, chapter by chapter</p><ol>' + list.map(function (c, i){ return '<li><a href="#' + c[0] + '" data-jump="' + c[0] + '"><span class="n">' + (i + 1) + '</span>' + c[1] + '</a></li>'; }).join("") + '</ol>';
-    at.parentNode.insertBefore(nav, at.nextSibling);
+    if ($("#index32")) return; var thr = $("#threshold"); if (!thr) return;
+    var nav = h("nav", "index32"); nav.id = "index32"; nav.setAttribute("aria-label", "The page, chapter by chapter");
+    var list = CHAPTERS.filter(function (c){ var s = document.getElementById(c[0]); return s && !s.hidden && s.offsetParent !== null; });
+    if (!list.length) return;
+    nav.innerHTML = '<p class="i32-k">On this page</p><ol>' + list.map(function (c, i){ return '<li><a href="#' + c[0] + '" data-jump="' + c[0] + '"><span class="n">' + (i + 1) + '</span>' + c[1] + '</a></li>'; }).join("") + '</ol>';
+    thr.parentNode.insertBefore(nav, thr.nextSibling);
   }
-  document.addEventListener("click", function (e){ var a = e.target && e.target.closest ? e.target.closest("[data-jump]") : null; if (!a) return; var s = document.getElementById(a.getAttribute("data-jump")); if (!s) return; e.preventDefault(); unfold(s); try { s.scrollIntoView({ behavior:"smooth", block:"start" }); } catch (x) { s.scrollIntoView(); } });
-  /* 3. the long chapters fold to their opening, with one press to read the whole */
-  var FOLD = { model:"the ten stages", standards:"the ten rules", building:"every room being built", protected:"the register and the two doors", house:"what the House is" };
+  function focusHeading(s){ var hd = s.querySelector("h2, h1"); if (!hd) return; if (!hd.hasAttribute("tabindex")) hd.setAttribute("tabindex", "-1"); try { hd.focus({ preventScroll:true }); } catch (e) { try { hd.focus(); } catch (x) {} } }
+  function jumpTo(s){ if (!s) return; unfold(s); try { s.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block:"start" }); } catch (e) { s.scrollIntoView(); } setTimeout(function (){ focusHeading(s); }, reduced ? 0 : 450); }
+  document.addEventListener("click", function (e){ var a = e.target && e.target.closest ? e.target.closest("[data-jump]") : null; if (!a) return; var s = document.getElementById(a.getAttribute("data-jump")); if (!s) return; e.preventDefault(); jumpTo(s); });
+  /* 3. the long chapters fold; folded content leaves the tab order */
+  var FOLD = { model:"the ten stages", house:"what the House is", standards:"the ten rules", building:"every room being built", protected:"the register and the two doors" };
+  function setFolded(s, closed){
+    s.setAttribute("data-folded", closed ? "closed" : "open");
+    var body = s.querySelector(".fold32"); if (body) { if (closed) { body.setAttribute("inert", ""); body.setAttribute("aria-hidden", "true"); } else { body.removeAttribute("inert"); body.removeAttribute("aria-hidden"); } }
+    var more = s.querySelector(".fold32-more"); if (more) { more.setAttribute("aria-expanded", closed ? "false" : "true"); more.innerHTML = closed ? "Read " + (FOLD[s.id] || "the whole chapter") + ' <span aria-hidden="true">↓</span>' : 'Fold this chapter <span aria-hidden="true">↑</span>'; }
+    if (s.id === "building") $$("section.stage-group").forEach(function (g){ g.hidden = closed; if (closed) g.setAttribute("inert", ""); else g.removeAttribute("inert"); });
+  }
+  function unfold(s){ if (s && s.getAttribute("data-folded") === "closed") setFolded(s, false); }
+  /* the development record's stage groups are drawn by the page after its own reads; they follow their chapter's fold whenever they appear */
+  function syncGroups(){ var b = document.getElementById("building"); if (!b || !b.getAttribute("data-folded")) return; var closed = b.getAttribute("data-folded") === "closed"; $$("section.stage-group").forEach(function (g){ if (g.hidden !== closed) g.hidden = closed; if (closed) { if (!g.hasAttribute("inert")) g.setAttribute("inert", ""); } else if (g.hasAttribute("inert")) g.removeAttribute("inert"); }); }
   function fold(){
     Object.keys(FOLD).forEach(function (id){
       var s = document.getElementById(id); if (!s || s.hidden || s.getAttribute("data-folded")) return;
-      var wrap = s.querySelector(".wrap"); if (!wrap) return;
-      var head = wrap.querySelector(".chapter-head"); if (!head) return;
-      var body = h("div", "fold31"); var kids = Array.prototype.slice.call(wrap.children).filter(function (c){ return c !== head; }); if (!kids.length) return;
-      kids.forEach(function (c){ body.appendChild(c); }); wrap.appendChild(body);
-      var more = h("button", "fold31-more", "Read " + FOLD[id] + " <span aria-hidden=\"true\">↓</span>"); more.type = "button"; more.setAttribute("aria-expanded", "false");
-      more.addEventListener("click", function (){ if (s.getAttribute("data-folded") === "open") { s.setAttribute("data-folded", "closed"); more.setAttribute("aria-expanded", "false"); more.innerHTML = "Read " + FOLD[id] + " <span aria-hidden=\"true\">↓</span>"; try { s.scrollIntoView({ block:"start" }); } catch (x) {} } else { unfold(s); } });
-      wrap.appendChild(more); s.setAttribute("data-folded", "closed");
+      var wrap = s.querySelector(".wrap"); if (!wrap) return; var head = wrap.querySelector(".chapter-head"); if (!head) return;
+      var kids = Array.prototype.slice.call(wrap.children).filter(function (c){ return c !== head; }); if (!kids.length) return;
+      var body = h("div", "fold32"); kids.forEach(function (c){ body.appendChild(c); }); wrap.appendChild(body);
+      var more = h("button", "fold32-more"); more.type = "button"; more.setAttribute("aria-controls", id + "-fold"); body.id = id + "-fold";
+      more.addEventListener("click", function (){ var closing = s.getAttribute("data-folded") === "open"; setFolded(s, closing); if (closing) { try { s.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block:"start" }); } catch (x) {} focusHeading(s); } });
+      wrap.appendChild(more); setFolded(s, true);
     });
-    /* the development record's stage groups travel with their chapter */
-    var b = document.getElementById("building"); if (b) $$("section.stage-group").forEach(function (g){ if (!g.getAttribute("data-folded")) { g.setAttribute("data-folded", "closed"); g.setAttribute("data-fold-of", "building"); } });
   }
-  function unfold(s){ if (!s) return; if (s.getAttribute("data-folded")) { s.setAttribute("data-folded", "open"); var m = s.querySelector(".fold31-more"); if (m) { m.setAttribute("aria-expanded", "true"); m.innerHTML = "Fold this chapter <span aria-hidden=\"true\">↑</span>"; } } if (s.id === "building") $$("section.stage-group").forEach(function (g){ g.setAttribute("data-folded", "open"); }); }
-  /* 4. the twelve sealed doors: one riddle a day on the page, all twelve when asked */
+  /* 4. the twelve sealed doors: one riddle a day, all twelve on request; the riddle sits below the open worlds, not above them */
   function seal(){
-    var s = document.getElementById("veiled"); if (!s || s.getAttribute("data-seal31")) return;
+    var s = document.getElementById("veiled"); if (!s || s.getAttribute("data-seal32")) return;
     var list = s.querySelector("ol.cipher-list"); var entries = list ? $$(".cip-entry", list) : []; if (!entries.length) return;
-    s.setAttribute("data-seal31", "closed");
-    var day = Math.floor(Date.now() / 86400000) % entries.length; var pick = entries[day];
-    var n = (pick.querySelector(".cip-n") || {}).textContent || ""; var riddle = (pick.querySelector(".cip-riddle") || pick.querySelector(".cip-body p") || {}).textContent || "";
-    var card = h("div", "seal31"); card.innerHTML = '<div class="seal31-top">' + EMBLEM.seal + '<div><p class="s31-k">Twelve doors, sealed</p><p class="seal31-say">Their names are withheld. One riddle is read here each day; the other eleven wait a press away. The House confirms nothing until a world opens.</p></div></div>' +
-      '<p class="seal31-n">Door ' + n + ' · today’s riddle</p><p class="seal31-riddle">' + riddle.replace(/[&<>]/g, function (c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;" }[c]; }) + '</p>' +
-      '<div class="seal31-acts"><button type="button" class="fold31-more seal31-all" aria-expanded="false">Read all twelve riddles <span aria-hidden="true">↓</span></button></div>';
-    list.parentNode.insertBefore(card, list);
-    card.querySelector(".seal31-all").addEventListener("click", function (){ var open = s.getAttribute("data-seal31") === "open"; s.setAttribute("data-seal31", open ? "closed" : "open"); this.setAttribute("aria-expanded", open ? "false" : "true"); this.innerHTML = open ? 'Read all twelve riddles <span aria-hidden="true">↓</span>' : 'Fold the twelve <span aria-hidden="true">↑</span>'; if (open) { try { s.scrollIntoView({ block:"start" }); } catch (x) {} } });
+    var day = Math.floor(Date.now() / 86400000) % entries.length, pick = entries[day];
+    var n = (pick.querySelector(".cip-n") || {}).textContent || "", riddle = (pick.querySelector(".cip-riddle") || pick.querySelector(".cip-body p") || {}).textContent || "";
+    var card = h("div", "seal32"); card.innerHTML = '<p class="i32-k">Today’s riddle · Door ' + esc(n) + '</p><p class="seal32-riddle">' + esc(riddle) + '</p><p class="seal32-say">One of ' + entries.length + ' sealed doors. Their names are withheld; one riddle is read here each day, the rest on request. The House confirms nothing until a world opens.</p><button type="button" class="fold32-more seal32-all" aria-expanded="false" aria-controls="cipher-all">Read all ' + entries.length + ' riddles <span aria-hidden="true">↓</span></button>';
+    list.id = list.id || "cipher-all"; list.parentNode.insertBefore(card, list);
+    function set(open){ s.setAttribute("data-seal32", open ? "open" : "closed"); if (open) { list.removeAttribute("inert"); list.removeAttribute("aria-hidden"); } else { list.setAttribute("inert", ""); list.setAttribute("aria-hidden", "true"); } var b = card.querySelector(".seal32-all"); b.setAttribute("aria-expanded", open ? "true" : "false"); b.innerHTML = open ? 'Fold the ' + entries.length + ' <span aria-hidden="true">↑</span>' : 'Read all ' + entries.length + ' riddles <span aria-hidden="true">↓</span>'; }
+    card.querySelector(".seal32-all").addEventListener("click", function (){ var open = s.getAttribute("data-seal32") === "open"; set(!open); if (open) { try { s.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block:"start" }); } catch (x) {} } });
+    set(false);
   }
-  /* 5. a plain way home from every sub-page */
-  function home(){
-    var hash = String(location.hash || ""); var onHome = hash === "" || hash === "#" || hash === "#/" || /^#[a-z0-9-]+$/.test(hash);
-    var pill = $("#back31");
-    if (onHome) { if (pill) pill.remove(); return; }
-    if (!pill) { pill = h("a", "back31", '<span aria-hidden="true">←</span> Back to the House'); pill.id = "back31"; pill.href = "#/"; pill.setAttribute("data-link", ""); document.body.appendChild(pill); }
+  /* the standard line under an opened riddle */
+  var SEAL_LINE = "This door opens when the House opens it. There is nothing to send and nothing else to press; what is behind it stays unnamed until then.";
+  document.addEventListener("click", function (e){ var btn = e.target && e.target.closest ? e.target.closest("[data-cipher-toggle]") : null; if (!btn) return; setTimeout(function (){ try { var id = btn.getAttribute("aria-controls"); var body = id ? document.getElementById(id) : null; if (!body || body.hidden || body.querySelector(".cip-standard")) return; var p = h("p", "cip-standard"); p.textContent = SEAL_LINE; body.appendChild(p); } catch (x) {} }, 0); });
+  /* 5. the two portal cards, from the record: the client card says what the record says */
+  function card(cls, name, state, line, href, cta){ return '<li class="portal-door ' + cls + '"><a href="' + esc(href) + '"' + (/^https?:/.test(href) ? ' rel="noopener"' : ' data-link') + '><span class="t">' + esc(name) + '</span><span class="s">' + esc(state) + '</span><p class="d">' + esc(line) + '</p><span class="go">' + esc(cta) + ' →</span></a></li>'; }
+  function doors(){
+    var en = document.getElementById("enter-links"), bu = document.getElementById("build-links"); if (!en || !bu) return;
+    var ca = entity("client-access"); var operating = !!(ca && ca.operational === "operating");
+    var sig = recordSource() + "|" + (ca ? (ca.state + "/" + ca.operational + "/" + ca.access) : "none");
+    if (en.getAttribute("data-doors-sig") === sig && en.querySelector(".portal-door") && (!ca || bu.querySelector(".portal-door"))) return;
+    $$(".portal-door", en).forEach(function (x){ x.remove(); }); $$(".portal-door", bu).forEach(function (x){ x.remove(); });
+    function ul(host){ var u = host.querySelector("ul.links"); if (!u) { u = h("ul", "links"); host.appendChild(u); } return u; }
+    if (portals && portals.team) ul(en).insertAdjacentHTML("beforeend", card("team", "The Team Portal", "By invitation", "For the people of the House: the desk, the work, the Story Desk, the calendar, Signals. Entry is by invitation from the House; nobody creates an account here.", portals.team, "Sign in"));
+    if (ca) ul(bu).insertAdjacentHTML("beforeend", card("client", ca.name || "Client Access", (ca.stateLabel || "In development") + (operating ? " · by invitation" : ""), (ca.line || "A controlled entrance for existing clients.") + (operating ? "" : " Sign-in opens when the House opens Client Access."), operating && portals && portals.client ? portals.client : (ca.lockedRoute || ca.route || "#/build"), operating ? "Sign in" : "Where it stands"));
+    en.setAttribute("data-doors-sig", sig);
   }
+  /* 6. every planned room ends with the one door to use meanwhile */
+  function pendingNext(){ $$("li.pending").forEach(function (li){ if (li.querySelector(".pending-next")) return; var a = h("a", "pending-next", "Meanwhile, write to the House →"); a.href = "#/connect"; a.setAttribute("data-link", ""); li.appendChild(a); }); }
+  /* 7. the news band names its source and the time it was read */
+  function newsStamp(){
+    var sec = $("[data-dispatch-section]"); if (!sec) return; var empty = sec.querySelector("[data-dispatch-empty]"), lead = sec.querySelector("[data-dispatch-lead]");
+    if ((!empty || empty.hidden) && (!lead || lead.hidden)) return;
+    var src = (window.HOW && HOW.dispatchSource) || null; var text;
+    /* the time the record answered, from the browser's own record of the request: the last house_newsroom response that succeeded */
+    /* the page reads its whole record in one request, house_bootstrap, which carries the newsroom; a later house_newsroom read supersedes it */
+    var via = null;
+    if (!READ.newsroom) { try { var es = performance.getEntriesByType("resource").filter(function (r){ return /\/rpc\/(house_newsroom|house_bootstrap)\b/.test(r.name) && (r.responseStatus == null || (r.responseStatus >= 200 && r.responseStatus < 300)) && r.responseEnd > 0; }); if (es.length) { var e1 = es[es.length - 1]; READ.newsroom = new Date(performance.timeOrigin + e1.responseEnd); via = /house_newsroom/.test(e1.name) ? "house_newsroom" : "house_bootstrap"; } } catch (e) {} }
+    if (src === "database" && READ.newsroom) text = "Read from the House’s record at " + clock(READ.newsroom) + " (" + (via || "house_newsroom") + "). What is published here is what the Founder released; nothing is written by this page.";
+    else if (src === "database") text = "Read from the House’s record this visit; the exact time of the read was not recorded by this browser. What is published here is what the Founder released; nothing is written by this page.";
+    else { var b = snapshotBuilt(); text = "Showing the bundled snapshot" + (b ? " built " + longDate(b) : "") + "; the House’s record could not be read this visit. It may be behind what the House has since released."; }
+    var p = sec.querySelector(".dsp-read"); if (!p) { p = h("p", "dsp-read"); (sec.querySelector(".wrap") || sec).appendChild(p); } if (p.textContent !== text) p.textContent = text;
+  }
+  /* 8. a plain way home from every sub-page */
+  function home(){ var hash = String(location.hash || ""); var onHome = hash === "" || hash === "#" || hash === "#/" || /^#[a-z0-9-]+$/.test(hash); var pill = $("#back32"); if (onHome) { if (pill) pill.remove(); return; } if (!pill) { pill = h("a", "back32", '<span aria-hidden="true">←</span> Back to the House'); pill.id = "back32"; pill.href = "#/"; pill.setAttribute("data-link", ""); document.body.appendChild(pill); } }
   window.addEventListener("hashchange", function (){ setTimeout(home, 50); });
-  /* 6. the drawn marks on the four worlds, brought forward */
-  function marks(){ $$("ul.worlds .world-row").forEach(function (li){ li.classList.add("marked31"); }); }
-  function pass(){ try { sentence(); index(); fold(); seal(); marks(); home(); } catch (e) {} }
-  var mo = new MutationObserver(function (){ pass(); });
-  function start(){ pass(); try { mo.observe(document.body, { childList:true, subtree:true }); } catch (e) {} setTimeout(pass, 1200); setTimeout(pass, 3000); setTimeout(pass, 6000); }
+  /* 9. the drawn marks on the four worlds, at full strength */
+  function marks(){ $$("ul.worlds .world-row").forEach(function (li){ li.classList.add("marked32"); }); }
+  /* one pass at a time, never more than four a second, and the observer is quiet while the pass writes */
+  var busy = false, queued = false, last = 0, mo = null;
+  function pass(){
+    if (busy) { queued = true; return; }
+    var now = Date.now(); if (now - last < 250) { if (!queued) { queued = true; setTimeout(function (){ queued = false; pass(); }, 260 - (now - last)); } return; }
+    busy = true; last = now; try { if (mo) mo.disconnect(); } catch (e) {}
+    try { counts(); index(); fold(); syncGroups(); seal(); doors(); pendingNext(); newsStamp(); home(); marks(); } catch (e) { try { console.error("v32", e); } catch (x) {} }
+    try { if (mo) mo.observe(document.body, { childList:true, subtree:true, attributes:true, attributeFilter:["hidden"] }); } catch (e) {}
+    busy = false; if (queued) { queued = false; setTimeout(pass, 260); }
+  }
+  function start(){ try { mo = new MutationObserver(function (){ pass(); }); } catch (e) { mo = null; } pass(); [1200, 3000, 6000, 12000].forEach(function (t){ setTimeout(pass, t); }); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
 
