@@ -9287,6 +9287,9 @@ h2[tabindex="-1"]:focus-visible{outline:2px solid #E4BE45;outline-offset:6px}
   document.addEventListener("click", function (e){
     var a = e.target && e.target.closest ? e.target.closest("a[href^=\"#\"]") : null; if (!a) return;
     NAV_CLICK = Date.now();
+    /* a chapter link: the browser's own smooth jump to the fragment is switched off for this navigation, because a smooth
+       jump still in flight is applied again on top of the landing this layer makes, and the page overshoots by a chapter */
+    if (a.hasAttribute("data-jump")) { try { document.documentElement.style.scrollBehavior = "auto"; setTimeout(function (){ document.documentElement.style.scrollBehavior = ""; }, 2500); } catch (x) {} }
     var href = a.getAttribute("href") || "";
     if ((href === "#/" || href === "#") && a.hasAttribute("data-link") && window.HOW && HOW.route && HOW.route.name === "home" && HOW.route.section) { e.preventDefault(); e.stopPropagation(); location.hash = "#/"; }
   }, true);
