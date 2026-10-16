@@ -6,7 +6,7 @@
 <title>House of Worlds — A Black woman-founded independent creative institute</title>
 <meta name="description" content="House of Worlds is a Black woman-founded independent creative institute where original worlds are built, studied, protected, and carried across forms. Founded and curated by JDONAI.">
 <meta name="theme-color" content="#0B0B0F">
-<meta name="release" content="30.0.0">
+<meta name="release" content="31.0.0">
 <meta name="author" content="JDONAI">
 <link rel="icon" type="image/svg+xml" href="/assets/house-of-worlds-mark.svg">
 <link rel="icon" type="image/png" sizes="180x180" href="/assets/house-of-worlds-mark.png">
@@ -9086,6 +9086,139 @@ else boot();
   function pass(){ try { addDoors(); pendingNext(); newsStamp(); } catch (e) {} }
   var mo = new MutationObserver(function (){ pass(); });
   function start(){ pass(); try { mo.observe(document.body, { childList:true, subtree:true, attributes:true, attributeFilter:["hidden"] }); } catch (e) {} setTimeout(pass, 1500); setTimeout(pass, 4000); setTimeout(pass, 8000); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();
+
+</script>
+
+<!-- v31: the listening release: what three first readers asked for. -->
+<style id="main31-look">
+/* v31: the listening release. The sentence and the three doors; the chapter index; folded chapters; the sealed card;
+   the way home; the world marks brought forward. Gold on obsidian, the page's own type. */
+.sentence31,.index31{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.sentence31{padding-top:clamp(28px,4vh,48px);padding-bottom:clamp(20px,3vh,36px);border-top:1px solid rgba(201,162,39,.25)}
+.s31-k{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A227;margin:0 0 .6rem}
+.s31-line{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.35rem,2.4vw,1.9rem);line-height:1.3;color:#F4F1EA;margin:0 0 .7rem;max-width:30ch}
+.s31-not{font-size:1.05rem;line-height:1.55;color:#B7B1A6;max-width:62ch;margin:0 0 1.6rem}
+.s31-doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem;margin:0 0 .4rem}
+.s31-door{display:flex;gap:.9rem;align-items:center;padding:1rem 1.1rem;border:1px solid rgba(201,162,39,.35);border-radius:12px;background:linear-gradient(135deg,rgba(201,162,39,.1),rgba(19,16,25,.9) 60%);color:#F4F1EA;text-decoration:none;transition:.16s}
+.s31-door:hover{border-color:#E4BE45;transform:translateY(-1px)}
+.s31-door svg{width:40px;height:40px;flex:none;color:#E4BE45}
+.s31-door b{display:block;font-family:"Bodoni Moda",Georgia,serif;font-weight:500;font-size:1.12rem;line-height:1.2}
+.s31-door small{display:block;font-size:.84rem;color:#B7B1A6;margin-top:.2rem}
+.index31{padding-bottom:clamp(20px,3vh,36px)}
+.index31 ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.3rem .9rem}
+.index31 a{display:flex;align-items:baseline;gap:.6rem;padding:.42rem 0;border-bottom:1px solid rgba(244,241,234,.08);color:#F4F1EA;text-decoration:none;font-size:1rem}
+.index31 a:hover{color:#E4BE45}
+.index31 .n{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.68rem;color:#C9A227;letter-spacing:.1em;min-width:1.4rem}
+/* folded chapters */
+section[data-folded="closed"] .fold31{max-height:34vh;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,#000 55%,transparent);-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent)}
+section[data-folded="closed"]{padding-bottom:clamp(40px,5vh,70px)}
+section.stage-group[data-folded="closed"]{display:none}
+.fold31-more{display:inline-flex;align-items:center;gap:.5rem;margin-top:.6rem;min-height:2.6rem;padding:.4rem 1.1rem;border:1px solid rgba(201,162,39,.55);border-radius:999px;background:transparent;color:#E4BE45;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.fold31-more:hover{background:rgba(201,162,39,.12)}
+/* the sealed card */
+#veiled[data-seal31="closed"] ol.cipher-list,#veiled[data-seal31="closed"] .cipher-close,#veiled[data-seal31="closed"] .cipher-count{display:none}
+.seal31{border:1px solid rgba(201,162,39,.4);border-radius:14px;padding:1.3rem 1.4rem;background:linear-gradient(135deg,rgba(201,162,39,.12),rgba(75,46,131,.14) 70%);margin:0 0 1rem}
+.seal31-top{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem}
+.seal31-top svg{width:44px;height:44px;flex:none;color:#E4BE45}
+.seal31-say{margin:0;color:#B7B1A6;font-size:1rem;line-height:1.5;max-width:60ch}
+.seal31-n{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#C9A227;margin:0 0 .4rem}
+.seal31-riddle{font-family:"Bodoni Moda",Georgia,serif;font-style:italic;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.3;color:#F4F1EA;margin:0 0 1rem;max-width:34ch}
+.seal31-acts{display:flex;gap:.6rem;flex-wrap:wrap}
+#veiled[data-seal31="open"] .seal31-acts{margin-bottom:1.2rem}
+/* the way home */
+.back31{position:fixed;left:16px;bottom:16px;z-index:50;display:inline-flex;align-items:center;gap:.45rem;padding:.55rem .95rem;border:1px solid rgba(201,162,39,.6);border-radius:999px;background:#131019;color:#F4F1EA;text-decoration:none;font-size:.92rem;box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.back31:hover{border-color:#E4BE45;color:#E4BE45}
+/* the drawn marks on the worlds, brought forward */
+.world-row.marked31 .w-mark{opacity:1}
+.world-row.marked31 .w-mark line,.world-row.marked31 .w-mark path,.world-row.marked31 .w-mark circle,.world-row.marked31 .w-mark rect,.world-row.marked31 .w-mark polyline{stroke-opacity:1;stroke-width:1.6}
+.world-row.marked31 .w-cue{filter:drop-shadow(0 0 10px rgba(228,190,69,.25))}
+@media (max-width:760px){.s31-line{font-size:1.25rem}.s31-doors{grid-template-columns:1fr}.index31 ol{grid-template-columns:1fr}section[data-folded="closed"] .fold31{max-height:40vh}.back31{left:12px;bottom:12px;font-size:.86rem}.seal31{padding:1rem 1rem}}
+
+</style>
+<script id="main31">
+/* v31: the listening release. Three readers said: say what it is in one line; it is one long scroll; the twelve sealed
+   doors are too much at once; the sub-pages need a plain way home; more to look at. Each of those is answered here,
+   on top of v30, without changing a word the House says about the worlds. */
+(function (){
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function h(tag, cls, html){ var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  var EMBLEM = {
+    explore:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18h36M6 30h36M14 10v28M34 10v28" stroke="currentColor" stroke-width="1.4" opacity=".6"/></svg>',
+    riddle:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="6" width="24" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="25" r="2.2" fill="currentColor"/><path d="M12 6v36" stroke="currentColor" stroke-width="2"/></svg>',
+    work:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38L24 8l16 30z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 30h16" stroke="currentColor" stroke-width="1.6" opacity=".7"/></svg>',
+    seal:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="6" width="24" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M24 18v12M18 24h12" stroke="currentColor" stroke-width="1.4" opacity=".7"/></svg>'
+  };
+  /* 1. in one sentence, then the three doors: what a first reader asked for first */
+  function sentence(){
+    if ($("#sentence31")) return; var thr = $("#threshold .wrap"); if (!thr) return;
+    var box = h("aside", "sentence31"); box.id = "sentence31"; box.setAttribute("aria-label", "In one sentence");
+    box.innerHTML = '<p class="s31-k">In one sentence</p>' +
+      '<p class="s31-line">House of Worlds is an independent creative institute. It builds its own original worlds, studies them in public, protects what is not ready to open, and works with creators, clients and partners who want to build with it.</p>' +
+      '<p class="s31-not">It is not a gallery of other people’s work and not a publishing platform. Four of its sixteen worlds are open; twelve are sealed and only their riddles are shown.</p>' +
+      '<p class="s31-k">What you can do here</p>' +
+      '<div class="s31-doors">' +
+        '<a class="s31-door" href="#explore" data-jump="explore">' + EMBLEM.explore + '<span><b>Walk the four open worlds</b><small>Film, Television, Animation, Writing and Literature</small></span></a>' +
+        '<a class="s31-door" href="#veiled" data-jump="veiled">' + EMBLEM.riddle + '<span><b>Read the twelve riddles</b><small>One a day on this page; all twelve when you ask</small></span></a>' +
+        '<a class="s31-door" href="#build" data-jump="build">' + EMBLEM.work + '<span><b>Work with the House</b><small>Commission, partner, join, or write to it</small></span></a>' +
+      '</div>';
+    thr.parentNode.insertBefore(box, thr.nextSibling);
+  }
+  /* 2. the page in chapters: an index after the sentence, so the long scroll has a map */
+  var CHAPTERS = [["explore", "The four open worlds"], ["veiled", "The twelve sealed doors"], ["model", "How the House works"], ["house", "What the House is"], ["standards", "The ten rules"], ["work", "The work and the learning"], ["building", "What is being built"], ["build", "Enter, build, connect"]];
+  function index(){
+    if ($("#index31")) return; var at = $("#sentence31"); if (!at) return;
+    var nav = h("nav", "index31"); nav.id = "index31"; nav.setAttribute("aria-label", "The page, chapter by chapter");
+    var list = CHAPTERS.filter(function (c){ var s = document.getElementById(c[0]); return s && !s.hidden; });
+    nav.innerHTML = '<p class="s31-k">The page, chapter by chapter</p><ol>' + list.map(function (c, i){ return '<li><a href="#' + c[0] + '" data-jump="' + c[0] + '"><span class="n">' + (i + 1) + '</span>' + c[1] + '</a></li>'; }).join("") + '</ol>';
+    at.parentNode.insertBefore(nav, at.nextSibling);
+  }
+  document.addEventListener("click", function (e){ var a = e.target && e.target.closest ? e.target.closest("[data-jump]") : null; if (!a) return; var s = document.getElementById(a.getAttribute("data-jump")); if (!s) return; e.preventDefault(); unfold(s); try { s.scrollIntoView({ behavior:"smooth", block:"start" }); } catch (x) { s.scrollIntoView(); } });
+  /* 3. the long chapters fold to their opening, with one press to read the whole */
+  var FOLD = { model:"the ten stages", standards:"the ten rules", building:"every room being built", protected:"the register and the two doors", house:"what the House is" };
+  function fold(){
+    Object.keys(FOLD).forEach(function (id){
+      var s = document.getElementById(id); if (!s || s.hidden || s.getAttribute("data-folded")) return;
+      var wrap = s.querySelector(".wrap"); if (!wrap) return;
+      var head = wrap.querySelector(".chapter-head"); if (!head) return;
+      var body = h("div", "fold31"); var kids = Array.prototype.slice.call(wrap.children).filter(function (c){ return c !== head; }); if (!kids.length) return;
+      kids.forEach(function (c){ body.appendChild(c); }); wrap.appendChild(body);
+      var more = h("button", "fold31-more", "Read " + FOLD[id] + " <span aria-hidden=\"true\">↓</span>"); more.type = "button"; more.setAttribute("aria-expanded", "false");
+      more.addEventListener("click", function (){ if (s.getAttribute("data-folded") === "open") { s.setAttribute("data-folded", "closed"); more.setAttribute("aria-expanded", "false"); more.innerHTML = "Read " + FOLD[id] + " <span aria-hidden=\"true\">↓</span>"; try { s.scrollIntoView({ block:"start" }); } catch (x) {} } else { unfold(s); } });
+      wrap.appendChild(more); s.setAttribute("data-folded", "closed");
+    });
+    /* the development record's stage groups travel with their chapter */
+    var b = document.getElementById("building"); if (b) $$("section.stage-group").forEach(function (g){ if (!g.getAttribute("data-folded")) { g.setAttribute("data-folded", "closed"); g.setAttribute("data-fold-of", "building"); } });
+  }
+  function unfold(s){ if (!s) return; if (s.getAttribute("data-folded")) { s.setAttribute("data-folded", "open"); var m = s.querySelector(".fold31-more"); if (m) { m.setAttribute("aria-expanded", "true"); m.innerHTML = "Fold this chapter <span aria-hidden=\"true\">↑</span>"; } } if (s.id === "building") $$("section.stage-group").forEach(function (g){ g.setAttribute("data-folded", "open"); }); }
+  /* 4. the twelve sealed doors: one riddle a day on the page, all twelve when asked */
+  function seal(){
+    var s = document.getElementById("veiled"); if (!s || s.getAttribute("data-seal31")) return;
+    var list = s.querySelector("ol.cipher-list"); var entries = list ? $$(".cip-entry", list) : []; if (!entries.length) return;
+    s.setAttribute("data-seal31", "closed");
+    var day = Math.floor(Date.now() / 86400000) % entries.length; var pick = entries[day];
+    var n = (pick.querySelector(".cip-n") || {}).textContent || ""; var riddle = (pick.querySelector(".cip-riddle") || pick.querySelector(".cip-body p") || {}).textContent || "";
+    var card = h("div", "seal31"); card.innerHTML = '<div class="seal31-top">' + EMBLEM.seal + '<div><p class="s31-k">Twelve doors, sealed</p><p class="seal31-say">Their names are withheld. One riddle is read here each day; the other eleven wait a press away. The House confirms nothing until a world opens.</p></div></div>' +
+      '<p class="seal31-n">Door ' + n + ' · today’s riddle</p><p class="seal31-riddle">' + riddle.replace(/[&<>]/g, function (c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;" }[c]; }) + '</p>' +
+      '<div class="seal31-acts"><button type="button" class="fold31-more seal31-all" aria-expanded="false">Read all twelve riddles <span aria-hidden="true">↓</span></button></div>';
+    list.parentNode.insertBefore(card, list);
+    card.querySelector(".seal31-all").addEventListener("click", function (){ var open = s.getAttribute("data-seal31") === "open"; s.setAttribute("data-seal31", open ? "closed" : "open"); this.setAttribute("aria-expanded", open ? "false" : "true"); this.innerHTML = open ? 'Read all twelve riddles <span aria-hidden="true">↓</span>' : 'Fold the twelve <span aria-hidden="true">↑</span>'; if (open) { try { s.scrollIntoView({ block:"start" }); } catch (x) {} } });
+  }
+  /* 5. a plain way home from every sub-page */
+  function home(){
+    var hash = String(location.hash || ""); var onHome = hash === "" || hash === "#" || hash === "#/" || /^#[a-z0-9-]+$/.test(hash);
+    var pill = $("#back31");
+    if (onHome) { if (pill) pill.remove(); return; }
+    if (!pill) { pill = h("a", "back31", '<span aria-hidden="true">←</span> Back to the House'); pill.id = "back31"; pill.href = "#/"; pill.setAttribute("data-link", ""); document.body.appendChild(pill); }
+  }
+  window.addEventListener("hashchange", function (){ setTimeout(home, 50); });
+  /* 6. the drawn marks on the four worlds, brought forward */
+  function marks(){ $$("ul.worlds .world-row").forEach(function (li){ li.classList.add("marked31"); }); }
+  function pass(){ try { sentence(); index(); fold(); seal(); marks(); home(); } catch (e) {} }
+  var mo = new MutationObserver(function (){ pass(); });
+  function start(){ pass(); try { mo.observe(document.body, { childList:true, subtree:true }); } catch (e) {} setTimeout(pass, 1200); setTimeout(pass, 3000); setTimeout(pass, 6000); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
 
