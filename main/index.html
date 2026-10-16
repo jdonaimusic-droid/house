@@ -6,7 +6,7 @@
 <title>House of Worlds — A Black woman-founded independent creative institute</title>
 <meta name="description" content="House of Worlds is a Black woman-founded independent creative institute where original worlds are built, studied, protected, and carried across forms. Founded and curated by JDONAI.">
 <meta name="theme-color" content="#0B0B0F">
-<meta name="release" content="33.0.0">
+<meta name="release" content="33.1.0">
 <meta name="author" content="JDONAI">
 <link rel="icon" type="image/svg+xml" href="/assets/house-of-worlds-mark.svg">
 <link rel="icon" type="image/png" sizes="180x180" href="/assets/house-of-worlds-mark.png">
@@ -41,7 +41,7 @@
   "@type":"Organization",
   "name":"House of Worlds",
   "alternateName":"HOW",
-  "description":"House of Worlds is a Black woman-founded independent creative institute where original worlds are built, studied, protected, and carried across forms. Across sixteen worlds the House develops original work, builds a public body of knowledge, collaborates with creators, clients and partners, and protects what is not ready to open.",
+  "description":"House of Worlds is a Black woman-founded independent creative institute where original worlds are built, studied, protected, and carried across forms. Across sixteen destinations, four of them open worlds, the House develops original work, builds a public body of knowledge, collaborates with creators, clients and partners, and protects what is not ready to open.",
   "founder":{"@type":"Person","name":"JDONAI"},
   "knowsAbout":["creative practice","original storytelling","intellectual property stewardship","cultural memory","research","preservation"]
 }
@@ -2853,12 +2853,24 @@ a.ms-t:hover,a.ms-t:focus-visible{border-bottom-color:var(--gold)}
     <dl class="provenance">
       <div>
         <dt>House Original</dt>
-        <dd>Created or owned by House of Worlds.</dd>
+        <dd>Created or owned by House of Worlds.
+          <dl class="prov-facts">
+            <dt>Creator credit</dt><dd>The House, or the people who made it under the House's commission, each credited by name.</dd>
+            <dt>Rights</dt><dd>Owned by House of Worlds.</dd>
+            <dt>Selection</dt><dd>Chosen by the Founder for publication.</dd>
+            <dt>Publication</dt><dd>Published by the House, in a room the House has opened.</dd>
+          </dl></dd>
       </div>
       <div>
         <dt>House Curated</dt>
         <dd>Created elsewhere, and selected or presented by House of Worlds. It is never described
-        as a House Original.</dd>
+        as a House Original.
+          <dl class="prov-facts">
+            <dt>Creator credit</dt><dd>Its own creator, named with the work.</dd>
+            <dt>Rights</dt><dd>Stay with their owner; the House presents under a written agreement and claims nothing.</dd>
+            <dt>Selection</dt><dd>Chosen by the Founder for presentation.</dd>
+            <dt>Publication</dt><dd>Presented by the House, with the selection stated rather than implied.</dd>
+          </dl></dd>
       </div>
     </dl>
     <p class="work-policy">Nobody uploads or self-publishes here. The House publishes its own work, and work it selects, through the rooms it opens for that purpose. Each of those rooms carries its own state on this page, and none is called open before the Founder opens it.</p>
@@ -2897,9 +2909,7 @@ a.ms-t:hover,a.ms-t:focus-visible{border-bottom-color:var(--gold)}
       </div>
       <p class="chapter-note">Guides, lessons, exercises, research, case studies, reading lists,
       resources, templates, tutorials, masterclasses, a glossary and ordered learning paths.
-      The rooms inside the four open worlds are its first published structure: each room with its
-      perspective, its introduction and what it will hold. The material follows room by room as the
-      work produces it, and every claim carries a source.</p>
+      The <span data-n="rooms">127</span> rooms inside the <span data-n="open">four</span> open worlds are published as outlines: each with its perspective, its introduction and what it will hold. They are structure, not articles. When an article is published in a room it carries its author, its date and its sources.</p>
     </div>
     <div id="learn-links"></div>
   </div>
@@ -3405,7 +3415,7 @@ function roadmapKeys() {
   return out;
 }
 
-var RELEASE = "33.0.0";
+var RELEASE = "33.1.0";
 var RELEASE_KEY = "v" + RELEASE.split(".").slice(0, 2).join(".");   /* v29.10 */
 
 var HOW = {
@@ -6730,7 +6740,7 @@ var STATIC_PAGES = {
       ["Reading", "This site is free to read. What is published here is the House's own work and is protected by copyright; " +
         "you may quote it with attribution and may not reproduce it, republish it or train anything on it without the House's " +
         "written agreement."],
-      ["What is published, and what is not", "Four of the sixteen worlds are open; twelve are under seal and their names are " +
+      ["What is published, and what is not", "Four of the House’s sixteen destinations are open worlds; twelve are under seal and their names are " +
         "not published. The rooms of the open worlds are published as structure; their material follows as the work produces " +
         "it. Nothing here is advice, and nothing here is an offer until it is agreed in writing."],
       ["Writing to the House", "A note written through this site is read by a person at the House and answered by email. It " +
@@ -6753,8 +6763,7 @@ var STATIC_PAGES = {
         "reachable and usable by keyboard, with a visible focus ring; headings in order; names on every control and image; " +
         "no motion for a visitor who has asked their system for less; the small-screen menu closes on Escape; nothing below " +
         "twelve pixels carries information."],
-      ["What is known and not yet done", "The site is one page that changes its address as you move, so a screen reader hears " +
-        "each new page announced by its heading rather than by a page load. The model figure and the orbit are drawings and " +
+      ["What is known and not yet done", "The site is one page that changes its address as you move, so a screen reader hears " + "each new page announced by its heading rather than by a page load. The House has checked the keyboard path, the focus ring, the heading order and the text sizes in a browser; it has not yet run a screen reader against the site, and says so rather than claiming it. The model figure and the orbit are drawings and " +
         "are described in words beside them, not inside them. There is no plain-text version of the sealed-wing cipher."],
       ["Tell the House", "If something on this site cannot be used, write to the House through Connect and say what you " +
         "were trying to do and what happened. It is read by a person and answered."],
@@ -6918,7 +6927,7 @@ function renderExplore(h1, lede, body, cr) {
   cr.innerHTML = crumbs([{ label: "House of Worlds", route: "#/" }, { label: "Explore the Worlds" }]);
   h1.textContent = "Explore the Worlds";
   lede.hidden = false;
-  lede.textContent = "Sixteen worlds. Four are open. Twelve are under seal, and their names are " +
+  lede.textContent = "Sixteen destinations. Four worlds are open. Twelve are under seal, and their names are " +
     "not published.";
   markNav("#/explore");
 
@@ -7773,8 +7782,7 @@ var DOORS = {
     terms: "Free to read, and free to cite with attribution. The House keeps the right to correct " +
            "what it has published, and records the correction rather than quietly editing.",
     status: "Open, and growing as the work produces it. The 127 rooms inside the four open worlds " +
-            "are published as structure, each with its perspective and what it will hold; the material " +
-            "follows room by room.",
+            "are published as outlines, each with its perspective, its introduction and what it will hold. They are " + "structure, not sourced articles; an article published in a room carries its author, its date and its sources.",
     next: ["Walk the corridor", "#/explore"]
   },
 
@@ -9027,20 +9035,24 @@ else boot();
 </script>
 
 <!-- v30: the addresses of the two portals, in one place; the page reads them for its two sign-in doors. The Founder's dashboard is not public and is not here. -->
-<script type="application/json" id="how-portals">{"client":"https://jdonaimusic-droid.github.io/house/portal/","team":"https://jdonaimusic-droid.github.io/house/team/"}</script>
+<script type="application/json" id="how-portals">{"declared":"page build 2026-10-16","team":{"url":"https://jdonaimusic-droid.github.io/house/team/","release":"v37.1","approved":true,"openTo":"by invitation from the House, for the people it has invited to test"},"client":{"url":"https://jdonaimusic-droid.github.io/house/portal/","release":"v6.0","approved":true}}</script>
 
 
-<!-- v33: one layer over the page: counts and every four/twelve claim from the record, the portal doors from the record and a readiness check, folded chapters hidden until asked, chapter addresses that survive Back and Forward, one riddle a day on the House's clock, the news stamp, the way home. -->
-<style id="main33-look">
-/* v33: one layer, in the page's own manner: fine rules, no gradients, no rounded cards, a visible focus ring on every
-   control, and no information set below twelve pixels. Replaces the v32 stylesheet. */
+
+<!-- v33.1: one layer over the page: one validated public state and every count from it, the portal doors as checked, the founder's note from one source, folded chapters hidden until asked, chapter addresses that survive Back and Forward, one riddle a day on the House's clock, the news band's accepted time, the version labels. -->
+<style id="main331-look">
+/* v33.1: one layer, in the page's own manner: fine rules, no gradients, no rounded cards, a visible focus ring on every
+   control, and no information set below twelve pixels. Replaces the v33.0 stylesheet. */
 /* nothing below twelve pixels carries information: every small caption on the page, brought up to size */
-.model-figure .num,.cip-state,.cipher-count,.dsp-aside::before,.dsp-cat,.dsp-when,.stage-count,.notice-row-when,.ip-path li::before,.motion-arch-k,.motion-arch .s,.now-showing,.motion-when,.idx > h2,.tl-noname,.status3 dt,.w-name .s,.pulse-row dt{font-size:12px}
-.cip-state{letter-spacing:.16em}.cip-n{font-size:.95rem}.cip-read-t{font-size:.8rem}.dsp-cat,.stage-count{letter-spacing:.12em}.links .s{font-size:.76rem;letter-spacing:.14em}
+.model-figure .num,.cip-state,.cipher-count,.dsp-aside::before,.dsp-cat,.dsp-when,.stage-count,.notice-row-when,.ip-path li::before,.motion-arch-k,.motion-arch .s,.now-showing,.motion-when,.idx > h2,.tl-noname,.status3 dt,.w-name .s,.pulse-row dt,.ltr-label,.ltr-opt,.ltr-boundary h3,.press-state-k,.press-f h3,.links .p,.links .s,ul.intents li a .p,ul.intents li a .s,#model span.k,.ask-form button .arw,.ltr-form button .arw{font-size:12px}
+/* the numerals on the drawn model figure: a readable grey at full strength, not a faint metal */
+.model-figure .num{fill:var(--faint,#8A857C);opacity:1}
+.cip-state{letter-spacing:.16em}.cip-n{font-size:.95rem}.cip-read-t{font-size:.8rem}.dsp-cat,.stage-count{letter-spacing:.12em}.links .s{letter-spacing:.14em}
 .cip-standard{margin:.8rem 0 0;font-size:.95rem;line-height:1.55;color:var(--muted,#B7B1A6);border-top:1px solid var(--hair,rgba(244,239,229,.07));padding-top:.6rem}
 .pending-next{display:inline-block;margin-top:.45rem;font-family:var(--mono,ui-monospace,monospace);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold,#C6A15B);text-decoration:none}
 .pending-next:hover{color:#E4BE45;text-decoration:underline}
 .dsp-read{margin:1rem 0 0;font-size:.82rem;color:var(--faint,#8A857A)}
+.pulse-when{margin:.6rem 0 0;font-size:.82rem;color:var(--faint,#8A857A)}
 /* the hero: one sentence of definition, the doors in a hierarchy, the counts from the record */
 .threshold .thr-say{max-width:54ch;font-size:clamp(17px,1.3vw,19px);line-height:1.6}
 .threshold .thr-acts{margin-top:clamp(26px,4vh,44px);gap:clamp(18px,3vw,40px)}
@@ -9048,8 +9060,11 @@ else boot();
 .thr-third a{color:var(--ivory,#F4EFE5);text-decoration:none;border-bottom:1px solid rgba(198,161,91,.45)}
 .thr-third a:hover{border-bottom-color:#E4BE45}
 .thr-foot{font-family:var(--mono,ui-monospace,monospace)}
-/* the publishing policy, where the House explains what it makes */
+/* the publishing policy, where the House explains what it makes; the two kinds of work as four separate facts */
 .work-policy{margin:1.4rem 0 0;max-width:62ch;font-size:.98rem;line-height:1.6;color:var(--muted,#B7B1A6);border-top:1px solid var(--hair,rgba(244,239,229,.07));padding-top:1rem}
+.prov-facts{margin:.6rem 0 0;padding:0;display:grid;grid-template-columns:auto 1fr;gap:.25rem .9rem;font-size:.92rem;line-height:1.5}
+.prov-facts dt{margin:0;font-family:var(--mono,ui-monospace,monospace);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C6A15B);padding-top:.2rem}
+.prov-facts dd{margin:0;color:var(--muted,#B7B1A6)}
 /* the chapter index: one quiet line after the four worlds, not a chapter of its own */
 .index33{max-width:1120px;margin:0 auto;padding:clamp(10px,1.6vh,18px) clamp(20px,4vw,48px) clamp(12px,1.8vh,22px);border-top:1px solid var(--hair,rgba(244,239,229,.07));display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem .55rem}
 .i33-k{font-family:var(--mono,ui-monospace,monospace);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#C6A15B);margin:0 .5rem 0 0}
@@ -9069,23 +9084,33 @@ section[data-folded="closed"]{padding-bottom:clamp(40px,5vh,70px)}
 .seal33-say{margin:0 0 .4rem;color:var(--muted,#B7B1A6);font-size:.95rem;line-height:1.5;max-width:60ch}
 #veiled[data-seal33="open"] .seal33-all{margin-bottom:1.2rem}
 #veiled ol.cipher-list:focus{outline:none}
-/* the two portal cards: the page's own door rows, the state in the page's own words */
+/* the two portal cards: the page's own door rows, the state in the page's own words, a retry where a retry is honest */
 .links li.portal-door .s{color:var(--gold,#C6A15B)}
 .links li.portal-door .go{display:block;margin-top:.5rem;font-family:var(--mono,ui-monospace,monospace);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C6A15B)}
+.door-retry{display:inline-flex;align-items:center;margin:.2rem 0 .9rem;min-height:2.2rem;padding:.2rem 0;border:0;border-bottom:1px solid rgba(198,161,91,.6);background:transparent;color:var(--ivory,#F4EFE5);font-family:var(--mono,ui-monospace,monospace);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.door-retry:hover{color:#E4BE45;border-bottom-color:#E4BE45}
+.door33{margin-top:2rem;border-top:1px solid var(--hair,rgba(244,239,229,.07));padding-top:1rem}
+.door33 .i33-k{margin-bottom:.6rem}
+/* a notice's own facts: who, when, what changed */
+.notice-meta33{margin:1.6rem 0 0;padding:1rem 0 0;border-top:1px solid var(--hair,rgba(244,239,229,.07));display:grid;grid-template-columns:auto 1fr;gap:.3rem 1rem;font-size:.92rem}
+.notice-meta33 dt{margin:0;font-family:var(--mono,ui-monospace,monospace);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C6A15B)}
+.notice-meta33 dd{margin:0;color:var(--muted,#B7B1A6)}
 /* the way home: a quiet fixed line, not a pill */
 .back33{position:fixed;left:16px;bottom:16px;z-index:50;display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .85rem;border:1px solid rgba(198,161,91,.5);background:var(--ink,#0E0D12);color:var(--ivory,#F4EFE5);text-decoration:none;font-size:.9rem}
 .back33:hover{border-color:#E4BE45;color:#E4BE45}
 /* the drawn marks on the four worlds, at full strength */
 .world-row.marked33 .w-mark{opacity:1}
 .world-row.marked33 .w-mark line,.world-row.marked33 .w-mark path,.world-row.marked33 .w-mark circle,.world-row.marked33 .w-mark rect,.world-row.marked33 .w-mark polyline{stroke-opacity:1;stroke-width:1.6}
+/* the version line in the footer */
+.foot-ver{font-family:var(--mono,ui-monospace,monospace);font-size:12px;letter-spacing:.06em}
 /* keyboard: every control on the page shows where focus is, in one colour */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid #E4BE45;outline-offset:3px}
 .find input:focus-visible{outline:2px solid #E4BE45;outline-offset:3px}
-.pending-next:focus-visible,.thr-third a:focus-visible,.index33 a:focus-visible,.fold33-more:focus-visible,.back33:focus-visible,.links li.portal-door a:focus-visible{outline:2px solid #E4BE45;outline-offset:4px;color:#E4BE45}
+.pending-next:focus-visible,.thr-third a:focus-visible,.index33 a:focus-visible,.fold33-more:focus-visible,.door-retry:focus-visible,.back33:focus-visible,.links li.portal-door a:focus-visible{outline:2px solid #E4BE45;outline-offset:4px;color:#E4BE45}
 h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 h2[tabindex="-1"]:focus-visible{outline:2px solid #E4BE45;outline-offset:6px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media (max-width:760px){.back33{left:12px;bottom:12px;font-size:.86rem}.seal33-riddle{font-size:1.2rem}.threshold .thr-say{font-size:16.5px}.index33{gap:.25rem .5rem}.index33 a,.i33-dot{font-size:.82rem}}
+@media (max-width:760px){.back33{left:12px;bottom:12px;font-size:.86rem}.seal33-riddle{font-size:1.2rem}.threshold .thr-say{font-size:16.5px}.index33{gap:.25rem .5rem}.index33 a,.i33-dot{font-size:.82rem}.prov-facts,.notice-meta33{grid-template-columns:1fr}}
 /* the first screen: the definition and the two doors inside one viewport on an ordinary screen */
 .threshold .wrap{padding-top:clamp(20px,4vh,56px);padding-bottom:clamp(18px,3vh,40px)}
 .threshold .thr-label{margin-bottom:clamp(10px,1.6vh,22px)}
@@ -9099,52 +9124,118 @@ h2[tabindex="-1"]:focus-visible{outline:2px solid #E4BE45;outline-offset:6px}
 @media (max-width:760px) and (max-height:620px){.threshold .wrap{padding-top:6px}.threshold .thr-label{font-size:12px;letter-spacing:.14em;line-height:1.35;gap:.1rem .7rem;margin-bottom:6px}.threshold .thr-mark{font-size:2.1rem;margin-bottom:6px}.threshold .thr-accent{margin:6px 0}.threshold .thr-id{font-size:1.05rem;margin:4px 0}.threshold .thr-say{font-size:14.5px;line-height:1.42}.threshold .thr-by{margin-top:6px;font-size:12px}.threshold .thr-acts{margin-top:8px;gap:8px}.threshold .thr-acts .act{padding-top:.1rem;padding-bottom:.1rem}.thr-third{margin-top:8px}.threshold .thr-foot{margin-top:8px}}
 
 </style>
-<script id="main33">
-/* v33: one layer, refined again. Counts and every four/twelve claim come from the approved record; the portal cards use
-   the record's own schema and a readiness probe before offering a door; folded chapters are hidden entirely until
-   asked; chapter links change the address and survive Back and Forward; the daily riddle follows the record and the
-   House's own clock. Nothing the House says about a world is invented. */
+<script id="main331">
+/* v33.1: one layer over the page. Every count comes from one validated public state and a record that disagrees with
+   itself is refused; the portal doors say what was actually checked; the founder's note has one source; the folds are
+   hidden until asked; chapter addresses survive Back and Forward; the riddle follows the record on the House's clock;
+   the news band names when the record was accepted; the version labels say what each one is. Nothing here invents. */
 (function (){
   function $(s, r){ return (r || document).querySelector(s); }
   function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
   function h(tag, cls, html){ var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
   function esc(s){ return String(s || "").replace(/[&<>"]/g, function (c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
   var HOUSE_TZ = "America/New_York";
-  var reduced = false; try { reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
-  var portals = null; try { portals = JSON.parse(($("#how-portals") || {}).textContent || "null"); } catch (e) { portals = null; }
   var W = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
   function word(n){ return n >= 0 && n < W.length ? W[n] : String(n); } function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
-  /* ---- the record ---- */
+  function longDate(iso){ var d = new Date(iso + (String(iso).length === 10 ? "T12:00:00" : "")); return isNaN(d) ? String(iso) : d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" }); }
+  function clock(d){ return d.toLocaleTimeString(undefined, { hour:"numeric", minute:"2-digit", second:"2-digit", timeZoneName:"short" }); }
+  function setText(el, text){ if (el && text != null && el.textContent !== text) el.textContent = text; }
+  var portals = null; try { portals = JSON.parse(($("#how-portals") || {}).textContent || "null"); } catch (e) { portals = null; }
   function entity(key){ try { if (typeof ent === "function") return ent(key) || null; } catch (e) {} try { return (window.HOW && HOW.byKey && HOW.byKey[key]) || null; } catch (e) { return null; } }
   function recordSource(){ try { return (window.HOW && HOW.state && HOW.state.source) || "snapshot"; } catch (e) { return "snapshot"; } }
   function snapshotBuilt(){ try { return window.HOW_SNAPSHOT["state.json"].builtAt || null; } catch (e) { return null; } }
-  function longDate(iso){ var d = new Date(iso + (String(iso).length === 10 ? "T12:00:00" : "")); return isNaN(d) ? String(iso) : d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" }); }
-  /* the counts: the approved record first (house_explore: open worlds and sealed doors), the homepage's own lists only as a fallback */
+
+  /* ================================================================
+     1. ONE VALIDATED PUBLIC STATE
+     The registry (house_public_state) classifies every entity. The Explore record (house_explore) lists the open worlds
+     and the numbered sealed doors. The record's own rule, written in institute.public_explore(): a door is a sealed
+     entity typed world or collection. The two are checked against each other every time either arrives, and a record
+     that disagrees with itself or with the registry is refused: the previous record stands and the console says why.
+     ================================================================ */
+  var DOOR_TYPES = ["world", "collection"];
+  function registry(){
+    var ents = window.HOW && HOW.state && HOW.state.entities; if (!ents || !ents.length) return null;
+    var open = ents.filter(function (e){ return e.type === "world" && e.state === "open"; });
+    var sealed = ents.filter(function (e){ return DOOR_TYPES.indexOf(e.type) >= 0 && e.state === "sealed"; });
+    var sealedWorlds = sealed.filter(function (e){ return e.type === "world"; });
+    return { open:open.length, sealed:sealed.length, sealedWorlds:sealedWorlds.length, sealedOther:sealed.length - sealedWorlds.length, total:open.length + sealed.length, keys:sealed.map(function (e){ return e.key; }) };
+  }
+  function validateExplore(p){
+    if (!p || !p.counts) return { ok:false, why:"no counts" };
+    var open = (p.open || []).length, sealed = (p.sealed || []).length, c = p.counts;
+    if (Number(c.open) !== open) return { ok:false, why:"counts.open " + c.open + " but " + open + " open entries" };
+    if (Number(c.sealed) !== sealed) return { ok:false, why:"counts.sealed " + c.sealed + " but " + sealed + " sealed entries" };
+    if (Number(c.total) !== open + sealed) return { ok:false, why:"counts.total " + c.total + " but " + (open + sealed) + " entries" };
+    /* door numbers are identities, not positions: each is a distinct whole number within the sixteen, and a door keeps its number when its neighbours open */
+    var doors = (p.sealed || []).map(function (d){ return Number(d.door); }).sort(function (a, b){ return a - b; });
+    for (var i = 0; i < doors.length; i++) { if (!(doors[i] >= 1 && doors[i] <= open + sealed) || doors[i] !== Math.floor(doors[i])) return { ok:false, why:"door number " + doors[i] + " is outside 1 to " + (open + sealed) }; if (i && doors[i] === doors[i - 1]) return { ok:false, why:"door number " + doors[i] + " is used twice" }; }
+    var reg = registry();
+    if (reg) {
+      if (reg.open !== open) return { ok:false, why:"the registry holds " + reg.open + " open worlds, the Explore record " + open };
+      if (reg.sealed !== sealed) return { ok:false, why:"the registry holds " + reg.sealed + " sealed doors (world or collection), the Explore record " + sealed };
+      var unknown = (p.sealed || []).filter(function (d){ return d.token && reg.keys.indexOf(d.token) < 0; }).length;
+      if (unknown) return { ok:false, why:unknown + " door token(s) match no sealed entity in the registry" };
+    }
+    return { ok:true, why:null };
+  }
+  try {
+    if (typeof setExplore === "function" && !setExplore.__v33) {
+      var _setExplore = setExplore;
+      var se2 = function (payload, source){
+        var v = validateExplore(payload);
+        if (!v.ok) { try { console.error("House of Worlds — the Explore record (" + (source || "unknown") + ") was refused: " + v.why + ". The previous record stands."); } catch (e) {} return false; }
+        return _setExplore.apply(this, arguments);
+      };
+      se2.__v33 = true; setExplore = se2;
+    }
+  } catch (e) {}
   function tally(){
     var open = null, sealed = null;
     try { var ex = window.HOW && HOW.explore; if (ex) { if (Array.isArray(ex.open)) open = ex.open.length; if (Array.isArray(ex.sealed)) sealed = ex.sealed.length; } } catch (e) {}
-    if (open == null) open = $$("#explore ul.worlds > li").length || null;
-    if (sealed == null) sealed = $$("#veiled .cip-entry").length || null;
-    return { open:open, sealed:sealed, total:(open != null && sealed != null) ? open + sealed : null };
+    var rooms = null; try { rooms = (HOW.routes && HOW.routes.rooms && HOW.routes.rooms.length) || (HOW.search && HOW.search.length) || null; } catch (e) {}
+    var reg = registry();
+    return { open:open, sealed:sealed, total:(open != null && sealed != null) ? open + sealed : null, rooms:rooms, agree:!reg || open == null || (reg.open === open && reg.sealed === sealed), reg:reg };
   }
-  function setText(el, text){ if (el && text != null && el.textContent !== text) el.textContent = text; }
-  /* 1. every four/twelve claim, from the record */
+  try { window.HOUSE_COUNTS = function (){ return tally(); }; window.HOUSE_VALIDATE = validateExplore; } catch (e) {}
+
+  /* every public four / twelve / sixteen statement, written from that one state */
+  var RIDDLES = null;
   function claims(){
     var t = tally(); if (t.open == null || t.sealed == null) return;
-    var o = word(t.open), s = word(t.sealed), T = t.total != null ? word(t.total) : null;
-    setText($(".thr-foot"), cap(o) + (t.open === 1 ? " world open" : " worlds open") + " · " + cap(s) + " under seal · The record is public");
-    var third = $("#thr-third [data-sealed-count]"); setText(third, s);
-    var hero1 = $(".thr-acts a.act:not(.quiet)"); if (hero1) { var want = "Walk the " + o + " open " + (t.open === 1 ? "world" : "worlds"); var span = hero1.firstChild; if (span && span.nodeType === 3 && span.textContent.trim() !== want) span.textContent = want + " "; }
+    var o = word(t.open), s = word(t.sealed), T = word(t.total), oP = t.open === 1 ? "world" : "worlds";
+    setText($(".thr-foot"), cap(o) + " " + oP + " open · " + cap(s) + " under seal · The record is public");
+    $$("[data-n]").forEach(function (el){ var k = el.getAttribute("data-n"); var v = k === "open" ? o : k === "sealed" ? s : k === "total" ? T : k === "rooms" ? (t.rooms != null ? String(t.rooms) : null) : null; if (v != null) setText(el, v); });
+    var hero1 = $(".thr-acts a.act:not(.quiet)"); if (hero1) { var want = "Walk the " + o + " open " + oP; var span = hero1.firstChild; if (span && span.nodeType === 3 && span.textContent.trim() !== want) span.textContent = want + " "; }
+    var third = $("#thr-third"); if (third) { var html = (RIDDLES === 0) ? 'The <a href="#veiled" data-jump="veiled"><span data-n="sealed">' + s + '</span> sealed doors</a> are numbered; no riddle is published today.' : 'Or read today’s riddle from the <a href="#veiled" data-jump="veiled"><span data-n="sealed">' + s + '</span> sealed doors</a>.'; if (third.innerHTML.replace(/\s+/g, " ") !== html) third.innerHTML = html; }
     setText($("#explore-h"), cap(o) + (t.open === 1 ? " is open." : " are open."));
     setText($("#cipher-h"), cap(s) + (t.sealed === 1 ? " remains unnamed." : " remain unnamed."));
-    var close = $("#veiled .cipher-close"); setText(close, cap(s) + " names are withheld. " + cap(s) + " guesses belong to you. The House confirms nothing until a world opens.");
+    $$(".cipher-close").forEach(function (el){ setText(el, cap(s) + " names are withheld. " + cap(s) + " guesses belong to you. The House confirms nothing until a door opens."); });
     setText($("#ex-open-h"), cap(o) + (t.open === 1 ? " is open" : " are open"));
     setText($("#ex-cipher-h"), cap(s) + (t.sealed === 1 ? " remains unnamed." : " remain unnamed."));
-    var lede = $("#route-lede"); if (lede && /^Sixteen worlds\. Four are open\. Twelve are under seal/.test(lede.textContent)) setText(lede, lede.textContent.replace(/^Sixteen worlds\. Four are open\. Twelve are under seal/, (T ? cap(T) : "Sixteen") + " worlds. " + cap(o) + " are open. " + cap(s) + " are under seal"));
-    var idx = $("#index33 a[data-jump=\"explore\"]"); if (idx) setText(idx.lastChild, "The " + o + " open worlds");
-    var seal = $(".seal33-say"); if (seal) setText(seal, "One of " + s + " sealed doors. Their names are withheld; one riddle is read here each day on the House’s clock, the rest on request. The House confirms nothing until a world opens.");
+    var lede = $("#route-lede"); if (lede && !lede.hidden && /^\w+ destinations\. \w+ worlds? (is|are) open\. \w+ (is|are) under seal/.test(lede.textContent)) setText(lede, cap(T) + " destinations. " + cap(o) + " " + oP + " " + (t.open === 1 ? "is" : "are") + " open. " + cap(s) + " " + (t.sealed === 1 ? "is" : "are") + " under seal, and their names are not published.");
+    var idx = $("#index33 a[data-jump=\"explore\"]"); if (idx) setText(idx.lastChild, "The " + o + " open " + oP);
+    var seal = $(".seal33-say"); if (seal) setText(seal, "One of " + s + " sealed doors. Their names are withheld; one riddle is read here each day on the House’s clock, the rest on request. The House confirms nothing until a door opens.");
+    /* the fixed sentences that carry a count, found by their shape and rewritten only when the count moved */
+    $$(".foot-fine").forEach(function (p){ var m = /^([\s\S]*?)\b(\w+) creative\s+destinations are under seal([\s\S]*)$/.exec(p.textContent); if (m && m[2] !== cap(s)) setText(p, m[1] + cap(s) + " creative destinations are under seal" + m[3]); });
+    $$("[data-view=route] p").forEach(function (p){
+      var m = /^(\w+) of the House’s (\w+) destinations are open worlds; (\w+) are under seal(.*)$/.exec(p.textContent);
+      if (m && (m[1] !== cap(o) || m[2] !== T || m[3] !== s)) setText(p, cap(o) + " of the House’s " + T + " destinations are open worlds; " + s + " are under seal" + m[4]);
+      var m2 = /^Searches the (\w+) open worlds?\.(.*)$/.exec(p.textContent);
+      if (m2 && m2[1] !== o) setText(p, "Searches the " + o + " open " + oP + "." + m2[2]);
+    });
+    /* the Learn page's standing line sits after a label in the same paragraph, so only its own text node is rewritten */
+    $$("[data-view=route] .door-status").forEach(function (p){
+      var tn = null; for (var i = p.childNodes.length - 1; i >= 0; i--) if (p.childNodes[i].nodeType === 3 && /Open, and growing/.test(p.childNodes[i].nodeValue)) { tn = p.childNodes[i]; break; }
+      if (!tn) return;
+      var m3 = /^Open, and growing as the work produces it\. The (\d+|\w+) rooms inside the (\w+) open worlds? are published as outlines([\s\S]*)$/.exec(tn.nodeValue);
+      if (m3 && (m3[2] !== o || (t.rooms != null && m3[1] !== String(t.rooms)))) tn.nodeValue = "Open, and growing as the work produces it. The " + (t.rooms != null ? t.rooms : m3[1]) + " rooms inside the " + o + " open " + oP + " are published as outlines" + m3[3];
+    });
+    if (!t.agree) { try { console.warn("House of Worlds — the registry and the Explore record disagree on the counts; the page shows the Explore record."); } catch (e) {} }
   }
-  /* 2. the chapter index: after the four worlds, slim; rebuilt when the set of visible chapters changes */
+
+  /* ================================================================
+     2. THE CHAPTER INDEX AND THE CHAPTER ADDRESSES
+     ================================================================ */
   var CHAPTERS = [["explore", "The four open worlds"], ["veiled", "The sealed doors"], ["model", "How the House works"], ["house", "What the House is"], ["standards", "The ten rules"], ["founder", "The founder’s note"], ["work", "The work"], ["learn", "Learn"], ["now", "Now in the House"], ["building", "What is being built"], ["enter", "Enter"], ["build", "Build with the House"], ["protected", "Protected"], ["connect", "Connect"]];
   function index(){
     var ex = document.getElementById("explore"); if (!ex) return;
@@ -9156,34 +9247,28 @@ h2[tabindex="-1"]:focus-visible{outline:2px solid #E4BE45;outline-offset:6px}
     nav.innerHTML = '<span class="i33-k">On this page</span>' + list.map(function (c){ return '<a href="#' + c[0] + '" data-jump="' + c[0] + '">' + c[1] + '</a>'; }).join('<span class="i33-dot" aria-hidden="true">·</span>');
     claims();
   }
-  /* 3. section addresses: #standards is a real address. The router is taught that a homepage section is the homepage. */
   var SECTIONS = CHAPTERS.map(function (c){ return c[0]; }).concat(["threshold", "dispatches", "gallery", "motion"]);
-  function sectionOf(hash){ var m = /^#([a-z][a-z0-9-]*)$/.exec(String(hash || "")); return m && SECTIONS.indexOf(m[1]) >= 0 && document.getElementById(m[1]) ? m[1] : null; }
+  /* a section that is on the page and not hidden; a fragment for an unpublished section is not a place and gets the page's own Not found */
+  function sectionOf(hash){ var m = /^#([a-z][a-z0-9-]*)$/.exec(String(hash || "")); if (!m || SECTIONS.indexOf(m[1]) < 0) return null; var el = document.getElementById(m[1]); return (el && !el.hidden) ? m[1] : null; }
+  var NAV_CLICK = 0;
   try {
     if (typeof parse === "function" && !parse.__v33) {
       var _parse = parse;
       var p2 = function (){ var r = _parse(); try { var id = sectionOf(location.hash); if (id && r && r.name !== "home") return { name:"home", path:"/", section:id, alias:false }; } catch (e) {} return r; };
       p2.__v33 = true; parse = p2;
     }
-    /* the page's own render scrolls the homepage to the top on every address change; a section address keeps its place */
     if (typeof render === "function" && !render.__v33) {
       var _render = render;
       var r2 = function (){
         var r = null; try { r = parse(); } catch (e) {}
         var wasHome = !!(window.HOW && HOW.route && HOW.route.name === "home"), byLink = (Date.now() - NAV_CLICK) < 400;
-        /* a chapter address on the homepage: the page stays where it is and this layer takes the reader to the chapter */
         if (r && r.section && wasHome && !window.PENDING) { HOW.route = r; try { if (typeof paintBack === "function") paintBack(); } catch (e) {} return; }
-        /* Back or Forward from a chapter address onto the homepage itself: the browser restores the place the reader was; a link to Home still goes to the top */
         if (r && r.name === "home" && !r.section && wasHome && HOW.route.section && !byLink && !window.PENDING) { HOW.route = r; try { if (typeof paintBack === "function") paintBack(); } catch (e) {} return; }
         return _render.apply(this, arguments);
       };
       r2.__v33 = true; r2._done = _render._done; render = r2;
     }
   } catch (e) {}
-  function focusHeading(s){ var hd = s.querySelector("h2, h1"); if (!hd) return; if (!hd.hasAttribute("tabindex")) hd.setAttribute("tabindex", "-1"); try { hd.focus({ preventScroll:true }); } catch (e) { try { hd.focus(); } catch (x) {} } }
-  /* the page lays itself out after the address changes and the page's own restore may still be scrolling: the position is
-     applied over several frames until it sticks, instantly, the way the page's own restore does it; focus is taken first */
-  /* the bar is fixed over the top of the page: a chapter lands beneath it, not behind it */
   function barHeight(){ try { var b = $(".bar"); if (!b) return 0; var p = getComputedStyle(b).position; return (p === "fixed" || p === "sticky") ? Math.round(b.getBoundingClientRect().height) : 0; } catch (e) { return 0; } }
   function goTo(s, focusEl){
     var root = document.documentElement, prev = root.style.scrollBehavior; root.style.scrollBehavior = "auto";
@@ -9195,26 +9280,25 @@ h2[tabindex="-1"]:focus-visible{outline:2px solid #E4BE45;outline-offset:6px}
       tries++; if (stuck < 3 && tries < 45) { setTimeout(apply, 16); return; }
       root.style.scrollBehavior = prev;
     }
-    /* timers, not animation frames: a frame never arrives in a background or throttled tab, and the visitor still has to land */
     setTimeout(apply, 0);
   }
-  function arrive(){ var id = sectionOf(location.hash); if (!id) return; var s = document.getElementById(id); if (!s) return; unfold(s); var hd = s.querySelector("h2, h1"); if (hd && !hd.hasAttribute("tabindex")) hd.setAttribute("tabindex", "-1"); goTo(s, hd); }
-  /* an address reached by a link is told apart from one reached by Back or Forward */
-  var NAV_CLICK = 0;
+  function headingOf(s){ var hd = s.querySelector("h2, h1"); if (hd && !hd.hasAttribute("tabindex")) hd.setAttribute("tabindex", "-1"); return hd; }
+  function arrive(){ var id = sectionOf(location.hash); if (!id) return; var s = document.getElementById(id); if (!s) return; unfold(s); goTo(s, headingOf(s)); }
   document.addEventListener("click", function (e){
     var a = e.target && e.target.closest ? e.target.closest("a[href^=\"#\"]") : null; if (!a) return;
     NAV_CLICK = Date.now();
-    /* a Home link pressed while a chapter address is showing: the page's own trail would record the homepage as a place to
-       return to and then "return" to it, leaving the reader where they were. Home is the top of the House. */
     var href = a.getAttribute("href") || "";
     if ((href === "#/" || href === "#") && a.hasAttribute("data-link") && window.HOW && HOW.route && HOW.route.name === "home" && HOW.route.section) { e.preventDefault(); e.stopPropagation(); location.hash = "#/"; }
   }, true);
   window.addEventListener("hashchange", function (){ setTimeout(home, 60); if (sectionOf(location.hash)) setTimeout(arrive, 120); });
-  /* a chapter link navigates the ordinary way (so the address changes and Back and Forward work); only a repeat press of the current address needs a nudge */
   document.addEventListener("click", function (e){ var a = e.target && e.target.closest ? e.target.closest("[data-jump]") : null; if (!a) return; var href = a.getAttribute("href") || ""; if (location.hash === href) { e.preventDefault(); arrive(); } });
-  /* the fixed bar is kept out of the way of the browser's own jumps to a fragment too */
+  /* a News jump lands on the news band: the address says so, and never names a different chapter */
+  document.addEventListener("click", function (e){ var j = e.target && e.target.closest ? e.target.closest("[data-news-jump]") : null; if (!j) return; setTimeout(function (){ try { if (window.HOW && HOW.route && HOW.route.name === "home" && sectionOf(location.hash) && location.hash !== "#dispatches" && document.getElementById("dispatches")) { history.replaceState(null, "", "#dispatches"); HOW.route.section = "dispatches"; } } catch (x) {} }, 80); });
   function pad(){ var want = barHeight() + "px"; var root = document.documentElement; if (root.style.scrollPaddingTop !== want) root.style.scrollPaddingTop = want; }
-  /* 4. the long chapters: hidden entirely until asked; the chapter note stays as the opening */
+
+  /* ================================================================
+     3. THE FOLDED CHAPTERS: hidden entirely until asked
+     ================================================================ */
   var FOLD = { model:"the ten stages", house:"what the House is", standards:"the ten rules", building:"every room being built", protected:"the register and the two doors" };
   function setFolded(s, closed){
     s.setAttribute("data-folded", closed ? "closed" : "open");
@@ -9231,81 +9315,229 @@ h2[tabindex="-1"]:focus-visible{outline:2px solid #E4BE45;outline-offset:6px}
       var kids = Array.prototype.slice.call(wrap.children).filter(function (c){ return c !== head; }); if (!kids.length) return;
       var body = h("div", "fold33"); body.id = id + "-body"; body.setAttribute("tabindex", "-1"); kids.forEach(function (c){ body.appendChild(c); });
       var more = h("button", "fold33-more"); more.type = "button"; more.setAttribute("aria-controls", body.id);
-      more.addEventListener("click", function (){ var closing = s.getAttribute("data-folded") === "open"; setFolded(s, closing); if (closing) { var hd = s.querySelector("h2, h1"); if (hd && !hd.hasAttribute("tabindex")) hd.setAttribute("tabindex", "-1"); goTo(s, hd); } else { try { body.focus({ preventScroll:true }); } catch (x) {} } });
+      more.addEventListener("click", function (){ var closing = s.getAttribute("data-folded") === "open"; setFolded(s, closing); if (closing) goTo(s, headingOf(s)); else { try { body.focus({ preventScroll:true }); } catch (x) {} } });
       wrap.appendChild(more); wrap.appendChild(body); setFolded(s, true);
     });
   }
-  /* 5. the sealed doors: one riddle a day on the House's clock, from the approved entries only; rebuilt when the record changes */
+
+  /* ================================================================
+     4. THE SEALED DOORS: one riddle a day on the House's clock, from the record; the numbered doors stay visible when no riddle is published
+     ================================================================ */
   function houseDay(){ try { var f = new Intl.DateTimeFormat("en-CA", { timeZone:HOUSE_TZ, year:"numeric", month:"2-digit", day:"2-digit" }); var p = f.format(new Date()); return Math.floor(Date.UTC(+p.slice(0, 4), +p.slice(5, 7) - 1, +p.slice(8, 10)) / 86400000); } catch (e) { return Math.floor(Date.now() / 86400000); } }
   function seal(){
     var s = document.getElementById("veiled"); if (!s) return; var list = s.querySelector("ol.cipher-list"); if (!list) return;
-    /* the approved record first: only doors that carry a riddle; the drawn list only if the record is not in hand */
     var entries = null;
     try { var rec = window.HOW && HOW.explore && Array.isArray(HOW.explore.sealed) ? HOW.explore.sealed : null; if (rec) entries = rec.slice().sort(function (a, b){ return Number(a.door || 0) - Number(b.door || 0); }).filter(function (d){ return d && d.riddle && String(d.riddle).trim(); }).map(function (d){ var n = Number(d.door) || 0; return { n:(n < 10 ? "0" : "") + n, riddle:String(d.riddle).trim() }; }); } catch (e) { entries = null; }
     if (!entries) entries = $$(".cip-entry", list).map(function (li){ var r = li.querySelector(".cip-riddle"); var t = r ? r.textContent.trim() : ""; return t ? { n:(li.querySelector(".cip-n") || {}).textContent || "", riddle:t } : null; }).filter(Boolean);
+    RIDDLES = entries.length;
     var sig = entries.map(function (e){ return e.n + ":" + e.riddle; }).join("|") + "#" + houseDay();
     var card = s.querySelector(".seal33"); if (card && card.getAttribute("data-sig") === sig) return;
-    if (!entries.length) { if (card) card.remove(); s.removeAttribute("data-seal33"); list.removeAttribute("inert"); list.removeAttribute("aria-hidden"); return; }
+    if (!entries.length) { if (card) card.remove(); s.removeAttribute("data-seal33"); list.hidden = false; list.removeAttribute("inert"); list.removeAttribute("aria-hidden"); claims(); return; }
     var pick = entries[houseDay() % entries.length]; var open = s.getAttribute("data-seal33") === "open";
     if (!card) { card = h("div", "seal33"); list.parentNode.insertBefore(card, list); }
     card.setAttribute("data-sig", sig);
     card.innerHTML = '<p class="i33-k">Today’s riddle · Door ' + esc(pick.n) + '</p><p class="seal33-riddle">' + esc(pick.riddle) + '</p><p class="seal33-say"></p><button type="button" class="fold33-more seal33-all" aria-controls="' + (list.id || "cipher-all") + '"></button>';
     list.id = list.id || "cipher-all";
     function set(o){ s.setAttribute("data-seal33", o ? "open" : "closed"); list.hidden = !o; if (o) list.removeAttribute("inert"); else list.setAttribute("inert", ""); var b = card.querySelector(".seal33-all"); b.setAttribute("aria-expanded", o ? "true" : "false"); b.innerHTML = o ? 'Fold the ' + word(entries.length) + ' <span aria-hidden="true">↑</span>' : 'Read all ' + word(entries.length) + ' riddles <span aria-hidden="true">↓</span>'; }
-    card.querySelector(".seal33-all").addEventListener("click", function (){ var o = s.getAttribute("data-seal33") === "open"; set(!o); if (o) { var hd = s.querySelector("h2, h1"); if (hd && !hd.hasAttribute("tabindex")) hd.setAttribute("tabindex", "-1"); goTo(s, hd); } else { try { list.setAttribute("tabindex", "-1"); list.focus({ preventScroll:true }); } catch (x) {} } });
+    card.querySelector(".seal33-all").addEventListener("click", function (){ var o = s.getAttribute("data-seal33") === "open"; set(!o); if (o) goTo(s, headingOf(s)); else { try { list.setAttribute("tabindex", "-1"); list.focus({ preventScroll:true }); } catch (x) {} } });
     set(open); claims();
   }
   var SEAL_LINE = "This door opens when the House opens it. There is nothing to send and nothing else to press; what is behind it stays unnamed until then.";
   document.addEventListener("click", function (e){ var btn = e.target && e.target.closest ? e.target.closest("[data-cipher-toggle]") : null; if (!btn) return; setTimeout(function (){ try { var id = btn.getAttribute("aria-controls"); var body = id ? document.getElementById(id) : null; if (!body || body.hidden || body.querySelector(".cip-standard")) return; var p = h("p", "cip-standard"); p.textContent = SEAL_LINE; body.appendChild(p); } catch (x) {} }, 0); });
-  /* 6. the portal cards: the record's own schema, and a door is offered only after the destination answered */
-  var READY = { team:null, client:null };
-  function probe(which, base){ if (!base || READY[which] !== null) return; READY[which] = false; var meta = which === "team" ? /name="team-portal-release"/ : /name="client-portal-release"/; fetch(base.replace(/\/?$/, "/") + "index.html", { cache:"no-store" }).then(function (r){ if (!r.ok) throw new Error(String(r.status)); return r.text(); }).then(function (t){ READY[which] = meta.test(t); doors(); }).catch(function (){ READY[which] = false; doors(); }); }
-  function card(cls, name, state, line, href, cta){ return '<li class="portal-door ' + cls + '"><a href="' + esc(href) + '"' + (/^https?:/.test(href) ? ' rel="noopener"' : ' data-link') + '><span class="t">' + esc(name) + '</span><span class="s">' + esc(state) + '</span><p class="d">' + esc(line) + '</p><span class="go">' + esc(cta) + ' →</span></a></li>'; }
-  function doors(){
-    var en = document.getElementById("enter-links"), bu = document.getElementById("build-links"); if (!en || !bu) return;
-    if (portals) { probe("team", portals.team); probe("client", portals.client); }
-    var ca = entity("client-access"); var caOperating = !!(ca && ca.operational === "active" && ca.state === "open");
-    var sig = recordSource() + "|" + (ca ? (ca.state + "/" + ca.operational + "/" + ca.access) : "none") + "|" + READY.team + "|" + READY.client;
-    if (en.getAttribute("data-doors-sig") === sig) return;
-    $$(".portal-door", en).forEach(function (x){ x.remove(); }); $$(".portal-door", bu).forEach(function (x){ x.remove(); });
-    function ul(host){ var u = host.querySelector("ul.links"); if (!u) { u = h("ul", "links"); host.appendChild(u); } return u; }
-    if (portals && portals.team) ul(en).insertAdjacentHTML("beforeend", READY.team === true
-      ? card("team", "The Team Portal", "By invitation", "For the people of the House: the desk, the work, the Story Desk, the calendar, Signals. Entry is by invitation from the House; nobody creates an account here.", portals.team, "Sign in")
-      : card("team", "The Team Portal", READY.team === null ? "Checking" : "Not reachable just now", "For the people of the House, by invitation. " + (READY.team === null ? "The House is checking that the door answers." : "The door did not answer when this page checked; try again later."), "#/enter", "Where it stands"));
-    if (ca) ul(bu).insertAdjacentHTML("beforeend", (caOperating && READY.client === true && portals && portals.client)
-      ? card("client", ca.name || "Client Access", (ca.stateLabel || "Open") + " · by invitation", ca.line || "A controlled entrance for existing clients.", portals.client, "Sign in")
-      : card("client", ca.name || "Client Access", ca.stateLabel || "In development", (ca.line || "A controlled entrance for existing clients.") + (caOperating ? " The door did not answer when this page checked." : " Sign-in opens when the House opens Client Access."), ca.lockedRoute || ca.route || "#/build", "Where it stands"));
-    en.setAttribute("data-doors-sig", sig);
+
+  /* ================================================================
+     5. THE PORTAL DOORS: what was checked, said plainly
+     A door is offered only when three things hold: the record (or the page's declaration) says the portal is open to the
+     people it is for; the page declares an approved release; and the destination answered with that same release and
+     the House's own connection. "Checking" shows while the check runs. A network failure is told apart from a door the
+     House knows is not open, and can be tried again. A matching tag alone proves nothing: the release must be the
+     declared one, and a demonstration or candidate file is not accepted.
+     ================================================================ */
+  var PORTAL = { team:{ state:"idle", why:null, release:null, at:null }, client:{ state:"idle", why:null, release:null, at:null } };
+  function portalCfg(which){ var p = portals && portals[which]; if (!p) return null; if (typeof p === "string") return { url:p, release:null, approved:false }; return p; }
+  function probe(which, force){
+    var p = portalCfg(which); if (!p || !p.url) return; var st = PORTAL[which];
+    if (!force && st.state !== "idle") return;
+    st.state = "checking"; st.why = null; doors();
+    var tag = which === "team" ? "team-portal-release" : "client-portal-release";
+    var ctl = ("AbortController" in window) ? new AbortController() : null; var timer = ctl ? setTimeout(function (){ ctl.abort(); }, 12000) : null;
+    fetch(p.url.replace(/\/?$/, "/") + "index.html", { cache:"no-store", signal:ctl ? ctl.signal : undefined })
+      .then(function (r){ if (!r.ok) throw new Error("the door answered " + r.status); return r.text(); })
+      .then(function (t){
+        if (timer) clearTimeout(timer); st.at = new Date();
+        var m = new RegExp('<meta name="' + tag + '" content="([^"]*)"').exec(t); var rel = m ? m[1] : null; st.release = rel;
+        var demo = /demo-mocks|name="portal-mode" content="demo"|data-demo="true"/.test(t); var real = /supabase\.co/.test(t);
+        if (!rel) { st.state = "mismatch"; st.why = "the door answered without a release tag"; }
+        else if (!p.release || rel !== p.release) { st.state = "mismatch"; st.why = "the door answered with release " + rel + ", not the approved " + (p.release || "release"); }
+        else if (demo) { st.state = "mismatch"; st.why = "the door answered with a demonstration build"; }
+        else if (!real) { st.state = "mismatch"; st.why = "the door answered without the House’s connection"; }
+        else { st.state = "ready"; st.why = null; }
+        doors();
+      })
+      .catch(function (e){ if (timer) clearTimeout(timer); st.at = new Date(); st.state = "network"; st.why = (e && e.name === "AbortError") ? "no answer within twelve seconds" : String((e && e.message) || e); doors(); });
   }
-  /* 7. every planned room ends with the one door to use meanwhile */
-  function pendingNext(){ $$("li.pending").forEach(function (li){ if (li.querySelector(".pending-next")) return; var a = h("a", "pending-next", "Meanwhile, write to the House →"); a.href = "#/connect"; a.setAttribute("data-link", ""); li.appendChild(a); }); }
-  /* 8. the news band names its source and the time the record answered */
-  var READ = { newsroom:null, via:null };
-  function clock(d){ return d.toLocaleTimeString(undefined, { hour:"numeric", minute:"2-digit", second:"2-digit", timeZoneName:"short" }); }
+  try { window.HOUSE_PORTALS = function (){ return { team:PORTAL.team, client:PORTAL.client, declared:portals }; }; window.HOUSE_PROBE = function (w){ probe(w, true); }; } catch (e) {}
+  function card(cls, name, state, line, href, cta, retry){
+    var ext = /^https?:/.test(href);
+    return '<li class="portal-door ' + cls + '"><a href="' + esc(href) + '"' + (ext ? ' rel="noopener"' : ' data-link') + '><span class="t">' + esc(name) + '</span><span class="s">' + esc(state) + '</span><p class="d">' + esc(line) + '</p><span class="go">' + esc(cta) + ' →</span></a>' + (retry ? '<button type="button" class="door-retry" data-retry="' + esc(retry) + '">Try again</button>' : "") + '</li>';
+  }
+  function describe(which, name, forWhom, cfg, open, openLabel, knownClosedLine, stands){
+    var st = PORTAL[which];
+    if (!open) return card(which, name, openLabel, knownClosedLine, stands, "Where it stands");
+    if (!cfg || !cfg.url) return card(which, name, "No destination", forWhom + " No destination is declared for this door yet.", stands, "Where it stands");
+    if (!cfg.approved || !cfg.release) return card(which, name, "Not yet approved", forWhom + " No release has been approved for entry yet, so no sign-in is offered.", stands, "Where it stands");
+    if (st.state === "ready") return card(which, name, openLabel, forWhom + " Checked " + (st.at ? "at " + clock(st.at) : "just now") + ": the door answered with the approved release " + cfg.release + ".", cfg.url, "Sign in");
+    if (st.state === "network") return card(which, name, "Could not be reached from here", forWhom + " The door did not answer when this page checked (" + (st.why || "no answer") + "). That may be your connection or the host; the House has not closed it.", stands, "Where it stands", which);
+    if (st.state === "mismatch") return card(which, name, "Not open", forWhom + " The door answered, but " + (st.why || "not with the approved release") + ". Sign-in is withheld until the approved release answers.", stands, "Where it stands", which);
+    return card(which, name, "Checking", forWhom + " The House is checking that the door answers with the approved release.", stands, "Where it stands");
+  }
+  function doors(){
+    var en = document.getElementById("enter-links"), bu = document.getElementById("build-links");
+    var hosts = $$("[data-door-host]");
+    if (!en && !bu && !hosts.length) return;
+    var ca = entity("client-access"); var caOpen = !!(ca && ca.state === "open" && ca.operational === "active");
+    var teamCfg = portalCfg("team"), clientCfg = portalCfg("client");
+    var teamOpen = !!(teamCfg && teamCfg.openTo);
+    if (teamOpen && teamCfg.approved && teamCfg.release) probe("team");
+    if (caOpen && clientCfg && clientCfg.approved && clientCfg.release) probe("client");
+    var sig = recordSource() + "|" + (ca ? (ca.state + "/" + ca.operational + "/" + ca.access) : "none") + "|" + PORTAL.team.state + "|" + PORTAL.client.state + "|" + ((window.HOW && HOW.route && HOW.route.key) || "");
+    var teamHtml = describe("team", "The Team Portal", "For the people of the House: the desk, the work, the Story Desk, the calendar, Signals. Entry is " + (teamCfg && teamCfg.openTo ? teamCfg.openTo : "by invitation from the House") + "; nobody creates an account here.", teamCfg, teamOpen, "By invitation", "For the people of the House. The House has not opened this door.", "#/enter");
+    var clientHtml = ca ? describe("client", ca.name || "Client Access", (ca.line || "A controlled entrance for existing clients."), clientCfg, caOpen, (ca.stateLabel || "Open") + " · by invitation", (ca.line || "A controlled entrance for existing clients.") + " Sign-in opens when the House opens Client Access.", ca.lockedRoute || ca.route || "#/build") : "";
+    if (en && bu && en.getAttribute("data-doors-sig") !== sig) {
+      $$(".portal-door", en).forEach(function (x){ x.remove(); }); $$(".portal-door", bu).forEach(function (x){ x.remove(); });
+      var ul = function (host){ var u = host.querySelector("ul.links"); if (!u) { u = h("ul", "links"); host.appendChild(u); } return u; };
+      if (teamCfg) ul(en).insertAdjacentHTML("beforeend", teamHtml);
+      if (ca) ul(bu).insertAdjacentHTML("beforeend", clientHtml);
+      en.setAttribute("data-doors-sig", sig);
+    }
+    /* the detail page of Client Access carries the same door, so it changes the day the record opens */
+    try {
+      var body = $("#route-body");
+      if (body && window.HOW && HOW.route && HOW.route.name !== "home" && HOW.route.key === "client-access" && ca && !body.querySelector("[data-door-host]")) { var host = h("div", "door33"); host.setAttribute("data-door-host", "client"); body.appendChild(host); hosts = $$("[data-door-host]"); }
+    } catch (e) {}
+    hosts.forEach(function (host){ var which = host.getAttribute("data-door-host"); var html = which === "client" ? clientHtml : teamHtml; if (host.getAttribute("data-sig") !== sig) { host.innerHTML = '<p class="i33-k">The door, as this page finds it</p><ul class="links">' + html + '</ul>'; host.setAttribute("data-sig", sig); } });
+  }
+  document.addEventListener("click", function (e){ var b = e.target && e.target.closest ? e.target.closest("[data-retry]") : null; if (!b) return; probe(b.getAttribute("data-retry"), true); });
+
+  /* ================================================================
+     6. THE FOUNDER'S NOTE HAS ONE SOURCE
+     The signed note on the homepage is the approved, published note. About the Founder shows the record's note when the
+     record carries one, and otherwise the same published note, so the two cannot differ. Press and Media describes only
+     what exists.
+     ================================================================ */
+  var FOUNDER_NOTE = $$("#founder .note p").map(function (p){ return p.textContent.replace(/\s+/g, " ").trim(); }).filter(Boolean);
+  function founderNote(){ var f = window.HOW && HOW.founder; if (f && f.note && f.note.length) return f.note; return FOUNDER_NOTE; }
+  try { window.HOUSE_FOUNDER_NOTE = function (){ return { paragraphs:founderNote().length, source:(window.HOW && HOW.founder && HOW.founder.note && HOW.founder.noteSource !== "homepage") ? "record" : "homepage" }; }; } catch (e) {}
+  try {
+    if (window.PAGES && PAGES["about-the-founder"] && !PAGES["about-the-founder"].__v33) {
+      var _about = PAGES["about-the-founder"];
+      PAGES["about-the-founder"] = function (){ var f = HOW.founder || (HOW.founder = {}); if ((!f.note || !f.note.length) && FOUNDER_NOTE.length) { f.note = FOUNDER_NOTE.slice(); f.noteSource = "homepage"; } var out = _about.apply(this, arguments); if (f.noteSource === "homepage") out = out.replace('<h2>In her own words</h2>', '<h2>In her own words</h2><p class="say say-faint">The note as it is published on the House’s front page.</p>'); return out; };
+      PAGES["about-the-founder"].__v33 = true;
+    }
+    if (window.PAGES && PAGES["press-and-media"] && !PAGES["press-and-media"].__v33) {
+      var _press = PAGES["press-and-media"];
+      PAGES["press-and-media"] = function (){
+        var out = _press.apply(this, arguments); var f = HOW.founder || {}, id = HOW.identity || {};
+        var has = { description:!!(f.boilerplateShort || f.boilerplateLong || id.short), bio:!!(f.bioShort || f.bioLong), rules:!!(f.nameRules && f.nameRules.length), assets:!!(f.assets && f.assets.length), note:founderNote().length > 0 };
+        var holds = []; if (has.description) holds.push("the institutional description"); holds.push("the credit"); if (has.bio) holds.push("the founder’s biography"); if (has.rules) holds.push("the naming rules"); if (has.assets) holds.push("media materials"); holds.push("the press inquiry route");
+        var missing = []; if (!has.bio) missing.push("a biography"); if (!has.assets) missing.push("media materials");
+        var intro = "This page holds what is approved today: " + holds.join(", ") + "." + (missing.length ? " " + cap(missing.join(" and ")) + (missing.length > 1 ? " are" : " is") + " in preparation and " + (missing.length > 1 ? "are" : "is") + " not published." : "");
+        out = out.replace(/This page holds the approved institutional description, founder biography, credits, media materials, and press inquiry route\./, esc(intro));
+        var noteP = /<p class="say" style="margin-top:20px">The Founder&#8217;s own note is published in full at <a href="#\/house\/founder" data-link>About the Founder<\/a>, and may be quoted from there with attribution\.<\/p>/;
+        out = out.replace(noteP, has.note ? '<p class="say" style="margin-top:20px">JDONAI’s signed note is published on the House’s front page and in full at <a href="#/house/founder" data-link>About the Founder</a>; it may be quoted with attribution.</p>' : "");
+        return out;
+      };
+      PAGES["press-and-media"].__v33 = true;
+    }
+  } catch (e) {}
+
+  /* ================================================================
+     7. REPORTED WORK: a byline, a date, its sources and its corrections, whenever the record carries them
+     ================================================================ */
+  try {
+    if (typeof renderNotice === "function" && !renderNotice.__v33) {
+      var _notice = renderNotice;
+      var rn = function (r, h1, lede, body, cr){
+        var out = _notice.apply(this, arguments);
+        try {
+          var n = null; var list = (HOW.newsroom && HOW.newsroom.notices) || []; for (var i = 0; i < list.length; i++) if (list[i].slug === r.key || list[i].slug === r.slug) { n = list[i]; break; }
+          if (n && body && !body.querySelector(".notice-meta33")) {
+            var rows = [];
+            if (n.author || n.byline) rows.push(["By", n.author || n.byline]);
+            if (n.published) rows.push(["Published", longDate(n.published)]);
+            if (n.revision && Number(n.revision) > 1) rows.push(["Revision", String(n.revision)]);
+            if (n.correctedOn || n.correction) rows.push(["Corrected", (n.correctedOn ? longDate(n.correctedOn) : "") + (n.correction ? (n.correctedOn ? " · " : "") + n.correction : "")]);
+            if (n.withdrawnNote) rows.push(["Withdrawn", n.withdrawnNote]);
+            if (n.sources || n.method) rows.push(["Sources and method", [].concat(n.sources || [], n.method || []).join(" · ")]);
+            if (rows.length) { var dl = h("dl", "notice-meta33"); dl.innerHTML = rows.map(function (x){ return '<div><dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd></div>'; }).join(""); body.appendChild(dl); }
+          }
+        } catch (e) {}
+        return out;
+      };
+      rn.__v33 = true; renderNotice = rn;
+    }
+  } catch (e) {}
+
+  /* ================================================================
+     8. THE NEWS BAND AND "AS OF TODAY": the time the record was ACCEPTED, and the snapshot's real date when it was not
+     ================================================================ */
+  var READ = { accepted:null, via:null, network:null };
+  try {
+    if (typeof setDispatches === "function" && !setDispatches.__v33) {
+      var _sd = setDispatches;
+      var sd2 = function (payload, source){ var r = _sd.apply(this, arguments); if (payload && source === "database") { READ.accepted = new Date(); } return r; };
+      sd2.__v33 = true; setDispatches = sd2;
+    }
+  } catch (e) {}
+  function networkRead(){ try { var es = performance.getEntriesByType("resource").filter(function (r){ return /\/rpc\/(house_newsroom|house_bootstrap)\b/.test(r.name) && (r.responseStatus == null || (r.responseStatus >= 200 && r.responseStatus < 300)) && r.responseEnd > 0; }); if (es.length) { var e1 = es[es.length - 1]; READ.network = new Date(performance.timeOrigin + e1.responseEnd); READ.via = /house_newsroom/.test(e1.name) ? "house_newsroom" : "house_bootstrap"; } } catch (e) {} }
   function newsStamp(){
     var sec = $("[data-dispatch-section]"); if (!sec) return; var empty = sec.querySelector("[data-dispatch-empty]"), lead = sec.querySelector("[data-dispatch-lead]");
     if ((!empty || empty.hidden) && (!lead || lead.hidden)) return;
-    var src = (window.HOW && HOW.dispatchSource) || null; var text;
-    try { var es = performance.getEntriesByType("resource").filter(function (r){ return /\/rpc\/(house_newsroom|house_bootstrap)\b/.test(r.name) && (r.responseStatus == null || (r.responseStatus >= 200 && r.responseStatus < 300)) && r.responseEnd > 0; }); if (es.length) { var e1 = es[es.length - 1]; READ.newsroom = new Date(performance.timeOrigin + e1.responseEnd); READ.via = /house_newsroom/.test(e1.name) ? "house_newsroom" : "house_bootstrap"; } } catch (e) {}
-    if (src === "database" && READ.newsroom) text = "Read from the House’s record at " + clock(READ.newsroom) + " (" + READ.via + "). What is published here is what the Founder released; nothing is written by this page.";
-    else if (src === "database") text = "Read from the House’s record this visit; the exact time of the read was not recorded by this browser. What is published here is what the Founder released; nothing is written by this page.";
+    var src = (window.HOW && HOW.dispatchSource) || null; var text; networkRead();
+    if (src === "database" && READ.accepted) text = "Accepted from the House’s record at " + clock(READ.accepted) + (READ.via ? " (" + READ.via + ")" : "") + ". What is published here is what the Founder released; nothing is written by this page.";
+    else if (src === "database" && READ.network) text = "Read from the House’s record at " + clock(READ.network) + " (" + READ.via + "). What is published here is what the Founder released; nothing is written by this page.";
+    else if (src === "database") text = "Read from the House’s record this visit. What is published here is what the Founder released; nothing is written by this page.";
     else { var b = snapshotBuilt(); text = "Showing the bundled snapshot" + (b ? " built " + longDate(b) : "") + "; the House’s record could not be read this visit. It may be behind what the House has since released."; }
     var p = sec.querySelector(".dsp-read"); if (!p) { p = h("p", "dsp-read"); (sec.querySelector(".wrap") || sec).appendChild(p); } setText(p, text);
   }
-  /* 9. a plain way home from every sub-page */
+  function asOf(){
+    var now = document.getElementById("now"); if (!now) return; var k = now.querySelector(".kicker"); if (!k) return;
+    var live = recordSource() === "database"; var b = snapshotBuilt();
+    setText(k, live ? "As of today" : (b ? "As of " + longDate(b) : "As of the bundled snapshot"));
+    var p = now.querySelector(".pulse-when"); if (!p) { p = h("p", "pulse-when"); var pulse = now.querySelector("#pulse"); if (pulse) pulse.parentNode.insertBefore(p, pulse); else return; }
+    setText(p, live ? ("Read from the House’s record this visit" + (READ.accepted ? ", accepted at " + clock(READ.accepted) : "") + ".") : ("The House’s record could not be read this visit. These figures are the bundled snapshot" + (b ? " built " + longDate(b) : "") + "."));
+  }
+
+  /* ================================================================
+     9. THE VERSION LABELS, EACH NAMED FOR WHAT IT IS
+     The page carries its own release. The record carries two numbers: the release of the database's public schema
+     (institute.release, 29.10.0) and a change counter that moves whenever the public record changes. None of the three
+     is the other, so each is labelled.
+     ================================================================ */
+  function versions(){
+    var foot = $(".foot-copy"); if (!foot) return;
+    var p = $(".foot-ver"); if (!p) { p = h("p", "foot-fine foot-ver"); foot.parentNode.insertBefore(p, foot); }
+    var page = (typeof RELEASE !== "undefined") ? RELEASE : (document.querySelector('meta[name="release"]') || {}).content;
+    var st = window.HOW && HOW.state; var schema = st && st.release; var change = st && st.version; var live = recordSource() === "database"; var b = snapshotBuilt();
+    setText(p, "Page release " + page + (schema ? " · Record schema " + schema : "") + (change != null ? " · Record change " + change : "") + (live ? ", read from the House this visit" : (b ? ", from the bundled snapshot built " + longDate(b) : "")) + ".");
+  }
+
+  /* 10. every planned room ends with the one door to use meanwhile; the way home; the drawn marks */
+  function pendingNext(){ $$("li.pending").forEach(function (li){ if (li.querySelector(".pending-next")) return; var a = h("a", "pending-next", "Meanwhile, write to the House →"); a.href = "#/connect"; a.setAttribute("data-link", ""); li.appendChild(a); }); }
   function home(){ var hash = String(location.hash || ""); var onHome = hash === "" || hash === "#" || hash === "#/" || !!sectionOf(hash); var pill = $("#back33"); if (onHome) { if (pill) pill.remove(); return; } if (!pill) { pill = h("a", "back33", '<span aria-hidden="true">←</span> Back to the House'); pill.id = "back33"; pill.href = "#/"; pill.setAttribute("data-link", ""); document.body.appendChild(pill); } }
-  /* 10. the drawn marks on the four worlds, at full strength */
   function marks(){ $$("#explore .world-row").forEach(function (li){ if (!li.classList.contains("marked33")) li.classList.add("marked33"); }); }
+
   /* one pass at a time, throttled, with the observer quiet while the pass writes */
   var busy = false, queued = false, last = 0, mo = null;
   function pass(){
     if (busy) { queued = true; return; }
     var now = Date.now(); if (now - last < 250) { if (!queued) { queued = true; setTimeout(function (){ queued = false; pass(); }, 260 - (now - last)); } return; }
     busy = true; last = now; try { if (mo) mo.disconnect(); } catch (e) {}
-    try { claims(); index(); fold(); syncGroups(); seal(); doors(); pendingNext(); newsStamp(); home(); marks(); pad(); } catch (e) { try { console.error("v33", e); } catch (x) {} }
+    try { claims(); index(); fold(); syncGroups(); seal(); doors(); pendingNext(); newsStamp(); asOf(); versions(); home(); marks(); pad(); } catch (e) { try { console.error("v33", e); } catch (x) {} }
     try { if (mo) mo.observe(document.body, { childList:true, subtree:true, attributes:true, attributeFilter:["hidden"] }); } catch (e) {}
     busy = false; if (queued) { queued = false; setTimeout(pass, 260); }
   }
+  try { window.HOUSE_PASS = pass; } catch (e) {}
   function start(){ try { mo = new MutationObserver(function (){ pass(); }); } catch (e) { mo = null; } pass(); [1200, 3000, 6000, 12000].forEach(function (t){ setTimeout(pass, t); }); setTimeout(arrive, 900); setInterval(function (){ seal(); }, 60000); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
